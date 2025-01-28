@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { DoctorProfile } from '../data/doctor';
 import { Card, CardContent, Button } from '../ui/index';
 import { MapPin, Phone, Mail, Linkedin, Calendar } from 'lucide-react';
+import AppointmentModal from './BookAppointmentModal';
 
 interface ContactProps {
   doctorData: {
@@ -13,6 +14,10 @@ interface ContactProps {
 const Contact = ({ doctorData }: ContactProps) => {
   const [selectedDoctor, setSelectedDoctor] = useState<'drSushovan' | 'drMoumita'>('drSushovan');
   const currentDoctor = doctorData[selectedDoctor];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const mapUrls = {
     drSushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448202.3832158162!2d76.64028167724612!3d28.64231383040785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfda893eca979%3A0x9d1dd214e1772fde!2sSt%20Stephens%20Hospital%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1738039938285!5m2!1sen!2sin",
@@ -131,6 +136,7 @@ const Contact = ({ doctorData }: ContactProps) => {
                     size="lg" 
                     className="w-full"
                     leftIcon={<Calendar className="h-5 w-5" />}
+                    onClick={openModal}
                   >
                     Request Appointment
                   </Button>
@@ -139,6 +145,7 @@ const Contact = ({ doctorData }: ContactProps) => {
             </Card>
           </div>
         </div>
+        <AppointmentModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </div>
   );
