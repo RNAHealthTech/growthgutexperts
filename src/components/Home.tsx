@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { DoctorProfile } from '../data/doctor';
 import { ArrowRight, Award, GraduationCap, Stethoscope, FileText } from 'lucide-react';
+import { getDoctorComponents } from './HeroComponents';
 
 interface HomeProps {
   doctorData: DoctorProfile;
@@ -17,6 +18,11 @@ const Home: React.FC<HomeProps> = ({ doctorData }) => {
     skills
   } = doctorData;
 
+  // get custom components for the current doctor
+  const doctorComponents = getDoctorComponents(doctorData);
+  const { HeroSection, primaryColor } = doctorComponents;
+
+
   // Get the latest education and work experience
   const latestEducation = education[education.length - 1];
   const currentWork = workExperience[0];
@@ -24,47 +30,7 @@ const Home: React.FC<HomeProps> = ({ doctorData }) => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-                {personalDetails.name}
-              </h1>
-              <h2 className="text-xl md:text-2xl text-gray-600 mb-6">
-                {currentWork.role}
-                {currentWork.department && ` - ${currentWork.department}`}
-              </h2>
-              {about && (
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  {about}
-                </p>
-              )}
-              <div className="flex gap-4">
-                <Link
-                  to="/contact"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  Book Appointment
-                </Link>
-                <Link
-                  to="/services"
-                  className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors"
-                >
-                  View Services
-                </Link>
-              </div>
-            </div>
-            <div className="md:w-1/2 flex justify-center">
-              <img
-                src="/api/placeholder/400/400"
-                alt={personalDetails.name}
-                className="rounded-full w-64 h-64 object-cover shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection data={doctorData} />
 
       {/* Qualifications Section */}
       <section className="py-16 bg-white">

@@ -57,7 +57,6 @@ const App: React.FC = () => {
       {doctorData && (
         <Route path='/*'  element={<DoctorPortfolio doctorData={doctorData} />} />
       )} 
-      
       <Route path='/*' element={<LandingPage />} />
      
     </Routes>
