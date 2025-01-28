@@ -1,8 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { DoctorProfile } from '../data/doctor';
+import { DoctorProfile, drMoumitaData, drSushovanData } from '../data/doctor';
 import { MainLayout } from '../layouts/MainLayout';
 import Home from '../components/Home';
+import Contact from '../components/Contact';
 // import Services from '../components/Services';
 // import Contact from '../components/Contact';
 
@@ -15,6 +16,10 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
     <MainLayout>
       <Routes>
         <Route path="/" element={<Home doctorData={doctorData} />} />
+        <Route path='/contact' element={<Contact doctorData={{
+          drSushovan: drSushovanData, 
+          drMoumita: drMoumitaData
+        }} /> } />
         {/* <Route path="/services" element={<Services doctorData={doctorData} />} />
         <Route path="/contact" element={<Contact doctorData={doctorData} />} /> */}
       </Routes>
