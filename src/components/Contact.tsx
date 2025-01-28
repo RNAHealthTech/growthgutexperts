@@ -26,22 +26,6 @@ const Contact = ({ doctorData }: ContactProps) => {
           Contact Our Experts
         </h1>
         
-        <div className="flex justify-center gap-4 mb-8">
-          <Button 
-            variant={selectedDoctor === 'drSushovan' ? 'primary' : 'ghost'}
-            onClick={() => setSelectedDoctor('drSushovan')}
-            leftIcon={<img src="/api/placeholder/24/24" className="rounded-full" alt="" />}
-          >
-            Dr. Sushovan (Hepatology)
-          </Button>
-          <Button 
-            variant={selectedDoctor === 'drMoumita' ? 'primary' : 'ghost'}
-            onClick={() => setSelectedDoctor('drMoumita')}
-            leftIcon={<img src="/api/placeholder/24/24" className="rounded-full" alt="" />}
-          >
-            Dr. Moumita (Pediatric Endocrinology)
-          </Button>
-        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           <Card variant="glass" className="backdrop-blur-md">
