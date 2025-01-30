@@ -17,7 +17,7 @@ interface ServiceCardProps {
 }
 
 
-const ServiceCard = ({ title, description, imageUrl, slug, subServices }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, imageUrl, slug,subServices }: ServiceCardProps) => {
   return (
     <Card className="group h-full overflow-hidden bg-white transition-all hover:shadow-xl">
       <div className="relative h-48 w-full overflow-hidden">
@@ -57,7 +57,7 @@ const ServiceCard = ({ title, description, imageUrl, slug, subServices }: Servic
 
         <Link 
           to={`/services/${slug}`}
-          className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80"
+          className={`inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80`}
         >
           Learn More 
           <ArrowRight className="h-4 w-4" />

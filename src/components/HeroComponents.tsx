@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { DoctorProfile } from '../data/doctor';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar, Star } from 'lucide-react';
 import AppointmentModal from '../components/BookAppointmentModal';
 
 interface DoctorComponentConfig {
@@ -15,116 +15,223 @@ interface DoctorComponentMapType {
   [key: string]: DoctorComponentConfig;
 }
 
-const HeroSection: React.FC<{ data: DoctorProfile }> = ({ data }) => {
+const AnimatedLetter = ({ letter }: { letter: string }) => (
+  <motion.span
+    className="inline-block"
+    variants={{
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0 }
+    }}
+    transition={{ duration: 0.5 }}
+  >
+    {letter}
+  </motion.span>
+);
+
+const AnimatedWord = ({ word }: { word: string }) => (
+  <motion.span
+    className="inline-block"
+    variants={{
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: 0.05
+        }
+      }
+    }}
+  >
+    {word.split(`{'}`).map((letter, index) => (
+      <AnimatedLetter key={index} letter={letter} />
+    ))}
+  </motion.span>
+);
+
+const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentColorClass: string; textColorClass: string; primaryImage: string;secondaryImage: string; }> = ({ 
+  data, 
+  bgColorClass, 
+  accentColorClass, 
+  textColorClass, 
+  primaryImage,
+  secondaryImage    
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="relative h-screen overflow-hidden">
-      {/* Background image with overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-cover"
-        style={{ 
-          backgroundImage: `url(${data.personalDetails.backgroundImage || "/api/placeholder/1920/1080"})`,
-          backgroundPosition: 'center center',
-          backgroundSize: 'cover'
-        }}
-        role="img"
-        aria-label={`${data.personalDetails.name}'s background`}
-      />
-      <div className="absolute inset-0 bg-black opacity-60" />
+    <motion.section
+      className={`relative min-h-[90vh] ${bgColorClass} px-4 sm:px-6 lg:px-8`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className={`absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-bl from-${accentColorClass}/20 to-transparent rounded-full transform rotate-45`} />
+        <div className={`absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-${accentColorClass}/20 to-transparent rounded-full transform -rotate-45`} />
+      </div>
 
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <p className="text-sm sm:text-base uppercase mb-2 text-teal-300 font-semibold tracking-wider">
-            Growth Gut Expert
-          </p>
-
-          {/* Profile Image */}
+      <div className="relative z-10 max-w-7xl mx-auto pt-20 lg:pt-32 pb-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          {/* Content Section */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="mb-6"
+            className="w-full lg:w-1/2 text-center lg:text-left"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="relative inline-block">
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full blur-xl opacity-30" />
+            <motion.div
+              className={`inline-block px-4 py-1 bg-${accentColorClass}/10 rounded-full text-${accentColorClass} text-sm font-semibold mb-6`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              {data.personalDetails.specialty}
+            </motion.div>
+
+            {/* Profile Image with Glow Effect */}
+            {/* <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6 relative"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br from-${accentColorClass} to-${bgColorClass} rounded-full blur-xl opacity-30`} />
               <img
                 src={data.personalDetails.imageUrl || "/api/placeholder/200/200"}
                 alt={data.personalDetails.name}
-                className="relative z-10 rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-4 border-white shadow-xl"
+                className="relative z-10 rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-4 border-white shadow-xl mx-auto lg:mx-0"
               />
-            </div>
-          </motion.div>
+            </motion.div> */}
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight max-w-4xl mx-auto">
-            {data.personalDetails.name}
-          </h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                className="text-white/90"
+              >
+                <AnimatedWord word={data.personalDetails.name} />
+              </motion.div>
+            </h1>
 
-          <div className="flex items-center justify-center gap-3 mb-6">
-             
-            <span className="text-xl text-white">
-              {data.personalDetails.specialty}
-            </span>
-          </div>
-
-          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-2xl mx-auto">
-            {data.personalDetails.description}
-          </p>
-
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-teal-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold inline-flex items-center shadow-lg hover:bg-teal-600 transition duration-300 w-full sm:w-auto justify-center"
-              onClick={openModal}
+            <motion.p
+              className="text-lg sm:text-xl text-gray-200 mb-8 max-w-xl mx-auto lg:mx-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
             >
-              Schedule Consultation
-              <Calendar className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
-            </motion.button>
-            <Link to="/services">
+              {data.personalDetails.description}
+            </motion.p>
+
+            <motion.div
+              className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-teal-500 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold inline-flex items-center shadow-lg hover:bg-gray-100 transition duration-300 w-full sm:w-auto justify-center"
+                className={`px-8 py-3 bg-${accentColorClass} text-${textColorClass} rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center`}
+                onClick={() => setIsModalOpen(true)}
               >
-                View Services
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+                Schedule Consultation
+                <Calendar className="ml-2" size={20} />
               </motion.button>
-            </Link>
-          </div>
-        </motion.div>
+              
+              <Link to="/services">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3 bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 transition-all inline-flex items-center"
+                >
+                  View Services
+                  <ArrowRight className="ml-2" size={20} />
+                </motion.button>
+              </Link>
+            </motion.div>
+
+            {/* Rating Section 
+            <motion.div
+              className="mt-12 flex items-center justify-center lg:justify-start gap-4 bg-white/10 p-4 rounded-xl backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className={`w-5 h-5 text-${accentColorClass}`} fill="currentColor" />
+                ))}
+              </div>
+              <span className="text-white font-semibold">5.0 Rating on Google</span>
+            </motion.div>*/}
+          </motion.div> 
+
+          {/* Image Section */}
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="relative aspect-square max-w-lg mx-auto">
+              <div className="absolute top-0 left-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
+                <div className={`w-full h-full bg-gradient-to-br from-${accentColorClass}/20 to-${bgColorClass}/20 p-1 rounded-2xl`}>
+                  <img
+                    src={`${primaryImage}`}
+                    alt={`${data.personalDetails.name} - Primary`}
+                    className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
+                <div className={`w-full h-full bg-gradient-to-br from-${bgColorClass}/20 to-${accentColorClass}/20 p-1 rounded-2xl`}>
+                  <img
+                    src={`${secondaryImage}`}
+                    alt={`${data.personalDetails.name} - Secondary`}
+                    className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      <AppointmentModal isOpen={isModalOpen} onClose={closeModal} />
-    </div>
+      <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </motion.section>
   );
 };
 
 const DrMoumitaHero: React.FC<{ data: DoctorProfile }> = ({ data }) => (
-  <HeroSection data={data} />
+  <HeroSection 
+    data={data} 
+    bgColorClass="bg-gradient-to-br from-amber-900 to-amber-800" 
+    accentColorClass="white"
+     textColorClass="amber-900"
+     primaryImage='/images/moumita-bg.jpg'
+     secondaryImage='/images/moumita-bg2.jpg'
+  />
 );
 
 const DrSushovanHero: React.FC<{ data: DoctorProfile }> = ({ data }) => (
-  <HeroSection data={data} />
+  <HeroSection 
+    data={data} 
+    bgColorClass="bg-gradient-to-br from-blue-900 to-blue-800" 
+    accentColorClass="white"
+    textColorClass="blue-900"
+    primaryImage='/images/sushovan-bg.jpg'
+    secondaryImage='/images/sushovan-bg2.jpg'
+  />
 );
 
 export const DoctorComponentMap: DoctorComponentMapType = {
   'drmoumita': {
     HeroSection: DrMoumitaHero,
-    primaryColor: 'purple-600',
-    secondaryColor: 'pink-100'
+    primaryColor: 'amber-600',
+    secondaryColor: 'amber-100'
   },
   'drsushovan': {
     HeroSection: DrSushovanHero,
-    primaryColor: 'teal-600',
+    primaryColor: 'blue-600',
     secondaryColor: 'blue-100'
   }
 };

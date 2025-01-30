@@ -23,6 +23,7 @@ export interface DoctorServices {
   sub: string; 
   name: string;
   title: string;
+  contact: string; 
   specialty: string;
   overview: string;
   imageUrl: string;
@@ -33,6 +34,7 @@ export const doctorsServices: DoctorServices[] = [
   {
     sub: 'drsushovan',
     name: "Dr. Sushovan Baidya",
+    contact: '9474866692',
     title: "Gastroenterologist & Hepatologist",
     specialty: "Liver, Digestive System, and Gastrointestinal Disorders",
     overview: "Dr. Sushovan Baidya is a distinguished gastroenterologist and hepatologist with extensive experience in treating complex digestive system disorders. His expertise spans across liver diseases, gastrointestinal conditions, and advanced endoscopic procedures, ensuring comprehensive care for patients with various digestive health challenges.",
@@ -42,7 +44,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Liver Disease Management",
         slug: "liver-disease-management",
         description: "Our liver disease management program offers comprehensive care using cutting-edge diagnostic techniques and personalized treatment plans. We specialize in treating all forms of liver conditions, from acute hepatitis to chronic liver disease and cancer.",
-        imageUrl: "/images/services/liver-care.jpg",
+        imageUrl: "/images/services/liver-care.png",
         overview: "The liver is a vital organ that plays a crucial role in metabolism, detoxification, and protein synthesis. Our liver care program encompasses prevention, early detection, and advanced treatment of liver diseases.",
         subServices: [
           {
@@ -167,7 +169,7 @@ export const doctorsServices: DoctorServices[] = [
             name: "Pancreatic Cancer Care",
             slug: "pancreatic-cancer-care",
             description: "Comprehensive evaluation and management of pancreatic tumors, working in collaboration with oncologists and surgeons.",
-            imageUrl: "/images/services/pancreatic-cancer.jpg",
+            imageUrl: "/images/services/pancreatic-cancer.webp",
             procedures: [
               "Advanced imaging studies",
               "Endoscopic ultrasound",
@@ -188,7 +190,7 @@ export const doctorsServices: DoctorServices[] = [
             name: "Inflammatory Bowel Disease (IBD)",
             slug: "inflammatory-bowel-disease",
             description: "Specialized care for Crohn's disease and Ulcerative Colitis, including medical management and monitoring.",
-            imageUrl: "/images/services/ibd.jpg",
+            imageUrl: "/images/services/ibd.png",
             procedures: [
               "Colonoscopy with biopsy",
               "Medical therapy optimization",
@@ -200,7 +202,7 @@ export const doctorsServices: DoctorServices[] = [
             name: "GERD Management",
             slug: "gerd-management",
             description: "Comprehensive treatment of gastroesophageal reflux disease and related esophageal conditions.",
-            imageUrl: "/images/services/gerd.jpg",
+            imageUrl: "/images/services/gerd.jpeg",
             symptoms: [
               "Heartburn",
               "Regurgitation",
@@ -214,14 +216,14 @@ export const doctorsServices: DoctorServices[] = [
         title: "Biliary Tract Disorders",
         slug: "biliary-tract-disorders",
         description: "Expert management of conditions affecting the gallbladder and bile ducts using advanced diagnostic and therapeutic techniques.",
-        imageUrl: "/images/services/biliary-disorders.jpg",
+        imageUrl: "/images/services/biliary-disorders.png",
         overview: "Our biliary care program encompasses all aspects of gallbladder and bile duct disorders, providing both medical and interventional treatments.",
         subServices: [
           {
             name: "Gallstone Management",
             slug: "gallstone-management",
             description: "Comprehensive care for gallstone disease, including prevention and treatment options.",
-            imageUrl: "/images/services/gallstones.jpg",
+            imageUrl: "/images/services/gallstones.webp",
             procedures: [
               "ERCP for stone removal",
               "Minimally invasive treatments",
@@ -246,6 +248,7 @@ export const doctorsServices: DoctorServices[] = [
   {
     sub: 'drmoumita',
     name: "Dr. Moumita Saha",
+    contact: '8130545130',
     title: "Pediatric and Adolescent Endocrinologist",
     specialty: "Pediatric Endocrinology and Growth Disorders",
     overview: "Dr. Moumita Saha is a renowned pediatric endocrinologist specializing in hormonal disorders and growth-related conditions in children and adolescents. Her patient-centered approach ensures comprehensive care from infancy through adolescence.",
@@ -255,7 +258,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Pediatric Growth Disorders",
         slug: "pediatric-growth-disorders",
         description: "Comprehensive evaluation and treatment of growth disorders in children, utilizing advanced diagnostic techniques and personalized growth optimization strategies.",
-        imageUrl: "/images/services/growth-disorders.jpg",
+        imageUrl: "/images/services/pediatric-growth-disorders.jpg",
         overview: "Our growth disorders program focuses on identifying and treating various conditions affecting children's growth and development, ensuring they reach their full growth potential.",
         subServices: [
           {

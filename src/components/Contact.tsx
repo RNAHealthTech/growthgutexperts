@@ -25,8 +25,8 @@ const Contact = ({ doctorData }: ContactProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-purple-50 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-blue-500 via-white to-purple-50 p-6">
+      <div className="max-w-7xl mx-auto mt-28 md:mt-48">
         <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
           Contact Our Experts
         </h1>

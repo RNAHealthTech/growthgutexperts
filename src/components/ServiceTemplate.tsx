@@ -79,7 +79,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-[400px] w-full">
+      <div className="relative h-[700px] w-full">
         <div className="absolute inset-0 bg-black/50 z-10" />
         <img
           src={selectedService.imageUrl}
@@ -124,29 +124,32 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
         </div>
 
         {/* Sub-services Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {selectedService.subServices.map((subService) => (
-            <motion.div
-              key={subService.name}
-              whileHover={{ y: -5 }}
-              className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer"
-              onClick={() => setSelectedSubService(subService)}
-            >
-              <img
-                src={subService.imageUrl}
-                alt={subService.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">{subService.name}</h3>
-                <p className="text-gray-600 mb-4">{subService.description}</p>
-                <button className="text-teal-600 font-semibold flex items-center">
-                  Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                </button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Sub-services Section */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+  {selectedService.subServices.map((subService) => (
+    <motion.div
+      key={subService.name}
+      whileHover={{ y: -5 }}
+      className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer"
+      onClick={() => setSelectedSubService(subService)}
+    >
+      <div className="aspect-video w-full relative">
+        <img
+          src={subService.imageUrl}
+          alt={subService.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-3">{subService.name}</h3>
+        <p className="text-gray-600 mb-4">{subService.description}</p>
+        <button className='text-gray-200 font-semibold flex items-center'>
+          Learn More <ArrowRight className="ml-2 w-4 h-4" />
+        </button>
+      </div>
+    </motion.div>
+  ))}
+</div>
 
         {/* Selected Sub-service Details */}
         {selectedSubService && (

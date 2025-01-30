@@ -48,7 +48,7 @@ const LandingPage: React.FC = () => {
                             <div className="p-6">
                                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                                     <h3 className="text-2xl font-bold text-gray-900">Dr. Moumita Saha</h3>
-                                    <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium whitespace-nowrap">
+                                    <span className="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-medium whitespace-nowrap">
                                         Pediatric Endocrinologist
                                     </span>
                                 </div>
@@ -67,7 +67,7 @@ const LandingPage: React.FC = () => {
                                 </div>
                                 <button
                                     onClick={() => navigateToSubdomain('drmoumita')}
-                                    className="flex items-center justify-center w-full bg-purple-700 text-white px-6 py-3 rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-md hover:shadow-lg"
+                                    className="flex items-center justify-center w-full bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-md hover:shadow-lg"
                                 >
                                     View Profile <ArrowRight className="ml-2 h-4 w-4" />
                                 </button>
