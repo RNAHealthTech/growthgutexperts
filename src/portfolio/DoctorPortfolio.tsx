@@ -7,7 +7,7 @@ import ServiceTemplate from '../components/ServiceTemplate';
 import Contact from '../components/Contact';
 import About from '../components/About';
 import { doctorsServices } from '../data/services';
-// import Services from '../components/Services';
+import Services from '../components/Services';
 // import Contact from '../components/Contact';
 
 interface DoctorPortfolioProps {
@@ -24,17 +24,15 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
   return (
     <MainLayout>
       <Routes>
-        <Route path="/" element={<Home doctorData={doctorData} />} />
+        <Route path='/' element={<Home doctorData={doctorData} />} />
+        <Route path='/services' element={<Services doctorData={doctorData} />} />
         <Route path='/services/:slug' element={<ServiceTemplate doctorData={servicesDoctorData} />} />
         <Route path='/contact' element={<Contact doctorData={{
           drSushovan: drSushovanData,
           drMoumita: drMoumitaData
         }} />} />
-        <Route path="/about" element={<About doctorData={doctorData} />} />
+        <Route path='/about' element={<About doctorData={doctorData} />} />
 
-
-        {/* <Route path="/services" element={<Services doctorData={doctorData} />} />
-        <Route path="/contact" element={<Contact doctorData={doctorData} />} /> */}
       </Routes>
     </MainLayout>
   );

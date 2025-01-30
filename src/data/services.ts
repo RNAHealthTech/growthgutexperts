@@ -20,6 +20,7 @@ export interface ServiceContent {
 }
 
 export interface DoctorServices {
+  sub: string; 
   name: string;
   title: string;
   specialty: string;
@@ -30,11 +31,12 @@ export interface DoctorServices {
 
 export const doctorsServices: DoctorServices[] = [
   {
+    sub: 'drsushovan',
     name: "Dr. Sushovan Baidya",
     title: "Gastroenterologist & Hepatologist",
     specialty: "Liver, Digestive System, and Gastrointestinal Disorders",
     overview: "Dr. Sushovan Baidya is a distinguished gastroenterologist and hepatologist with extensive experience in treating complex digestive system disorders. His expertise spans across liver diseases, gastrointestinal conditions, and advanced endoscopic procedures, ensuring comprehensive care for patients with various digestive health challenges.",
-    imageUrl: "/images/doctors/dr-sushovan.jpg",
+    imageUrl: "/images/second.png",
     services: [
       {
         title: "Liver Disease Management",
@@ -242,11 +244,12 @@ export const doctorsServices: DoctorServices[] = [
     ]
   },
   {
+    sub: 'drmoumita',
     name: "Dr. Moumita Saha",
     title: "Pediatric and Adolescent Endocrinologist",
     specialty: "Pediatric Endocrinology and Growth Disorders",
     overview: "Dr. Moumita Saha is a renowned pediatric endocrinologist specializing in hormonal disorders and growth-related conditions in children and adolescents. Her patient-centered approach ensures comprehensive care from infancy through adolescence.",
-    imageUrl: "/images/doctors/dr-moumita.jpg",
+    imageUrl: "/images/first.jpg",
     services: [
       {
         title: "Pediatric Growth Disorders",

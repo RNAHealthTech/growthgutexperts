@@ -40,6 +40,10 @@ export interface PersonalDetails {
     name: string;
     nationality: string;
     dateOfBirth: string;
+    specialty: string,
+    description: string, 
+    imageUrl: string,
+    backgroundImage: string, 
     age: number;
     gender: 'Male' | 'Female';
     maritalStatus: string;
@@ -81,8 +85,12 @@ export const drSushovanData: DoctorProfile = {
     personalDetails: {
         name: "Dr Sushovan Baidya",
         nationality: "Indian",
-        dateOfBirth: "1990-08-19",
+        dateOfBirth: "1990-08-19", 
+        specialty: 'Gastroenterologist and Hepatologist',
+        description: 'Advanced expertise in liver and digestive health, with specialized focus on transplant hepatology. Providing comprehensive care for complex gastrointestinal conditions with cutting-edge treatments.', 
         age: 34,
+        imageUrl: '/images/dr-sushovan.png',
+        backgroundImage: '/images/dr-sushovan.jpg',
         gender: "Male",
         maritalStatus: "Married",
         languagesKnown: ["English", "Hindi", "Bengali", "Odia"],
@@ -97,6 +105,7 @@ export const drSushovanData: DoctorProfile = {
         phone: "9474866692",
         email: "sushovancmc20@gmail.com"
     },
+    about: "Experienced Hepatologist specializing in liver diseases, transplant care, and advanced endoscopic procedures. Trained at Christian Medical College (CMC) Vellore with expertise in managing complex liver conditions, IBD, and biliary diseases.",
     education: [
         {
             degree: "MBBS",
@@ -251,7 +260,11 @@ export const drMoumitaData: DoctorProfile = {
         name: "Dr Moumita Saha",
         nationality: "Indian",
         dateOfBirth: "1991-09-30",
+        specialty: 'Paediatric and Adolescent Endocrinologist', 
+        description: 'Empowering children to reach their full potential through expert endocrine care and personalized growth management. Specialized in childhood diabetes, thyroid disorders, and growth-related conditions.', 
         age: 33,
+        imageUrl: '/images/dr-moumita.png',
+        backgroundImage: '/images/dr-moumita.jpg',
         gender: "Female",
         maritalStatus: "Married",
         languagesKnown: ["English", "Hindi", "Bengali"],

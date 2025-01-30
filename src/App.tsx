@@ -6,6 +6,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import LandingPage from './LandingPage';
 import { drSushovanData, drMoumitaData } from './data/doctor';
 import DoctorPortfolio from './portfolio/DoctorPortfolio';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const useScrollToTop = () => {
   const { pathname } = useLocation();
@@ -22,19 +23,19 @@ const App: React.FC = () => {
 
   const getSubdomain = () => {
     const hostname = window.location.hostname;
-    
+
     // Handle localhost testing
     if (hostname.includes('localhost')) {
       const subdomain = hostname.split('.')[0];
       return subdomain === 'localhost' ? '' : subdomain;
     }
-    
+
     // Handle production domains
     const parts = hostname.split('.');
     if (parts.length > 2) {
       return parts[0];
     }
-    
+
     return null;
   };
 
@@ -53,14 +54,18 @@ const App: React.FC = () => {
   const doctorData = getDoctorData();
 
   return (
-    <Routes>
-      {doctorData && (
-        <Route path='/*'  element={<DoctorPortfolio doctorData={doctorData} />} />
-      )} 
-      <Route path='/*' element={<LandingPage />} />
-     
-    </Routes>
+    <ParallaxProvider>
+      <Routes>
+        {doctorData && (
+          <Route path='/*' element={<DoctorPortfolio doctorData={doctorData} />} />
+        )}
+        <Route path='/*' element={<LandingPage />} />
+
+      </Routes>
+    </ParallaxProvider>
+
   )
 }
 
 export default App;
+
