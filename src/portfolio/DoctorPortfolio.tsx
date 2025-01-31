@@ -4,7 +4,7 @@ import { DoctorProfile, drMoumitaData, drSushovanData } from '../data/doctor';
 import { MainLayout } from '../layouts/MainLayout';
 import Home from '../components/Home';
 import ServiceTemplate from '../components/ServiceTemplate';
-import Contact from '../components/Contact';
+import { DrMoumitaContact, DrSushovanContact } from '../components/Contact';
 import About from '../components/About';
 import { doctorsServices } from '../data/services';
 import Services from '../components/Services';
@@ -17,17 +17,28 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
   // Determine background color class based on doctor
   const getBgColorClass = () => {
     if (doctorData === drSushovanData) {
-      return 'blue-600'; // For Dr. Sushovan - Gastroenterology theme
+      return 'blue-600';
     }
     if (doctorData === drMoumitaData) {
-      return 'amber-600'; // For Dr. Moumita - Pediatric Endocrinology theme
+      return 'amber-600';
     }
-    return 'blue-600'; // Default fallback
+    return 'blue-600';
   };
 
   const servicesDoctorData = {
     drSushovan: doctorsServices[0],
     drMoumita: doctorsServices[1]
+  };
+
+  // Determine which Contact component to render based on doctorData
+  const ContactComponent = () => {
+    if (doctorData === drSushovanData) {
+      return <DrSushovanContact data={doctorData} />;
+    }
+    if (doctorData === drMoumitaData) {
+      return <DrMoumitaContact data={doctorData} />;
+    }
+    return <DrSushovanContact data={doctorData} />; // Default fallback
   };
 
   return (
@@ -41,14 +52,7 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
         />
         <Route 
           path='/contact' 
-          element={
-            <Contact 
-              doctorData={{
-                drSushovan: drSushovanData,
-                drMoumita: drMoumitaData
-              }} 
-            />
-          } 
+          element={<ContactComponent />}
         />
         <Route 
           path='/about' 

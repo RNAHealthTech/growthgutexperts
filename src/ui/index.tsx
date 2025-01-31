@@ -61,7 +61,7 @@ export const Button = ({
 
   const variants = {
     primary: "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-md hover:shadow-lg focus:ring-blue-500",
-    secondary: "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white shadow-md hover:shadow-lg focus:ring-purple-500",
+    secondary: "bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white shadow-md hover:shadow-lg focus:ring-amber-500",
     outline: "border-2 border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500",
     ghost: "text-blue-600 hover:bg-blue-50 focus:ring-blue-500"
   };

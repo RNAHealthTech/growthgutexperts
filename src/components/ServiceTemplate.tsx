@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronDown, ArrowRight, Users } from 'lucide-react';
 import { DoctorServices, ServiceContent, SubServiceContent } from '../data/services';
+import CTA from './CTAComponents';
 
 interface ServiceTemplateProps {
   doctorData: {
@@ -17,6 +18,8 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
   const [selectedService, setSelectedService] = useState<ServiceContent | null>(null);
   const [selectedSubService, setSelectedSubService] = useState<SubServiceContent | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [variant, setVariant] = useState<'drmoumita' | 'drsushovan'>('drmoumita');
+
 
   const navigate = useNavigate();
 
@@ -76,6 +79,19 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
       </div>
     );
   }
+
+  const renderCTA = () => {
+    return (
+      <CTA
+        variant={variant}
+        title={`Schedule Your ${selectedService.title} Consultation`}
+        description={`Take the first step towards better health with ${selectedDoctor.name}. Book your consultation today.`}
+        className="my-12"
+      />
+    );
+  };
+
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -220,8 +236,10 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
                 </div>
               </div>
             )}
+           
           </div>
         )}
+        {renderCTA()}
       </div>
     </div>
   );
