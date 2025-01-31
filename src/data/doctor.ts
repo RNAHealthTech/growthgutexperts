@@ -101,7 +101,7 @@ export const drSushovanData: DoctorProfile = {
         }
     },
     contactDetails: {
-        address: "House no 2.2, Admininstrative Block, St Stephen Hospital Campus, Tis Hazari, Delhi, 110054",
+        address: "St Stephen Hospital Campus, Tis Hazari, Delhi, 110054",
         phone: "9474866692",
         email: "sushovancmc20@gmail.com"
     },

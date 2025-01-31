@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X, ChevronDown, ChevronRight, Calendar } from "lucide-react";
 import { DoctorServices } from "../data/services";
 
@@ -29,6 +29,7 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
             target: "services",
             hasSubmenu: true
         },
+        { name: "Blogs", target: "blogs" },
         { name: "Contact", target: "contact" },
     ];
 
@@ -66,6 +67,96 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
         setActiveSubmenu(activeSubmenu === itemName ? null : itemName);
     };
 
+    const renderAppointmentButton = () => (
+        <button
+            className="bg-amber-500 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded text-md md:text-lg lg:text-xl flex items-center justify-center space-x-2 transition duration-300 ease-in-out shadow-lg hover:shadow-xl"
+        >
+            <Calendar className="w-6 h-6 md:w-7 md:h-7 text-amber-200" />
+            <span className="border-l-2 border-white pl-3 ml-3">
+                Book Appointment 
+            </span>
+        </button>
+    );
+
+    const renderNavItems = (isMobile: boolean) => {
+        // Include all items for both mobile and desktop
+        return navItems.map((item) => (
+            <div key={item.target} className={`${isMobile ? 'py-2' : 'relative group px-4'}`}>
+                {item.hasSubmenu ? (
+                    <>
+                        <button
+                            onClick={() => handleSubmenuToggle(item.name)}
+                            className={`
+                                ${isMobile
+                                    ? 'w-full text-left flex items-center justify-between'
+                                    : `text-lg ${isScrolled ? 'text-black hover:text-gray-700' : 'text-white hover:text-white/80'} flex items-center`
+                                }
+                            `}
+                        >
+                            <span>{item.name}</span>
+                            {isMobile ? (
+                                activeSubmenu === item.name ? (
+                                    <ChevronDown size={14} />
+                                ) : (
+                                    <ChevronRight size={14} />
+                                )
+                            ) : (
+                                <ChevronDown size={14} className="ml-1" />
+                            )}
+                        </button>
+
+                        {activeSubmenu === item.name && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className={`
+                                    ${isMobile
+                                        ? 'pl-4 mt-2'
+                                        : 'absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1'
+                                    }
+                                `}
+                                ref={isMobile ? null : submenuRef}
+                            >
+                                {doctorServices.services.map((service) => (
+                                    <Link
+                                        key={service.slug}
+                                        to={`/services/${service.slug}`}
+                                        className={`
+                                            ${isMobile
+                                                ? 'block py-2 text-gray-600 hover:text-gray-900'
+                                                : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                                            }
+                                        `}
+                                        onClick={() => {
+                                            setActiveSubmenu(null);
+                                            if (isMobile) toggleMenu();
+                                        }}
+                                    >
+                                        {service.title}
+                                    </Link>
+                                ))}
+                            </motion.div>
+                        )}
+                    </>
+                ) : (
+                    <Link
+                        to={`/${item.target}`}
+                        className={`
+                            ${isMobile
+                                ? 'block text-gray-900 hover:text-gray-600'
+                                : `text-lg ${isScrolled ? 'text-black hover:text-gray-700' : 'text-white hover:text-white/80'}`
+                            }
+                        `}
+                        onClick={isMobile ? toggleMenu : undefined}
+                    >
+                        {item.name}
+                    </Link>
+                )}
+            </div>
+        ));
+    };
+
     return (
         <header className={`fixed top-0 py-2 md:py-0 left-0 right-0 z-50 transition-all duration-300 w-full ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
             <nav className="container mx-auto px-4 py-2 md:py-4 flex justify-between items-center">
@@ -98,71 +189,16 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex justify-center flex-grow">
-                    {navItems.map((item) => (
-                        <div key={item.target} className="relative group px-4">
-                            {item.hasSubmenu ? (
-                                <>
-                                    <button
-                                        onClick={() => handleSubmenuToggle(item.name)}
-                                        className={`text-lg ${isScrolled ? 'text-black hover:text-gray-700' : 'text-white hover:text-white/80'
-                                            } flex items-center`}
-                                    >
-                                        {item.name}
-                                        <ChevronDown size={14} className="ml-1" />
-                                    </button>
-
-                                    {activeSubmenu === item.name && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: -10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -10 }}
-                                            transition={{ duration: 0.2 }}
-                                            className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1"
-                                            ref={submenuRef}
-                                        >
-                                            {doctorServices.services.map((service) => (
-                                                <Link
-                                                    key={service.slug}
-                                                    to={`/services/${service.slug}`}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                                    onClick={() => setActiveSubmenu(null)}
-                                                >
-                                                    {service.title}
-                                                </Link>
-                                            ))}
-                                        </motion.div>
-                                    )}
-
-                                </>
-                            ) : (
-                                <Link
-                                    to={`/${item.target}`}
-                                    className={`text-lg ${isScrolled ? 'text-black hover:text-gray-700' : 'text-white hover:text-white/80'
-                                        }`}
-                                >
-                                    {item.name}
-                                </Link>
-
-                            )}
-                        </div>
-                    ))}
-
+                    {renderNavItems(false)}
                 </div>
-                <div className="hidden md:block">
-                    <button
 
-                        className="w-full mt-2 bg-amber-500 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded text-md md:text-lg lg:text-xl flex items-center justify-center space-x-2 transition duration-300 ease-in-out shadow-lg hover:shadow-xl"
-                    >
-                        <Calendar className="w-6 h-6 md:w-7 md:h-7 text-amber-200" />
-                        <span className="border-l-2 border-white pl-3 ml-3">
-                             Book Appointment 
-                        </span>
-                    </button>
+                {/* Desktop Appointment Button */}
+                <div className="hidden md:block">
+                    {renderAppointmentButton()}
                 </div>
             </nav>
 
             {/* Mobile Menu */}
-
             {isMenuOpen && (
                 <motion.div
                     initial={{ opacity: 0, height: 0 }}
@@ -171,62 +207,13 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
                     className="md:hidden bg-white border-t"
                 >
                     <div className="px-4 py-2">
-                        {navItems.map((item) => (
-                            <div key={item.target} className="py-2">
-                                {item.hasSubmenu ? (
-                                    <>
-                                        <button
-                                            onClick={() => handleSubmenuToggle(item.name)}
-                                            className="w-full text-left flex items-center justify-between"
-                                        >
-                                            <span>{item.name}</span>
-                                            {activeSubmenu === item.name ? (
-                                                <ChevronDown size={14} />
-                                            ) : (
-                                                <ChevronRight size={14} />
-                                            )}
-                                        </button>
-
-                                        {activeSubmenu === item.name && (
-                                            <motion.div
-                                                initial={{ opacity: 0, height: 0 }}
-                                                animate={{ opacity: 1, height: "auto" }}
-                                                exit={{ opacity: 0, height: 0 }}
-                                                className="pl-4 mt-2"
-                                            >
-                                                {doctorServices.services.map((service) => (
-                                                    <Link
-                                                        key={service.slug}
-                                                        to={`/services/${service.slug}`}
-                                                        className="block py-2 text-gray-600 hover:text-gray-900"
-                                                        onClick={toggleMenu}
-                                                    >
-                                                        {service.title}
-                                                    </Link>
-                                                ))}
-                                            </motion.div>
-                                        )}
-
-                                    </>
-                                ) : (
-                                    <Link
-                                        to={`/${item.target}`}
-                                        className="block text-gray-900 hover:text-gray-600"
-                                        onClick={toggleMenu}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                )}
-                            </div>
-                        ))}
-                        <button className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md flex items-center justify-center space-x-2 mt-4">
-                            <Calendar size={20} />
-                            <span>Book Appointment</span>
-                        </button>
+                        {renderNavItems(true)}
+                        <div className="mt-4">
+                            {renderAppointmentButton()}
+                        </div>
                     </div>
                 </motion.div>
             )}
-
         </header>
     );
 };

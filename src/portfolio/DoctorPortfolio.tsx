@@ -8,6 +8,8 @@ import { DrMoumitaContact, DrSushovanContact } from '../components/Contact';
 import About from '../components/About';
 import { doctorsServices } from '../data/services';
 import Services from '../components/Services';
+import BlogTemplate from '../components/BlogTemplate';
+import Blogs from '../components/Blogs';
 
 interface DoctorPortfolioProps {
   doctorData: DoctorProfile;
@@ -46,22 +48,26 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
       <Routes>
         <Route path='/' element={<Home doctorData={doctorData} />} />
         <Route path='/services' element={<Services doctorData={doctorData} />} />
-        <Route 
-          path='/services/:slug' 
-          element={<ServiceTemplate doctorData={servicesDoctorData} />} 
+        <Route path='/blogs' element={<Blogs doctorData={doctorData} />} />
+        <Route
+          path='/blog/:slug'
+          element={<BlogTemplate doctorData={servicesDoctorData} />}
+        />        <Route
+          path='/services/:slug'
+          element={<ServiceTemplate doctorData={servicesDoctorData} />}
         />
-        <Route 
-          path='/contact' 
+        <Route
+          path='/contact'
           element={<ContactComponent />}
         />
-        <Route 
-          path='/about' 
+        <Route
+          path='/about'
           element={
-            <About 
-              bgColorClass={getBgColorClass()} 
-              doctorData={doctorData} 
+            <About
+              bgColorClass={getBgColorClass()}
+              doctorData={doctorData}
             />
-          } 
+          }
         />
       </Routes>
     </MainLayout>

@@ -12,7 +12,7 @@ interface ContactProps {
 
 const themeConfig = {
   drmoumita: {
-    gradient: 'from-amber-800 via-amber-100 to-amber-100/10',
+    gradient: 'from-amber-800 via-amber-100/10 to-white',
     primary: 'text-white',
     secondary: 'text-amber-700',
     accent: 'amber-600',
@@ -25,7 +25,7 @@ const themeConfig = {
     
   },
   drsushovan: {
-    gradient: 'from-blue-900 via-blue-100 to-blue-100/10',
+    gradient: 'from-blue-900  via-blue-100/10 to-white',
     primary: 'text-white',
     secondary: 'text-blue-700',
     accent: 'blue-600',

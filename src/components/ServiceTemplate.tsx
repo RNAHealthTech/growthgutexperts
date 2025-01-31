@@ -19,6 +19,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
   const [selectedSubService, setSelectedSubService] = useState<SubServiceContent | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [variant, setVariant] = useState<'drmoumita' | 'drsushovan'>('drmoumita');
+  let textColorClass, accentColorClass;
 
 
   const navigate = useNavigate();
@@ -38,8 +39,14 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
       let currentDoctor: DoctorServices | null = null;
       if (subdomain.includes('sushovan')) {
         currentDoctor = doctorData.drSushovan;
+        setVariant('drsushovan');
+        textColorClass='blue-900'
+        accentColorClass='blue-100'
       } else if (subdomain.includes('moumita')) {
         currentDoctor = doctorData.drMoumita;
+        setVariant('drmoumita');
+        textColorClass='amber-700';
+        accentColorClass='amber-900';
       }
 
       if (!currentDoctor) {
@@ -104,7 +111,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
         />
         <div className="absolute inset-0 z-20 container mx-auto px-4 flex flex-col justify-center">
           <div className="max-w-3xl">
-            <span className="text-teal-400 font-semibold mb-2 block">
+            <span className={`text-${textColorClass} font-semibold mb-2 block`}>
               {selectedDoctor.title}
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">

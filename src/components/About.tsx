@@ -31,7 +31,7 @@ const About: React.FC<AboutProps> = ({ doctorData, bgColorClass }) => {
             <div className="relative">
               <div className={`absolute inset-0 bg-${bgColorClass} rounded-full blur-3xl opacity-20`}></div>
               <img
-                src="/api/placeholder/300/300"
+                src={doctorData.personalDetails.imageUrl}
                 alt={doctorData.personalDetails.name}
                 className="relative w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-xl ring-4 ring-white"
               />
