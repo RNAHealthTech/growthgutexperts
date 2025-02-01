@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ChevronRight, Calendar } from "lucide-react";
 import { DoctorServices } from "../data/services";
 
@@ -18,8 +18,10 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+    const [isHovering, setIsHovering] = useState(false);
     const submenuRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
+    const navigate = useNavigate();
 
     const navItems = [
         { name: "Home", target: "" },
@@ -41,6 +43,7 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
         const handleClickOutside = (event: MouseEvent) => {
             if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
                 setActiveSubmenu(null);
+                setIsHovering(false);
             }
         };
 
@@ -56,6 +59,7 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
     useEffect(() => {
         setIsMenuOpen(false);
         setActiveSubmenu(null);
+        setIsHovering(false);
     }, [location]);
 
     const toggleMenu = () => {
@@ -65,6 +69,14 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
 
     const handleSubmenuToggle = (itemName: string) => {
         setActiveSubmenu(activeSubmenu === itemName ? null : itemName);
+    };
+
+    const handleServiceClick = (slug: string, isMobile: boolean) => {
+        if (isMobile) {
+            setIsMenuOpen(false);
+            setActiveSubmenu(null);
+        }
+        navigate(`/services/${slug}`);
     };
 
     const renderAppointmentButton = () => (
@@ -79,9 +91,13 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
     );
 
     const renderNavItems = (isMobile: boolean) => {
-        // Include all items for both mobile and desktop
         return navItems.map((item) => (
-            <div key={item.target} className={`${isMobile ? 'py-2' : 'relative group px-4'}`}>
+            <div 
+                key={item.target} 
+                className={`${isMobile ? 'py-2' : 'relative group px-4'}`}
+                onMouseEnter={() => !isMobile && item.hasSubmenu && setIsHovering(true)}
+                onMouseLeave={() => !isMobile && setIsHovering(false)}
+            >
                 {item.hasSubmenu ? (
                     <>
                         <button
@@ -105,39 +121,39 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
                             )}
                         </button>
 
-                        {activeSubmenu === item.name && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className={`
-                                    ${isMobile
-                                        ? 'pl-4 mt-2'
-                                        : 'absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1'
-                                    }
-                                `}
-                                ref={isMobile ? null : submenuRef}
-                            >
-                                {doctorServices.services.map((service) => (
-                                    <Link
-                                        key={service.slug}
-                                        to={`/services/${service.slug}`}
-                                        className={`
-                                            ${isMobile
-                                                ? 'block py-2 text-gray-600 hover:text-gray-900'
-                                                : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
-                                            }
-                                        `}
-                                        onClick={() => {
-                                            setActiveSubmenu(null);
-                                            if (isMobile) toggleMenu();
-                                        }}
-                                    >
-                                        {service.title}
-                                    </Link>
-                                ))}
-                            </motion.div>
-                        )}
+                        
+                            {((isMobile && activeSubmenu === item.name) || (!isMobile && isHovering)) && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.2 }}
+                                    className={`
+                                        ${isMobile
+                                            ? 'pl-4 mt-2'
+                                            : 'absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-50'
+                                        }
+                                    `}
+                                    ref={submenuRef}
+                                >
+                                    {doctorServices.services.map((service) => (
+                                        <button
+                                            key={service.slug}
+                                            onClick={() => handleServiceClick(service.slug, isMobile)}
+                                            className={`
+                                                w-full text-left
+                                                ${isMobile
+                                                    ? 'block py-2 text-gray-600 hover:text-gray-900'
+                                                    : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
+                                                }
+                                            `}
+                                        >
+                                            {service.title}
+                                        </button>
+                                    ))}
+                                </motion.div>
+                            )}
+                         
                     </>
                 ) : (
                     <Link
