@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, ArrowRight } from 'lucide-react';
-import AppointmentModal from './BookAppointmentModal';
+import AppointmentModal from './AppointmentModal';
 
 interface CTAProps {
   variant: 'drmoumita' | 'drsushovan';
@@ -79,13 +79,17 @@ const CTA: React.FC<CTAProps> = ({
                 <Calendar className="ml-2" size={20} />
               </motion.button>
 
-             
+
             </motion.div>
           </div>
         </div>
       </div>
 
-      <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <AppointmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        variant={variant}
+      />
     </section>
   );
 };

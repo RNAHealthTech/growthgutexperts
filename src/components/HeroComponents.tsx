@@ -1,9 +1,216 @@
+// import React, { useState } from 'react';
+// import { motion } from 'framer-motion';
+// import { Link } from 'react-router-dom';
+// import { DoctorProfile } from '../data/doctor';
+// import { ArrowRight, Calendar, Star } from 'lucide-react';
+// import AppointmentModal from '../components/AppointmentModal';
+
+
+// const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentColorClass: string; textColorClass: string; primaryImage: string;secondaryImage: string; }> = ({ 
+//   data, 
+//   bgColorClass, 
+//   accentColorClass, 
+//   textColorClass, 
+//   primaryImage,
+//   secondaryImage    
+// }) => {
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+
+//   return (
+//     <motion.section
+//       className={`relative min-h-[90vh] ${bgColorClass} px-4 sm:px-6 lg:px-8`}
+//       initial={{ opacity: 0 }}
+//       animate={{ opacity: 1 }}
+//       transition={{ duration: 0.8 }}
+//     >
+//       {/* Decorative Elements */}
+//       <div className="absolute inset-0 overflow-hidden">
+//         <div className={`absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-bl from-${accentColorClass}/20 to-transparent rounded-full transform rotate-45`} />
+//         <div className={`absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-${accentColorClass}/20 to-transparent rounded-full transform -rotate-45`} />
+//       </div>
+
+//       <div className="relative z-10 max-w-7xl mx-auto pt-20 lg:pt-32 pb-16">
+//         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+//           {/* Content Section */}
+//           <motion.div
+//             className="w-full lg:w-1/2 text-center lg:text-left"
+//             initial={{ y: 50, opacity: 0 }}
+//             animate={{ y: 0, opacity: 1 }}
+//             transition={{ duration: 0.6 }}
+//           >
+//             <motion.div
+//               className={`inline-block px-4 py-1 bg-${accentColorClass}/10 rounded-full text-${accentColorClass} text-sm font-semibold mb-6`}
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ delay: 0.2 }}
+//             >
+//               {data.personalDetails.specialty}
+//             </motion.div>
+
+//             {/* Profile Image with Glow Effect */}
+//             {/* <motion.div
+//               initial={{ scale: 0.8, opacity: 0 }}
+//               animate={{ scale: 1, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               className="mb-6 relative"
+//             >
+//               <div className={`absolute inset-0 bg-gradient-to-br from-${accentColorClass} to-${bgColorClass} rounded-full blur-xl opacity-30`} />
+//               <img
+//                 src={data.personalDetails.imageUrl || "/api/placeholder/200/200"}
+//                 alt={data.personalDetails.name}
+//                 className="relative z-10 rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-4 border-white shadow-xl mx-auto lg:mx-0"
+//               />
+//             </motion.div> */}
+
+//             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+//               <motion.div
+//                 initial="hidden"
+//                 animate="visible"
+//                 className="text-white/90"
+//               >
+//                 <AnimatedWord word={data.personalDetails.name} />
+//               </motion.div>
+//             </h1>
+
+//             <motion.p
+//               className="text-lg sm:text-xl text-gray-200 mb-8 max-w-xl mx-auto lg:mx-0"
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ delay: 0.6 }}
+//             >
+//               {data.personalDetails.description}
+//             </motion.p>
+
+//             <motion.div
+//               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ delay: 0.8 }}
+//             >
+//               <motion.button
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//                 className={`px-8 py-3 bg-${accentColorClass} text-${textColorClass} rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center`}
+//                 onClick={() => setIsModalOpen(true)}
+//               >
+//                 Schedule Consultation
+//                 <Calendar className="ml-2" size={20} />
+//               </motion.button>
+              
+//               <Link to="/services">
+//                 <motion.button
+//                   whileHover={{ scale: 1.05 }}
+//                   whileTap={{ scale: 0.95 }}
+//                   className="px-8 py-3 bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 transition-all inline-flex items-center"
+//                 >
+//                   View Services
+//                   <ArrowRight className="ml-2" size={20} />
+//                 </motion.button>
+//               </Link>
+//             </motion.div>
+
+//             {/* Rating Section 
+//             <motion.div
+//               className="mt-12 flex items-center justify-center lg:justify-start gap-4 bg-white/10 p-4 rounded-xl backdrop-blur-sm"
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 1 }}
+//               transition={{ delay: 1 }}
+//             >
+//               <div className="flex gap-1">
+//                 {[...Array(5)].map((_, i) => (
+//                   <Star key={i} className={`w-5 h-5 text-${accentColorClass}`} fill="currentColor" />
+//                 ))}
+//               </div>
+//               <span className="text-white font-semibold">5.0 Rating on Google</span>
+//             </motion.div>*/}
+//           </motion.div> 
+
+//           {/* Image Section */}
+//           <motion.div
+//             className="w-full lg:w-1/2"
+//             initial={{ x: 50, opacity: 0 }}
+//             animate={{ x: 0, opacity: 1 }}
+//             transition={{ duration: 0.6, delay: 0.4 }}
+//           >
+//             <div className="relative aspect-square max-w-lg mx-auto">
+//               <div className="absolute top-0 left-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
+//                 <div className={`w-full h-full bg-gradient-to-br from-${accentColorClass}/20 to-${bgColorClass}/20 p-1 rounded-2xl`}>
+//                   <img
+//                     src={`${primaryImage}`}
+//                     alt={`${data.personalDetails.name} - Primary`}
+//                     className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+//                   />
+//                 </div>
+//               </div>
+//               <div className="absolute bottom-0 right-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
+//                 <div className={`w-full h-full bg-gradient-to-br from-${bgColorClass}/20 to-${accentColorClass}/20 p-1 rounded-2xl`}>
+//                   <img
+//                     src={`${secondaryImage}`}
+//                     alt={`${data.personalDetails.name} - Secondary`}
+//                     className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+//                   />
+//                 </div>
+//               </div>
+//             </div>
+//           </motion.div>
+//         </div>
+//       </div>
+
+//       <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}  variant='drmoumita' />
+//     </motion.section>
+//   );
+// };
+
+// const DrMoumitaHero: React.FC<{ data: DoctorProfile }> = ({ data }) => (
+//   <HeroSection 
+//     data={data} 
+//     bgColorClass="bg-gradient-to-br from-amber-900 to-amber-800" 
+//     accentColorClass="white"
+//      textColorClass="amber-900"
+//      primaryImage='/images/moumita-bg.jpg'
+//      secondaryImage='/images/moumita-bg2.jpg'
+//   />
+// );
+
+// const DrSushovanHero: React.FC<{ data: DoctorProfile }> = ({ data }) => (
+//   <HeroSection 
+//     data={data} 
+//     bgColorClass="bg-gradient-to-br from-blue-900 to-blue-800" 
+//     accentColorClass="white"
+//     textColorClass="blue-900"
+//     primaryImage='/images/sushovan-bg.jpg'
+//     secondaryImage='/images/sushovan-bg2.jpg'
+//   />
+// );
+
+// export const DoctorComponentMap: DoctorComponentMapType = {
+//   'drmoumita': {
+//     HeroSection: DrMoumitaHero,
+//     primaryColor: 'amber-600',
+//     secondaryColor: 'amber-100'
+//   },
+//   'drsushovan': {
+//     HeroSection: DrSushovanHero,
+//     primaryColor: 'blue-600',
+//     secondaryColor: 'blue-100'
+//   }
+// };
+
+// export const getDoctorComponents = (doctorData: DoctorProfile): DoctorComponentConfig => {
+//   const nameParts = doctorData.personalDetails.name.toLowerCase().split(' ');
+//   const doctorKey = `dr${nameParts[1]}`;
+//   return DoctorComponentMap[doctorKey as keyof typeof DoctorComponentMap] || DoctorComponentMap.drmoumita;
+// };
+
+// export default HeroSection;
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { DoctorProfile } from '../data/doctor';
-import { ArrowRight, Calendar, Star } from 'lucide-react';
-import AppointmentModal from '../components/BookAppointmentModal';
+import { ArrowRight, Calendar } from 'lucide-react';
+import AppointmentModal from '../components/AppointmentModal';
+
 
 interface DoctorComponentConfig {
   HeroSection: React.FC<{ data: DoctorProfile }>;
@@ -45,14 +252,23 @@ const AnimatedWord = ({ word }: { word: string }) => (
     ))}
   </motion.span>
 );
-
-const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentColorClass: string; textColorClass: string; primaryImage: string;secondaryImage: string; }> = ({ 
+ 
+const HeroSection: React.FC<{ 
+  data: DoctorProfile; 
+  bgColorClass: string; 
+  accentColorClass: string; 
+  textColorClass: string; 
+  primaryImage: string;
+  secondaryImage: string;
+  variant: 'drmoumita' | 'drsushovan'; // Add variant prop
+}> = ({ 
   data, 
   bgColorClass, 
   accentColorClass, 
   textColorClass, 
   primaryImage,
-  secondaryImage    
+  secondaryImage,
+  variant
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -63,11 +279,7 @@ const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentC
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className={`absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-bl from-${accentColorClass}/20 to-transparent rounded-full transform rotate-45`} />
-        <div className={`absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-${accentColorClass}/20 to-transparent rounded-full transform -rotate-45`} />
-      </div>
+      {/* ... keep existing decorative elements ... */}
 
       <div className="relative z-10 max-w-7xl mx-auto pt-20 lg:pt-32 pb-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -86,21 +298,6 @@ const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentC
             >
               {data.personalDetails.specialty}
             </motion.div>
-
-            {/* Profile Image with Glow Effect */}
-            {/* <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="mb-6 relative"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br from-${accentColorClass} to-${bgColorClass} rounded-full blur-xl opacity-30`} />
-              <img
-                src={data.personalDetails.imageUrl || "/api/placeholder/200/200"}
-                alt={data.personalDetails.name}
-                className="relative z-10 rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-4 border-white shadow-xl mx-auto lg:mx-0"
-              />
-            </motion.div> */}
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               <motion.div
@@ -148,22 +345,7 @@ const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentC
                 </motion.button>
               </Link>
             </motion.div>
-
-            {/* Rating Section 
-            <motion.div
-              className="mt-12 flex items-center justify-center lg:justify-start gap-4 bg-white/10 p-4 rounded-xl backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`w-5 h-5 text-${accentColorClass}`} fill="currentColor" />
-                ))}
-              </div>
-              <span className="text-white font-semibold">5.0 Rating on Google</span>
-            </motion.div>*/}
-          </motion.div> 
+          </motion.div>
 
           {/* Image Section */}
           <motion.div
@@ -176,7 +358,7 @@ const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentC
               <div className="absolute top-0 left-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
                 <div className={`w-full h-full bg-gradient-to-br from-${accentColorClass}/20 to-${bgColorClass}/20 p-1 rounded-2xl`}>
                   <img
-                    src={`${primaryImage}`}
+                    src={primaryImage}
                     alt={`${data.personalDetails.name} - Primary`}
                     className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
                   />
@@ -185,7 +367,7 @@ const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentC
               <div className="absolute bottom-0 right-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
                 <div className={`w-full h-full bg-gradient-to-br from-${bgColorClass}/20 to-${accentColorClass}/20 p-1 rounded-2xl`}>
                   <img
-                    src={`${secondaryImage}`}
+                    src={secondaryImage}
                     alt={`${data.personalDetails.name} - Secondary`}
                     className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
                   />
@@ -196,7 +378,11 @@ const HeroSection: React.FC<{ data: DoctorProfile; bgColorClass: string; accentC
         </div>
       </div>
 
-      <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <AppointmentModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        variant={variant}
+      />
     </motion.section>
   );
 };
@@ -206,9 +392,10 @@ const DrMoumitaHero: React.FC<{ data: DoctorProfile }> = ({ data }) => (
     data={data} 
     bgColorClass="bg-gradient-to-br from-amber-900 to-amber-800" 
     accentColorClass="white"
-     textColorClass="amber-900"
-     primaryImage='/images/moumita-bg.jpg'
-     secondaryImage='/images/moumita-bg2.jpg'
+    textColorClass="amber-900"
+    primaryImage='/images/moumita-bg.jpg'
+    secondaryImage='/images/moumita-bg2.jpg'
+    variant="drmoumita"
   />
 );
 
@@ -220,6 +407,7 @@ const DrSushovanHero: React.FC<{ data: DoctorProfile }> = ({ data }) => (
     textColorClass="blue-900"
     primaryImage='/images/sushovan-bg.jpg'
     secondaryImage='/images/sushovan-bg2.jpg'
+    variant="drsushovan"
   />
 );
 
