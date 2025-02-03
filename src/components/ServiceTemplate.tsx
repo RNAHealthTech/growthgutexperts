@@ -100,7 +100,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
 
 
   return (
-    <div className="min-h-screen bg-gray-50 mt-20 md:mt-0">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-[700px] w-full">
         <div className="absolute inset-0 bg-black/50 z-10" />
