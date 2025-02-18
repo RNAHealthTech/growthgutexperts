@@ -47,7 +47,7 @@ const ExpertiseSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Why Choose GrowthGut Experts?
+            Why Choose Growth & Gut Experts?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Comprehensive care for both pediatric endocrine and digestive health needs under one roof
@@ -112,7 +112,7 @@ const ExpertiseSection = () => {
               />
               <div>
                 <h3 className="text-xl font-bold text-gray-900">Dr. Sushovan's Expertise</h3>
-                <p className="text-blue-600">Hepatologist</p>
+                <p className="text-blue-600">Hepatologist & Gastroenterologist</p>
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

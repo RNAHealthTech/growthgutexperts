@@ -43,6 +43,7 @@ export interface PersonalDetails {
     specialty: string,
     description: string, 
     imageUrl: string,
+    imageUrl2?: string, 
     backgroundImage: string, 
     age: number;
     gender: 'Male' | 'Female';
@@ -89,7 +90,8 @@ export const drSushovanData: DoctorProfile = {
         specialty: 'Gastroenterologist and Hepatologist',
         description: 'Advanced expertise in liver and digestive health, with specialized focus on transplant hepatology. Providing comprehensive care for complex gastrointestinal conditions with cutting-edge treatments.', 
         age: 34,
-        imageUrl: '/images/dr-sushovan.png',
+        imageUrl: '/images/doc2.png',
+        imageUrl2: '/images/doc2.jpg',
         backgroundImage: '/images/dr-sushovan.jpg',
         gender: "Male",
         maritalStatus: "Married",
@@ -105,7 +107,7 @@ export const drSushovanData: DoctorProfile = {
         phone: "9474866692",
         email: "sushovancmc20@gmail.com"
     },
-    about: "Experienced Hepatologist specializing in liver diseases, transplant care, and advanced endoscopic procedures. Trained at Christian Medical College (CMC) Vellore with expertise in managing complex liver conditions, IBD, and biliary diseases.",
+    about: "An experienced and passionate specializing in management of liver, gastrointestinal, pancreatic and biliary diseases. He believes in clinical medicine, ethical practice and a holistic approach towards his patients. He has been trained at Christian Medical College (CMC), Vellore with expertise in managing complex liver conditions, IBD, pancreatitis and biliary diseases.",
     education: [
         {
             degree: "MBBS",
@@ -261,9 +263,11 @@ export const drMoumitaData: DoctorProfile = {
         nationality: "Indian",
         dateOfBirth: "1991-09-30",
         specialty: 'Paediatric and Adolescent Endocrinologist', 
-        description: 'Empowering children to reach their full potential through expert endocrine care and personalized growth management. Specialized in childhood diabetes, thyroid disorders, and growth-related conditions.', 
+        //description: 'Empowering children to reach their full potential through expert endocrine care and personalized growth management. Specialized in childhood diabetes, thyroid disorders, and growth-related conditions.', 
+        description: 'Specialized in growth disorders, childhood obesity, diabetes, thyroid disorders and other endocrine conditions in children.',
         age: 33,
-        imageUrl: '/images/dr-moumita.png',
+        imageUrl2: '/images/doc1.jpg',
+        imageUrl:'/images/doc1.png',
         backgroundImage: '/images/dr-moumita.jpg',
         gender: "Female",
         maritalStatus: "Married",
@@ -280,7 +284,7 @@ export const drMoumitaData: DoctorProfile = {
         email: "drmoumitasaha.16@gmail.com",
         linkedIn: "www.linkedin.com/in/moumita-saha24"
     },
-    about: "I'm a passionate Paediatric and Adolescent Endocrinologist trained from one of the prestigious institutions of the country. Experienced in diagnosing and managing common as well as challenging endocrine disorders in children. I'm looking forward to opportunities for utilizing my skills to provide the best healthcare to empower children with endocrine disorders and help them reach their maximal potential, thus improving their quality of life.",
+    about: "Passionate Paediatric and Adolescent Endocrinologist trained from prestigious institutions of the country. Experienced in diagnosing and managing common as well as challenging endocrine disorders in children. Dedicated towards providing holistic and individualized healthcare to empower children with endocrine disorders and help them reach their maximal potential, thus improving their quality of life.",
     education: [
         {
             degree: "Post Doctoral Fellowship (Pediatric Endocrinology)",

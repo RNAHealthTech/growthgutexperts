@@ -80,7 +80,7 @@ const LandingPage: React.FC = () => {
                                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                                     <h3 className="text-2xl font-bold text-gray-900">Dr. Sushovan Baidya</h3>
                                     <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium whitespace-nowrap">
-                                        Hepatologist
+                                        Hepatologist & Gastroenterologist
                                     </span>
                                 </div>
                                 <p className="text-gray-600 mb-4 line-clamp-4">

@@ -76,7 +76,7 @@ const HomeAboutSection: React.FC<HomeAboutSectionProps> = ({ data, variant }) =>
             {/* Main Image */}
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
               <img
-                src={data.personalDetails.imageUrl}
+                src={data.personalDetails.imageUrl2}
                 alt={data.personalDetails.name}
                 className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-700"
               />

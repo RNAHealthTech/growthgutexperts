@@ -68,7 +68,7 @@ const LandingHero: React.FC = () => {
                             Specialized Medical Care
                         </motion.div>
 
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                             <motion.span
                                 className="block text-yellow-400 mb-4"
                                 initial={{ opacity: 0, y: 20 }}
@@ -80,12 +80,14 @@ const LandingHero: React.FC = () => {
                             <motion.div
                                 initial="hidden"
                                 animate="visible"
-                                className="text-white/90"
+                                className="text-white/90 text-2xl md:text-3xl lg:text-4xl"
                             >
-                                <AnimatedWord word="Excellence" />
-                                {' '}
                                 <AnimatedWord word="Precision" />
-                                {' & '}
+                                {' '}
+                                <AnimatedWord word="Medicine" />
+                                {' and '}
+                                <AnimatedWord word="Comprehensive" />
+                                {' '}
                                 <AnimatedWord word="Care" />
                             </motion.div>
                         </h1>
@@ -96,8 +98,7 @@ const LandingHero: React.FC = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
                         >
-                            Specialized medical care in Pediatric Endocrinology and Hepatology, 
-                            delivering comprehensive solutions for you and your family.
+                            Specialized medical care in Pediatric Endocrinology and Hepatology & Gastroenterology delivering individualised treatment plans tailored to the unique needs of you and your family.
                         </motion.p>
 
                         <motion.div
