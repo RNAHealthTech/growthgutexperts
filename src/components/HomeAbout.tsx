@@ -34,28 +34,28 @@ const HomeAboutSection: React.FC<HomeAboutSectionProps> = ({ data, variant }) =>
   const latestEducation = data.education[data.education.length - 1];
   const currentWork = data.workExperience[0];
 
-  const stats = [
-    {
-      icon: <Calendar className={`w-6 h-6 text-${colors.accent}`} />,
-      value: new Date().getFullYear() - new Date(data.personalDetails.dateOfBirth).getFullYear(),
-      label: 'Years of Experience'
-    },
-    {
-      icon: <Award className={`w-6 h-6 text-${colors.accent}`} />,
-      value: data.awards.length,
-      label: 'Awards Received'
-    },
-    {
-      icon: <Users className={`w-6 h-6 text-${colors.accent}`} />,
-      value: data.skills.length,
-      label: 'Specialized Skills'
-    },
-    {
-      icon: <Globe className={`w-6 h-6 text-${colors.accent}`} />,
-      value: data.personalDetails.languagesKnown.length,
-      label: 'Languages Known'
-    }
-  ];
+  // const stats = [
+  //   {
+  //     icon: <Calendar className={`w-6 h-6 text-${colors.accent}`} />,
+  //     value: new Date().getFullYear() - new Date(data.personalDetails.dateOfBirth).getFullYear(),
+  //     label: 'Years of Experience'
+  //   },
+  //   {
+  //     icon: <Award className={`w-6 h-6 text-${colors.accent}`} />,
+  //     value: data.awards.length,
+  //     label: 'Awards Received'
+  //   },
+  //   {
+  //     icon: <Users className={`w-6 h-6 text-${colors.accent}`} />,
+  //     value: data.skills.length,
+  //     label: 'Specialized Skills'
+  //   },
+  //   {
+  //     icon: <Globe className={`w-6 h-6 text-${colors.accent}`} />,
+  //     value: data.personalDetails.languagesKnown.length,
+  //     label: 'Languages Known'
+  //   }
+  // ];
 
   return (
     <section className={`${colors.bg} py-16 lg:py-24 overflow-hidden`}>
@@ -82,7 +82,7 @@ const HomeAboutSection: React.FC<HomeAboutSectionProps> = ({ data, variant }) =>
               />
               
               {/* Stats Grid */}
-              <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md p-6">
+              {/* <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md p-6">
                 <div className="grid grid-cols-2 gap-4">
                   {stats.map((stat, index) => (
                     <motion.div
@@ -99,7 +99,7 @@ const HomeAboutSection: React.FC<HomeAboutSectionProps> = ({ data, variant }) =>
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 

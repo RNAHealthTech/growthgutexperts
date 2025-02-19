@@ -57,9 +57,9 @@ export interface PersonalDetails {
 }
 
 export interface ContactDetails {
-    address: string;
-    phone: string;
-    email: string;
+    address?: string;
+    phone?: string;
+    email?: string;
     linkedIn?: string;
 }
 
@@ -107,7 +107,7 @@ export const drSushovanData: DoctorProfile = {
         phone: "9474866692",
         email: "sushovancmc20@gmail.com"
     },
-    about: "An experienced and passionate specializing in management of liver, gastrointestinal, pancreatic and biliary diseases. He believes in clinical medicine, ethical practice and a holistic approach towards his patients. He has been trained at Christian Medical College (CMC), Vellore with expertise in managing complex liver conditions, IBD, pancreatitis and biliary diseases.",
+    about: "An experienced and passionate physician specializing in management of liver, gastrointestinal, pancreatic and biliary diseases. He believes in clinical medicine, ethical practice and a holistic approach towards his patients. He has been trained at Christian Medical College (CMC), Vellore with expertise in managing complex liver conditions, IBD, pancreatitis and biliary diseases.",
     education: [
         {
             degree: "MBBS",

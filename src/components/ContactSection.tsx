@@ -55,16 +55,16 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ data, variant }
       content: data.contactDetails.email,
       link: `mailto:${data.contactDetails.email}`
     },
-    {
-      icon: <MapPin className={`w-6 h-6 text-${colors.accent}`} />,
-      title: 'Address',
-      content: data.contactDetails.address
-    },
-    {
-      icon: <Clock className={`w-6 h-6 text-${colors.accent}`} />,
-      title: 'Consultation Hours',
-      content: 'Mon-Sat: 10:00 AM - 5:00 PM'
-    }
+    // {
+    //   icon: <MapPin className={`w-6 h-6 text-${colors.accent}`} />,
+    //   title: 'Address',
+    //   content: data.contactDetails.address
+    // },
+    // {
+    //   icon: <Clock className={`w-6 h-6 text-${colors.accent}`} />,
+    //   title: 'Consultation Hours',
+    //   content: 'Mon-Sat: 10:00 AM - 5:00 PM'
+    // }
   ];
 
   return (
