@@ -22,7 +22,7 @@ const themeConfig = {
     button: 'bg-amber-600 hover:bg-amber-700 text-white',
     tag: 'from-amber-500/10 to-amber-600/10 text-amber-700',
     border: 'border-amber-200',
-    
+
   },
   drsushovan: {
     gradient: 'from-blue-900  via-blue-100/10 to-white',
@@ -35,17 +35,27 @@ const themeConfig = {
     button: 'bg-blue-600 hover:bg-blue-700 text-white',
     tag: 'from-blue-500/10 to-blue-600/10 text-blue-700',
     border: 'border-blue-200',
-     
+
   }
 };
+
+/***
+ * 
+ * <iframe 
+ * src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417833458!2d77.2146145!3d28.666797100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071746279!5m2!1sen!2sin"
+ *  width="600" height="450" style="border:0;" allowfullscreen=""
+ *  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ * 
+ * 
+ */
 
 const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const styles = themeConfig[theme];
 
   const mapUrls = {
-    drmoumita: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417833458!2d77.2146145!3d28.666797100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071404287!5m2!1sen!2sin",
-    drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417833458!2d77.2146145!3d28.666797100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071404287!5m2!1sen!2sin"
+    drmoumita: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417833458!2d77.2146145!3d28.666797100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071746279!5m2!1sen!2sin",
+    drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417833458!2d77.2146145!3d28.666797100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071746279!5m2!1sen!2sin"
   };
 
   return (
@@ -61,8 +71,8 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <img 
-                      src={data.personalDetails.imageUrl} 
+                    <img
+                      src={data.personalDetails.imageUrl}
                       alt={data.personalDetails.name}
                       className={`rounded-full border-4 ${styles.border}`}
                     />
@@ -82,14 +92,14 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
                     <MapPin className={`${styles.secondary} mt-1 h-5 w-5`} />
                     <p className={styles.secondary}>{data.contactDetails.address}</p>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 pt-4">
                     <Phone className={`${styles.secondary} h-5 w-5`} />
                     <a href={`tel:${data.contactDetails.phone}`} className={`${styles.secondary} ${styles.hover}`}>
                       {data.contactDetails.phone}
                     </a>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 pt-4">
                     <Mail className={`${styles.secondary} h-5 w-5`} />
                     <a href={`mailto:${data.contactDetails.email}`} className={`${styles.secondary} ${styles.hover}`}>
@@ -111,8 +121,8 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
                   <h3 className={`text-lg font-semibold ${styles.primary} mb-2`}>Languages</h3>
                   <div className="flex flex-wrap gap-2">
                     {data.personalDetails.languagesKnown.map((language) => (
-                      <span 
-                        key={language} 
+                      <span
+                        key={language}
                         className={`px-3 py-1 bg-gradient-to-r ${styles.tag} rounded-full text-sm`}
                       >
                         {language}
@@ -128,7 +138,7 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
             <Card className={styles.cardBg}>
               <CardContent>
                 <div className="aspect-w-16 aspect-h-9">
-                  <iframe
+                  {/* <iframe
                     src={mapUrls[theme]}
                     width="100%"
                     height="300"
@@ -138,7 +148,20 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
                     referrerPolicy="no-referrer-when-downgrade"
                     className="rounded-lg"
                     title="Location Map"
-                  ></iframe>
+                  ></iframe> */}
+
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417936214!2d77.21203421188692!3d28.666797075544466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071891771!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="300" 
+                    style={{border:0}} 
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="rounded-lg"
+                    title='Location'
+                    >  
+                    </iframe>
                 </div>
               </CardContent>
             </Card>
@@ -151,10 +174,10 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
                 </h3>
                 <div className="space-y-4">
                   <p className={styles.secondary}>
-                    To schedule an appointment with {data.personalDetails.name}, 
+                    To schedule an appointment with {data.personalDetails.name},
                     please call our reception or send us an email.
                   </p>
-                  <Button 
+                  <Button
                     className='w-full' variant='secondary'
                     onClick={() => setIsModalOpen(true)}
                   >
@@ -164,7 +187,7 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
                 </div>
               </CardContent>
             </Card>
-         
+
           </div>
         </div>
         <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
