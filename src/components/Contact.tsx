@@ -44,8 +44,8 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
   const styles = themeConfig[theme];
 
   const mapUrls = {
-    drmoumita: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.739702645385!2d79.13269661154943!3d12.924444287333966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad3894c53f4cf7%3A0x4013f2038d8018bb!2sChristian%20Medical%20College%20Vellore!5e0!3m2!1sen!2sin!4v1738040152646!5m2!1sen!2sin",
-    drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448202.3832158162!2d76.64028167724612!3d28.64231383040785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfda893eca979%3A0x9d1dd214e1772fde!2sSt%20Stephens%20Hospital%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1738039938285!5m2!1sen!2sin"
+    drmoumita: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417833458!2d77.2146145!3d28.666797100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071404287!5m2!1sen!2sin",
+    drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417833458!2d77.2146145!3d28.666797100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071404287!5m2!1sen!2sin"
   };
 
   return (
