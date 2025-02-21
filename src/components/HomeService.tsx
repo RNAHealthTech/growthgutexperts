@@ -182,9 +182,7 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ data, variant
                                 <h4 className={`text-lg font-semibold ${colors.accent} mb-2`}>
                                   {subService.name}
                                 </h4>
-                                <p className={`text-gray-600 text-sm mb-4 ${expandedService === index ? '' : 'line-clamp-2'}`}>
-                                  {subService.description}
-                                </p>
+                                
                                 
                                 <>
                                   {expandedService === index && subService.procedures && (
@@ -194,8 +192,7 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ data, variant
                                       exit={{ opacity: 0, height: 0 }}
                                       className="space-y-3 mt-4"
                                     >
-                                      <h5 className="font-semibold text-gray-700">Key Procedures:</h5>
-                                      {subService.procedures.map((procedure, i) => (
+                                       {subService.procedures.map((procedure, i) => (
                                         <div key={i} className="flex items-center gap-2 text-gray-600">
                                           <CheckCircle2 className="w-4 h-4 text-green-500" />
                                           <span className="text-sm">{procedure}</span>
@@ -203,7 +200,7 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ data, variant
                                       ))}
                                     </motion.div>
                                   )}
-                                </>
+                                </> 
                               </div>
                             </div>
                           </div>

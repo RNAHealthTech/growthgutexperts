@@ -40,13 +40,13 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
       if (subdomain.includes('sushovan')) {
         currentDoctor = doctorData.drSushovan;
         setVariant('drsushovan');
-        textColorClass='blue-900'
-        accentColorClass='blue-100'
+        textColorClass = 'blue-900'
+        accentColorClass = 'blue-100'
       } else if (subdomain.includes('moumita')) {
         currentDoctor = doctorData.drMoumita;
         setVariant('drmoumita');
-        textColorClass='amber-700';
-        accentColorClass='amber-900';
+        textColorClass = 'amber-700';
+        accentColorClass = 'amber-900';
       }
 
       if (!currentDoctor) {
@@ -66,7 +66,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
       } else {
         navigate('/');
       }
-      
+
       setLoading(false);
     };
 
@@ -148,104 +148,28 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
 
         {/* Sub-services Section */}
         {/* Sub-services Section */}
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-  {selectedService.subServices.map((subService) => (
-    <motion.div
-      key={subService.name}
-      whileHover={{ y: -5 }}
-      className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer"
-      onClick={() => setSelectedSubService(subService)}
-    >
-      <div className="aspect-video w-full relative">
-        <img
-          src={subService.imageUrl}
-          alt={subService.name}
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-3">{subService.name}</h3>
-        <p className="text-gray-600 mb-4">{subService.description}</p>
-        <button className='text-gray-200 font-semibold flex items-center'>
-          Learn More <ArrowRight className="ml-2 w-4 h-4" />
-        </button>
-      </div>
-    </motion.div>
-  ))}
-</div>
-
-        {/* Selected Sub-service Details */}
-        {selectedSubService && (
-          <div className="bg-white shadow-md rounded-lg overflow-hidden p-8">
-            <h2 className="text-2xl font-bold mb-8">{selectedSubService.name}</h2>
-
-            {selectedSubService.procedures && (
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4">Our Procedures Include:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {selectedSubService.procedures.map((procedure, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center space-x-2 bg-gray-50 p-4 rounded-lg"
-                    >
-                      <ChevronDown className="w-5 h-5 text-teal-600" />
-                      <span className="text-gray-700">{procedure}</span>
-                    </div>
-                  ))}
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {selectedService.subServices.map((subService) => (
+            <motion.div
+              key={subService.name}
+              whileHover={{ y: -5 }}
+              className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer"
+              onClick={() => setSelectedSubService(subService)}
+            >
+              <div className="aspect-video w-full relative">
+                <img
+                  src={subService.imageUrl}
+                  alt={subService.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            )}
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">{subService.name}</h3>
 
-            {selectedSubService.whoShouldConsider && (
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4">Who Should Consider This</h3>
-                <div className="bg-teal-50 rounded-lg p-6">
-                  <ul className="space-y-4">
-                    {selectedSubService.whoShouldConsider.map((item, index) => (
-                      <li key={index} className="flex items-center space-x-3">
-                        <Users className="w-5 h-5 text-teal-600" />
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
-            )}
-
-            {selectedSubService.symptoms && (
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4">Common Symptoms</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {selectedSubService.symptoms.map((symptom, index) => (
-                    <div
-                      key={index}
-                      className="bg-red-50 p-4 rounded-lg text-red-700"
-                    >
-                      {symptom}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {selectedSubService.benefits && (
-              <div>
-                <h3 className="text-xl font-bold mb-4">Benefits</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {selectedSubService.benefits.map((benefit, index) => (
-                    <div
-                      key={index}
-                      className="bg-green-50 p-4 rounded-lg text-green-700"
-                    >
-                      {benefit}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-           
-          </div>
-        )}
+            </motion.div>
+          ))}
+        </div>
         {renderCTA()}
       </div>
     </div>

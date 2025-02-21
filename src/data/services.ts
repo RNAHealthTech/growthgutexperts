@@ -1,7 +1,6 @@
 export interface SubServiceContent {
   name: string;
   slug: string;
-  description: string;
   imageUrl: string;
   benefits?: string[];
   procedures?: string[];
@@ -15,15 +14,15 @@ export interface ServiceContent {
   description: string;
   imageUrl: string;
   overview: string;
-  treatments?: string[];
+  s?: string[];
   subServices: SubServiceContent[];
 }
 
 export interface DoctorServices {
-  sub: string; 
+  sub: string;
   name: string;
   title: string;
-  contact: string; 
+  contact: string;
   specialty: string;
   overview: string;
   imageUrl: string;
@@ -31,6 +30,7 @@ export interface DoctorServices {
 }
 
 export const doctorsServices: DoctorServices[] = [
+  // Updated services array for Dr. Sushovan
   {
     sub: 'drsushovan',
     name: "Dr. Sushovan Baidya",
@@ -43,202 +43,393 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Liver Disease Management",
         slug: "liver-disease-management",
-        description: "Our liver disease management program offers comprehensive care using cutting-edge diagnostic techniques and personalized treatment plans. We specialize in treating all forms of liver conditions, from acute hepatitis to chronic liver disease and cancer.",
+        description: "Our liver disease management program offers comprehensive care using cutting-edge diagnostic techniques and personalized  plans. We specialize in treating all forms of liver conditions, from acute hepatitis to chronic liver disease and cancer.",
         imageUrl: "/images/services/liver-care.png",
-        overview: "The liver is a vital organ that plays a crucial role in metabolism, detoxification, and protein synthesis. Our liver care program encompasses prevention, early detection, and advanced treatment of liver diseases.",
+        overview: "The liver is a vital organ that plays a crucial role in metabolism, detoxification, and protein synthesis. Our liver care program encompasses prevention, early detection, and advanced  of liver diseases.",
         subServices: [
           {
-            name: "Viral Hepatitis Treatment",
-            slug: "viral-hepatitis-treatment",
-            description: "Comprehensive management of viral hepatitis using the latest antiviral medications and monitoring protocols. We treat all forms of viral hepatitis (A, B, C, D, and E) with personalized care plans.",
+            name: "Viral Hepatitis",
+            slug: "viral-hepatitis",
             imageUrl: "/images/services/viral-hepatitis.jpg",
-            symptoms: [
-              "Jaundice (yellowing of skin and eyes)",
-              "Fatigue and weakness",
-              "Abdominal pain",
-              "Loss of appetite",
-              "Nausea and vomiting"
-            ],
             procedures: [
-              "Viral load testing",
-              "Liver function monitoring",
-              "Antiviral therapy",
-              "Regular health assessments",
-              "Vaccination (for preventable types)"
+              "Hepatitis A",
+              "Hepatitis B",
+              "Hepatitis C",
+              "Hepatitis D",
+              "Hepatitis E"
             ]
           },
           {
-            name: "Cirrhosis Management",
-            slug: "cirrhosis-management",
-            description: "Advanced care for liver cirrhosis and its complications, including portal hypertension, ascites, and hepatic encephalopathy. Our program focuses on slowing disease progression and managing symptoms effectively.",
-            imageUrl: "/images/services/cirrhosis.jpg",
-            procedures: [
-              "Endoscopic variceal screening",
-              "Ascites management",
-              "Nutritional assessment and support",
-              "Portal pressure monitoring",
-              "Hepatic encephalopathy management"
-            ]
-          },
-          {
-            name: "Fatty Liver Disease Treatment",
-            slug: "fatty-liver-disease-treatment",
-            description: "Specialized care for both alcoholic and non-alcoholic fatty liver disease (NAFLD/MASLD), focusing on lifestyle modifications and medical management to prevent disease progression.",
+            name: "Fatty Liver Disease",
+            slug: "fatty-liver-disease",
             imageUrl: "/images/services/fatty-liver.jpg",
-            whoShouldConsider: [
-              "People with obesity or metabolic syndrome",
-              "Individuals with diabetes",
-              "Those with elevated liver enzymes",
-              "Patients with family history of liver disease"
+            procedures: [
+              "MASLD / NAFLD",
             ]
+          },
+          {
+            name: "Alcohol related liver diseases",
+            slug: "alcohol-related-liver-diseases",
+            imageUrl: "/images/services/alcohol-related-liver-diseases.jpg",
+          },
+          {
+            name: "Autoimmune Hepatitis",
+            slug: "autoimmune-hepatitis",
+            imageUrl: "/images/services/autoimmune-hepatitis.jpg",
+          },
+          {
+            name: "Wilson Disease",
+            slug: "wilson-disease",
+            imageUrl: "/images/services/wilson-disease.jpg",
+          },
+          {
+            name: "Liver Abscess",
+            slug: "liver-abscess",
+            imageUrl: "/images/services/liver-abscess.jpg",
+            procedures: [
+              "Pyogenic liver abscess ",
+              "Amoebic liver abscess "
+            ]
+          },
+          {
+            name: "Jaundice",
+            slug: "jaundice",
+            imageUrl: "/images/services/jaundice.jpg",
+          },
+          {
+            name: "Cirrhosis",
+            slug: "cirrhosis",
+            imageUrl: "/images/services/cirrhosis.jpg",
+          },
+          {
+            name: "Wilson Disease",
+            slug: "wilson-disease",
+            imageUrl: "/images/services/wilson-disease.jpg",
+          },
+          {
+            name: "Ascites", 
+            slug: "ascites", 
+            imageUrl: "/images/services/ascites.jpg"
+          }, 
+          {
+            name: "Portal Hypertension",
+            slug: "portal-hypertension",
+            imageUrl: "/images/services/portal-hypertension.jpg",
+            procedures: [
+              "EHPVO ",
+              "NCIPH or PSVD Management",
+              "Congenital Hepatic fibrosis "
+            ]
+          },
+          {
+            name: "Liver Failure",
+            slug: "liver-failure",
+            imageUrl: "/images/services/liver-failure.jpg",
+            procedures: [
+              "Fulminant liver failure ",
+              "Acute liver failure management",
+              "Subacute liver failure care",
+              "Chronic liver failure ",
+              "Acute on Chronic Liver failure (ACLF)"
+            ]
+          },
+          {
+            name: "Plasma Exchange (PLEX)", 
+            slug: "plex", 
+            imageUrl: "/images/services/plex.jpg"
+          },
+          {
+            name: "Liver Transplantation", 
+            slug: "liver-transplantation", 
+            imageUrl: "/images/services/liver-transplantation.jpg"
+          },
+          {
+            name: "Infiltrative liver diseases", 
+            slug: "Infiltrative-liver-diseases", 
+            imageUrl: "/images/services/infiltrative-liver-diseases.jpg"
+          },
+
+          {
+            name: "Liver Tumors",
+            slug: "liver-tumors",
+            imageUrl: "/images/services/liver-tumors.jpg",
+            procedures: [
+              "Hemangioma",
+              "Liver cyst",
+              "ADPKD",
+              "Fibronodular hyperplasia (FNH)",
+              "Hepatic Adenoma",
+              "Hepatocellular carcinoma or Liver Cancer"
+            ]
+          },
+          {
+            name: "Vascular Liver Diseases",
+            slug: "vascular-liver-diseases",
+            imageUrl: "/images/services/vascular-liver.jpg",
+            procedures: [
+              "Budd chiari syndrome ",
+              "Portal Vein thrombosis management",
+              "Non cirrhotic Intrahepatic Portal Hypertension (NCIPH)",
+              "Porto Sinusoidal vascular disorder (PSVD)",
+              "Sinusoidal Obstruction Syndrome"
+            ]
+          },
+          {
+            name: "Drug Induced Liver Injury",
+            slug: "drug-induced-liver-injury",
+            imageUrl: "/images/services/drug-induced-liver-injury.jpg",
+          },
+          {
+            name: "Cholestatic Liver Diseases",
+            slug: "cholestatic-liver-diseases",
+            imageUrl: "/images/services/cholestatic-liver-diseases.jpg",
+            procedures: [
+              "Sclerosing cholangitis",
+              "Primary sclerosing cholangitis (PSC)",
+              "Primary biliary cholangitis( PBC)"
+            ]
+          },
+          {
+            name: "Metabolic liver diseases",
+            slug: "matabolic-liver-diseases",
+            imageUrl: "/images/services/metabolic-liver-diseases.jpg",
+          },
+          {
+            name: "Liver Biopsy",
+            slug: "liver-biopsy",
+            imageUrl: "/images/services/liver-biopsy.jpg",
+            procedures: [
+              "Percutaneous liver biopsy",
+              "Transjugular liver biopsy"
+            ]
+          },
+          {
+
+            name: "Fibroscan",
+            slug: "fibroscan",
+            imageUrl: "/images/services/fibroscan.jpg",
+          }
+          ,
+          {
+            name: "Trans Jugular Intrahepatic Portosystemic Shunt (TIPS)",
+            slug: "tips",
+            imageUrl: "/images/services/tips.jpg",
           }
         ]
       },
       {
-        title: "Advanced Endoscopy Services",
-        slug: "advanced-endoscopy-services",
-        description: "State-of-the-art endoscopic procedures for diagnosis and treatment of various digestive system disorders. Our advanced equipment and expertise ensure precise results with maximum patient comfort.",
-        imageUrl: "/images/services/endoscopy.jpg",
-        overview: "Our endoscopy unit is equipped with the latest technology for both diagnostic and therapeutic procedures. We prioritize patient comfort and safety while maintaining the highest standards of care.",
-        subServices: [
-          {
-            name: "Diagnostic Gastroscopy",
-            slug: "diagnostic-gastroscopy",
-            description: "High-definition upper gastrointestinal endoscopy for detailed examination of the esophagus, stomach, and duodenum. This procedure helps diagnose various conditions including ulcers, inflammation, and tumors.",
-            imageUrl: "/images/services/gastroscopy.jpg",
-            procedures: [
-              "Upper GI examination",
-              "Tissue biopsy",
-              "H. pylori testing",
-              "Bleeding source identification"
-            ]
-          },
-          {
-            name: "Therapeutic Colonoscopy",
-            slug: "therapeutic-colonoscopy",
-            description: "Comprehensive lower gastrointestinal examination with advanced therapeutic capabilities, including polyp removal and bleeding control.",
-            imageUrl: "/images/services/colonoscopy.jpg",
-            procedures: [
-              "Polyp removal",
-              "Bleeding control",
-              "Stricture dilation",
-              "Tumor biopsy"
-            ]
-          }
-        ]
-      },
-      {
-        title: "Pancreatic Disorders",
-        slug: "pancreatic-disorders",
-        description: "Expert diagnosis and treatment of various pancreatic conditions, from inflammation to tumors, using advanced medical approaches and interventional procedures.",
-        imageUrl: "/images/services/pancreatic-disorders.jpg",
-        overview: "Our pancreatic care program provides comprehensive management of both acute and chronic pancreatic conditions, ensuring optimal outcomes through early detection and appropriate intervention.",
-        subServices: [
-          {
-            name: "Acute Pancreatitis Management",
-            slug: "acute-pancreatitis-management",
-            description: "Immediate and comprehensive care for acute pancreatic inflammation, including intensive monitoring and supportive therapy.",
-            imageUrl: "/images/services/acute-pancreatitis.jpg",
-            procedures: [
-              "Severity assessment",
-              "Nutritional support",
-              "Pain management",
-              "Complication prevention",
-              "Fluid resuscitation monitoring"
-            ],
-            symptoms: [
-              "Severe abdominal pain",
-              "Nausea and vomiting",
-              "Fever",
-              "Rapid pulse"
-            ]
-          },
-          {
-            name: "Chronic Pancreatitis Treatment",
-            slug: "chronic-pancreatitis-treatment",
-            description: "Long-term management of chronic pancreatic inflammation, focusing on pain control, nutritional support, and prevention of complications.",
-            imageUrl: "/images/services/chronic-pancreatitis.jpg",
-            procedures: [
-              "Enzyme replacement therapy",
-              "Pain management protocols",
-              "Nutritional assessment",
-              "Diabetes management"
-            ]
-          },
-          {
-            name: "Pancreatic Cancer Care",
-            slug: "pancreatic-cancer-care",
-            description: "Comprehensive evaluation and management of pancreatic tumors, working in collaboration with oncologists and surgeons.",
-            imageUrl: "/images/services/pancreatic-cancer.webp",
-            procedures: [
-              "Advanced imaging studies",
-              "Endoscopic ultrasound",
-              "Tissue sampling",
-              "Multidisciplinary treatment planning"
-            ]
-          }
-        ]
-      },
-      {
-        title: "Gastrointestinal Disorders",
-        slug: "gastrointestinal-disorders",
-        description: "Comprehensive care for various digestive system disorders affecting the esophagus, stomach, and intestines.",
-        imageUrl: "/images/services/gi-disorders.jpg",
-        overview: "Our gastrointestinal program covers the full spectrum of digestive disorders, providing both diagnostic and therapeutic services for optimal patient outcomes.",
-        subServices: [
-          {
-            name: "Inflammatory Bowel Disease (IBD)",
-            slug: "inflammatory-bowel-disease",
-            description: "Specialized care for Crohn's disease and Ulcerative Colitis, including medical management and monitoring.",
-            imageUrl: "/images/services/ibd.png",
-            procedures: [
-              "Colonoscopy with biopsy",
-              "Medical therapy optimization",
-              "Nutritional counseling",
-              "Regular disease monitoring"
-            ]
-          },
-          {
-            name: "GERD Management",
-            slug: "gerd-management",
-            description: "Comprehensive treatment of gastroesophageal reflux disease and related esophageal conditions.",
-            imageUrl: "/images/services/gerd.jpeg",
-            symptoms: [
-              "Heartburn",
-              "Regurgitation",
-              "Chest pain",
-              "Difficulty swallowing"
-            ]
-          }
-        ]
-      },
-      {
-        title: "Biliary Tract Disorders",
-        slug: "biliary-tract-disorders",
+        title: "GALL BLADDER AND BILE DUCT DISEASES",
+        slug: "gall-bladder-and-bile-duct-diseases",
         description: "Expert management of conditions affecting the gallbladder and bile ducts using advanced diagnostic and therapeutic techniques.",
         imageUrl: "/images/services/biliary-disorders.png",
-        overview: "Our biliary care program encompasses all aspects of gallbladder and bile duct disorders, providing both medical and interventional treatments.",
+        overview: "Our biliary care program encompasses all aspects of gallbladder and bile duct disorders, providing both medical and interventional s.",
         subServices: [
           {
-            name: "Gallstone Management",
-            slug: "gallstone-management",
-            description: "Comprehensive care for gallstone disease, including prevention and treatment options.",
-            imageUrl: "/images/services/gallstones.webp",
+            name: "Gallbladder Disorders",
+            slug: "gallbladder-disorders",
+            imageUrl: "/images/services/gallbladder.jpg",
             procedures: [
-              "ERCP for stone removal",
-              "Minimally invasive treatments",
-              "Prevention strategies"
+              "Gall bladder Polyp ",
+              "Gall bladder stones management",
+              "Gall bladder cancer "
             ]
           },
           {
             name: "Bile Duct Disorders",
             slug: "bile-duct-disorders",
-            description: "Treatment of various bile duct conditions including strictures, stones, and inflammatory disorders.",
             imageUrl: "/images/services/bile-duct.jpg",
             procedures: [
-              "ERCP with stenting",
-              "Stone extraction",
-              "Stricture dilation"
+              "Bile duct stones ",
+              "Bile duct stricture management",
+              "Bile duct cancer ",
+              "Cholangitis management",
+              "Obstructive jaundice ",
+              "IgG4 related cholangiopathy"
+            ]
+          }
+        ]
+      },
+      {
+        title: "Pancreatic Diseases",
+        slug: "pancreatic-diseases",
+        description: "Expert diagnosis and  of various pancreatic conditions, from inflammation to tumors, using advanced medical approaches and interventional procedures.",
+        imageUrl: "/images/services/pancreatic-disorders.jpg",
+        overview: "Our pancreatic care program provides comprehensive management of both acute and chronic pancreatic conditions, ensuring optimal outcomes through early detection and appropriate intervention.",
+        subServices: [
+          {
+            name: "Pancreatitis",
+            slug: "pancreatitis-management",
+            imageUrl: "/images/services/pancreatitis.jpg",
+            procedures: [
+              "Acute pancreatitis ",
+              "Chronic pancreatitis management",
+              "Complications of pancreatitis",
+              "Autoimmune pancreatitis",
+              "IgG4 related pancreatitis"
+            ]
+          },
+          {
+            name: "Pancreatic Tumors",
+            slug: "pancreatic-tumors",
+            imageUrl: "/images/services/pancreatic-tumors.jpg",
+            procedures: [
+              "Cystic lesions of the pancreas",
+              "Pancreatic cancer "
+            ]
+          }
+        ]
+      },
+      {
+        title: "Diseases of The Gastrointestinal System",
+        slug: "gastrointestinal-system",
+        description: "Comprehensive care for various digestive system disorders affecting the esophagus, stomach, and intestines.",
+        imageUrl: "/images/services/gi-disorders.jpg",
+        overview: "Our gastrointestinal program covers the full spectrum of digestive disorders, providing both diagnostic and therapeutic services for optimal patient outcomes.",
+        subServices: [
+          {
+            name: "Dyspepsia",
+            slug: "dyspepsia",
+            imageUrl: "/images/services/dyspepsia.jpg",
+            procedures: [
+              "Gas and bloating management",
+              "Excessive belching ",
+              "GERD management",
+              "Reflux esophagitis ",
+              "Eosinophilic esophagitis"
+            ]
+          },
+          {
+            name: "Constipation",
+            slug: "constipation",
+            imageUrl: "/images/services/constipation.jpg"
+          },
+          {
+            name: "Stomach & Duodenal",
+            slug: "stomach-duodenal",
+            imageUrl: "/images/services/stomach-duodenal.jpg",
+            procedures: [
+              "Ulcer disease",
+              "Stomach cancer management",
+              "Gastric antral vascular ectasia (GAVE)",
+              "Porto hypertensive gastropathy (PHG)",
+              "Gastric polyp removal",
+              "Neuro endocrine tumor (NET)",
+              "Gastrointestinal stromal tumors (GIST)"
+            ]
+          },
+          {
+            name: "Intestinal",
+            slug: "intestinal-disorders",
+            imageUrl: "/images/services/intestinal.jpg",
+            procedures: [
+              "Inflammatory Bowel Disease (IBD) ",
+              "Crohns disease management",
+              "Ulcerative colitis ",
+              "Colorectal polyp removal",
+              "Intestinal Tuberculosis ",
+              "Colon cancer management",
+              "Colonic diverticular disease"
+            ]
+          },
+          {
+            name : "Per Rectal Bleeding",
+            slug: "per-rectal-bleeding",
+            imageUrl: "/images/services/per-rectal-bleeding.jpg",
+            procedures: [
+              "Hemorrhoids", 
+              "Anal fissure", 
+              "Rectal ulcers", 
+              "Rectal cancer"
+            ]
+          },
+          {
+            name: "Diarrhea",
+            slug: "diarrhea",
+            imageUrl: "/images/services/diarrhea.jpg",
+            procedures: [
+              "Acute gastroenteritis",
+              "Dysentry",
+              "Celiac disease",
+              "Chronic Diarrhea",
+              "Small bowel diarrhea",
+              "Large bowel diarrhea",
+              "Steatorrhea",
+              "Irritable bowel syndrome (IBS)"
+            ]
+          },
+          {
+            name: "Pain abdomen",
+            slug: "abdomen",
+            imageUrl: "/images/services/abdomen.jpg",
+          }
+        ]
+      },
+      {
+        title: "Gastrointestinal Bleeding",
+        slug: "gi-bleeding",
+        description: "Expert management of various types of gastrointestinal bleeding using advanced endoscopic techniques.",
+        imageUrl: "/images/services/gi-bleeding.gif",
+        overview: "Our program provides comprehensive care for both variceal and non-variceal bleeding, utilizing the latest therapeutic approaches.",
+        subServices: [
+          {
+            name: "Variceal Bleeding",
+            slug: "variceal-bleeding",
+            imageUrl: "/images/services/variceal.jpg",
+            procedures: [
+              "Esophageal varices ",
+              "Gastric varices management",
+              "Endoscopic variceal band ligation (EVL)",
+              "Endoscopic Sclerotherapy",
+              "Glue injection"
+            ]
+          },
+          {
+            name: "Non-Variceal Bleeding",
+            slug: "non-variceal-bleeding",
+            imageUrl: "/images/services/non-variceal.jpg",
+            procedures: [
+              "Ulcer related bleeding",            
+            ]
+          }
+        ]
+      },
+      {
+        title: "Endoscopy Services",
+        slug: "endoscopy-services",
+        description: "State-of-the-art endoscopic procedures for diagnosis and  of various digestive system disorders.",
+        imageUrl: "/images/services/endoscopy.jpg",
+        overview: "Our endoscopy unit is equipped with the latest technology for both diagnostic and therapeutic procedures.",
+        subServices: [
+          {
+            name: "Diagnostic",
+            slug: "diagnostic-procedures",
+            imageUrl: "/images/services/diagnostic.jpg",
+            procedures: [
+              "Gastroscopy or Upper GI endoscopy",
+              "Colonoscopy"
+            ]
+          },
+          {
+            name: "Therapeutic Procedures",
+            slug: "therapeutic-procedures",
+            imageUrl: "/images/services/therapeutic.jpg",
+            procedures: [
+              "Polypectomy",
+              "GI bleed management",
+              "Argon Plasma coagulation (APC)",
+              "Endoscopic Sclerotherapy",
+              "Endoscopic variceal band ligation (EVL)",
+              "Endoscopic glue injection"
+            ]
+          },
+          {
+            name: "ERCP Services",
+            slug: "ercp-services",
+            imageUrl: "/images/services/ercp.jpg",
+            procedures: [
+              "Bile duct Stone extraction",
+              "Biliary stenting",
+              "Biliary brush Cytology"
             ]
           }
         ]
@@ -257,72 +448,42 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Pediatric Growth Disorders",
         slug: "pediatric-growth-disorders",
-        description: "Comprehensive evaluation and treatment of growth disorders in children, utilizing advanced diagnostic techniques and personalized growth optimization strategies.",
+        description: "Comprehensive evaluation and  of growth disorders in children, utilizing advanced diagnostic techniques and personalized growth optimization strategies.",
         imageUrl: "/images/services/pediatric-growth-disorders.jpg",
         overview: "Our growth disorders program focuses on identifying and treating various conditions affecting children's growth and development, ensuring they reach their full growth potential.",
         subServices: [
           {
             name: "Short Stature Evaluation",
             slug: "short-stature-evaluation",
-            description: "Detailed assessment of growth patterns and underlying causes of short stature, including genetic, hormonal, and environmental factors.",
             imageUrl: "/images/services/short-stature.jpg",
-            procedures: [
-              "Growth hormone stimulation testing",
-              "Bone age assessment",
-              "Genetic testing",
-              "Nutritional evaluation"
-            ],
-            benefits: [
-              "Early identification of growth disorders",
-              "Customized treatment plans",
-              "Regular growth monitoring",
-              "Improved final height outcomes"
-            ]
+
           },
           {
             name: "Growth Hormone Therapy",
             slug: "growth-hormone-therapy",
-            description: "Specialized growth hormone treatment programs with regular monitoring and dose optimization to ensure optimal growth outcomes.",
             imageUrl: "/images/services/growth-therapy.jpg",
-            whoShouldConsider: [
-              "Children with growth hormone deficiency",
-              "Turner syndrome patients",
-              "Children born small for gestational age",
-              "Those with certain genetic conditions affecting growth"
-            ]
+
           }
         ]
       },
       {
         title: "Pediatric Diabetes Management",
         slug: "pediatric-diabetes-management",
-        description: "State-of-the-art care for all types of diabetes in children and adolescents, incorporating the latest treatment technologies and educational support.",
+        description: "State-of-the-art care for all types of diabetes in children and adolescents, incorporating the latest  technologies and educational support.",
         imageUrl: "/images/services/pediatric-diabetes.jpg",
         overview: "Our comprehensive diabetes care program combines medical management with education and lifestyle support to help young patients achieve optimal blood sugar control.",
         subServices: [
           {
             name: "Type 1 Diabetes Care",
             slug: "type-1-diabetes-care",
-            description: "Comprehensive management program including insulin therapy, blood sugar monitoring, and lifestyle modifications for children with Type 1 diabetes.",
             imageUrl: "/images/services/type1-diabetes.jpg",
-            procedures: [
-              "Insulin pump therapy initiation",
-              "Continuous glucose monitoring",
-              "Carbohydrate counting education",
-              "Regular HbA1c monitoring"
-            ]
+
           },
           {
             name: "Diabetes Technology Support",
             slug: "diabetes-technology-support",
-            description: "Advanced diabetes management using the latest technologies including insulin pumps and continuous glucose monitoring systems.",
             imageUrl: "/images/services/diabetes-tech.jpg",
-            benefits: [
-              "Better blood sugar control",
-              "Reduced risk of complications",
-              "Improved quality of life",
-              "More flexible lifestyle"
-            ]
+
           }
         ]
       },
@@ -336,26 +497,14 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Congenital Hypothyroidism",
             slug: "congenital-hypothyroidism",
-            description: "Early detection and management of thyroid hormone deficiency in newborns.",
             imageUrl: "/images/services/congenital-hypothyroid.jpg",
-            procedures: [
-              "Newborn screening interpretation",
-              "Thyroid hormone replacement",
-              "Growth monitoring",
-              "Development assessment"
-            ]
+
           },
           {
             name: "Graves Disease Management",
             slug: "graves-disease-management",
-            description: "Comprehensive care for pediatric hyperthyroidism including medical therapy and regular monitoring.",
             imageUrl: "/images/services/graves-disease.jpg",
-            symptoms: [
-              "Rapid heart rate",
-              "Weight loss",
-              "Anxiety",
-              "Growth changes"
-            ]
+
           }
         ]
       },
@@ -369,25 +518,14 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Precocious Puberty",
             slug: "precocious-puberty",
-            description: "Evaluation and treatment of early puberty signs, including hormone suppression therapy when necessary.",
             imageUrl: "/images/services/precocious-puberty.jpg",
-            procedures: [
-              "Hormonal evaluation",
-              "Bone age assessment",
-              "GnRH stimulation testing",
-              "Regular monitoring"
-            ]
+
           },
           {
             name: "Delayed Puberty Management",
             slug: "delayed-puberty-management",
-            description: "Assessment and treatment of delayed pubertal development.",
             imageUrl: "/images/services/delayed-puberty.jpg",
-            whoShouldConsider: [
-              "Boys without pubertal signs by age 14",
-              "Girls without pubertal signs by age 13",
-              "Teens with incomplete puberty"
-            ]
+
           }
         ]
       },
@@ -401,26 +539,14 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Medical Weight Management",
             slug: "medical-weight-management",
-            description: "Personalized weight management programs including medical evaluation and monitoring.",
             imageUrl: "/images/services/weight-management.jpg",
-            procedures: [
-              "Body composition analysis",
-              "Metabolic evaluation",
-              "Nutritional assessment",
-              "Regular progress monitoring"
-            ]
+
           },
           {
             name: "Metabolic Syndrome Care",
             slug: "metabolic-syndrome-care",
-            description: "Management of obesity-related metabolic complications in children and adolescents.",
             imageUrl: "/images/services/metabolic-syndrome.jpg",
-            benefits: [
-              "Improved metabolic health",
-              "Better weight control",
-              "Reduced health risks",
-              "Enhanced quality of life"
-            ]
+
           }
         ]
       },
@@ -434,24 +560,13 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Growth Hormone Testing",
             slug: "growth-hormone-testing",
-            description: "Various stimulation tests to assess growth hormone secretion and function.",
             imageUrl: "/images/services/gh-testing.jpg",
-            procedures: [
-              "Growth hormone stimulation test",
-              "IGF-1 level assessment",
-              "Dynamic function tests"
-            ]
+
           },
           {
             name: "Glucose Tolerance Testing",
             slug: "glucose-tolerance-testing",
-            description: "Comprehensive evaluation of glucose metabolism and insulin function.",
             imageUrl: "/images/services/glucose-testing.jpg",
-            procedures: [
-              "Oral glucose tolerance test",
-              "Insulin sensitivity assessment",
-              "Continuous glucose monitoring"
-            ]
           }
         ]
       }

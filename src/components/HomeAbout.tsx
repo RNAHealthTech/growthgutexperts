@@ -145,9 +145,6 @@ const HomeAboutSection: React.FC<HomeAboutSectionProps> = ({ data, variant }) =>
                       {latestEducation.degree}
                     </h3>
                     <p className="text-gray-600">{latestEducation.institute}</p>
-                    <p className="text-sm text-gray-500">
-                      {latestEducation.duration.start} - {latestEducation.duration.end}
-                    </p>
                   </div>
                 </div>
               </motion.div>
