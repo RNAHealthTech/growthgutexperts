@@ -41,8 +41,8 @@ const About: React.FC<AboutProps> = ({ doctorData, bgColorClass }) => {
                 {doctorData.personalDetails.name}
               </h1>
               <p className="text-xl text-white/90 mb-6">
-                {doctorData.workExperience[0].role}
-                {doctorData.workExperience[0].department && ` - ${doctorData.workExperience[0].department}`}
+                {doctorData.currentworkExperience[0].role}
+                {doctorData.currentworkExperience[0].department && ` - ${doctorData.currentworkExperience[0].department}`}
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 text-white">
@@ -107,7 +107,7 @@ const About: React.FC<AboutProps> = ({ doctorData, bgColorClass }) => {
                 Professional Experience
               </h2>
               <div className="space-y-6">
-                {doctorData.workExperience.map((work, i) => (
+                {doctorData.pastworkExperience.map((work, i) => (
                   <div key={i} className="relative">
                     <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-200"></div>
                     <div className={`absolute left-0 top-0 w-2 h-2 rounded-full bg-${bgColorClass} -translate-x-[3px]`}></div>

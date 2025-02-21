@@ -107,10 +107,10 @@ export const doctorsServices: DoctorServices[] = [
             imageUrl: "/images/services/wilson-disease.jpg",
           },
           {
-            name: "Ascites", 
-            slug: "ascites", 
+            name: "Ascites",
+            slug: "ascites",
             imageUrl: "/images/services/ascites.jpg"
-          }, 
+          },
           {
             name: "Portal Hypertension",
             slug: "portal-hypertension",
@@ -134,18 +134,18 @@ export const doctorsServices: DoctorServices[] = [
             ]
           },
           {
-            name: "Plasma Exchange (PLEX)", 
-            slug: "plex", 
+            name: "Plasma Exchange (PLEX)",
+            slug: "plex",
             imageUrl: "/images/services/plex.jpg"
           },
           {
-            name: "Liver Transplantation", 
-            slug: "liver-transplantation", 
+            name: "Liver Transplantation",
+            slug: "liver-transplantation",
             imageUrl: "/images/services/liver-transplantation.jpg"
           },
           {
-            name: "Infiltrative liver diseases", 
-            slug: "Infiltrative-liver-diseases", 
+            name: "Infiltrative liver diseases",
+            slug: "Infiltrative-liver-diseases",
             imageUrl: "/images/services/infiltrative-liver-diseases.jpg"
           },
 
@@ -332,13 +332,13 @@ export const doctorsServices: DoctorServices[] = [
             ]
           },
           {
-            name : "Per Rectal Bleeding",
+            name: "Per Rectal Bleeding",
             slug: "per-rectal-bleeding",
             imageUrl: "/images/services/per-rectal-bleeding.jpg",
             procedures: [
-              "Hemorrhoids", 
-              "Anal fissure", 
-              "Rectal ulcers", 
+              "Hemorrhoids",
+              "Anal fissure",
+              "Rectal ulcers",
               "Rectal cancer"
             ]
           },
@@ -388,7 +388,7 @@ export const doctorsServices: DoctorServices[] = [
             slug: "non-variceal-bleeding",
             imageUrl: "/images/services/non-variceal.jpg",
             procedures: [
-              "Ulcer related bleeding",            
+              "Ulcer related bleeding",
             ]
           }
         ]
@@ -446,130 +446,284 @@ export const doctorsServices: DoctorServices[] = [
     imageUrl: "/images/first.jpg",
     services: [
       {
-        title: "Pediatric Growth Disorders",
-        slug: "pediatric-growth-disorders",
-        description: "Comprehensive evaluation and  of growth disorders in children, utilizing advanced diagnostic techniques and personalized growth optimization strategies.",
-        imageUrl: "/images/services/pediatric-growth-disorders.jpg",
-        overview: "Our growth disorders program focuses on identifying and treating various conditions affecting children's growth and development, ensuring they reach their full growth potential.",
+        title: "Growth and Development Disorders",
+        slug: "growth-development-disorders",
+        description: "Comprehensive evaluation and management of various growth disorders in children, utilizing advanced diagnostic techniques and personalized treatment strategies.",
+        imageUrl: "/images/services/growth-disorders.jpg",
+        overview: "Our growth disorders program focuses on identifying and treating various conditions affecting children's growth and development.",
         subServices: [
           {
-            name: "Short Stature Evaluation",
-            slug: "short-stature-evaluation",
-            imageUrl: "/images/services/short-stature.jpg",
-
+            name: "Growth Disorders",
+            slug: "growth-disorders",
+            imageUrl: "/images/services/growth-disorders.jpg",
+            procedures: [
+              "Short stature evaluation and management",
+              "Tall stature evaluation",
+              "Familial short stature",
+              "Idiopathic short stature",
+              "Constitutional Delay of growth and puberty",
+              "Growth hormone deficiency",
+              "Skeletal dysplasia"
+            ]
           },
           {
-            name: "Growth Hormone Therapy",
-            slug: "growth-hormone-therapy",
-            imageUrl: "/images/services/growth-therapy.jpg",
-
+            name: "Small for Gestational Age Management",
+            slug: "sga-management",
+            imageUrl: "/images/services/sga-management.jpg",
+            procedures: [
+              "Endocrine complications",
+              "Metabolic complications",
+              "Growth monitoring and intervention"
+            ]
           }
         ]
       },
       {
-        title: "Pediatric Diabetes Management",
-        slug: "pediatric-diabetes-management",
-        description: "State-of-the-art care for all types of diabetes in children and adolescents, incorporating the latest  technologies and educational support.",
-        imageUrl: "/images/services/pediatric-diabetes.jpg",
-        overview: "Our comprehensive diabetes care program combines medical management with education and lifestyle support to help young patients achieve optimal blood sugar control.",
+        title: "Metabolic Disorders",
+        slug: "metabolic-disorders",
+        description: "Expert management of pediatric metabolic conditions including obesity and diabetes.",
+        imageUrl: "/images/services/metabolic-disorders.jpg",
+        overview: "Our metabolic disorders program provides comprehensive care for various metabolic conditions affecting children.",
         subServices: [
           {
-            name: "Type 1 Diabetes Care",
-            slug: "type-1-diabetes-care",
-            imageUrl: "/images/services/type1-diabetes.jpg",
-
+            name: "Obesity Management",
+            slug: "obesity-management",
+            imageUrl: "/images/services/obesity-management.jpg",
+            procedures: [
+              "Exogenous obesity",
+              "Metabolic syndrome",
+              "Fatty liver",
+              "Endogenous obesity",
+              "Monogenic obesity"
+            ]
           },
           {
-            name: "Diabetes Technology Support",
-            slug: "diabetes-technology-support",
-            imageUrl: "/images/services/diabetes-tech.jpg",
-
+            name: "Diabetes Care",
+            slug: "diabetes-care",
+            imageUrl: "/images/services/diabetes-care.jpg",
+            procedures: [
+              "Type 1 Diabetes Mellitus",
+              "Type 2 Diabetes Mellitus",
+              "MODY",
+              "Neonatal Diabetes Mellitus",
+              "Diabetic Ketoacidosis",
+              "Comprehensive Diabetes Management"
+            ]
+          },
+          {
+            name: "Lipid Disorders",
+            slug: "lipid-disorders",
+            imageUrl: "/images/services/lipid-disorders.jpg",
+            procedures: [
+              "Pediatric dyslipidemia",
+              "Familial hypercholesterolemia",
+              "Secondary lipid disorders"
+            ]
+          },
+          {
+            name: "Metabolic Disorders",
+            slug: "metabolic-disorders-management",
+            imageUrl: "/images/services/metabolic-disorders-management.jpg",
+            procedures: [
+              "Hypoglycemia disorders in infancy",
+              "Childhood metabolic disorders",
+              "Congenital hyperinsulinemic hypoglycemia"
+            ]
           }
         ]
       },
       {
-        title: "Thyroid Disorders in Children",
-        slug: "thyroid-disorders-in-children",
-        description: "Specialized care for pediatric thyroid conditions, from congenital to acquired disorders.",
-        imageUrl: "/images/services/pediatric-thyroid.jpg",
-        overview: "Our pediatric thyroid program provides comprehensive care for all thyroid-related conditions in children and adolescents.",
+        title: "Endocrine System Disorders",
+        slug: "endocrine-system-disorders",
+        description: "Comprehensive care for various endocrine system disorders affecting children.",
+        imageUrl: "/images/services/endocrine-disorders.jpg",
+        overview: "Our program provides specialized care for various endocrine conditions affecting children.",
         subServices: [
           {
-            name: "Congenital Hypothyroidism",
-            slug: "congenital-hypothyroidism",
-            imageUrl: "/images/services/congenital-hypothyroid.jpg",
-
+            name: "Thyroid Disorders",
+            slug: "thyroid-disorders",
+            imageUrl: "/images/services/thyroid-disorders.jpg",
+            procedures: [
+              "Congenital hypothyroidism (transient/permanent)",
+              "Acquired hypothyroidism - Hashimoto thyroiditis",
+              "Subacute thyroiditis",
+              "Hyperthyroidism",
+              "Graves Disease",
+              "Goitre",
+              "Thyroid nodules",
+              "Thyroid malignancy"
+            ]
           },
           {
-            name: "Graves Disease Management",
-            slug: "graves-disease-management",
-            imageUrl: "/images/services/graves-disease.jpg",
-
+            name: "Pituitary Disorders",
+            slug: "pituitary-disorders",
+            imageUrl: "/images/services/pituitary-disorders.jpg",
+            procedures: [
+              "Hypopituitarism (congenital/acquired)",
+              "Pituitary hypoplasia/tumors",
+              "Isolated/Multiple pituitary hormone deficiency",
+              "Pituitary hormone excess",
+              "Craniopharyngioma",
+              "Germinoma"
+            ]
+          },
+          {
+            name: "Adrenal Disorders",
+            slug: "adrenal-disorders",
+            imageUrl: "/images/services/adrenal-disorders.jpg",
+            procedures: [
+              "Adrenal insufficiency (congenital/acquired)",
+              "Congenital adrenal hyperplasia/hypoplasia",
+              "Adrenal tumors",
+              "Cushing syndrome",
+              "Pheochromocytoma",
+              "Endocrine hypertension"
+            ]
           }
         ]
       },
       {
-        title: "Disorders of Puberty",
-        slug: "disorders-of-puberty",
-        description: "Expert management of early and delayed puberty in children and adolescents.",
-        imageUrl: "/images/services/puberty-disorders.jpg",
-        overview: "Our program addresses various puberty-related concerns, ensuring proper hormonal development and growth.",
+        title: "Reproductive Health",
+        slug: "reproductive-health",
+        description: "Expert management of reproductive and puberty-related conditions in children and adolescents.",
+        imageUrl: "/images/services/reproductive-health.jpg",
+        overview: "Our reproductive health program addresses various puberty and reproductive system disorders.",
         subServices: [
           {
-            name: "Precocious Puberty",
-            slug: "precocious-puberty",
-            imageUrl: "/images/services/precocious-puberty.jpg",
-
+            name: "Puberty Disorders",
+            slug: "puberty-disorders",
+            imageUrl: "/images/services/puberty-disorders.jpg",
+            procedures: [
+              "Precocious puberty (central/peripheral)",
+              "Delayed puberty (hypogonadotropic/hypergonadotropic)",
+              "Puberty induction",
+              "Puberty suppression"
+            ]
           },
           {
-            name: "Delayed Puberty Management",
-            slug: "delayed-puberty-management",
-            imageUrl: "/images/services/delayed-puberty.jpg",
-
+            name: "Adolescent Reproductive Health",
+            slug: "adolescent-reproductive-health",
+            imageUrl: "/images/services/adolescent-health.jpg",
+            procedures: [
+              "Menstrual irregularities",
+              "PCOS management",
+              "Hormonal imbalances"
+            ]
+          },
+          {
+            name: "Differences of Sex Development",
+            slug: "differences-sex-development",
+            imageUrl: "/images/services/dsd.jpg",
+            procedures: [
+              "Atypical genitalia",
+              "Micropenis",
+              "Undescended testis"
+            ]
           }
         ]
       },
       {
-        title: "Pediatric Obesity Management",
-        slug: "pediatric-obesity-management",
-        description: "Comprehensive approach to childhood and adolescent obesity, focusing on healthy lifestyle modifications and medical management when needed.",
-        imageUrl: "/images/services/pediatric-obesity.jpg",
-        overview: "Our obesity management program combines medical care with lifestyle intervention to achieve healthy weight goals.",
+        title: "Bone and Mineral Disorders",
+        slug: "bone-mineral-disorders",
+        description: "Comprehensive care for bone metabolism and mineral disorders.",
+        imageUrl: "/images/services/bone-disorders.jpg",
+        overview: "Our program provides specialized care for various bone and mineral conditions affecting children.",
         subServices: [
           {
-            name: "Medical Weight Management",
-            slug: "medical-weight-management",
-            imageUrl: "/images/services/weight-management.jpg",
-
+            name: "Metabolic Bone Disorders",
+            slug: "metabolic-bone-disorders",
+            imageUrl: "/images/services/metabolic-bone.jpg",
+            procedures: [
+              "Vitamin D deficiency rickets",
+              "Refractory rickets",
+              "Vitamin D dependent rickets",
+              "Hypophosphatemic rickets",
+              "Renal rickets",
+              "Juvenile osteoporosis",
+              "Osteogenesis Imperfecta"
+            ]
           },
           {
-            name: "Metabolic Syndrome Care",
-            slug: "metabolic-syndrome-care",
-            imageUrl: "/images/services/metabolic-syndrome.jpg",
-
+            name: "Calcium Disorders",
+            slug: "calcium-disorders",
+            imageUrl: "/images/services/calcium-disorders.jpg",
+            procedures: [
+              "Hypocalcemia",
+              "Hypercalcemia",
+              "Neonatal severe hyperparathyroidism",
+              "Hypomagnesemia"
+            ]
           }
         ]
       },
       {
-        title: "Pediatric Endocrine Testing",
-        slug: "pediatric-endocrine-testing",
-        description: "Comprehensive hormonal evaluation using various dynamic testing procedures.",
-        imageUrl: "/images/services/endocrine-testing.jpg",
-        overview: "Our endocrine testing program utilizes state-of-the-art techniques for accurate diagnosis of hormonal disorders.",
+        title: "Specialized Conditions",
+        slug: "specialized-conditions",
+        description: "Management of complex endocrine syndromes and systemic conditions.",
+        imageUrl: "/images/services/specialized-conditions.jpg",
+        overview: "Our program provides comprehensive care for various genetic syndromes and complex endocrine conditions.",
         subServices: [
           {
-            name: "Growth Hormone Testing",
-            slug: "growth-hormone-testing",
-            imageUrl: "/images/services/gh-testing.jpg",
-
+            name: "Genetic Syndromes",
+            slug: "genetic-syndromes",
+            imageUrl: "/images/services/genetic-syndromes.jpg",
+            procedures: [
+              "Turner syndrome",
+              "Prader Willi syndrome",
+              "Silver Russell syndrome",
+              "Down syndrome",
+              "McCune Albright Syndrome",
+              "Polyglandular endocrine syndromes"
+            ]
           },
           {
-            name: "Glucose Tolerance Testing",
-            slug: "glucose-tolerance-testing",
-            imageUrl: "/images/services/glucose-testing.jpg",
+            name: "Complex Medical Conditions",
+            slug: "complex-conditions",
+            imageUrl: "/images/services/complex-conditions.jpg",
+            procedures: [
+              "Endocrine complications of thalassemia",
+              "Endocrine complications of malignancy",
+              "Post-Bone Marrow Transplant complications",
+              "Cystic fibrosis related endocrine disorders"
+            ]
+          },
+          {
+            name: "Fluid and Electrolyte Disorders",
+            slug: "fluid-electrolyte-disorders",
+            imageUrl: "/images/services/fluid-disorders.jpg",
+            procedures: [
+              "Diabetes Insipidus",
+              "Cerebral salt wasting",
+              "Hypernatremia/hyponatremia",
+              "Fluid balance disorders"
+            ]
+          }
+        ]
+      },
+      {
+        title: "Diagnostic Services",
+        slug: "diagnostic-services",
+        description: "Comprehensive endocrine testing and evaluation services.",
+        imageUrl: "/images/services/diagnostic-services.jpg",
+        overview: "Our diagnostic services utilize state-of-the-art techniques for accurate evaluation of endocrine conditions.",
+        subServices: [
+          {
+            name: "Dynamic Testing",
+            slug: "dynamic-testing",
+            imageUrl: "/images/services/dynamic-testing.jpg",
+            procedures: [
+              "Growth hormone stimulation test",
+              "GnRH analog stimulation test",
+              "hCG stimulation test",
+              "ACTH stimulation test",
+              "Dexamethasone suppression test",
+              "Oral glucose tolerance test",
+              "Water deprivation test",
+              "Diagnostic fasting study"
+            ]
           }
         ]
       }
     ]
-  }
-];
+}
+]

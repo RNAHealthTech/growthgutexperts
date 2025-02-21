@@ -8,7 +8,18 @@ export interface Education {
     };
 }
 
-export interface WorkExperience {
+export interface PastWorkExperience {
+    role: string;
+    department?: string;
+    organization: string;
+    duration: {
+        start: string;
+        end: string;
+    };
+}
+
+
+export interface CurrentWorkExperience {
     role: string;
     department?: string;
     organization: string;
@@ -41,10 +52,10 @@ export interface PersonalDetails {
     nationality: string;
     dateOfBirth: string;
     specialty: string,
-    description: string, 
+    description: string,
     imageUrl: string,
-    imageUrl2?: string, 
-    backgroundImage: string, 
+    imageUrl2?: string,
+    backgroundImage: string,
     age: number;
     gender: 'Male' | 'Female';
     maritalStatus: string;
@@ -68,7 +79,8 @@ export interface DoctorProfile {
     contactDetails: ContactDetails;
     about?: string;
     education: Education[];
-    workExperience: WorkExperience[];
+    pastworkExperience: PastWorkExperience[];
+    currentworkExperience : CurrentWorkExperience[];
     research: Research[];
     awards: Award[];
     workshops?: Workshop[];
@@ -79,6 +91,9 @@ export interface DoctorProfile {
         title: string;
         description?: string;
     }[];
+    offlineTiming: string;
+    onlineTiming: string;
+    days: string;
 }
 
 // data/doctors.ts
@@ -86,9 +101,9 @@ export const drSushovanData: DoctorProfile = {
     personalDetails: {
         name: "Dr Sushovan Baidya",
         nationality: "Indian",
-        dateOfBirth: "1990-08-19", 
+        dateOfBirth: "1990-08-19",
         specialty: 'Gastroenterologist and Hepatologist',
-        description: 'Advanced expertise in liver and digestive health, with specialized focus on transplant hepatology. Providing comprehensive care for complex gastrointestinal conditions with cutting-edge treatments.', 
+        description: 'Advanced expertise in liver and digestive health, with specialized focus on transplant hepatology. Providing comprehensive care for complex gastrointestinal conditions with cutting-edge treatments.',
         age: 34,
         imageUrl: '/images/doc2.png',
         imageUrl2: '/images/doc2.jpg',
@@ -134,7 +149,7 @@ export const drSushovanData: DoctorProfile = {
             }
         }
     ],
-    workExperience: [
+    currentworkExperience: [
         {
             role: "Consultant",
             department: "Department of Gastroenterology and Hepatology",
@@ -143,7 +158,9 @@ export const drSushovanData: DoctorProfile = {
                 start: "December 2024",
                 end: "onwards"
             }
-        },
+        }
+    ],
+    pastworkExperience: [
         {
             role: "Assistant Professor",
             department: "Department of Hepatology, Div of GI Sciences",
@@ -253,7 +270,10 @@ export const drSushovanData: DoctorProfile = {
         "Trained in management of IBD, Pancreatic, Biliary diseases and other luminal diseases",
         "Experienced in Administrative capacities"
     ],
-    interests: ["Transplant Hepatology"]
+    interests: ["Transplant Hepatology"],
+    onlineTiming: "7 PM - 8PM ",
+    offlineTiming: "",
+    days: "Monday - Saturday"
 };
 
 
@@ -262,12 +282,12 @@ export const drMoumitaData: DoctorProfile = {
         name: "Dr Moumita Saha",
         nationality: "Indian",
         dateOfBirth: "1991-09-30",
-        specialty: 'Paediatric and Adolescent Endocrinologist', 
+        specialty: 'Paediatric and Adolescent Endocrinologist',
         //description: 'Empowering children to reach their full potential through expert endocrine care and personalized growth management. Specialized in childhood diabetes, thyroid disorders, and growth-related conditions.', 
         description: 'Specialized in growth disorders, childhood obesity, diabetes, thyroid disorders and other endocrine conditions in children.',
         age: 33,
         imageUrl2: '/images/doc1.jpg',
-        imageUrl:'/images/doc1.png',
+        imageUrl: '/images/doc1.png',
         backgroundImage: '/images/dr-moumita.jpg',
         gender: "Female",
         maritalStatus: "Married",
@@ -311,7 +331,54 @@ export const drMoumitaData: DoctorProfile = {
             }
         }
     ],
-    workExperience: [
+    currentworkExperience: [
+        {
+            role: "Consultant",
+            department: "Paediatric Endocrinologist",
+            organization: "Holy Family Hospital, Okhla, New Delhi",
+            duration: {
+                start: "Jan 2025",
+                end: "onwards"
+            }
+        },
+        {
+            role: "Consultant",
+            department: "Paediatric Endocrinologist",
+            organization: "Sitaram Bhartia Institute of Science and Research, Qutub Institutional Area, New Delhi",
+            duration: {
+                start: "Jan 2025",
+                end: "onwards"
+            }
+        },
+        {
+            role: "Consultant",
+            department: "Paediatric Endocrinologist",
+            organization: "CK Bilra Hospital, West Punjab Bagh, New Delhi",
+            duration: {
+                start: "Jan 2025",
+                end: "onwards"
+            }
+        },
+        {
+            role: "Consultant",
+            department: "Paediatric Endocrinologist",
+            organization: "Sanjeevan Hospital ,Daryaganj, New Delhi",
+            duration: {
+                start: "Jan 2025",
+                end: "onwards"
+            }
+        }
+    ],
+    pastworkExperience: [
+        {
+            role: "Senior Resident",
+            department: "Department of Paediatrics",
+            organization: "Kalawati Saran Children Hospital, New Delhi",
+            duration: {
+                start: "",
+                end: ""
+            }
+        },
         {
             role: "Junior Consultant",
             department: "Department of Pediatric Endocrinology",
@@ -321,23 +388,8 @@ export const drMoumitaData: DoctorProfile = {
                 end: "2024"
             }
         },
-        {
-            role: "Consultant (Pediatrics)",
-            organization: "Naruvi Hospitals, Vellore",
-            duration: {
-                start: "August 2021",
-                end: "October 2021"
-            }
-        },
-        {
-            role: "Senior Resident",
-            department: "Pediatrics",
-            organization: "Lady Hardinge Medical College and associated Kalawati Saran Children Hospital, New Delhi",
-            duration: {
-                start: "June 2019",
-                end: "2021"
-            }
-        }
+
+
     ],
     research: [
         {
@@ -415,5 +467,8 @@ export const drMoumitaData: DoctorProfile = {
             title: "Certified in Fine Arts",
             description: "Pracheen Kala Kendra"
         }
-    ]
+    ],
+    onlineTiming: "7 PM - 8 PM ",
+    days: "Monday - Saturday", 
+    offlineTiming: ""
 };

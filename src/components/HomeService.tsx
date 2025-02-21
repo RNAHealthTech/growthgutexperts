@@ -235,3 +235,187 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ data, variant
 };
 
 export default HomeServicesSection;
+
+// import React, { useState, useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { motion } from 'framer-motion';
+// import { Shield, Activity, Sparkles, Layers, ArrowRight, Plus, Star, ChevronRight } from 'lucide-react';
+// import { DoctorProfile } from '../data/doctor';
+// import { doctorsServices } from '../data/services';
+
+// interface HomeServicesSectionProps {
+//   data: DoctorProfile;
+//   variant: 'drmoumita' | 'drsushovan';
+// }
+
+// const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ data, variant }) => {
+//   const [activeService, setActiveService] = useState(0);
+//   const [isExpanded, setIsExpanded] = useState(false);
+//   const navigate = useNavigate();
+
+//   const doctorServices = doctorsServices.find(doc => 
+//     variant === 'drmoumita' ? doc.sub === 'drmoumita' : doc.sub === 'drsushovan'
+//   );
+
+//   const colorScheme = {
+//     drmoumita: {
+//       primary: 'bg-amber-50',
+//       accent: 'text-amber-900',
+//       button: 'bg-amber-900',
+//       border: 'border-amber-200',
+//       hover: 'hover:bg-amber-100',
+//       highlight: 'bg-amber-900',
+//       text: 'text-amber-900',
+//       lightBg: 'bg-amber-50',
+//       selected: 'bg-amber-100'
+//     },
+//     drsushovan: {
+//       primary: 'bg-blue-50',
+//       accent: 'text-blue-900',
+//       button: 'bg-blue-900',
+//       border: 'border-blue-200',
+//       hover: 'hover:bg-blue-100',
+//       highlight: 'bg-blue-900',
+//       text: 'text-blue-900',
+//       lightBg: 'bg-blue-50',
+//       selected: 'bg-blue-100'
+//     }
+//   };
+
+//   const colors = colorScheme[variant];
+//   const services = doctorServices?.services || [];
+
+//   const getIcon = (index: number) => {
+//     const icons = [Shield, Activity, Sparkles, Layers, Star];
+//     const IconComponent = icons[index % icons.length];
+//     return <IconComponent className="w-6 h-6" />;
+//   };
+
+//   return (
+//     <section className="py-24 relative overflow-hidden">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+//         {/* Header */}
+//         <motion.div 
+//           initial={{ y: 20, opacity: 0 }}
+//           whileInView={{ y: 0, opacity: 1 }}
+//           viewport={{ once: true }}
+//           className="text-center mb-16"
+//         >
+//           <span className={`inline-block ${colors.primary} rounded-full px-4 py-2 mb-4`}>
+//             <span className={`${colors.accent} font-medium`}>Expert Healthcare Services</span>
+//           </span>
+//           <h2 className={`text-4xl md:text-5xl font-bold ${colors.accent} mb-6`}>
+//             Our Medical Services
+//           </h2>
+//           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+//             Comprehensive healthcare solutions in {doctorServices?.specialty}
+//           </p>
+//         </motion.div>
+
+//         {/* Innovative Service Display */}
+//         <div className="flex flex-col lg:flex-row gap-8 items-start">
+//           {/* Service Navigation */}
+//           <div className="lg:w-1/3 sticky top-24">
+//             <div className="space-y-2">
+//               {services.map((service, index) => (
+//                 <motion.button
+//                   key={service.slug}
+//                   initial={{ x: -50, opacity: 0 }}
+//                   animate={{ x: 0, opacity: 1 }}
+//                   transition={{ delay: index * 0.1 }}
+//                   className={`w-full text-left p-4 rounded-xl transition-all duration-300 flex items-center gap-4
+//                     ${activeService === index ? `${colors.selected} shadow-lg` : `${colors.lightBg}`}
+//                     hover:scale-102 group cursor-pointer`}
+//                   onClick={() => setActiveService(index)}
+//                 >
+//                   <div className={`p-3 rounded-lg ${activeService === index ? colors.highlight : colors.primary} 
+//                     transition-colors duration-300`}>
+//                     {getIcon(index)}
+//                   </div>
+//                   <div className="flex-1">
+//                     <h3 className={`font-semibold ${colors.text} group-hover:${colors.accent}`}>
+//                       {service.title}
+//                     </h3>
+//                     <p className="text-sm text-gray-600 line-clamp-1">
+//                       {service.description}
+//                     </p>
+//                   </div>
+//                   <ChevronRight className={`w-5 h-5 ${colors.text} transform transition-transform
+//                     ${activeService === index ? 'rotate-90' : 'rotate-0'}`} />
+//                 </motion.button>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Service Details Display */}
+//           <div className="lg:w-2/3">
+//             <motion.div
+//               key={activeService}
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               exit={{ opacity: 0, y: -20 }}
+//               className="bg-white rounded-2xl shadow-xl overflow-hidden"
+//             >
+//               <div className="relative h-64">
+//                 <img
+//                   src={services[activeService]?.imageUrl}
+//                   alt={services[activeService]?.title}
+//                   className="w-full h-full object-cover"
+//                 />
+//                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+//                 <div className="absolute bottom-0 left-0 p-6">
+//                   <h3 className="text-2xl font-bold text-white mb-2">
+//                     {services[activeService]?.title}
+//                   </h3>
+//                   <p className="text-white/90">
+//                     {services[activeService]?.overview}
+//                   </p>
+//                 </div>
+//               </div>
+
+//               <div className="p-6">
+//                 <div className="mb-6">
+//                   <h4 className="text-xl font-semibold mb-4">Available Services</h4>
+//                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                     {services[activeService]?.subServices.map((sub, idx) => (
+//                       <motion.div
+//                         key={sub.slug}
+//                         initial={{ opacity: 0, y: 10 }}
+//                         animate={{ opacity: 1, y: 0 }}
+//                         transition={{ delay: idx * 0.05 }}
+//                         className={`p-4 rounded-lg ${colors.lightBg} hover:shadow-md transition-all duration-300`}
+//                       >
+//                         <h5 className="font-medium mb-2">{sub.name}</h5>
+//                         {sub.procedures && (
+//                           <div className="space-y-1">
+//                             {sub.procedures.map((procedure, i) => (
+//                               <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
+//                                 <div className={`w-1 h-1 rounded-full ${colors.highlight}`} />
+//                                 {procedure}
+//                               </div>
+//                             ))}
+//                           </div>
+//                         )}
+//                       </motion.div>
+//                     ))}
+//                   </div>
+//                 </div>
+
+//                 <button
+//                   onClick={() => navigate('/services')}
+//                   className={`${colors.button} text-white px-6 py-3 rounded-lg inline-flex items-center gap-2
+//                     transition-all duration-300 hover:scale-102`}
+//                 >
+//                   Learn More About {services[activeService]?.title}
+//                   <ArrowRight className="w-5 h-5" />
+//                 </button>
+//               </div>
+//             </motion.div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default HomeServicesSection;

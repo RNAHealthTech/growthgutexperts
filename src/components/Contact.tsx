@@ -82,8 +82,8 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
                     <h2 className={`text-2xl font-bold ${styles.secondary}`}>
                       {data.personalDetails.name}
                     </h2>
-                    <p className={styles.secondary}>{data.workExperience[0].role}</p>
-                    <p className={styles.secondary}>{data.workExperience[0].department}</p>
+                    <p className={styles.secondary}>{data.currentworkExperience[0].role}</p>
+                    <p className={styles.secondary}>{data.currentworkExperience[0].department}</p>
                   </div>
                 </div>
 
@@ -138,17 +138,7 @@ const ContactSection: React.FC<ContactProps> = ({ data, theme }) => {
             <Card className={styles.cardBg}>
               <CardContent>
                 <div className="aspect-w-16 aspect-h-9">
-                  {/* <iframe
-                    src={mapUrls[theme]}
-                    width="100%"
-                    height="300"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="rounded-lg"
-                    title="Location Map"
-                  ></iframe> */}
+                 
 
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4403.30417936214!2d77.21203421188692!3d28.666797075544466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen&#39;s%20Hospital!5e1!3m2!1sen!2sin!4v1740071891771!5m2!1sen!2sin" 
