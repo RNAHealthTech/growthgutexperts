@@ -52,7 +52,8 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
         <Route
           path='/blog/:slug'
           element={<BlogTemplate doctorData={servicesDoctorData} />}
-        />        <Route
+        />        
+        <Route
           path='/services/:slug'
           element={<ServiceTemplate doctorData={servicesDoctorData} />}
         />

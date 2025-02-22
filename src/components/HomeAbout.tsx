@@ -39,7 +39,7 @@ const HomeAboutSection: React.FC<HomeAboutSectionProps> = ({ data, variant }) =>
   const colors = colorScheme[variant];
 
   const getAboutPageLink = () => {
-    return variant === 'drmoumita' ? '/about-dr-moumita' : '/about-dr-sushovan';
+    return variant === 'drmoumita' ? '/about' : '/about';
   };
 
   return (

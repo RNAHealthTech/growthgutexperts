@@ -70,17 +70,12 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Alcohol related liver diseases",
             slug: "alcohol-related-liver-diseases",
-            imageUrl: "/images/services/alcohol-related-liver-diseases.jpg",
+            imageUrl: "/images/services/alcohal-related-liver-diseases.jpg",
           },
           {
             name: "Autoimmune Hepatitis",
             slug: "autoimmune-hepatitis",
             imageUrl: "/images/services/autoimmune-hepatitis.jpg",
-          },
-          {
-            name: "Wilson Disease",
-            slug: "wilson-disease",
-            imageUrl: "/images/services/wilson-disease.jpg",
           },
           {
             name: "Liver Abscess",
@@ -94,7 +89,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Jaundice",
             slug: "jaundice",
-            imageUrl: "/images/services/jaundice.jpg",
+            imageUrl: "/images/services/jaundice.webp",
           },
           {
             name: "Cirrhosis",
@@ -114,7 +109,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Portal Hypertension",
             slug: "portal-hypertension",
-            imageUrl: "/images/services/portal-hypertension.jpg",
+            imageUrl: "/images/services/portal-hypertension.webp",
             procedures: [
               "EHPVO ",
               "NCIPH or PSVD Management",
@@ -124,7 +119,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Liver Failure",
             slug: "liver-failure",
-            imageUrl: "/images/services/liver-failure.jpg",
+            imageUrl: "/images/services/liver-care.jpg",
             procedures: [
               "Fulminant liver failure ",
               "Acute liver failure management",
@@ -136,23 +131,23 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Plasma Exchange (PLEX)",
             slug: "plex",
-            imageUrl: "/images/services/plex.jpg"
+            imageUrl: "/images/services/plex.png"
           },
           {
             name: "Liver Transplantation",
             slug: "liver-transplantation",
-            imageUrl: "/images/services/liver-transplantation.jpg"
+            imageUrl: "/images/services/liver-transplantation.jpeg"
           },
           {
             name: "Infiltrative liver diseases",
             slug: "Infiltrative-liver-diseases",
-            imageUrl: "/images/services/infiltrative-liver-diseases.jpg"
+            imageUrl: "/images/services/infiltrative-liver-diseases.png"
           },
 
           {
             name: "Liver Tumors",
             slug: "liver-tumors",
-            imageUrl: "/images/services/liver-tumors.jpg",
+            imageUrl: "/images/services/liver-tumors.avif",
             procedures: [
               "Hemangioma",
               "Liver cyst",
@@ -165,7 +160,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Vascular Liver Diseases",
             slug: "vascular-liver-diseases",
-            imageUrl: "/images/services/vascular-liver.jpg",
+            imageUrl: "/images/services/liver-vascular.webp",
             procedures: [
               "Budd chiari syndrome ",
               "Portal Vein thrombosis management",
@@ -182,7 +177,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Cholestatic Liver Diseases",
             slug: "cholestatic-liver-diseases",
-            imageUrl: "/images/services/cholestatic-liver-diseases.jpg",
+            imageUrl: "/images/services/cholestatic-liver-diseases.png",
             procedures: [
               "Sclerosing cholangitis",
               "Primary sclerosing cholangitis (PSC)",
@@ -192,7 +187,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Metabolic liver diseases",
             slug: "matabolic-liver-diseases",
-            imageUrl: "/images/services/metabolic-liver-diseases.jpg",
+            imageUrl: "/images/services/metabolic-syndrome.jpg",
           },
           {
             name: "Liver Biopsy",
@@ -207,7 +202,7 @@ export const doctorsServices: DoctorServices[] = [
 
             name: "Fibroscan",
             slug: "fibroscan",
-            imageUrl: "/images/services/fibroscan.jpg",
+            imageUrl: "/images/services/fibroscan.png",
           }
           ,
           {
@@ -271,7 +266,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Pancreatic Tumors",
             slug: "pancreatic-tumors",
-            imageUrl: "/images/services/pancreatic-tumors.jpg",
+            imageUrl: "/images/services/pancreatic-cancer.webp",
             procedures: [
               "Cystic lesions of the pancreas",
               "Pancreatic cancer "
@@ -289,7 +284,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Dyspepsia",
             slug: "dyspepsia",
-            imageUrl: "/images/services/dyspepsia.jpg",
+            imageUrl: "/images/services/dyspepsia.png",
             procedures: [
               "Gas and bloating management",
               "Excessive belching ",
@@ -306,7 +301,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Stomach & Duodenal",
             slug: "stomach-duodenal",
-            imageUrl: "/images/services/stomach-duodenal.jpg",
+            imageUrl: "/images/services/stomach-duodenal.jpeg",
             procedures: [
               "Ulcer disease",
               "Stomach cancer management",
@@ -360,7 +355,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Pain abdomen",
             slug: "abdomen",
-            imageUrl: "/images/services/abdomen.jpg",
+            imageUrl: "/images/services/abdomen.webp",
           }
         ]
       },
@@ -374,7 +369,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Variceal Bleeding",
             slug: "variceal-bleeding",
-            imageUrl: "/images/services/variceal.jpg",
+            imageUrl: "/images/services/variceal-bleeding.avif",
             procedures: [
               "Esophageal varices ",
               "Gastric varices management",
@@ -449,13 +444,13 @@ export const doctorsServices: DoctorServices[] = [
         title: "Growth and Development Disorders",
         slug: "growth-development-disorders",
         description: "Comprehensive evaluation and management of various growth disorders in children, utilizing advanced diagnostic techniques and personalized treatment strategies.",
-        imageUrl: "/images/services/growth-disorders.jpg",
+        imageUrl: "/images/services/growth-therapy.jpg",
         overview: "Our growth disorders program focuses on identifying and treating various conditions affecting children's growth and development.",
         subServices: [
           {
             name: "Growth Disorders",
             slug: "growth-disorders",
-            imageUrl: "/images/services/growth-disorders.jpg",
+            imageUrl: "/images/services/growth-therapy.jpg",
             procedures: [
               "Short stature evaluation and management",
               "Tall stature evaluation",
@@ -482,7 +477,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Metabolic Disorders",
         slug: "metabolic-disorders",
         description: "Expert management of pediatric metabolic conditions including obesity and diabetes.",
-        imageUrl: "/images/services/metabolic-disorders.jpg",
+        imageUrl: "/images/services/metabolic-syndrome.jpg",
         overview: "Our metabolic disorders program provides comprehensive care for various metabolic conditions affecting children.",
         subServices: [
           {
@@ -704,7 +699,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Diagnostic Services",
         slug: "diagnostic-services",
         description: "Comprehensive endocrine testing and evaluation services.",
-        imageUrl: "/images/services/diagnostic-services.jpg",
+        imageUrl: "/images/services/diagnostic-services.avif",
         overview: "Our diagnostic services utilize state-of-the-art techniques for accurate evaluation of endocrine conditions.",
         subServices: [
           {
