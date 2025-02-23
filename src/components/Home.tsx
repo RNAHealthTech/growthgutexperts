@@ -70,7 +70,7 @@ const Home: React.FC<HomeProps> = ({ doctorData }) => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg mx-auto mb-12"
+              className="rounded-lg mx-auto mb-12 mt-4"
               title="Location"
             />
           </div>
