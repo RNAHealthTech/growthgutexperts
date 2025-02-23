@@ -44,7 +44,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Liver Disease Management",
         slug: "liver-disease-management",
         description: "Our liver disease management program offers comprehensive care using cutting-edge diagnostic techniques and personalized  plans. We specialize in treating all forms of liver conditions, from acute hepatitis to chronic liver disease and cancer.",
-        imageUrl: "/images/services/liver-care.png",
+        imageUrl: "/images/services/liver-care.jpg",
         overview: "The liver is a vital organ that plays a crucial role in metabolism, detoxification, and protein synthesis. Our liver care program encompasses prevention, early detection, and advanced  of liver diseases.",
         subServices: [
           {
@@ -213,7 +213,7 @@ export const doctorsServices: DoctorServices[] = [
         ]
       },
       {
-        title: "GALL BLADDER AND BILE DUCT DISEASES",
+        title: "Gall Bladder And Bile Duct Diseases",
         slug: "gall-bladder-and-bile-duct-diseases",
         description: "Expert management of conditions affecting the gallbladder and bile ducts using advanced diagnostic and therapeutic techniques.",
         imageUrl: "/images/services/biliary-disorders.png",
@@ -276,7 +276,7 @@ export const doctorsServices: DoctorServices[] = [
       },
       {
         title: "Diseases of The Gastrointestinal System",
-        slug: "gastrointestinal-system",
+        slug: "diseases-of-the-gastrointestinal-system",
         description: "Comprehensive care for various digestive system disorders affecting the esophagus, stomach, and intestines.",
         imageUrl: "/images/services/gi-disorders.jpg",
         overview: "Our gastrointestinal program covers the full spectrum of digestive disorders, providing both diagnostic and therapeutic services for optimal patient outcomes.",
@@ -361,7 +361,7 @@ export const doctorsServices: DoctorServices[] = [
       },
       {
         title: "Gastrointestinal Bleeding",
-        slug: "gi-bleeding",
+        slug: "gastrointestinal-bleeding",
         description: "Expert management of various types of gastrointestinal bleeding using advanced endoscopic techniques.",
         imageUrl: "/images/services/gi-bleeding.gif",
         overview: "Our program provides comprehensive care for both variceal and non-variceal bleeding, utilizing the latest therapeutic approaches.",
@@ -442,7 +442,7 @@ export const doctorsServices: DoctorServices[] = [
     services: [
       {
         title: "Growth and Development Disorders",
-        slug: "growth-development-disorders",
+        slug: "growth-and-development-disorders",
         description: "Comprehensive evaluation and management of various growth disorders in children, utilizing advanced diagnostic techniques and personalized treatment strategies.",
         imageUrl: "/images/services/growth-therapy.jpg",
         overview: "Our growth disorders program focuses on identifying and treating various conditions affecting children's growth and development.",
@@ -464,7 +464,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Small for Gestational Age Management",
             slug: "sga-management",
-            imageUrl: "/images/services/sga-management.jpg",
+            imageUrl: "/images/services/gestational-age.png",
             procedures: [
               "Endocrine complications",
               "Metabolic complications",
@@ -495,7 +495,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Diabetes Care",
             slug: "diabetes-care",
-            imageUrl: "/images/services/diabetes-care.jpg",
+            imageUrl: "/images/services/diabetes-tech.jpg",
             procedures: [
               "Type 1 Diabetes Mellitus",
               "Type 2 Diabetes Mellitus",
@@ -508,7 +508,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Lipid Disorders",
             slug: "lipid-disorders",
-            imageUrl: "/images/services/lipid-disorders.jpg",
+            imageUrl: "/images/services/lipid-disorders.png",
             procedures: [
               "Pediatric dyslipidemia",
               "Familial hypercholesterolemia",
@@ -518,7 +518,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Metabolic Disorders",
             slug: "metabolic-disorders-management",
-            imageUrl: "/images/services/metabolic-disorders-management.jpg",
+            imageUrl: "/images/services/metabolic-disorders-management.webp",
             procedures: [
               "Hypoglycemia disorders in infancy",
               "Childhood metabolic disorders",
@@ -619,7 +619,7 @@ export const doctorsServices: DoctorServices[] = [
       },
       {
         title: "Bone and Mineral Disorders",
-        slug: "bone-mineral-disorders",
+        slug: "bone-and-mineral-disorders",
         description: "Comprehensive care for bone metabolism and mineral disorders.",
         imageUrl: "/images/services/bone-disorders.jpg",
         overview: "Our program provides specialized care for various bone and mineral conditions affecting children.",
@@ -674,7 +674,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Complex Medical Conditions",
             slug: "complex-conditions",
-            imageUrl: "/images/services/complex-conditions.jpg",
+            imageUrl: "/images/services/glucose-testing.jpg",
             procedures: [
               "Endocrine complications of thalassemia",
               "Endocrine complications of malignancy",
@@ -685,7 +685,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Fluid and Electrolyte Disorders",
             slug: "fluid-electrolyte-disorders",
-            imageUrl: "/images/services/fluid-disorders.jpg",
+            imageUrl: "/images/services/ibd.png",
             procedures: [
               "Diabetes Insipidus",
               "Cerebral salt wasting",
@@ -705,7 +705,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Dynamic Testing",
             slug: "dynamic-testing",
-            imageUrl: "/images/services/dynamic-testing.jpg",
+            imageUrl: "/images/services/ercp.jpg",
             procedures: [
               "Growth hormone stimulation test",
               "GnRH analog stimulation test",
