@@ -7,6 +7,29 @@ const DoctorFooter = () => {
   const [currentDoctor, setCurrentDoctor] = useState<any>(null);
   const [isMobile, setIsMobile] = useState(false);
 
+  const drMoumitaTimings = [
+    {
+      hospital: "Fortis C-DOC, Greater Kailash",
+      schedule: "Monday, Wednesday, Friday: 10:00 AM - 12:00 PM"
+    },
+    {
+      hospital: "Sitaram Bhartia Institute of Science and Research, Qutub Institutional Area",
+      schedule: "Tuesday: 10:00 AM - 12:00 PM, Friday: 4:00 PM - 5:00 PM"
+    },
+    {
+      hospital: "Holy Family Hospital, Okhla, New Delhi",
+      schedule: "Monday, Wednesday: 2:00 PM - 3:30 PM, Friday: 1:30 PM - 3:30 PM"
+    },
+    {
+      hospital: "CK Birla, West Punjabi Bagh, Delhi",
+      schedule: "Tuesday, Thursday: 2:00 PM - 4:00 PM"
+    },
+    {
+      hospital: "Sanjeevan Hospital, Daryaganj, Delhi",
+      schedule: "Wednesday: 5:00 PM - 6:30 PM"
+    }
+  ];
+
   useEffect(() => {
     // Get subdomain from hostname
     const subdomain = window.location.hostname.split('.')[0];
@@ -93,6 +116,23 @@ const DoctorFooter = () => {
           </ul>
         </div>
       </div>
+
+      {/* Consultation Timings for Dr. Moumita Saha */}
+      {currentDoctor.sub === 'drmoumita' && (
+        <div className="container mx-auto mt-8 pt-8 border-t border-white/20">
+          <h3 className="font-fraunces text-xl font-bold mb-4 flex items-center">
+            <Clock size={18} className="mr-2" /> Consultation Timings
+          </h3>
+          <div className={`${isMobile ? 'space-y-4' : 'grid grid-cols-1 md:grid-cols-2 gap-4'}`}>
+            {drMoumitaTimings.map((timing, index) => (
+              <div key={index} className="bg-white/10 p-3 rounded-lg">
+                <h4 className="font-semibold text-sm mb-1">{timing.hospital}</h4>
+                <p className="text-xs opacity-90">{timing.schedule}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Copyright */}
       <div className="container mx-auto mt-12 pt-8 border-t border-white/20">
