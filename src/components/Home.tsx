@@ -7,6 +7,7 @@ import HomeAboutSection from './HomeAbout';
 import HomeServicesSection from './HomeService';
 import HomeContactSection from './ContactSection';
 import { DrMoumitaContact, DrSushovanContact } from '../components/Contact';
+import { ComprehensiveDoctorSEO } from '../SeoTags';
 
 
 interface HomeProps {
@@ -52,6 +53,8 @@ const Home: React.FC<HomeProps> = ({ doctorData }) => {
   };
 
   return (
+    <>
+    <ComprehensiveDoctorSEO doctorData={doctorData} baseUrl='https://growthgutexperts.com' />
     <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection data={doctorData} />
@@ -77,6 +80,7 @@ const Home: React.FC<HomeProps> = ({ doctorData }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

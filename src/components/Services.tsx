@@ -3,6 +3,7 @@ import { DoctorProfile } from "../data/doctor";
 import { doctorsServices, DoctorServices } from "../data/services";
 import LandingSection from "../ui/LandingSection";
 import ServiceCard from "../components/ServiceCard";
+import { Helmet } from "react-helmet-async";
 
 interface ServicesProps {
   doctorData: DoctorProfile;
@@ -19,7 +20,28 @@ const Services: React.FC<ServicesProps> = ({ doctorData }) => {
 
   if (!currentDoctor) return null;
 
+  const pageTitle = `Expert ${currentDoctor.specialty} Services | ${currentDoctor.name}`;
+  const pageDescription = `Discover our comprehensive ${currentDoctor.specialty} services provided by ${currentDoctor.name}, a leading specialist in ${currentDoctor.title.toLowerCase()}. Schedule your consultation today.`;
+  const keywords = `${currentDoctor.specialty}, ${currentDoctor.title}, medical services, healthcare, specialist doctor, ${name[1].toLowerCase()} doctor`;
+
+
   return (
+    <>
+    <Helmet>
+    <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={keywords} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={currentDoctor.imageUrl} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={currentDoctor.imageUrl} />
+        <link rel="canonical" href={`https://growthgutexperts.com/services/${currentDoctor.sub}`} />
+ 
+    </Helmet>
     <main className="flex-grow">
       <LandingSection
         label="Our Services"
@@ -83,6 +105,7 @@ const Services: React.FC<ServicesProps> = ({ doctorData }) => {
         </div>
       </section>
     </main>
+    </>
   );
 };
 

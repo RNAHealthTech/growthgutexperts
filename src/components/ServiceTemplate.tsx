@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, ArrowRight, Users } from 'lucide-react';
 import { DoctorServices, ServiceContent, SubServiceContent } from '../data/services';
 import CTA from './CTAComponents';
+import { Helmet } from 'react-helmet-async';
 
 interface ServiceTemplateProps {
   doctorData: {
@@ -72,6 +73,54 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
 
     findServiceForSubdomain();
   }, [slug, doctorData, navigate]);
+  const generateSEOContent = () => {
+    if (!selectedService || !selectedDoctor) return null;
+    
+    const currentUrl = `https://${window.location.hostname}/services/${slug}`;
+    const pageTitle = `${selectedService.title} | ${selectedDoctor.name} - ${selectedDoctor.specialty} Specialist`;
+    const pageDescription = `Learn about ${selectedService.title} treatments provided by ${selectedDoctor.name}, a leading ${selectedDoctor.specialty} specialist. ${selectedService.description.substring(0, 120)}...`;
+    
+    // Generate keywords based on service and doctor specialty
+    const keywords = `${selectedService.title}, ${selectedDoctor.specialty}, ${selectedDoctor.title}, 
+      ${selectedDoctor.name}, medical treatment, healthcare, specialized care, 
+      ${selectedService.subServices.map(sub => sub.name).join(', ')}`;
+    
+    // Generate structured data for the specific medical service
+    const schemaMarkup = {
+      "@context": "https://schema.org",
+      "@type": "MedicalProcedure",
+      "name": selectedService.title,
+      "description": selectedService.description,
+      "medicineSystem": "Western Medicine",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": selectedDoctor.specialty
+      },
+      "performer": {
+        "@type": "Physician",
+        "name": selectedDoctor.name,
+        "jobTitle": selectedDoctor.title,
+        "image": selectedDoctor.imageUrl
+      },
+      "subjectOf": {
+        "@type": "WebPage",
+        "url": currentUrl,
+        "name": pageTitle,
+        "description": pageDescription
+      }
+    };
+    return {
+      pageTitle,
+      pageDescription,
+      keywords,
+      schemaMarkup,
+      currentUrl,
+      imageUrl: selectedService.imageUrl
+    };
+  };
+
+  const seoContent = generateSEOContent();
+
 
   if (loading || !selectedService || !selectedDoctor) {
     return (
@@ -100,6 +149,38 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
 
 
   return (
+    <>
+          {seoContent && (
+        <Helmet>
+          {/* Basic Meta Tags */}
+          <title>{seoContent.pageTitle}</title>
+          <meta name="description" content={seoContent.pageDescription} />
+          <meta name="keywords" content={seoContent.keywords} />
+          
+          {/* Canonical Link */}
+          <link rel="canonical" href={seoContent.currentUrl} />
+          
+          {/* Open Graph Tags */}
+          <meta property="og:title" content={seoContent.pageTitle} />
+          <meta property="og:description" content={seoContent.pageDescription} />
+          <meta property="og:image" content={seoContent.imageUrl} />
+          <meta property="og:url" content={seoContent.currentUrl} />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Growth Gut Experts" />
+          
+          {/* Twitter Card Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={seoContent.pageTitle} />
+          <meta name="twitter:description" content={seoContent.pageDescription} />
+          <meta name="twitter:image" content={seoContent.imageUrl} />
+          
+          {/* Structured Data / Schema Markup */}
+          <script type="application/ld+json">
+            {JSON.stringify(seoContent.schemaMarkup)}
+          </script>
+        </Helmet>
+      )}
+
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-[700px] w-full">
@@ -173,6 +254,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
         {renderCTA()}
       </div>
     </div>
+    </>
   );
 };
 

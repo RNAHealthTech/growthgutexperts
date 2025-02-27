@@ -7,6 +7,7 @@ import LandingPage from './LandingPage';
 import { drSushovanData, drMoumitaData } from './data/doctor';
 import DoctorPortfolio from './portfolio/DoctorPortfolio';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import { HelmetProvider } from 'react-helmet-async';
 
 const useScrollToTop = () => {
   const { pathname } = useLocation();
@@ -54,7 +55,11 @@ const App: React.FC = () => {
   const doctorData = getDoctorData();
 
   return (
+    
     <ParallaxProvider>
+      <HelmetProvider>
+
+    
       <Routes>
         {doctorData && (
           <Route path='/*' element={<DoctorPortfolio doctorData={doctorData} />} />
@@ -62,6 +67,7 @@ const App: React.FC = () => {
         <Route path='/*' element={<LandingPage />} />
 
       </Routes>
+      </HelmetProvider>
     </ParallaxProvider>
 
   )
