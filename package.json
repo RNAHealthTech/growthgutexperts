@@ -26,9 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "tsc generateDynamicSitemap.ts",
-    "generate-sitemap":"npm run build && node generateDynamicSitemap.js",
-    "test": "react-scripts test",
+    "build": "react-scripts build",
+     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
