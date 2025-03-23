@@ -108,9 +108,7 @@ const LandingHero: React.FC = () => {
                             transition={{ delay: 0.8 }}
                         >
                             <button
-                                onClick={() => setIsModalOpen(true)}
-                                className="px-8 py-3 bg-yellow-400 text-blue-900 rounded-lg font-semibold hover:bg-white transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                            >
+                                className="px-8 py-3 bg-yellow-400 text-blue-900 rounded-lg font-semibold hover:bg-white transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                                 Book Appointment
                             </button>
                             <button

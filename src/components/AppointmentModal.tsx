@@ -27,8 +27,8 @@ const variantStyles = {
 };
 
 const doctorFormIds = {
-    drmoumita: 'xqkoqkpe', // Replace with actual Formspree form ID
-    drsushovan: 'mqaawkpe' // Replace with actual Formspree form ID
+    drmoumita: 'xgvoylbn', 
+    drsushovan: 'xzzdgaqg' 
 };
 
 const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose, variant }) => {

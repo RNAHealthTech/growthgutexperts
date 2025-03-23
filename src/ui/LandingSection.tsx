@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
-import AppointmentModal from '../components/BookAppointmentModal';
+import AppointmentModal from '../components/AppointmentModal';
+import { DoctorVariant } from '../layouts/Header';
+
 
 interface LandingSectionProps {
   label: string;
@@ -10,6 +12,7 @@ interface LandingSectionProps {
   buttonText: string;
   imageSrc: string;
   imageAlt: string;
+  variant: DoctorVariant
 }
 
 const LandingSection: React.FC<LandingSectionProps> = ({
@@ -19,6 +22,7 @@ const LandingSection: React.FC<LandingSectionProps> = ({
   buttonText,
   imageSrc,
   imageAlt,
+  variant
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
@@ -63,6 +67,7 @@ const LandingSection: React.FC<LandingSectionProps> = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-purple-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-base sm:text-lg font-semibold inline-flex items-center shadow-lg hover:bg-red-600 transition duration-300"
+             onClick={openModal}
             >
               {buttonText}
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
@@ -71,12 +76,11 @@ const LandingSection: React.FC<LandingSectionProps> = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-purple-500 px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-base sm:text-lg font-semibold inline-flex items-center shadow-lg hover:bg-gray-100 transition duration-300"
-              onClick={openModal}
             >
-              Online Appointment
+              Explore More 
               <Calendar className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
             </motion.button>
-            <AppointmentModal isOpen={isModalOpen} onClose={closeModal} />
+            <AppointmentModal variant={variant} isOpen={isModalOpen} onClose={closeModal} />
           </div>
         </motion.div>
       </div>

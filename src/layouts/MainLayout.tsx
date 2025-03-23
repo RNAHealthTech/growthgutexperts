@@ -19,13 +19,28 @@ export const MainLayout: React.FC<LayoutProps> = ({ children }) => {
 
   };
 
+  const subdomain = getSubdomain();
+
   const currentDoctorServices = doctorsServices.find(
     doctor => doctor.sub === getSubdomain()
   ) || doctorsServices[0];
 
+  const getVariant = (): 'drmoumita' | 'drsushovan' => {
+    if (subdomain === 'moumita' || currentDoctorServices.name.toLowerCase().includes('moumita')) {
+      return 'drmoumita'
+    }
+    else if (subdomain === 'sushovan' || currentDoctorServices.name.toLowerCase().includes('sushovan')){
+      return 'drsushovan';
+    }
+
+    return 'drmoumita';
+  }
+
+  const variant = getVariant();
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Header doctorServices={currentDoctorServices} />
+      <Header doctorServices={currentDoctorServices} variant={variant} />
       <main className="flex-grow">
         {children}
       </main>

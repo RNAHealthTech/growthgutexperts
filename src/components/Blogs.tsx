@@ -3,12 +3,14 @@ import { DoctorProfile } from "../data/doctor";
 import { blogs, BlogContent } from "../data/blogs";
 import LandingSection from "../ui/LandingSection";
 import { Link } from "react-router-dom";
+import { DoctorVariant } from "../layouts/Header";
 
 interface BlogsProps {
   doctorData: DoctorProfile;
+  variant: DoctorVariant;
 }
 
-const Blogs: React.FC<BlogsProps> = ({ doctorData }) => {
+const Blogs: React.FC<BlogsProps> = ({ doctorData, variant }) => {
   // Find the correct doctor's blogs based on the doctor's name
   const name = doctorData.personalDetails.name.toLowerCase().split(' ');
   const subdomain = `dr${name[1]}`;
@@ -23,7 +25,8 @@ const Blogs: React.FC<BlogsProps> = ({ doctorData }) => {
         label="Medical Insights"
         title="Expert Blog Posts"
         description="Explore comprehensive health articles written by our specialists"
-        buttonText="Read More"
+        buttonText="Book Appointment"
+        variant={variant}
         imageSrc="/images/blogs/blog-hero.jpg"
         imageAlt="Medical Blog Insights"
       />

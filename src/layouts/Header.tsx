@@ -3,9 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ChevronRight, Calendar } from "lucide-react";
 import { DoctorServices } from "../data/services";
+import AppointmentModal from "../components/AppointmentModal";
+
+export type DoctorVariant = 'drmoumita' | 'drsushovan';
 
 interface HeaderProps {
     doctorServices: DoctorServices;
+    variant: DoctorVariant; 
 }
 
 const WhatsAppIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, color = "#25D366" }) => (
@@ -14,7 +18,7 @@ const WhatsAppIcon: React.FC<{ size?: number; color?: string }> = ({ size = 24, 
     </svg>
 );
 
-const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
+const Header: React.FC<HeaderProps> = ({ doctorServices, variant }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
@@ -22,6 +26,10 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
     const submenuRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
     const navigate = useNavigate();
+
+    const doctorvariant: DoctorVariant = variant; 
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const navItems = [
         { name: "Home", target: "" },
@@ -78,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
         }
 
         navigate(`/services/${slug}`);
-        console.log(`/services/${slug}`); 
+        console.log(`/services/${slug}`);
     };
 
     const renderServiceSubmenu = (isMobile: boolean) => (
@@ -114,7 +122,7 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
             >
                 View All Services
             </Link> */}
-            
+
             {/* Individual Service Links */}
             {doctorServices.services.map((service) => (
                 <button
@@ -135,20 +143,30 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
     );
 
     const renderAppointmentButton = () => (
-        <button
-            className="bg-amber-500 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded text-md md:text-lg lg:text-xl flex items-center justify-center space-x-2 transition duration-300 ease-in-out shadow-lg hover:shadow-xl"
-        >
-            <Calendar className="w-6 h-6 md:w-7 md:h-7 text-amber-200" />
-            <span className="border-l-2 border-white pl-3 ml-3">
-                Book Appointment 
-            </span>
-        </button>
+        <div>
+            <button
+                className="bg-amber-500 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded text-md md:text-lg lg:text-xl flex items-center justify-center space-x-2 transition duration-300 ease-in-out shadow-lg hover:shadow-xl"
+                onClick={() => setIsModalOpen(true)}
+
+            >
+                <Calendar className="w-6 h-6 md:w-7 md:h-7 text-amber-200" />
+                <span className="border-l-2 border-white pl-3 ml-3">
+                    Book Appointment
+                </span>
+
+            </button>
+            <AppointmentModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                variant={doctorvariant}
+            />
+        </div>
     );
 
     const renderNavItems = (isMobile: boolean) => {
         return navItems.map((item) => (
-            <div 
-                key={item.target} 
+            <div
+                key={item.target}
                 className={`${isMobile ? 'py-2' : 'relative group px-4'}`}
                 onMouseEnter={() => !isMobile && item.hasSubmenu && setIsHovering(true)}
                 onMouseLeave={() => !isMobile && setIsHovering(false)}
@@ -176,7 +194,7 @@ const Header: React.FC<HeaderProps> = ({ doctorServices }) => {
                             )}
                         </button>
 
-                        {((isMobile && activeSubmenu === item.name) || (!isMobile && isHovering)) && 
+                        {((isMobile && activeSubmenu === item.name) || (!isMobile && isHovering)) &&
                             renderServiceSubmenu(isMobile)
                         }
                     </>

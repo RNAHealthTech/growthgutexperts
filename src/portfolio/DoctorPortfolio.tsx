@@ -32,6 +32,20 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
     drMoumita: doctorsServices[1]
   };
 
+  const getSubdomain = () => {
+    const hostname = window.location.hostname;
+    if (hostname.includes('localhost')) {
+      const subdomain = hostname.split('.')[0];
+      return subdomain === 'localhost' ? '' : subdomain;
+
+    }
+    const parts = hostname.split('.');
+    return parts.length > 2 ? parts[0] : '';
+
+  };
+
+  const subdomain = getSubdomain();
+
   // Determine which Contact component to render based on doctorData
   const ContactComponent = () => {
     if (doctorData === drSushovanData) {
@@ -43,16 +57,34 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
     return <DrSushovanContact data={doctorData} />; // Default fallback
   };
 
+  const currentDoctorServices = doctorsServices.find(
+    doctor => doctor.sub === getSubdomain()
+  ) || doctorsServices[0];
+
+  const getVariant = (): 'drmoumita' | 'drsushovan' => {
+    if (subdomain === 'moumita' || currentDoctorServices.name.toLowerCase().includes('moumita')) {
+      return 'drmoumita'
+    }
+    else if (subdomain === 'sushovan' || currentDoctorServices.name.toLowerCase().includes('sushovan')) {
+      return 'drsushovan';
+    }
+
+    return 'drmoumita';
+  }
+
+  const variant = getVariant();
+
+
   return (
     <MainLayout>
       <Routes>
         <Route path='/' element={<Home doctorData={doctorData} />} />
-        <Route path='/services' element={<Services doctorData={doctorData} />} />
-        <Route path='/blogs' element={<Blogs doctorData={doctorData} />} />
+        <Route path='/services' element={<Services variant={variant} doctorData={doctorData} />} />
+        <Route path='/blogs' element={<Blogs doctorData={doctorData} variant={variant}  />} />
         <Route
           path='/blog/:slug'
           element={<BlogTemplate doctorData={servicesDoctorData} />}
-        />        
+        />
         <Route
           path='/services/:slug'
           element={<ServiceTemplate doctorData={servicesDoctorData} />}

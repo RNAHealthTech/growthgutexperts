@@ -4,12 +4,14 @@ import { doctorsServices, DoctorServices } from "../data/services";
 import LandingSection from "../ui/LandingSection";
 import ServiceCard from "../components/ServiceCard";
 import { Helmet } from "react-helmet-async";
+import { DoctorVariant } from "../layouts/Header";
 
 interface ServicesProps {
   doctorData: DoctorProfile;
+  variant : DoctorVariant
 }
 
-const Services: React.FC<ServicesProps> = ({ doctorData }) => {
+const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
   // Find the correct doctor's services based on the doctor's name
   const name = doctorData.personalDetails.name.toLowerCase().split(' ')
   
@@ -23,7 +25,6 @@ const Services: React.FC<ServicesProps> = ({ doctorData }) => {
   const pageTitle = `Expert ${currentDoctor.specialty} Services | ${currentDoctor.name}`;
   const pageDescription = `Discover our comprehensive ${currentDoctor.specialty} services provided by ${currentDoctor.name}, a leading specialist in ${currentDoctor.title.toLowerCase()}. Schedule your consultation today.`;
   const keywords = `${currentDoctor.specialty}, ${currentDoctor.title}, medical services, healthcare, specialist doctor, ${name[1].toLowerCase()} doctor`;
-
 
   return (
     <>
@@ -48,6 +49,7 @@ const Services: React.FC<ServicesProps> = ({ doctorData }) => {
         title={`Expert ${currentDoctor.specialty}`}
         description={currentDoctor.overview}
         buttonText="Schedule Consultation"
+        variant={variant}
         imageSrc={currentDoctor.imageUrl}
         imageAlt={`${currentDoctor.name} - ${currentDoctor.title}`}
       />
