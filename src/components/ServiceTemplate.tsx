@@ -145,7 +145,10 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
           animate={{ opacity: 1 }}
           className="text-2xl text-gray-600"
         >
-          Loading...
+          <div className="flex flex-col items-center">
+            <div className="w-12 h-12 border-4 border-t-4 border-gray-200 border-t-primary rounded-full animate-spin mb-4"></div>
+            <span>Loading...</span>
+          </div>
         </motion.div>
       </div>
     );
@@ -172,13 +175,13 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
           {procedures.map((proc, index) => {
             if (typeof proc === 'string') {
               return (
-                <div key={index} className={`p-4 rounded-lg bg-${accentColorClass} border-l-4 border-${primaryColorClass}`}>
+                <div key={index} className={`p-5 rounded-lg bg-${accentColorClass} border-l-4 border-${primaryColorClass} shadow-sm hover:shadow-md transition-shadow duration-300`}>
                   <h4 className="font-medium text-gray-800">{proc}</h4>
                 </div>
               );
             } else {
               return (
-                <div key={index} className={`p-5 rounded-lg bg-${accentColorClass} border-l-4 border-${primaryColorClass} hover:shadow-md transition-shadow duration-300`}>
+                <div key={index} className={`p-5 rounded-lg bg-${accentColorClass} border-l-4 border-${primaryColorClass} shadow-sm hover:shadow-md transition-shadow duration-300`}>
                   <h4 className={`font-semibold text-lg text-${textColorClass} mb-2`}>{proc.name}</h4>
                   {proc.description && <p className="text-gray-700">{proc.description}</p>}
                 </div>
@@ -190,79 +193,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
     );
   };
 
-  // Helper function to render benefits
-  const renderBenefits = (benefits: string[] | undefined) => {
-    if (!benefits || benefits.length === 0) return null;
-    
-    return (
-      <div className="mt-6">
-        <h3 className={`text-xl font-bold mb-4 text-${textColorClass}`}>Benefits</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {benefits.map((benefit, index) => (
-            <div key={index} className="flex items-start">
-              <div className={`mr-2 mt-1 text-${primaryColorClass}`}>
-                {/* SVG checkmark icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <p className="text-gray-700">{benefit}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
-  
-  // Helper function to render symptoms
-  const renderSymptoms = (symptoms: string[] | undefined) => {
-    if (!symptoms || symptoms.length === 0) return null;
-    
-    return (
-      <div className="mt-8 p-5 bg-gray-50 rounded-lg">
-        <h3 className={`text-xl font-bold mb-4 text-${textColorClass}`}>Common Symptoms</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {symptoms.map((symptom, index) => (
-            <div key={index} className="flex items-start">
-              <div className={`mr-2 mt-1 text-${primaryColorClass}`}>
-                {/* Warning icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <p className="text-gray-700">{symptom}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
-  
-  // Helper function to render who should consider
-  const renderWhoShouldConsider = (whoShouldConsider: string[] | undefined) => {
-    if (!whoShouldConsider || whoShouldConsider.length === 0) return null;
-    
-    return (
-      <div className="mt-8 p-6 border border-gray-200 rounded-lg bg-white">
-        <h3 className={`text-xl font-bold mb-4 text-${textColorClass}`}>Who Should Consider This</h3>
-        <ul className="space-y-3">
-          {whoShouldConsider.map((person, index) => (
-            <li key={index} className="flex items-start">
-              <div className={`mr-2 mt-1 text-${primaryColorClass}`}>
-                {/* Person icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <span className="text-gray-700">{person}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  };
-
-  // Toggle expanded subservice
+  // Toggle expanded subservice with smooth animation
   const toggleSubService = (id: string) => {
     if (expandedSubServiceId === id) {
       setExpandedSubServiceId(null);
@@ -310,48 +241,74 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
       )}
 
       <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <div className="relative h-[700px] w-full">
+        {/* Hero Section with subtle parallax effect */}
+        <div className="relative h-[700px] w-full overflow-hidden">
           <div className="absolute inset-0 bg-black/60 z-10" />
-          <img
+          <motion.img
+            initial={{ scale: 1.05 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 8, ease: "easeOut" }}
             src={selectedService.imageUrl}
             alt={selectedService.title}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 z-20 container mx-auto px-4 flex flex-col justify-center">
             <div className="max-w-3xl">
-              <span className="bg-white/90 text-black px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className={`bg-${primaryColorClass} text-white px-4 py-1.5 rounded-full text-sm font-medium mb-4 inline-block shadow-sm`}
+              >
                 {selectedDoctor.title}
-              </span>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              </motion.span>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
+              >
                 {selectedService.title}
-              </h1>
-              <p className="text-xl text-gray-100 backdrop-blur-sm bg-black/20 p-4 rounded-lg">
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-xl text-white backdrop-blur-sm bg-black/30 p-6 rounded-lg shadow-lg leading-relaxed"
+              >
                 {selectedService.description}
-              </p>
+              </motion.p>
             </div>
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-12">
-          {/* Doctor Info Card */}
-          <div className={`bg-white shadow-lg rounded-lg overflow-hidden mb-12 border-t-4 border-${primaryColorClass}`}>
-            <div className="p-6 flex flex-col md:flex-row md:items-center gap-6">
-              <img
-                src={selectedDoctor.imageUrl}
-                alt={selectedDoctor.name}
-                className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md mx-auto md:mx-0"
-              />
+        <div className="container mx-auto px-4 py-16">
+          {/* Doctor Info Card with subtle hover effect */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className={`bg-white shadow-lg rounded-lg overflow-hidden mb-16 border-t-4 border-${primaryColorClass} hover:shadow-xl transition-shadow duration-300`}
+          >
+            <div className="p-8 flex flex-col md:flex-row md:items-center gap-8">
+              <div className="relative">
+                <div className={`absolute inset-0 rounded-full bg-${primaryColorClass} opacity-10 transform scale-110 blur-md`}></div>
+                <img
+                  src={selectedDoctor.imageUrl}
+                  alt={selectedDoctor.name}
+                  className="relative w-36 h-36 rounded-full object-cover border-4 border-white shadow-md mx-auto md:mx-0"
+                />
+              </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 text-center md:text-left">{selectedDoctor.name}</h2>
-                <p className={`text-${textColorClass} mb-2 text-center md:text-left`}>{selectedDoctor.title}</p>
+                <p className={`text-${textColorClass} mb-3 text-center md:text-left font-medium`}>{selectedDoctor.title}</p>
                 <p className="text-gray-600 text-center md:text-left">{selectedDoctor.specialty} Specialist</p>
-                <div className="mt-4">
+                <div className="mt-5">
                   <a 
                     href={`tel:${selectedDoctor.contact}`} 
-                    className={`inline-flex items-center px-4 py-2 bg-${primaryColorClass} text-white rounded-full hover:bg-opacity-90 transition-colors duration-300`}
+                    className={`inline-flex items-center px-5 py-2.5 bg-${primaryColorClass} text-white rounded-full hover:bg-opacity-90 hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5`}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
                     Contact Doctor
@@ -359,84 +316,97 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Overview Section */}
-          <div className="bg-white shadow-md rounded-lg overflow-hidden mb-12">
-  
-            
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white shadow-md rounded-lg overflow-hidden mb-16"
+          >            
             {/* Display procedures if no subServices exist */}
             {!selectedService.subServices && renderProcedures(selectedService.procedures)}
-          </div>
+          </motion.div>
 
-          {/* Sub-services Section */}
+          {/* Sub-services Section with improved dropdown */}
           {selectedService.subServices && selectedService.subServices.length > 0 ? (
-            <div className="mb-12">
-              <h2 className={`text-2xl font-bold mb-6 text-${textColorClass}`}>Treatment Options</h2>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-16"
+            >
+              <h2 className={`text-2xl font-bold mb-8 text-${textColorClass} flex items-center`}>
+                <span className={`inline-block w-8 h-1 bg-${primaryColorClass} mr-3 rounded`}></span>
+                Treatments 
+              </h2>
               
-              {/* Accordion style subservices */}
-              <div className="space-y-4">
+              {/* Enhanced accordion style subservices */}
+              <div className="space-y-5">
                 {selectedService.subServices.map((subService) => {
                   const subServiceId = subService.slug || subService.name;
                   const isExpanded = expandedSubServiceId === subServiceId;
                   
                   return (
-                    <div key={subServiceId} className="bg-white rounded-lg shadow-md overflow-hidden">
-                      {/* Accordion Header */}
+                    <div key={subServiceId} className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ${isExpanded ? 'shadow-lg' : 'hover:shadow-lg'}`}>
+                      {/* Enhanced Accordion Header */}
                       <button
                         onClick={() => toggleSubService(subServiceId)}
-                        className={`w-full px-6 py-4 flex justify-between items-center ${isExpanded ? `bg-${accentColorClass}` : 'bg-white'}`}
+                        className={`w-full px-8 py-5 flex justify-between items-center transition-colors duration-300 ${isExpanded ? `bg-${accentColorClass}` : 'bg-white'}`}
+                        aria-expanded={isExpanded}
+                        aria-controls={`content-${subServiceId}`}
                       >
                         <div className="flex items-center">
-                          <h3 className={`text-xl font-semibold text-${isExpanded ? primaryColorClass : 'gray-800'}`}>
+                          <h3 className={`text-xl font-semibold text-${isExpanded ? primaryColorClass : 'gray-800'} transition-colors duration-300`}>
                             {subService.name}
                           </h3>
                         </div>
-                        <div className={`transform transition-transform ${isExpanded ? 'rotate-180' : 'rotate-0'}`}>
-                          <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 text-${primaryColorClass}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className={`flex items-center justify-center h-8 w-8 rounded-full bg-${isExpanded ? primaryColorClass : 'gray-100'} text-${isExpanded ? 'white' : 'gray-500'} transition-all duration-300`}>
+                          <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            className={`h-5 w-5 transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`} 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                          >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
                         </div>
                       </button>
                       
-                      {/* Accordion Content */}
-                    
+                      {/* Accordion Content with smooth animation */}
+ 
                         {isExpanded && (
                           <motion.div
+                            key={`content-${subServiceId}`}
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
                             className="overflow-hidden"
+                            id={`content-${subServiceId}`}
                           >
-                            <div className="p-6 border-t border-gray-100">
-                              {subService.imageUrl && (
-                                <img 
-                                  src={subService.imageUrl} 
-                                  alt={subService.name}
-                                  className="w-full h-64 object-cover rounded-lg mb-6"
-                                />
-                              )}
-                              
-                              {subService.description && (
-                                <div className="mb-6">
-                                  <p className="text-gray-700 leading-relaxed">{subService.description}</p>
-                                </div>
-                              )}
-                              
-                              {renderBenefits(subService.benefits)}
+                            <div className={`p-8 border-t border-gray-100 bg-gradient-to-b from-${accentColorClass} to-white`}>
+                            {subService.imageUrl && (
+  <div className="mb-8 overflow-hidden rounded-lg shadow-lg">
+    <img 
+      src={subService.imageUrl} 
+      alt={subService.name} 
+      className="w-full h-auto max-h-96 object-cover transition-transform duration-700 hover:scale-105" 
+    />
+  </div>
+)}
                               {renderProcedures(subService.procedures)}
-                              {renderSymptoms(subService.symptoms)}
-                              {renderWhoShouldConsider(subService.whoShouldConsider)}
                             </div>
                           </motion.div>
                         )}
-                      
+                       
                     </div>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           ) : null}
 
           {renderCTA()}

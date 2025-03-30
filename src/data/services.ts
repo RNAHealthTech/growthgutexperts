@@ -122,7 +122,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Liver Failure",
             slug: "liver-failure",
-            imageUrl: "/images/services/liver-care.jpg",
+            imageUrl: "/images/services/liver-failure.jpg",
             procedures: [
               "Fulminant liver failure ",
               "Acute liver failure management",
@@ -398,7 +398,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Upper GI Endoscopy",
             slug: "diagnostic-procedures",
-            imageUrl: "/images/services/diagnostic.jpg",
+            imageUrl: "/images/services/upper-gi-endo.png",
           },
           {
             name: "Colonoscopy", 
@@ -406,9 +406,9 @@ export const doctorsServices: DoctorServices[] = [
             imageUrl: "/images/services/colonoscopy.jpg"
           },
           {
-            name: "Therapeutic Procedures",
+            name: "Therapeutic",
             slug: "therapeutic-procedures",
-            imageUrl: "/images/services/therapeutic.jpg",
+            imageUrl: "/images/services/endocopic.jpeg",
             procedures: [
               "Polypectomy",
               "GI bleed management",
@@ -435,7 +435,7 @@ export const doctorsServices: DoctorServices[] = [
   {
     sub: "drmoumita",
     name: "Dr. Moumita Saha",
-    contact: "8130545130",
+    contact: "8789567806",
     title: "Pediatric and Adolescent Endocrinologist",
     specialty: "Pediatric Endocrinology and Growth Disorders",
     overview:
