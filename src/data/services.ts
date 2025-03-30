@@ -287,9 +287,10 @@ export const doctorsServices: DoctorServices[] = [
             slug: "dyspepsia",
             imageUrl: "/images/services/dyspepsia.png",
             procedures: [
-              "Gas and bloating management",
+              "Gas Problem",
+              "Bloating",
               "Excessive belching ",
-              "GERD management",
+              "Gastroesophagel reflux disease",
               "Reflux esophagitis ",
               "Eosinophilic esophagitis",
             ],
@@ -308,7 +309,7 @@ export const doctorsServices: DoctorServices[] = [
               "Stomach cancer management",
               "Gastric antral vascular ectasia (GAVE)",
               "Porto hypertensive gastropathy (PHG)",
-              "Gastric polyp removal",
+              "Gastric polyp",
               "Neuro endocrine tumor (NET)",
               "Gastrointestinal stromal tumors (GIST)",
             ],
@@ -319,11 +320,11 @@ export const doctorsServices: DoctorServices[] = [
             imageUrl: "/images/services/intestinal.jpg",
             procedures: [
               "Inflammatory Bowel Disease (IBD) ",
-              "Crohns disease management",
+              "Crohns disease",
               "Ulcerative colitis ",
-              "Colorectal polyp removal",
+              "Colorectal polyp",
               "Intestinal Tuberculosis ",
-              "Colon cancer management",
+              "Colon cancer ",
               "Colonic diverticular disease",
             ],
           },
@@ -373,7 +374,7 @@ export const doctorsServices: DoctorServices[] = [
             imageUrl: "/images/services/variceal-bleeding.avif",
             procedures: [
               "Esophageal varices ",
-              "Gastric varices management",
+              "Gastric varices",
               "Endoscopic variceal band ligation (EVL)",
               "Endoscopic Sclerotherapy",
               "Glue injection",
@@ -395,10 +396,14 @@ export const doctorsServices: DoctorServices[] = [
         imageUrl: "/images/services/endoscopy.jpg",
         subServices: [
           {
-            name: "Diagnostic",
+            name: "Upper GI Endoscopy",
             slug: "diagnostic-procedures",
             imageUrl: "/images/services/diagnostic.jpg",
-            procedures: ["Gastroscopy or Upper GI endoscopy", "Colonoscopy"],
+          },
+          {
+            name: "Colonoscopy", 
+            slug: "colonoscopy", 
+            imageUrl: "/images/services/colonoscopy.jpg"
           },
           {
             name: "Therapeutic Procedures",
@@ -414,7 +419,7 @@ export const doctorsServices: DoctorServices[] = [
             ],
           },
           {
-            name: "ERCP Services",
+            name: "ERCP",
             slug: "ercp-services",
             imageUrl: "/images/services/ercp.jpg",
             procedures: [
