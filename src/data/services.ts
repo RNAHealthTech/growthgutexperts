@@ -1,9 +1,15 @@
+export interface Procedure {
+  name: string;
+  description?: string;
+}
+
 export interface SubServiceContent {
   name: string;
-  slug: string;
-  imageUrl: string;
+  slug?: string;
+  imageUrl?: string;
+  description?: string;
   benefits?: string[];
-  procedures?: string[];
+  procedures?: Procedure[] | string[];
   symptoms?: string[];
   whoShouldConsider?: string[];
 }
@@ -13,9 +19,10 @@ export interface ServiceContent {
   slug: string;
   description: string;
   imageUrl: string;
-  overview: string;
-  s?: string[];
-  subServices: SubServiceContent[];
+  // Direct procedures if there are no subservices
+  procedures?: Procedure[] | string[];
+  // SubServices if the service has categories
+  subServices?: SubServiceContent[];
 }
 
 export interface DoctorServices {
@@ -32,20 +39,21 @@ export interface DoctorServices {
 export const doctorsServices: DoctorServices[] = [
   // Updated services array for Dr. Sushovan
   {
-    sub: 'drsushovan',
+    sub: "drsushovan",
     name: "Dr. Sushovan Baidya",
-    contact: '9474866692',
+    contact: "9474866692",
     title: "Gastroenterologist & Hepatologist",
     specialty: "Liver, Digestive System, and Gastrointestinal Disorders",
-    overview: "Dr. Sushovan Baidya is a distinguished gastroenterologist and hepatologist with extensive experience in treating complex digestive system disorders. His expertise spans across liver diseases, gastrointestinal conditions, and advanced endoscopic procedures, ensuring comprehensive care for patients with various digestive health challenges.",
+    overview:
+      "Dr. Sushovan Baidya is a distinguished gastroenterologist and hepatologist with extensive experience in treating complex digestive system disorders. His expertise spans across liver diseases, gastrointestinal conditions, and advanced endoscopic procedures, ensuring comprehensive care for patients with various digestive health challenges.",
     imageUrl: "/images/second.png",
     services: [
       {
         title: "Liver Disease Management",
         slug: "liver-disease-management",
-        description: "Our liver disease management program offers comprehensive care using cutting-edge diagnostic techniques and personalized  plans. We specialize in treating all forms of liver conditions, from acute hepatitis to chronic liver disease and cancer.",
+        description:
+          "Our liver disease management program offers comprehensive care using cutting-edge diagnostic techniques and personalized  plans. We specialize in treating all forms of liver conditions, from acute hepatitis to chronic liver disease and cancer.",
         imageUrl: "/images/services/liver-care.jpg",
-        overview: "The liver is a vital organ that plays a crucial role in metabolism, detoxification, and protein synthesis. Our liver care program encompasses prevention, early detection, and advanced  of liver diseases.",
         subServices: [
           {
             name: "Viral Hepatitis",
@@ -56,16 +64,14 @@ export const doctorsServices: DoctorServices[] = [
               "Hepatitis B",
               "Hepatitis C",
               "Hepatitis D",
-              "Hepatitis E"
-            ]
+              "Hepatitis E",
+            ],
           },
           {
             name: "Fatty Liver Disease",
             slug: "fatty-liver-disease",
             imageUrl: "/images/services/fatty-liver.jpg",
-            procedures: [
-              "MASLD / NAFLD",
-            ]
+            procedures: ["MASLD / NAFLD"],
           },
           {
             name: "Alcohol related liver diseases",
@@ -81,10 +87,7 @@ export const doctorsServices: DoctorServices[] = [
             name: "Liver Abscess",
             slug: "liver-abscess",
             imageUrl: "/images/services/liver-abscess.jpg",
-            procedures: [
-              "Pyogenic liver abscess ",
-              "Amoebic liver abscess "
-            ]
+            procedures: ["Pyogenic liver abscess ", "Amoebic liver abscess "],
           },
           {
             name: "Jaundice",
@@ -104,7 +107,7 @@ export const doctorsServices: DoctorServices[] = [
           {
             name: "Ascites",
             slug: "ascites",
-            imageUrl: "/images/services/ascites.jpg"
+            imageUrl: "/images/services/ascites.jpg",
           },
           {
             name: "Portal Hypertension",
@@ -113,8 +116,8 @@ export const doctorsServices: DoctorServices[] = [
             procedures: [
               "EHPVO ",
               "NCIPH or PSVD Management",
-              "Congenital Hepatic fibrosis "
-            ]
+              "Congenital Hepatic fibrosis ",
+            ],
           },
           {
             name: "Liver Failure",
@@ -125,23 +128,23 @@ export const doctorsServices: DoctorServices[] = [
               "Acute liver failure management",
               "Subacute liver failure care",
               "Chronic liver failure ",
-              "Acute on Chronic Liver failure (ACLF)"
-            ]
+              "Acute on Chronic Liver failure (ACLF)",
+            ],
           },
           {
             name: "Plasma Exchange (PLEX)",
             slug: "plex",
-            imageUrl: "/images/services/plex.png"
+            imageUrl: "/images/services/plex.png",
           },
           {
             name: "Liver Transplantation",
             slug: "liver-transplantation",
-            imageUrl: "/images/services/liver-transplantation.jpeg"
+            imageUrl: "/images/services/liver-transplantation.jpeg",
           },
           {
             name: "Infiltrative liver diseases",
             slug: "Infiltrative-liver-diseases",
-            imageUrl: "/images/services/infiltrative-liver-diseases.png"
+            imageUrl: "/images/services/infiltrative-liver-diseases.png",
           },
 
           {
@@ -154,8 +157,8 @@ export const doctorsServices: DoctorServices[] = [
               "ADPKD",
               "Fibronodular hyperplasia (FNH)",
               "Hepatic Adenoma",
-              "Hepatocellular carcinoma or Liver Cancer"
-            ]
+              "Hepatocellular carcinoma or Liver Cancer",
+            ],
           },
           {
             name: "Vascular Liver Diseases",
@@ -166,8 +169,8 @@ export const doctorsServices: DoctorServices[] = [
               "Portal Vein thrombosis management",
               "Non cirrhotic Intrahepatic Portal Hypertension (NCIPH)",
               "Porto Sinusoidal vascular disorder (PSVD)",
-              "Sinusoidal Obstruction Syndrome"
-            ]
+              "Sinusoidal Obstruction Syndrome",
+            ],
           },
           {
             name: "Drug Induced Liver Injury",
@@ -181,8 +184,8 @@ export const doctorsServices: DoctorServices[] = [
             procedures: [
               "Sclerosing cholangitis",
               "Primary sclerosing cholangitis (PSC)",
-              "Primary biliary cholangitis( PBC)"
-            ]
+              "Primary biliary cholangitis( PBC)",
+            ],
           },
           {
             name: "Metabolic liver diseases",
@@ -195,29 +198,27 @@ export const doctorsServices: DoctorServices[] = [
             imageUrl: "/images/services/liver-biopsy.jpg",
             procedures: [
               "Percutaneous liver biopsy",
-              "Transjugular liver biopsy"
-            ]
+              "Transjugular liver biopsy",
+            ],
           },
           {
-
             name: "Fibroscan",
             slug: "fibroscan",
             imageUrl: "/images/services/fibroscan.png",
-          }
-          ,
+          },
           {
             name: "Trans Jugular Intrahepatic Portosystemic Shunt (TIPS)",
             slug: "tips",
             imageUrl: "/images/services/tips.jpg",
-          }
-        ]
+          },
+        ],
       },
       {
         title: "Gall Bladder And Bile Duct Diseases",
         slug: "gall-bladder-and-bile-duct-diseases",
-        description: "Expert management of conditions affecting the gallbladder and bile ducts using advanced diagnostic and therapeutic techniques.",
+        description:
+          "Expert management of conditions affecting the gallbladder and bile ducts using advanced diagnostic and therapeutic techniques.",
         imageUrl: "/images/services/biliary-disorders.png",
-        overview: "Our biliary care program encompasses all aspects of gallbladder and bile duct disorders, providing both medical and interventional s.",
         subServices: [
           {
             name: "Gallbladder Disorders",
@@ -226,8 +227,8 @@ export const doctorsServices: DoctorServices[] = [
             procedures: [
               "Gall bladder Polyp ",
               "Gall bladder stones management",
-              "Gall bladder cancer "
-            ]
+              "Gall bladder cancer ",
+            ],
           },
           {
             name: "Bile Duct Disorders",
@@ -239,17 +240,17 @@ export const doctorsServices: DoctorServices[] = [
               "Bile duct cancer ",
               "Cholangitis management",
               "Obstructive jaundice ",
-              "IgG4 related cholangiopathy"
-            ]
-          }
-        ]
+              "IgG4 related cholangiopathy",
+            ],
+          },
+        ],
       },
       {
         title: "Pancreatic Diseases",
         slug: "pancreatic-diseases",
-        description: "Expert diagnosis and  of various pancreatic conditions, from inflammation to tumors, using advanced medical approaches and interventional procedures.",
+        description:
+          "Expert diagnosis and  of various pancreatic conditions, from inflammation to tumors, using advanced medical approaches and interventional procedures.",
         imageUrl: "/images/services/pancreatic-disorders.jpg",
-        overview: "Our pancreatic care program provides comprehensive management of both acute and chronic pancreatic conditions, ensuring optimal outcomes through early detection and appropriate intervention.",
         subServices: [
           {
             name: "Pancreatitis",
@@ -260,8 +261,8 @@ export const doctorsServices: DoctorServices[] = [
               "Chronic pancreatitis management",
               "Complications of pancreatitis",
               "Autoimmune pancreatitis",
-              "IgG4 related pancreatitis"
-            ]
+              "IgG4 related pancreatitis",
+            ],
           },
           {
             name: "Pancreatic Tumors",
@@ -269,17 +270,17 @@ export const doctorsServices: DoctorServices[] = [
             imageUrl: "/images/services/pancreatic-cancer.webp",
             procedures: [
               "Cystic lesions of the pancreas",
-              "Pancreatic cancer "
-            ]
-          }
-        ]
+              "Pancreatic cancer ",
+            ],
+          },
+        ],
       },
       {
         title: "Diseases of The Gastrointestinal System",
         slug: "diseases-of-the-gastrointestinal-system",
-        description: "Comprehensive care for various digestive system disorders affecting the esophagus, stomach, and intestines.",
+        description:
+          "Comprehensive care for various digestive system disorders affecting the esophagus, stomach, and intestines.",
         imageUrl: "/images/services/gi-disorders.jpg",
-        overview: "Our gastrointestinal program covers the full spectrum of digestive disorders, providing both diagnostic and therapeutic services for optimal patient outcomes.",
         subServices: [
           {
             name: "Dyspepsia",
@@ -290,13 +291,13 @@ export const doctorsServices: DoctorServices[] = [
               "Excessive belching ",
               "GERD management",
               "Reflux esophagitis ",
-              "Eosinophilic esophagitis"
-            ]
+              "Eosinophilic esophagitis",
+            ],
           },
           {
             name: "Constipation",
             slug: "constipation",
-            imageUrl: "/images/services/constipation.jpg"
+            imageUrl: "/images/services/constipation.jpg",
           },
           {
             name: "Stomach & Duodenal",
@@ -309,8 +310,8 @@ export const doctorsServices: DoctorServices[] = [
               "Porto hypertensive gastropathy (PHG)",
               "Gastric polyp removal",
               "Neuro endocrine tumor (NET)",
-              "Gastrointestinal stromal tumors (GIST)"
-            ]
+              "Gastrointestinal stromal tumors (GIST)",
+            ],
           },
           {
             name: "Intestinal",
@@ -323,8 +324,8 @@ export const doctorsServices: DoctorServices[] = [
               "Colorectal polyp removal",
               "Intestinal Tuberculosis ",
               "Colon cancer management",
-              "Colonic diverticular disease"
-            ]
+              "Colonic diverticular disease",
+            ],
           },
           {
             name: "Per Rectal Bleeding",
@@ -334,8 +335,8 @@ export const doctorsServices: DoctorServices[] = [
               "Hemorrhoids",
               "Anal fissure",
               "Rectal ulcers",
-              "Rectal cancer"
-            ]
+              "Rectal cancer",
+            ],
           },
           {
             name: "Diarrhea",
@@ -349,22 +350,22 @@ export const doctorsServices: DoctorServices[] = [
               "Small bowel diarrhea",
               "Large bowel diarrhea",
               "Steatorrhea",
-              "Irritable bowel syndrome (IBS)"
-            ]
+              "Irritable bowel syndrome (IBS)",
+            ],
           },
           {
             name: "Pain abdomen",
             slug: "abdomen",
             imageUrl: "/images/services/abdomen.webp",
-          }
-        ]
+          },
+        ],
       },
       {
         title: "Gastrointestinal Bleeding",
         slug: "gastrointestinal-bleeding",
-        description: "Expert management of various types of gastrointestinal bleeding using advanced endoscopic techniques.",
+        description:
+          "Expert management of various types of gastrointestinal bleeding using advanced endoscopic techniques.",
         imageUrl: "/images/services/gi-bleeding.gif",
-        overview: "Our program provides comprehensive care for both variceal and non-variceal bleeding, utilizing the latest therapeutic approaches.",
         subServices: [
           {
             name: "Variceal Bleeding",
@@ -375,34 +376,29 @@ export const doctorsServices: DoctorServices[] = [
               "Gastric varices management",
               "Endoscopic variceal band ligation (EVL)",
               "Endoscopic Sclerotherapy",
-              "Glue injection"
-            ]
+              "Glue injection",
+            ],
           },
           {
             name: "Non-Variceal Bleeding",
             slug: "non-variceal-bleeding",
             imageUrl: "/images/services/non-variceal.jpg",
-            procedures: [
-              "Ulcer related bleeding",
-            ]
-          }
-        ]
+            procedures: ["Ulcer related bleeding"],
+          },
+        ],
       },
       {
         title: "Endoscopy Services",
         slug: "endoscopy-services",
-        description: "State-of-the-art endoscopic procedures for diagnosis and  of various digestive system disorders.",
+        description:
+          "State-of-the-art endoscopic procedures for diagnosis and  of various digestive system disorders.",
         imageUrl: "/images/services/endoscopy.jpg",
-        overview: "Our endoscopy unit is equipped with the latest technology for both diagnostic and therapeutic procedures.",
         subServices: [
           {
             name: "Diagnostic",
             slug: "diagnostic-procedures",
             imageUrl: "/images/services/diagnostic.jpg",
-            procedures: [
-              "Gastroscopy or Upper GI endoscopy",
-              "Colonoscopy"
-            ]
+            procedures: ["Gastroscopy or Upper GI endoscopy", "Colonoscopy"],
           },
           {
             name: "Therapeutic Procedures",
@@ -414,8 +410,8 @@ export const doctorsServices: DoctorServices[] = [
               "Argon Plasma coagulation (APC)",
               "Endoscopic Sclerotherapy",
               "Endoscopic variceal band ligation (EVL)",
-              "Endoscopic glue injection"
-            ]
+              "Endoscopic glue injection",
+            ],
           },
           {
             name: "ERCP Services",
@@ -424,115 +420,105 @@ export const doctorsServices: DoctorServices[] = [
             procedures: [
               "Bile duct Stone extraction",
               "Biliary stenting",
-              "Biliary brush Cytology"
-            ]
-          }
-        ]
-      }
-    ]
+              "Biliary brush Cytology",
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
-    sub: 'drmoumita',
+    sub: "drmoumita",
     name: "Dr. Moumita Saha",
-    contact: '8130545130',
+    contact: "8130545130",
     title: "Pediatric and Adolescent Endocrinologist",
     specialty: "Pediatric Endocrinology and Growth Disorders",
-    overview: "Dr. Moumita Saha is a renowned pediatric endocrinologist specializing in hormonal disorders and growth-related conditions in children and adolescents. Her patient-centered approach ensures comprehensive care from infancy through adolescence.",
+    overview:
+      "Dr. Moumita Saha is a renowned pediatric endocrinologist specializing in hormonal disorders and growth-related conditions in children and adolescents. Her patient-centered approach ensures comprehensive care from infancy through adolescence.",
     imageUrl: "/images/first.jpg",
     services: [
       {
-        title: "Growth and Development Disorders",
-        slug: "growth-and-development-disorders",
-        description: "Comprehensive evaluation and management of various growth disorders in children, utilizing advanced diagnostic techniques and personalized treatment strategies.",
+        title: "Growth Disorders",
+        slug: "growth-disorders",
+        description:
+          "Comprehensive evaluation and management of various growth disorders in children, utilizing advanced diagnostic techniques and personalized treatment strategies.",
         imageUrl: "/images/services/growth-therapy.jpg",
-        overview: "Our growth disorders program focuses on identifying and treating various conditions affecting children's growth and development.",
         subServices: [
           {
             name: "Growth Disorders",
             slug: "growth-disorders",
-            imageUrl: "/images/services/growth-therapy.jpg",
+            imageUrl: "",
             procedures: [
-              "Short stature evaluation and management",
-              "Tall stature evaluation",
-              "Familial short stature",
-              "Idiopathic short stature",
-              "Constitutional Delay of growth and puberty",
-              "Growth hormone deficiency",
-              "Skeletal dysplasia"
-            ]
+              "Familial short stature, Idiopathic short stature",
+              "Constitutional Delay of Growth and Puberty",
+              "Growth Hormone Deficiency",
+              "Skeletal Dysplasia",
+            ],
           },
-          {
-            name: "Small for Gestational Age Management",
-            slug: "sga-management",
-            imageUrl: "/images/services/gestational-age.png",
-            procedures: [
-              "Endocrine complications",
-              "Metabolic complications",
-              "Growth monitoring and intervention"
-            ]
-          }
-        ]
+        ],
       },
       {
-        title: "Metabolic Disorders",
-        slug: "metabolic-disorders",
-        description: "Expert management of pediatric metabolic conditions including obesity and diabetes.",
+        title: "Childhood Obesity",
+        slug: "childhood-obesity",
+        description: "Expert management of obesity by Dr. Moumita Saha",
         imageUrl: "/images/services/metabolic-syndrome.jpg",
-        overview: "Our metabolic disorders program provides comprehensive care for various metabolic conditions affecting children.",
+
         subServices: [
           {
-            name: "Obesity Management",
-            slug: "obesity-management",
-            imageUrl: "/images/services/obesity-management.jpg",
+            name: "Childhood Obesity",
+            slug: "childhood-obesity",
             procedures: [
               "Exogenous obesity",
               "Metabolic syndrome",
               "Fatty liver",
               "Endogenous obesity",
-              "Monogenic obesity"
-            ]
+              "Monogenic obesity",
+            ],
           },
+        ],
+      },
+
+      {
+        title: "Childhood Diabetes",
+        slug: "childhood-diabetes",
+        imageUrl: "/images/services/diabetes-tech.jpg",
+        description: "",
+
+        subServices: [
           {
             name: "Diabetes Care",
-            slug: "diabetes-care",
-            imageUrl: "/images/services/diabetes-tech.jpg",
             procedures: [
               "Type 1 Diabetes Mellitus",
               "Type 2 Diabetes Mellitus",
               "MODY",
               "Neonatal Diabetes Mellitus",
               "Diabetic Ketoacidosis",
-              "Comprehensive Diabetes Management"
-            ]
+            ],
           },
-          {
-            name: "Lipid Disorders",
-            slug: "lipid-disorders",
-            imageUrl: "/images/services/lipid-disorders.png",
-            procedures: [
-              "Pediatric dyslipidemia",
-              "Familial hypercholesterolemia",
-              "Secondary lipid disorders"
-            ]
-          },
-          {
-            name: "Metabolic Disorders",
-            slug: "metabolic-disorders-management",
-            imageUrl: "/images/services/metabolic-disorders-management.webp",
-            procedures: [
-              "Hypoglycemia disorders in infancy",
-              "Childhood metabolic disorders",
-              "Congenital hyperinsulinemic hypoglycemia"
-            ]
-          }
-        ]
+        ],
       },
       {
-        title: "Endocrine System Disorders",
-        slug: "endocrine-system-disorders",
-        description: "Comprehensive care for various endocrine system disorders affecting children.",
-        imageUrl: "/images/services/endocrine-disorders.jpg",
-        overview: "Our program provides specialized care for various endocrine conditions affecting children.",
+        title: "Puberty Disorders (Early / Late Puberty)",
+        slug: "puberty-disorders",
+        imageUrl: "/images/services/puberty-disorders.jpg",
+        description: "",
+
+        subServices: [
+          {
+            name: "Puberty Disorders",
+            procedures: [
+              "Precocious puberty (central/ peripheral)",
+              "Delayed puberty ( hypogonadotropic/ hypergonadotropic)",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Thyroid Disorders of Children",
+        slug: "thyroid-disorders",
+        description: "",
+        imageUrl: "/images/services/thyroid-disorders.jpg",
+
         subServices: [
           {
             name: "Thyroid Disorders",
@@ -546,25 +532,41 @@ export const doctorsServices: DoctorServices[] = [
               "Graves Disease",
               "Goitre",
               "Thyroid nodules",
-              "Thyroid malignancy"
-            ]
+              "Thyroid malignancy",
+            ],
           },
+        ],
+      },
+      {
+        title: "Pituitary Disorders",
+        slug: "pituitary-disorders",
+        description:
+          "Comprehensive care for various pituitary disorders affecting children.",
+        imageUrl: "/images/services/pituitary-disorders.avif",
+        subServices: [
           {
             name: "Pituitary Disorders",
-            slug: "pituitary-disorders",
-            imageUrl: "/images/services/pituitary-disorders.jpg",
+            imageUrl: "/images/services/pituitary-disorders.avif",
             procedures: [
               "Hypopituitarism (congenital/acquired)",
               "Pituitary hypoplasia/tumors",
               "Isolated/Multiple pituitary hormone deficiency",
               "Pituitary hormone excess",
-              "Craniopharyngioma",
-              "Germinoma"
-            ]
+            ],
           },
+        ],
+      },
+
+      {
+        title: "Adrenal Disorders",
+        description:
+          "Comprehensive evaluation and treatment of adrenal conditions including Cushing's syndrome, Addison's disease, adrenal insufficiency, pheochromocytoma, and adrenal tumors by our expert endocrinologists.",
+
+        imageUrl: "/images/services/adrenal-disorders.jpg",
+        slug: "adrenal-disorders",
+        subServices: [
           {
             name: "Adrenal Disorders",
-            slug: "adrenal-disorders",
             imageUrl: "/images/services/adrenal-disorders.jpg",
             procedures: [
               "Adrenal insufficiency (congenital/acquired)",
@@ -572,57 +574,17 @@ export const doctorsServices: DoctorServices[] = [
               "Adrenal tumors",
               "Cushing syndrome",
               "Pheochromocytoma",
-              "Endocrine hypertension"
-            ]
-          }
-        ]
+              "Endocrine hypertension",
+            ],
+          },
+        ],
       },
       {
-        title: "Reproductive Health",
-        slug: "reproductive-health",
-        description: "Expert management of reproductive and puberty-related conditions in children and adolescents.",
-        imageUrl: "/images/services/reproductive-health.jpg",
-        overview: "Our reproductive health program addresses various puberty and reproductive system disorders.",
-        subServices: [
-          {
-            name: "Puberty Disorders",
-            slug: "puberty-disorders",
-            imageUrl: "/images/services/puberty-disorders.jpg",
-            procedures: [
-              "Precocious puberty (central/peripheral)",
-              "Delayed puberty (hypogonadotropic/hypergonadotropic)",
-              "Puberty induction",
-              "Puberty suppression"
-            ]
-          },
-          {
-            name: "Adolescent Reproductive Health",
-            slug: "adolescent-reproductive-health",
-            imageUrl: "/images/services/adolescent-health.jpg",
-            procedures: [
-              "Menstrual irregularities",
-              "PCOS management",
-              "Hormonal imbalances"
-            ]
-          },
-          {
-            name: "Differences of Sex Development",
-            slug: "differences-sex-development",
-            imageUrl: "/images/services/dsd.jpg",
-            procedures: [
-              "Atypical genitalia",
-              "Micropenis",
-              "Undescended testis"
-            ]
-          }
-        ]
-      },
-      {
-        title: "Bone and Mineral Disorders",
-        slug: "bone-and-mineral-disorders",
-        description: "Comprehensive care for bone metabolism and mineral disorders.",
-        imageUrl: "/images/services/bone-disorders.jpg",
-        overview: "Our program provides specialized care for various bone and mineral conditions affecting children.",
+        title: "Metabolic Bone Disorders",
+        slug: "metabolic-bone-disorders",
+        description:
+          "Comprehensive care for bone metabolism and mineral disorders.",
+        imageUrl: "/images/services/metabolic-bone.jpg",
         subServices: [
           {
             name: "Metabolic Bone Disorders",
@@ -635,77 +597,149 @@ export const doctorsServices: DoctorServices[] = [
               "Hypophosphatemic rickets",
               "Renal rickets",
               "Juvenile osteoporosis",
-              "Osteogenesis Imperfecta"
-            ]
+            ],
           },
-          {
-            name: "Calcium Disorders",
-            slug: "calcium-disorders",
-            imageUrl: "/images/services/calcium-disorders.jpg",
-            procedures: [
-              "Hypocalcemia",
-              "Hypercalcemia",
-              "Neonatal severe hyperparathyroidism",
-              "Hypomagnesemia"
-            ]
-          }
-        ]
+        ],
       },
+
       {
-        title: "Specialized Conditions",
-        slug: "specialized-conditions",
-        description: "Management of complex endocrine syndromes and systemic conditions.",
-        imageUrl: "/images/services/specialized-conditions.jpg",
-        overview: "Our program provides comprehensive care for various genetic syndromes and complex endocrine conditions.",
+        title: "Differences of Sex Development (DSD)",
+        slug: "dsd",
+        description: "Comprehensive care for children with atypical genitalia, micropenis, and undescended testis by Dr. Moumita",
+        imageUrl: "/images/services/dsd.jpg",
+
         subServices: [
           {
-            name: "Genetic Syndromes",
-            slug: "genetic-syndromes",
-            imageUrl: "/images/services/genetic-syndromes.jpg",
+            name: "Differences of Sex Development",
+            slug: "differences-sex-development",
+            imageUrl: "/images/services/dsd.jpg",
             procedures: [
-              "Turner syndrome",
-              "Prader Willi syndrome",
-              "Silver Russell syndrome",
-              "Down syndrome",
-              "McCune Albright Syndrome",
-              "Polyglandular endocrine syndromes"
-            ]
+              "Atypical genitalia",
+              "Micropenis",
+              "Undescended testis",
+            ],
           },
-          {
-            name: "Complex Medical Conditions",
-            slug: "complex-conditions",
-            imageUrl: "/images/services/glucose-testing.jpg",
-            procedures: [
-              "Endocrine complications of thalassemia",
-              "Endocrine complications of malignancy",
-              "Post-Bone Marrow Transplant complications",
-              "Cystic fibrosis related endocrine disorders"
-            ]
-          },
+        ],
+      },
+      {
+        title: "Fluid and Electrolyte disturbances",
+
+        description: "",
+        slug: "fluid-electrolyte-disorders",
+        imageUrl: "/images/services/ibd.png",
+        subServices: [
           {
             name: "Fluid and Electrolyte Disorders",
-            slug: "fluid-electrolyte-disorders",
             imageUrl: "/images/services/ibd.png",
             procedures: [
               "Diabetes Insipidus",
               "Cerebral salt wasting",
               "Hypernatremia/hyponatremia",
-              "Fluid balance disorders"
-            ]
-          }
-        ]
+              "Hypocalcemia/ hypercalcemia",
+              "Hypomagnesemia",
+            ],
+          },
+        ],
       },
       {
-        title: "Diagnostic Services",
-        slug: "diagnostic-services",
-        description: "Comprehensive endocrine testing and evaluation services.",
-        imageUrl: "/images/services/diagnostic-services.avif",
-        overview: "Our diagnostic services utilize state-of-the-art techniques for accurate evaluation of endocrine conditions.",
+        title: "Neonatal Endocrine Disorders",
+
+        description: "Expert diagnosis and treatment of hormonal disorders in newborns, including thyroid, adrenal, blood sugar, and genital development conditions.",
+        imageUrl: "/images/services/neonatal-endocrine.jpg",
+        slug: "neonatal-endocrine-disorders",
         subServices: [
           {
-            name: "Dynamic Testing",
+            name: "Neonatal Endocrine Disorders",
+            imageUrl: "/images/services/neonatal-endocrine.jpg",
+            procedures: [
+              "Congenital hyperinsulinemic hypoglycemia",
+              "Congenital hypothyroidism",
+              "Congenital adrenal hyperplasia",
+              "Neonatal severe hyperparathyroidism",
+              "Atypical genitalia/ DSD",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Reproductive Health",
+        slug: "reproductive-health",
+        description:
+          "Expert management of reproductive and puberty-related conditions in children and adolescents.",
+        imageUrl: "/images/services/reproductive-health.jpg",
+        subServices: [
+          {
+            name: "Puberty Disorders",
+            slug: "puberty-disorders",
+            imageUrl: "/images/services/puberty-disorders.jpg",
+            procedures: [
+              "Precocious puberty (central/peripheral)",
+              "Delayed puberty (hypogonadotropic/hypergonadotropic)",
+              "Puberty induction",
+              "Puberty suppression",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Syndromes Treatments",
+        slug: "syndromes-treatments",
+        description:
+          "Management of complex endocrine syndromes and systemic conditions.",
+        imageUrl: "/images/services/endocrine-syndromes.png",
+        subServices: [
+          {
+            name: "Syndromes",
+            imageUrl: "/images/services/endocrine-syndromes.png",
+            procedures: [
+              "Turner syndrome",
+              "Prader Willi syndrome",
+              "Silver Russell syndrome",
+              "Osteogenesis Imperfecta",
+              "Skeletal Dysplasia",
+              "McCune Albright Syndrome",
+              "Polyglandular endocrine syndromes",
+              "Down syndrome",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Specialized Endocrine Treatment",
+        slug: "specialized-endocrine-treatment",
+        description: "Advanced treatment for complex hormonal disorders, including diabetes care, growth therapies, and metabolic management in pediatric and adolescent patients.",
+        imageUrl: "/images/services/specialized-conditions.jpg",
+        subServices: [
+          {
+            name: "Specialized Endrocrine Treatment",
+            imageUrl:"/images/services/specialized-conditions.jpg",
+            procedures: [
+              "Endocrine complications of chronic systemic illness (e.g., thalassemia, malignancy, post-Bone Marrow Transplant, cystic fibrosis)",
+              "Endocrine and metabolic complications in Small for Gestational Age newborns",
+              "Menstrual irregularities in adolescents / PCOS management",
+              "Pediatric lipid disorders",
+              "Hypoglycemia disorders in infancy and childhood / metabolic disorders",
+              "Comprehensive Diabetes Care",
+              "Medical Nutrition Therapy",
+              "Growth Hormone Therapy",
+              "Puberty Induction",
+              "Puberty Suppression",
+              "Bisphosphonate Therapy for Bone Mineral Disorders",
+              "Hormone Replacement Therapy (Pituitary/ Adrenal Disorders)",
+            ],
+          },
+        ],
+      },
+      {
+        title: "Dynamic Endocrine Testing",
+        slug: "dynamic-endocrine-testing",
+        description: "Comprehensive endocrine testing and evaluation services.",
+        imageUrl: "/images/services/diagnostic-services.avif",
+        subServices: [
+          {
+            name: "Dynamic Endocrine Testing",
             slug: "dynamic-testing",
-            imageUrl: "/images/services/ercp.jpg",
+            imageUrl: "/images/services/diagnostic-services.avif",
             procedures: [
               "Growth hormone stimulation test",
               "GnRH analog stimulation test",
@@ -714,11 +748,11 @@ export const doctorsServices: DoctorServices[] = [
               "Dexamethasone suppression test",
               "Oral glucose tolerance test",
               "Water deprivation test",
-              "Diagnostic fasting study"
-            ]
-          }
-        ]
-      }
-    ]
-}
-]
+              "Diagnostic fasting study",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];

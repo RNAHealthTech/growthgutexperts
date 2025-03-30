@@ -8,17 +8,17 @@ import { DoctorVariant } from "../layouts/Header";
 
 interface ServicesProps {
   doctorData: DoctorProfile;
-  variant : DoctorVariant
+  variant: DoctorVariant;
 }
 
 const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
   // Find the correct doctor's services based on the doctor's name
-  const name = doctorData.personalDetails.name.toLowerCase().split(' ')
+  const name = doctorData.personalDetails.name.toLowerCase().split(' ');
   
   const currentDoctor: DoctorServices | undefined = doctorsServices.find(
     doctor => doctor.sub === `dr${name[1]}`
   );
-  console.log('Current Doctor : ',currentDoctor);
+  console.log('Current Doctor : ', currentDoctor);
 
   if (!currentDoctor) return null;
 
@@ -29,19 +29,18 @@ const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
   return (
     <>
     <Helmet>
-    <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta name="keywords" content={keywords} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:image" content={currentDoctor.imageUrl} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={currentDoctor.imageUrl} />
-        <link rel="canonical" href={`https://growthgutexperts.com/services/${currentDoctor.sub}`} />
- 
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content={keywords} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:image" content={currentDoctor.imageUrl} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={currentDoctor.imageUrl} />
+      <link rel="canonical" href={`https://growthgutexperts.com/services/${currentDoctor.sub}`} />
     </Helmet>
     <main className="flex-grow">
       <LandingSection
@@ -68,6 +67,7 @@ const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
               imageUrl={service.imageUrl}
               slug={service.slug}
               subServices={service.subServices}
+              procedures={service.procedures}
             />
           ))}
         </div>

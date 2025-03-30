@@ -2,22 +2,65 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Card, CardContent, Badge } from '../ui/card';
 import { ArrowRight } from 'lucide-react';
-
-interface SubService {
-  name: string;
-  slug: string;
-}
+import { SubServiceContent, Procedure } from "../data/services"; // Import interfaces from your data file
 
 interface ServiceCardProps {
   title: string;
   description: string;
   imageUrl: string;
   slug: string;
-  subServices: SubService[];
+  subServices?: SubServiceContent[];
+  procedures?: Procedure[] | string[];
 }
 
-
-const ServiceCard = ({ title, description, imageUrl, slug,subServices }: ServiceCardProps) => {
+const ServiceCard = ({ 
+  title, 
+  description, 
+  imageUrl, 
+  slug, 
+  subServices, 
+  procedures 
+}: ServiceCardProps) => {
+  
+  // Helper function to render list items (either procedures or subservices)
+  const renderListItems = () => {
+    if (subServices && subServices.length > 0) {
+      return (
+        <>
+          {subServices.slice(0, 3).map((service, index) => (
+            <li key={service.slug || `subservice-${index}`} className="text-sm text-muted-foreground">
+              • {service.name}
+            </li>
+          ))}
+          {subServices.length > 3 && (
+            <li className="text-sm text-primary">
+              +{subServices.length - 3} more services...
+            </li>
+          )}
+        </>
+      );
+    } else if (procedures && procedures.length > 0) {
+      return (
+        <>
+          {procedures.slice(0, 3).map((procedure, index) => {
+            const name = typeof procedure === 'string' ? procedure : procedure.name;
+            return (
+              <li key={`procedure-${index}`} className="text-sm text-muted-foreground">
+                • {name}
+              </li>
+            );
+          })}
+          {procedures.length > 3 && (
+            <li className="text-sm text-primary">
+              +{procedures.length - 3} more procedures...
+            </li>
+          )}
+        </>
+      );
+    }
+    return null;
+  };
+  
   return (
     <Card className="group h-full overflow-hidden bg-white transition-all hover:shadow-xl">
       <div className="relative h-48 w-full overflow-hidden">
@@ -40,18 +83,9 @@ const ServiceCard = ({ title, description, imageUrl, slug,subServices }: Service
           {description}
         </p>
 
-        {subServices && subServices.length > 0 && (
+        {(subServices || procedures) && (
           <ul className="mb-6 space-y-1">
-            {subServices.slice(0, 3).map((service) => (
-              <li key={service.slug} className="text-sm text-muted-foreground">
-                • {service.name}
-              </li>
-            ))}
-            {subServices.length > 3 && (
-              <li className="text-sm text-primary">
-                +{subServices.length - 3} more services...
-              </li>
-            )}
+            {renderListItems()}
           </ul>
         )}
 

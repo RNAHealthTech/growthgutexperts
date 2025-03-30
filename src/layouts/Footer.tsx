@@ -53,7 +53,7 @@ const DoctorFooter = () => {
 
   return (
     <footer className={`${bgColorClass} text-white py-12 px-6 rounded-t-[40px] shadow-lg`}>
-      <div className={`container mx-auto ${isMobile ? 'flex flex-col space-y-8' : 'grid grid-cols-1 md:grid-cols-4 gap-8'}`}>
+      <div className={`container mx-auto ${isMobile ? 'flex flex-col space-y-8' : 'grid grid-cols-1 md:grid-cols-3 gap-20'}`}>
         {/* Doctor Info */}
         <div className="space-y-4">
           <h3 className="font-fraunces text-2xl font-bold">{currentDoctor.name}</h3>
@@ -72,31 +72,20 @@ const DoctorFooter = () => {
             {currentDoctor.sub === 'drmoumita' && (
               <div className="flex items-center space-x-2">
                 <Mail size={16} className="text-white" />
-                <p className="text-sm">drmoumitasaha.16@gmail.com</p>
+                <p className="text-sm">drmoumita.paedendo@gmail.com</p>
               </div>
             )}
             {currentDoctor.sub === 'drsushovan' && (
               <div className="flex items-center space-x-2">
                 <Mail size={16} className="text-white" />
-                <p className="text-sm">sushovancmc20@gmail.com</p>
+                <p className="text-sm">drbaidya25@gmail.com</p>
               </div>
             )}
           </div>
         </div>
 
         {/* Address */}
-        <div className="space-y-4">
-          <h3 className="font-fraunces text-xl font-bold">Address</h3>
-          <div className="flex items-start space-x-2">
-            <MapPin size={16} className="text-white mt-1 flex-shrink-0" />
-            <p className="text-sm">
-              House no 2.2, Administrative Block,<br />
-              St Stephen Hospital Campus,<br />
-              Tis Hazari, Delhi, 110054
-            </p>
-          </div>
-        </div>
-
+       
         {/* Quick Links */}
         <div className="space-y-4">
           <h3 className="font-fraunces text-xl font-bold">Quick Links</h3>
@@ -109,9 +98,6 @@ const DoctorFooter = () => {
             </li>
             <li>
               <Link to="/contact" className="text-sm hover:text-gray-200 transition-colors">Contact</Link>
-            </li>
-            <li>
-              <Link to="/book-appointment" className="text-sm hover:text-gray-200 transition-colors">Book Appointment</Link>
             </li>
           </ul>
         </div>
