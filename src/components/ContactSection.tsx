@@ -58,11 +58,6 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ data, variant }
       link: `mailto:${data.contactDetails.email}`
     },
     {
-      icon: <MapPin className={`w-5 h-5 text-${colors.accent}`} />,
-      title: 'Address',
-      content: data.contactDetails.address
-    },
-    {
       icon: <Clock className={`w-5 h-5 text-${colors.accent}`} />,
       title: 'Online Consultation',
       content: data.onlineTiming

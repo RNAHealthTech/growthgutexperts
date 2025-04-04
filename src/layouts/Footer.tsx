@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Clock, Mail } from 'lucide-react';
+import { FaWhatsapp } from "react-icons/fa";
 import { doctorsServices } from '../data/services';
 
 const DoctorFooter = () => {
@@ -58,7 +59,6 @@ const DoctorFooter = () => {
         <div className="space-y-4">
           <h3 className="font-fraunces text-2xl font-bold">{currentDoctor.name}</h3>
           <p className="text-sm opacity-90">{currentDoctor.title}</p>
-          <p className="text-sm opacity-90">{currentDoctor.specialty}</p>
         </div>
 
         {/* Contact Info */}
@@ -66,7 +66,8 @@ const DoctorFooter = () => {
           <h3 className="font-fraunces text-xl font-bold">Contact</h3>
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
-              <Phone size={16} className="text-white" />
+              <Phone className="text-white" size={16} />
+              <FaWhatsapp size={16} className="text-white" />
               <p className="text-sm">{currentDoctor.contact}</p>
             </div>
             {currentDoctor.sub === 'drmoumita' && (

@@ -160,6 +160,15 @@ export const drSushovanData: DoctorProfile = {
         end: "onwards",
       },
     },
+    {
+      role: "Visiting Consultant", 
+      department: "Department of Gastroenterology and Hepatology", 
+      organization: "Sanjeevan Hospital, Daryaganj, New Delhi", 
+      duration: {
+        start: "", 
+        end:""
+      }
+    }
   ],
   pastworkExperience: [
     {
@@ -233,13 +242,13 @@ export const drSushovanData: DoctorProfile = {
   ],
   awards: [
     {
-      title: "1st Prize in Oral Paper Presentation Category",
+      title: "Prize in Oral Paper Presentation Category",
       year: "2018",
       category: "Profile of Anaemia in Elderly, APICON Odisha",
     },
     {
       title:
-        "3rd Prize in 'Dr. B.S. Ramakrishna prize for the best D.M. Thesis in Gastroenterology (or) Hepatology'",
+        "Prize in 'Dr. B.S. Ramakrishna prize for the best D.M. Thesis in Gastroenterology (or) Hepatology'",
       year: "2024",
     },
   ],
@@ -430,12 +439,12 @@ export const drMoumitaData: DoctorProfile = {
   awards: [
     {
       title:
-        "Third Prize - Poster presentation at 8th Biennial Meeting of ISPAE",
+        "Prize - Poster presentation at 8th Biennial Meeting of ISPAE",
       year: "2023",
     },
     {
       title:
-        "Consolation Prize - Poster presentation at ISPAE-ISPAD mid-term meeting",
+        "Prize - Poster presentation at ISPAE-ISPAD mid-term meeting",
       year: "2022",
     },
     {

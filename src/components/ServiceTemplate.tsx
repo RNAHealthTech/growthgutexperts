@@ -85,22 +85,22 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
 
   const generateSEOContent = () => {
     if (!selectedService || !selectedDoctor) return null;
-    
+
     const currentUrl = `https://${window.location.hostname}/services/${slug}`;
     const pageTitle = `${selectedService.title} | ${selectedDoctor.name} - ${selectedDoctor.specialty} Specialist`;
     const pageDescription = `Learn about ${selectedService.title} treatments provided by ${selectedDoctor.name}, a leading ${selectedDoctor.specialty} specialist. ${selectedService.description.substring(0, 120)}...`;
-    
+
     // Generate keywords based on service and doctor specialty
     const keywords = `${selectedService.title}, ${selectedDoctor.specialty}, ${selectedDoctor.title}, 
       ${selectedDoctor.name}, medical treatment, healthcare, specialized care, 
-      ${selectedService.subServices 
+      ${selectedService.subServices
         ? selectedService.subServices.map(sub => sub.name).join(', ')
-        : selectedService.procedures 
-          ? Array.isArray(selectedService.procedures) 
+        : selectedService.procedures
+          ? Array.isArray(selectedService.procedures)
             ? selectedService.procedures.map(proc => typeof proc === 'string' ? proc : proc.name).join(', ')
             : ''
           : ''}`;
-    
+
     // Generate structured data for the specific medical service
     const schemaMarkup = {
       "@context": "https://schema.org",
@@ -168,7 +168,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
   // Helper function to render procedures
   const renderProcedures = (procedures: Procedure[] | string[] | undefined) => {
     if (!procedures || procedures.length === 0) return null;
-    
+
     return (
       <div className="mt-8 bg-white rounded-lg shadow-md p-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -215,10 +215,10 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
           <title>{seoContent.pageTitle}</title>
           <meta name="description" content={seoContent.pageDescription} />
           <meta name="keywords" content={seoContent.keywords} />
-          
+
           {/* Canonical Link */}
           <link rel="canonical" href={seoContent.currentUrl} />
-          
+
           {/* Open Graph Tags */}
           <meta property="og:title" content={seoContent.pageTitle} />
           <meta property="og:description" content={seoContent.pageDescription} />
@@ -226,13 +226,13 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
           <meta property="og:url" content={seoContent.currentUrl} />
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="Growth Gut Experts" />
-          
+
           {/* Twitter Card Tags */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={seoContent.pageTitle} />
           <meta name="twitter:description" content={seoContent.pageDescription} />
           <meta name="twitter:image" content={seoContent.imageUrl} />
-          
+
           {/* Structured Data / Schema Markup */}
           <script type="application/ld+json">
             {JSON.stringify(seoContent.schemaMarkup)}
@@ -254,7 +254,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
           />
           <div className="absolute inset-0 z-20 container mx-auto px-4 flex flex-col justify-center">
             <div className="max-w-3xl">
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -262,7 +262,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
               >
                 {selectedDoctor.title}
               </motion.span>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -270,7 +270,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
               >
                 {selectedService.title}
               </motion.h1>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
@@ -284,7 +284,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
 
         <div className="container mx-auto px-4 py-16">
           {/* Doctor Info Card with subtle hover effect */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -304,8 +304,8 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
                 <p className={`text-${textColorClass} mb-3 text-center md:text-left font-medium`}>{selectedDoctor.title}</p>
                 <p className="text-gray-600 text-center md:text-left">{selectedDoctor.specialty} Specialist</p>
                 <div className="mt-5">
-                  <a 
-                    href={`tel:${selectedDoctor.contact}`} 
+                  <a
+                    href={`tel:${selectedDoctor.contact}`}
                     className={`inline-flex items-center px-5 py-2.5 bg-${primaryColorClass} text-white rounded-full hover:bg-opacity-90 hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5`}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -319,19 +319,19 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
           </motion.div>
 
           {/* Overview Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-white shadow-md rounded-lg overflow-hidden mb-16"
-          >            
+          >
             {/* Display procedures if no subServices exist */}
             {!selectedService.subServices && renderProcedures(selectedService.procedures)}
           </motion.div>
 
           {/* Sub-services Section with improved dropdown */}
           {selectedService.subServices && selectedService.subServices.length > 0 ? (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -339,15 +339,15 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
             >
               <h2 className={`text-2xl font-bold mb-8 text-${textColorClass} flex items-center`}>
                 <span className={`inline-block w-8 h-1 bg-${primaryColorClass} mr-3 rounded`}></span>
-                Treatments 
+                Treatments
               </h2>
-              
+
               {/* Enhanced accordion style subservices */}
               <div className="space-y-5">
                 {selectedService.subServices.map((subService) => {
                   const subServiceId = subService.slug || subService.name;
                   const isExpanded = expandedSubServiceId === subServiceId;
-                  
+
                   return (
                     <div key={subServiceId} className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ${isExpanded ? 'shadow-lg' : 'hover:shadow-lg'}`}>
                       {/* Enhanced Accordion Header */}
@@ -363,45 +363,47 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
                           </h3>
                         </div>
                         <div className={`flex items-center justify-center h-8 w-8 rounded-full bg-${isExpanded ? primaryColorClass : 'gray-100'} text-${isExpanded ? 'white' : 'gray-500'} transition-all duration-300`}>
-                          <svg 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            className={`h-5 w-5 transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`} 
-                            fill="none" 
-                            viewBox="0 0 24 24" 
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={`h-5 w-5 transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}
+                            fill="none"
+                            viewBox="0 0 24 24"
                             stroke="currentColor"
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
                         </div>
                       </button>
-                      
+
                       {/* Accordion Content with smooth animation */}
- 
-                        {isExpanded && (
-                          <motion.div
-                            key={`content-${subServiceId}`}
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="overflow-hidden"
-                            id={`content-${subServiceId}`}
-                          >
-                            <div className={`p-8 border-t border-gray-100 bg-gradient-to-b from-${accentColorClass} to-white`}>
+
+                      {isExpanded && (
+                        <motion.div
+                          key={`content-${subServiceId}`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                          id={`content-${subServiceId}`}
+                        >
+                          <div className={`p-8 border-t border-gray-100 bg-gradient-to-b from-${accentColorClass} to-white`}>
                             {subService.imageUrl && (
-  <div className="mb-8 overflow-hidden rounded-lg shadow-lg">
-    <img 
-      src={subService.imageUrl} 
-      alt={subService.name} 
-      className="w-full h-auto max-h-96 object-cover transition-transform duration-700 hover:scale-105" 
-    />
-  </div>
-)}
-                              {renderProcedures(subService.procedures)}
-                            </div>
-                          </motion.div>
-                        )}
-                       
+                              <div className="mb-8 overflow-hidden rounded-lg shadow-lg">
+                                <div className='relative w-full pb-[56.25%]'>
+                                <img
+                                  src={subService.imageUrl}
+                                  alt={subService.name}
+                                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 hover:scale-102" 
+                                  />
+                                </div>
+                              </div>
+                            )}
+                            {renderProcedures(subService.procedures)}
+                          </div>
+                        </motion.div>
+                      )}
+
                     </div>
                   );
                 })}

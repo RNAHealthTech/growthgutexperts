@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X, ChevronDown, ChevronRight, Calendar } from "lucide-react";
 import { DoctorServices } from "../data/services";
 import AppointmentModal from "../components/AppointmentModal";
@@ -24,6 +24,8 @@ const Header: React.FC<HeaderProps> = ({ doctorServices, variant }) => {
     const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
     const [isHovering, setIsHovering] = useState(false);
     const submenuRef = useRef<HTMLDivElement>(null);
+    const menuItemRef = useRef<HTMLDivElement>(null);
+    const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -48,19 +50,19 @@ const Header: React.FC<HeaderProps> = ({ doctorServices, variant }) => {
             setIsScrolled(window.scrollY > 50);
         };
 
-        const handleClickOutside = (event: MouseEvent) => {
-            if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
-                setActiveSubmenu(null);
-                setIsHovering(false);
-            }
-        };
-
         window.addEventListener('scroll', handleScroll);
-        document.addEventListener('mousedown', handleClickOutside);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    // Clear timeouts and state when unmounting
+    useEffect(() => {
+        return () => {
+            if (hoverTimeoutRef.current) {
+                clearTimeout(hoverTimeoutRef.current);
+            }
         };
     }, []);
 
@@ -68,6 +70,9 @@ const Header: React.FC<HeaderProps> = ({ doctorServices, variant }) => {
         setIsMenuOpen(false);
         setActiveSubmenu(null);
         setIsHovering(false);
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+        }
     }, [location]);
 
     const toggleMenu = () => {
@@ -89,6 +94,22 @@ const Header: React.FC<HeaderProps> = ({ doctorServices, variant }) => {
         console.log(`/services/${slug}`);
     };
 
+    const handleMouseEnter = () => {
+        // Clear any existing timeout to prevent menu from closing
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = null;
+        }
+        setIsHovering(true);
+    };
+
+    const handleMouseLeave = () => {
+        // Set a timeout before closing the menu to give user time to move to submenu
+        hoverTimeoutRef.current = setTimeout(() => {
+            setIsHovering(false);
+        }, 300); // 300ms delay before closing
+    };
+
     const renderServiceSubmenu = (isMobile: boolean) => (
         <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -102,27 +123,9 @@ const Header: React.FC<HeaderProps> = ({ doctorServices, variant }) => {
                 }
             `}
             ref={submenuRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
-            {/* View All Services Link */}
-            {/* <Link
-                to="/services"
-                className={`
-                    w-full block font-semibold
-                    ${isMobile
-                        ? 'py-2 text-gray-900 hover:text-gray-600'
-                        : 'px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 border-b'
-                    }
-                `}
-                onClick={() => {
-                    if (isMobile) {
-                        setIsMenuOpen(false);
-                        setActiveSubmenu(null);
-                    }
-                }}
-            >
-                View All Services
-            </Link> */}
-
             {/* Individual Service Links */}
             {doctorServices.services.map((service) => (
                 <button
@@ -168,8 +171,9 @@ const Header: React.FC<HeaderProps> = ({ doctorServices, variant }) => {
             <div
                 key={item.target}
                 className={`${isMobile ? 'py-2' : 'relative group px-4'}`}
-                onMouseEnter={() => !isMobile && item.hasSubmenu && setIsHovering(true)}
-                onMouseLeave={() => !isMobile && setIsHovering(false)}
+                ref={item.hasSubmenu ? menuItemRef : undefined}
+                onMouseEnter={() => !isMobile && item.hasSubmenu && handleMouseEnter()}
+                onMouseLeave={() => !isMobile && item.hasSubmenu && handleMouseLeave()}
             >
                 {item.hasSubmenu ? (
                     <>
@@ -194,9 +198,10 @@ const Header: React.FC<HeaderProps> = ({ doctorServices, variant }) => {
                             )}
                         </button>
 
-                        {((isMobile && activeSubmenu === item.name) || (!isMobile && isHovering)) &&
-                            renderServiceSubmenu(isMobile)
-                        }
+
+                            {((isMobile && activeSubmenu === item.name) || (!isMobile && isHovering)) &&
+                                renderServiceSubmenu(isMobile)
+                            }
                     </>
                 ) : (
                     <Link

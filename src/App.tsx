@@ -9,7 +9,7 @@ import DoctorPortfolio from './portfolio/DoctorPortfolio';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { HelmetProvider } from 'react-helmet-async';
 
-const useScrollToTop = () => {
+export const useScrollToTop = () => {
   const { pathname } = useLocation();
 
   React.useEffect(() => {

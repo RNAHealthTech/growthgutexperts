@@ -401,9 +401,9 @@ export const doctorsServices: DoctorServices[] = [
             imageUrl: "/images/services/upper-gi-endo.png",
           },
           {
-            name: "Colonoscopy", 
-            slug: "colonoscopy", 
-            imageUrl: "/images/services/colonoscopy.jpg"
+            name: "Colonoscopy",
+            slug: "colonoscopy",
+            imageUrl: "/images/services/colonoscopy.jpg",
           },
           {
             name: "Therapeutic",
@@ -506,11 +506,11 @@ export const doctorsServices: DoctorServices[] = [
         title: "Puberty Disorders (Early / Late Puberty)",
         slug: "puberty-disorders",
         imageUrl: "/images/services/puberty-disorders.jpg",
-        description: "",
-
+        description: "Specialized care for abnormal timing of puberty, including precocious onset and delayed development.",
         subServices: [
           {
             name: "Puberty Disorders",
+            imageUrl: "/images/services/puberty-disorders.jpg",
             procedures: [
               "Precocious puberty (central/ peripheral)",
               "Delayed puberty ( hypogonadotropic/ hypergonadotropic)",
@@ -531,7 +531,7 @@ export const doctorsServices: DoctorServices[] = [
             imageUrl: "/images/services/thyroid-disorders.jpg",
             procedures: [
               "Congenital hypothyroidism (transient/permanent)",
-              "Acquired hypothyroidism - Hashimoto thyroiditis",
+              "Hashimoto thyroiditis",
               "Subacute thyroiditis",
               "Hyperthyroidism",
               "Graves Disease",
@@ -610,7 +610,8 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Differences of Sex Development (DSD)",
         slug: "dsd",
-        description: "Comprehensive care for children with atypical genitalia, micropenis, and undescended testis by Dr. Moumita",
+        description:
+          "Comprehensive care for children with atypical genitalia, micropenis, and undescended testis by Dr. Moumita",
         imageUrl: "/images/services/dsd.jpg",
 
         subServices: [
@@ -649,7 +650,8 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Neonatal Endocrine Disorders",
 
-        description: "Expert diagnosis and treatment of hormonal disorders in newborns, including thyroid, adrenal, blood sugar, and genital development conditions.",
+        description:
+          "Expert diagnosis and treatment of hormonal disorders in newborns, including thyroid, adrenal, blood sugar, and genital development conditions.",
         imageUrl: "/images/services/neonatal-endocrine.jpg",
         slug: "neonatal-endocrine-disorders",
         subServices: [
@@ -712,12 +714,13 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Specialized Endocrine Treatment",
         slug: "specialized-endocrine-treatment",
-        description: "Advanced treatment for complex hormonal disorders, including diabetes care, growth therapies, and metabolic management in pediatric and adolescent patients.",
+        description:
+          "Advanced treatment for complex hormonal disorders, including diabetes care, growth therapies, and metabolic management in pediatric and adolescent patients.",
         imageUrl: "/images/services/specialized-conditions.jpg",
         subServices: [
           {
             name: "Specialized Endrocrine Treatment",
-            imageUrl:"/images/services/specialized-conditions.jpg",
+            imageUrl: "/images/services/specialized-conditions.jpg",
             procedures: [
               "Endocrine complications of chronic systemic illness (e.g., thalassemia, malignancy, post-Bone Marrow Transplant, cystic fibrosis)",
               "Endocrine and metabolic complications in Small for Gestational Age newborns",

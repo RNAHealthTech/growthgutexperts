@@ -10,6 +10,7 @@ import { doctorsServices } from '../data/services';
 import Services from '../components/Services';
 import BlogTemplate from '../components/BlogTemplate';
 import Blogs from '../components/Blogs';
+import { useScrollToTop } from '../App';
 
 interface DoctorPortfolioProps {
   doctorData: DoctorProfile;
@@ -73,7 +74,7 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
   }
 
   const variant = getVariant();
-
+  useScrollToTop();
 
   return (
     <MainLayout>
