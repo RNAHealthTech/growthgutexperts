@@ -446,13 +446,12 @@ export const doctorsServices: DoctorServices[] = [
         title: "Growth Disorders",
         slug: "growth-disorders",
         description:
-          "Comprehensive evaluation and management of various growth disorders in children, utilizing advanced diagnostic techniques and personalized treatment strategies.",
+          "Comprehensive care including growth asessment, individualised treatment plan and specialised hormone therapy as per requirement.",
         imageUrl: "/images/services/growth-therapy.jpg",
         subServices: [
           {
             name: "Growth Disorders",
-            slug: "growth-disorders",
-            imageUrl: "",
+            imageUrl: "/images/services/growth-therapy.jpg",
             procedures: [
               "Familial short stature, Idiopathic short stature",
               "Constitutional Delay of Growth and Puberty",
@@ -465,13 +464,13 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Childhood Obesity",
         slug: "childhood-obesity",
-        description: "Expert management of obesity by Dr. Moumita Saha",
+        description: "Comprehensive management including detailed evaluation, compication and comorbidity screening, timely intervention and individualised treatment plan.",
         imageUrl: "/images/services/metabolic-syndrome.jpg",
 
         subServices: [
           {
             name: "Childhood Obesity",
-            slug: "childhood-obesity",
+            imageUrl:"/images/services/metabolic-syndrome.jpg",
             procedures: [
               "Exogenous obesity",
               "Metabolic syndrome",
@@ -487,11 +486,11 @@ export const doctorsServices: DoctorServices[] = [
         title: "Childhood Diabetes",
         slug: "childhood-diabetes",
         imageUrl: "/images/services/diabetes-tech.jpg",
-        description: "",
-
+        description: "Comprehensive diabetes care with individualised insulin therapy, regular HbA1C monitoring / Continuous glucose monitoring (CGM), carbohydrate counting and meal planning, insulin pump therapy.",
         subServices: [
           {
             name: "Diabetes Care",
+            imageUrl: "/images/services/diabetes-tech.jpg",
             procedures: [
               "Type 1 Diabetes Mellitus",
               "Type 2 Diabetes Mellitus",
@@ -502,22 +501,7 @@ export const doctorsServices: DoctorServices[] = [
           },
         ],
       },
-      {
-        title: "Puberty Disorders (Early / Late Puberty)",
-        slug: "puberty-disorders",
-        imageUrl: "/images/services/puberty-disorders.jpg",
-        description: "Specialized care for abnormal timing of puberty, including precocious onset and delayed development.",
-        subServices: [
-          {
-            name: "Puberty Disorders",
-            imageUrl: "/images/services/puberty-disorders.jpg",
-            procedures: [
-              "Precocious puberty (central/ peripheral)",
-              "Delayed puberty ( hypogonadotropic/ hypergonadotropic)",
-            ],
-          },
-        ],
-      },
+     
       {
         title: "Thyroid Disorders of Children",
         slug: "thyroid-disorders",
@@ -567,12 +551,12 @@ export const doctorsServices: DoctorServices[] = [
         description:
           "Comprehensive evaluation and treatment of adrenal conditions including Cushing's syndrome, Addison's disease, adrenal insufficiency, pheochromocytoma, and adrenal tumors by our expert endocrinologists.",
 
-        imageUrl: "/images/services/adrenal-disorders.jpg",
+        imageUrl: "/images/services/adrenals.png",
         slug: "adrenal-disorders",
         subServices: [
           {
             name: "Adrenal Disorders",
-            imageUrl: "/images/services/adrenal-disorders.jpg",
+            imageUrl: "/images/services/adrenals.png",
             procedures: [
               "Adrenal insufficiency (congenital/acquired)",
               "Congenital adrenal hyperplasia/hypoplasia",
@@ -589,12 +573,12 @@ export const doctorsServices: DoctorServices[] = [
         slug: "metabolic-bone-disorders",
         description:
           "Comprehensive care for bone metabolism and mineral disorders.",
-        imageUrl: "/images/services/metabolic-bone.jpg",
+        imageUrl: "/images/services/metabolic.webp",
         subServices: [
           {
             name: "Metabolic Bone Disorders",
             slug: "metabolic-bone-disorders",
-            imageUrl: "/images/services/metabolic-bone.jpg",
+            imageUrl: "/images/services/metabolic.webp",
             procedures: [
               "Vitamin D deficiency rickets",
               "Refractory rickets",
@@ -652,12 +636,12 @@ export const doctorsServices: DoctorServices[] = [
 
         description:
           "Expert diagnosis and treatment of hormonal disorders in newborns, including thyroid, adrenal, blood sugar, and genital development conditions.",
-        imageUrl: "/images/services/neonatal-endocrine.jpg",
+        imageUrl: "/images/services/neonate.jpg",
         slug: "neonatal-endocrine-disorders",
         subServices: [
           {
             name: "Neonatal Endocrine Disorders",
-            imageUrl: "/images/services/neonatal-endocrine.jpg",
+            imageUrl: "/images/services/neonate.jpg",
             procedures: [
               "Congenital hyperinsulinemic hypoglycemia",
               "Congenital hypothyroidism",
@@ -669,18 +653,18 @@ export const doctorsServices: DoctorServices[] = [
         ],
       },
       {
-        title: "Reproductive Health",
-        slug: "reproductive-health",
+        title: "Puberty Disorders and Reproductive Health",
+        slug: "puberty-reproductive-health",
         description:
           "Expert management of reproductive and puberty-related conditions in children and adolescents.",
         imageUrl: "/images/services/reproductive-health.jpg",
         subServices: [
           {
-            name: "Puberty Disorders",
-            slug: "puberty-disorders",
-            imageUrl: "/images/services/puberty-disorders.jpg",
+            name: "Puberty Disorders and Reproductive Health",
+            imageUrl: "/images/services/pcos.webp",
             procedures: [
               "Precocious puberty (central/peripheral)",
+              "Menstrual irregularity in adolescents / PCOS",
               "Delayed puberty (hypogonadotropic/hypergonadotropic)",
               "Puberty induction",
               "Puberty suppression",
@@ -689,7 +673,7 @@ export const doctorsServices: DoctorServices[] = [
         ],
       },
       {
-        title: "Syndromes Treatments",
+        title: "Management of Syndromes",
         slug: "syndromes-treatments",
         description:
           "Management of complex endocrine syndromes and systemic conditions.",
@@ -722,12 +706,7 @@ export const doctorsServices: DoctorServices[] = [
             name: "Specialized Endrocrine Treatment",
             imageUrl: "/images/services/specialized-conditions.jpg",
             procedures: [
-              "Endocrine complications of chronic systemic illness (e.g., thalassemia, malignancy, post-Bone Marrow Transplant, cystic fibrosis)",
-              "Endocrine and metabolic complications in Small for Gestational Age newborns",
-              "Menstrual irregularities in adolescents / PCOS management",
-              "Pediatric lipid disorders",
-              "Hypoglycemia disorders in infancy and childhood / metabolic disorders",
-              "Comprehensive Diabetes Care",
+              "Comprehensive Diabetes Care - Insulin therpay, CGM, Insulin Pump therpy",
               "Medical Nutrition Therapy",
               "Growth Hormone Therapy",
               "Puberty Induction",
@@ -739,15 +718,33 @@ export const doctorsServices: DoctorServices[] = [
         ],
       },
       {
+        title: "Miscellaneous Conditions", 
+        slug: "miscellaneous-conditions", 
+        description: "Advanced treatment for complex hormonal and metabolic disorders, including endocrine complications in chronic illnesses, Small for Gestational Age newborns, lipid disorders, and hypoglycemia management in children.", 
+        imageUrl: "/images/services/misc.jpg", 
+        subServices: [
+          {
+            name: "Miscellaneous Conditions", 
+            imageUrl: "/images/services/misc.jpg", 
+            procedures: [
+              "Endocrine complications of chronic systemic illness (e.g., thalassemia, malignancy, post-Bone Marrow Transplant, cystic fibrosis)", 
+              "Endocrine and metabolic complications in Small for Gestational Age newborns",
+              "Pediatric lipid disorders",
+              "Hypoglycemia disorders in infancy and childhood / metabolic disorders",
+            ]
+          }
+        ]
+      }, 
+      {
         title: "Dynamic Endocrine Testing",
         slug: "dynamic-endocrine-testing",
         description: "Comprehensive endocrine testing and evaluation services.",
-        imageUrl: "/images/services/diagnostic-services.avif",
+        imageUrl: "/images/services/lab-diagnostic.jpg",
         subServices: [
           {
             name: "Dynamic Endocrine Testing",
             slug: "dynamic-testing",
-            imageUrl: "/images/services/diagnostic-services.avif",
+            imageUrl: "/images/services/lab-diagnostic.jpg",
             procedures: [
               "Growth hormone stimulation test",
               "GnRH analog stimulation test",
