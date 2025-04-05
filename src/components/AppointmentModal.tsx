@@ -31,6 +31,11 @@ const doctorFormIds = {
     drsushovan: 'xzzdgaqg' 
 };
 
+const doctorWhatsAppNumbers = {
+    drmoumita: '918789567806',
+    drsushovan: '919474866692'
+};
+
 const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose, variant }) => {
     const styles = variantStyles[variant];
     const [state, handleSubmit] = useForm(doctorFormIds[variant]);
@@ -74,8 +79,22 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose, va
     const handleFinalSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         handleSubmit(formData);
+        sendWhatsAppMessage();
     };
 
+    const sendWhatsAppMessage = () => {
+        const message = `New Appointment Request:
+        
+        Patient Name: ${formData.name}
+        Phone: ${formData.whatsapp}
+        Message: ${formData.concern}`;
+    
+        const whatsappNumber = doctorWhatsAppNumbers[variant];
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+    }
+    
     const modalContent = (
         <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 z-[1000]">
             <motion.div
@@ -98,7 +117,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose, va
                         
                         <div>
                             <label htmlFor="name" className={`block text-sm font-medium ${styles.text}`}>
-                                Name
+                              Name
                             </label>
                             <input
                                 type="text"

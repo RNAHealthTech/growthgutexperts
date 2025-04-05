@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DoctorProfile } from '../data/doctor';
 import { Card, CardContent, Button } from '../ui/index';
 import { MapPin, Phone, Mail, Linkedin, Calendar } from 'lucide-react';
-import AppointmentModal from './BookAppointmentModal';
+import AppointmentModal from '../components/AppointmentModal';
 import CTA from './CTAComponents';
 import { Helmet } from 'react-helmet-async';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -187,7 +187,7 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
           </h1>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className={`${styles.cardBg} backdrop-blur-md`}>
+            <Card className={`${styles.cardBg}`}>
               <CardContent>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
@@ -197,7 +197,7 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
                         alt={doctor.personalDetails.name}
                         className={`rounded-full border-4 ${styles.border}`}
                       />
-                      <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-${styles.accent}/20 to-${styles.accent}/10`} />
+                      <div className={`absolute inset-0 rounded-full `} />
                     </div>
                     <div>
                       <h2 className={`text-2xl font-bold ${styles.secondary}`}>
@@ -286,7 +286,7 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
               </Card>
             </div>
           </div>
-          <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+          <AppointmentModal variant={theme} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
       </div>
     </>

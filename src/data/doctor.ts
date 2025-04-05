@@ -54,6 +54,7 @@ export interface PersonalDetails {
   description: string;
   imageUrl: string;
   imageUrl2?: string;
+  imageUrl3: string;
   backgroundImage: string;
   age: number;
   gender: "Male" | "Female";
@@ -106,7 +107,8 @@ export const drSushovanData: DoctorProfile = {
       "Advanced expertise in liver and digestive health, with specialized focus on transplant hepatology. Providing comprehensive care for complex gastrointestinal conditions with cutting-edge treatments.",
     age: 34,
     imageUrl: "/images/doc2.png",
-    imageUrl2: "/images/doc2.jpg",
+    imageUrl2: "/images/doc2.JPG",
+    imageUrl3: "/images/doc2.png",
     backgroundImage: "/images/dr-sushovan.jpg",
     gender: "Male",
     maritalStatus: "Married",
@@ -304,8 +306,9 @@ export const drMoumitaData: DoctorProfile = {
     description:
       "Specialized in growth disorders, childhood obesity, diabetes, thyroid disorders and other endocrine conditions in children.",
     age: 33,
-    imageUrl2: "/images/dr-moumita.jpeg",
-    imageUrl: "/images/doc1.png",
+    imageUrl2: "/images/drmoumita.JPG",
+    imageUrl: "/images/dr2.png",
+    imageUrl3: "/images/front.png", 
     backgroundImage: "/images/dr-moumita.jpeg",
     gender: "Female",
     maritalStatus: "Married",

@@ -4,6 +4,7 @@ import { drMoumitaData, drSushovanData } from './data/doctor';
 import { useNavigate } from 'react-router-dom';
 import LandingHero from './ui/LandingHero';
 import ExpertiseSection from './ui/ExpertiseSection';
+import ImageCarousel from './ui/ImageCarousel';
 
 const LandingPage: React.FC = () => {
 
@@ -34,13 +35,15 @@ const LandingPage: React.FC = () => {
         <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
             {/* Hero Section */}
             <LandingHero />
-            {/* Doctors Section */}
+
+            {/* Doctors Section with Carousel */}
             <section className="relative py-16 px-4 sm:px-6 lg:px-8">
                 {/* Content */}
                 <div className="relative z-10">
                     <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
                         Meet Our Expert Doctors
                     </h2>
+
 
                     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Dr. Moumita's Card */}
@@ -105,13 +108,19 @@ const LandingPage: React.FC = () => {
                             </div>
                         </div>
                     </div>
+
+                    {/* Image Carousel ADDED HERE - after doctor cards */}
+                    <div className="max-w-7xl mx-auto mt-20 mb-10">
+                        <ImageCarousel />
+                    </div>
+
                 </div>
             </section>
 
-            {/* create a section why growth gut experts ? demonstrate skills in visuals of each doctor and link their subdomain with explore more for both respective doctor */}
             <ExpertiseSection />
         </div>
     );
 };
 
 export default LandingPage;
+

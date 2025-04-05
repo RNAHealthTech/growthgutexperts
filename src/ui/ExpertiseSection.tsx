@@ -59,7 +59,7 @@ const ExpertiseSection = () => {
           <div>
             <div className="flex items-center gap-4 mb-6">
               <img
-                src={drMoumitaData.personalDetails.imageUrl}
+                src={drMoumitaData.personalDetails.imageUrl3}
                 alt="Dr. Moumita"
                 className="w-16 h-16 rounded-full object-cover"
               />
