@@ -65,7 +65,6 @@ const App: React.FC = () => {
           <Route path='/*' element={<DoctorPortfolio doctorData={doctorData} />} />
         )}
         <Route path='/*' element={<LandingPage />} />
-
       </Routes>
       </HelmetProvider>
     </ParallaxProvider>
