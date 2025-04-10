@@ -9,7 +9,7 @@ import AppointmentModal from '../components/AppointmentModal';
 interface DoctorComponentConfig {
   HeroSection: React.FC<{ data: DoctorProfile }>;
   primaryColor: string;
-  secondaryColor: string;
+  secondaryColor?: string;
 }
 
 interface DoctorComponentMapType {
@@ -53,7 +53,7 @@ const HeroSection: React.FC<{
   accentColorClass: string; 
   textColorClass: string; 
   primaryImage: string;
-  secondaryImage: string;
+  secondaryImage?: string;
   variant: 'drmoumita' | 'drsushovan'; // Add variant prop
 }> = ({ 
   data, 
@@ -141,33 +141,49 @@ const HeroSection: React.FC<{
             </motion.div>
           </motion.div>
 
-          {/* Image Section */}
+          {/* Image Section - Different for each variant */}
           <motion.div
             className="w-full lg:w-1/2"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="relative aspect-square max-w-lg mx-auto">
-              <div className="absolute top-0 left-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
-                <div className={`w-full h-full bg-gradient-to-br from-${accentColorClass}/20 to-${bgColorClass}/20 p-1 rounded-2xl`}>
-                  <img
-                    src={primaryImage}
-                    alt={`${data.personalDetails.name} - Primary`}
-                    className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
-                  />
+            {variant === "drmoumita" ? (
+              // Single image for Dr. Moumita
+              <div className="relative aspect-square max-w-lg mx-auto">
+                <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+                  <div className={`w-full h-full bg-gradient-to-br from-${accentColorClass}/20 to-${bgColorClass}/20 p-1 rounded-2xl`}>
+                    <img
+                      src={primaryImage}
+                      alt={`${data.personalDetails.name}`}
+                      className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
                 </div>
               </div>
-              <div className="absolute bottom-0 right-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
-                <div className={`w-full h-full bg-gradient-to-br from-${bgColorClass}/20 to-${accentColorClass}/20 p-1 rounded-2xl`}>
-                  <img
-                    src={secondaryImage}
-                    alt={`${data.personalDetails.name} - Secondary`}
-                    className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
-                  />
+            ) : (
+              // Parallax effect with two images for Dr. Sushovan
+              <div className="relative aspect-square max-w-lg mx-auto">
+                <div className="absolute top-0 left-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
+                  <div className={`w-full h-full bg-gradient-to-br from-${accentColorClass}/20 to-${bgColorClass}/20 p-1 rounded-2xl`}>
+                    <img
+                      src={primaryImage}
+                      alt={`${data.personalDetails.name} - Primary`}
+                      className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
+                  <div className={`w-full h-full bg-gradient-to-br from-${bgColorClass}/20 to-${accentColorClass}/20 p-1 rounded-2xl`}>
+                    <img
+                      src={secondaryImage}
+                      alt={`${data.personalDetails.name} - Secondary`}
+                      className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </motion.div>
         </div>
       </div>
@@ -187,7 +203,7 @@ const DrMoumitaHero: React.FC<{ data: DoctorProfile }> = ({ data }) => (
     bgColorClass="bg-gradient-to-br from-amber-900 to-amber-800" 
     accentColorClass="white"
     textColorClass="amber-900"
-    primaryImage='/images/moumita-bg.jpg'
+    primaryImage='/images/dr2.png'
     secondaryImage='/images/moumita-bg2.jpg'
     variant="drmoumita"
   />

@@ -22,7 +22,7 @@ const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
 
   if (!currentDoctor) return null;
 
-  const pageTitle = `Expert ${currentDoctor.specialty} Services | ${currentDoctor.name}`;
+  const pageTitle = `Expert in  ${currentDoctor.specialty} Services | ${currentDoctor.name}`;
   const pageDescription = `Discover our comprehensive ${currentDoctor.specialty} services provided by ${currentDoctor.name}, a leading specialist in ${currentDoctor.title.toLowerCase()}. Schedule your consultation today.`;
   const keywords = `${currentDoctor.specialty}, ${currentDoctor.title}, medical services, healthcare, specialist doctor, ${name[1].toLowerCase()} doctor`;
 

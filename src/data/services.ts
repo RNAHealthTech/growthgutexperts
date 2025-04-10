@@ -464,7 +464,7 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Childhood Obesity",
         slug: "childhood-obesity",
-        description: "Comprehensive management including detailed evaluation, compication and comorbidity screening, timely intervention and individualised treatment plan.",
+        description: "Comprehensive management including detailed evaluation, complication and comorbidity screening, timely intervention and individualised treatment plan.",
         imageUrl: "/images/services/metabolic-syndrome.jpg",
 
         subServices: [
@@ -551,12 +551,12 @@ export const doctorsServices: DoctorServices[] = [
         description:
           "Comprehensive evaluation and treatment of adrenal conditions including Cushing's syndrome, Addison's disease, adrenal insufficiency, pheochromocytoma, and adrenal tumors by our expert endocrinologists.",
 
-        imageUrl: "/images/services/adrenals.png",
+        imageUrl: "/images/services/adrenals.jpeg",
         slug: "adrenal-disorders",
         subServices: [
           {
             name: "Adrenal Disorders",
-            imageUrl: "/images/services/adrenals.png",
+            imageUrl: "/images/services/adrenals.jpeg",
             procedures: [
               "Adrenal insufficiency (congenital/acquired)",
               "Congenital adrenal hyperplasia/hypoplasia",
@@ -573,12 +573,12 @@ export const doctorsServices: DoctorServices[] = [
         slug: "metabolic-bone-disorders",
         description:
           "Comprehensive care for bone metabolism and mineral disorders.",
-        imageUrl: "/images/services/metabolic.webp",
+        imageUrl: "/images/services/rickets.png",
         subServices: [
           {
             name: "Metabolic Bone Disorders",
             slug: "metabolic-bone-disorders",
-            imageUrl: "/images/services/metabolic.webp",
+            imageUrl: "/images/services/rickets.png",
             procedures: [
               "Vitamin D deficiency rickets",
               "Refractory rickets",
@@ -657,11 +657,11 @@ export const doctorsServices: DoctorServices[] = [
         slug: "puberty-reproductive-health",
         description:
           "Expert management of reproductive and puberty-related conditions in children and adolescents.",
-        imageUrl: "/images/services/reproductive-health.jpg",
+        imageUrl: "/images/services/puberty.jpeg",
         subServices: [
           {
             name: "Puberty Disorders and Reproductive Health",
-            imageUrl: "/images/services/pcos.webp",
+            imageUrl: "/images/services/puberty.png",
             procedures: [
               "Precocious puberty (central/peripheral)",
               "Menstrual irregularity in adolescents / PCOS",
@@ -677,11 +677,11 @@ export const doctorsServices: DoctorServices[] = [
         slug: "syndromes-treatments",
         description:
           "Management of complex endocrine syndromes and systemic conditions.",
-        imageUrl: "/images/services/endocrine-syndromes.png",
+        imageUrl: "/images/services/chromo.jpg",
         subServices: [
           {
             name: "Syndromes",
-            imageUrl: "/images/services/endocrine-syndromes.png",
+            imageUrl: "/images/services/chromo.jpg",
             procedures: [
               "Turner syndrome",
               "Prader Willi syndrome",
@@ -700,11 +700,11 @@ export const doctorsServices: DoctorServices[] = [
         slug: "specialized-endocrine-treatment",
         description:
           "Advanced treatment for complex hormonal disorders, including diabetes care, growth therapies, and metabolic management in pediatric and adolescent patients.",
-        imageUrl: "/images/services/specialized-conditions.jpg",
+        imageUrl: "/images/services/specialized-conditions.jpeg",
         subServices: [
           {
             name: "Specialized Endrocrine Treatment",
-            imageUrl: "/images/services/specialized-conditions.jpg",
+            imageUrl: "/images/services/spec.png",
             procedures: [
               "Comprehensive Diabetes Care - Insulin therpay, CGM, Insulin Pump therpy",
               "Medical Nutrition Therapy",
@@ -721,11 +721,11 @@ export const doctorsServices: DoctorServices[] = [
         title: "Miscellaneous Conditions", 
         slug: "miscellaneous-conditions", 
         description: "Advanced treatment for complex hormonal and metabolic disorders, including endocrine complications in chronic illnesses, Small for Gestational Age newborns, lipid disorders, and hypoglycemia management in children.", 
-        imageUrl: "/images/services/misc.jpg", 
+        imageUrl: "/images/services/misc.jpeg", 
         subServices: [
           {
             name: "Miscellaneous Conditions", 
-            imageUrl: "/images/services/misc.jpg", 
+            imageUrl: "/images/services/misc.jpeg", 
             procedures: [
               "Endocrine complications of chronic systemic illness (e.g., thalassemia, malignancy, post-Bone Marrow Transplant, cystic fibrosis)", 
               "Endocrine and metabolic complications in Small for Gestational Age newborns",
