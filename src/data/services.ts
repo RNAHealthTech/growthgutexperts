@@ -464,7 +464,7 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Childhood Obesity",
         slug: "childhood-obesity",
-        description: "Comprehensive management including detailed evaluation, complication and comorbidity screening, timely intervention and individualised treatment plan.",
+        description: "Comprehensive management including detailed evaluation, complication and comorbidity screening, timely intervention and individualized treatment plan.",
         imageUrl: "/images/services/metabolic-syndrome.jpg",
 
         subServices: [

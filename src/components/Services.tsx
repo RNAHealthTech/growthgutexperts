@@ -45,7 +45,7 @@ const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
     <main className="flex-grow">
       <LandingSection
         label="Our Services"
-        title={`Expert ${currentDoctor.specialty}`}
+        title={`Expert in ${currentDoctor.specialty}`}
         description={currentDoctor.overview}
         buttonText="Schedule Consultation"
         variant={variant}

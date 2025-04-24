@@ -183,23 +183,14 @@ export const blogs: BlogContent[] = [
     tags: ["pediatric health", "growth", "endocrinology"],
     content: [
       "Growth is a complex process influenced by multiple factors including genetics, nutrition, and hormonal balance.",
-      "Common growth disorders include:\n- Growth Hormone Deficiency\n- Turner Syndrome\n- Constitutional Growth Delay\n- Small for Gestational Age",
       "Early intervention is key in managing pediatric growth disorders.",
-      "Comprehensive evaluation includes genetic testing, hormonal assessments, and personalized treatment plans.",
+      "Comprehensive evaluation includes detailed growth and bone age assessment, nutritional and hormonal evaluation and genetic testing", 
       "Recognizing child growth problems early can make a significant difference in treatment outcomes. Parents should be aware of warning signs such as height significantly below peers, slow growth rate, delayed puberty, or disproportionate body parts. Regular height and weight tracking on pediatric growth charts during well-child visits helps identify concerns before they become serious.",
-
       "Normal growth patterns in children follow predictable rates, though individual variations exist. Typically, babies grow about 10 inches in their first year, while school-age children gain approximately 2-3 inches annually. Growth spurts during puberty are normal and expected. When a child consistently falls below the 3rd percentile on growth charts or crosses multiple percentile lines downward, further evaluation is recommended.",
-
       "Growth hormone therapy has revolutionized treatment for many children with short stature. This kid-friendly treatment involves daily injections that can be administered at home. Modern delivery devices minimize discomfort, and when started early, growth hormone treatment can help children reach normal or near-normal adult height. However, this therapy requires careful monitoring by pediatric endocrinologists.",
-
       "Nutrition plays a crucial role in healthy child development. Children with growth delays may benefit from specialized nutrition plans that optimize protein, calcium, vitamin D, and other essential nutrients. Even without a diagnosed condition, poor eating habits can impact a child's growth potential. A balanced diet supporting optimal growth includes lean proteins, whole grains, fruits, vegetables, and healthy fats.",
-
       "Psychological aspects of growth disorders shouldn't be overlooked. Children who are significantly shorter than peers may face bullying, self-esteem issues, and social challenges. Supportive counseling, peer support groups, and family education are important components of comprehensive care. Helping children develop resilience and confidence regardless of height is essential for emotional well-being.",
-
-      "Genetic causes of growth problems include various syndromes and inherited conditions. Modern genetic testing can identify specific mutations affecting growth pathways. For families concerned about hereditary growth disorders, genetic counseling provides valuable insights into recurrence risks and treatment options. Many specialized pediatric centers offer multidisciplinary clinics for children with genetic growth disorders.",
-
-      "Growth monitoring at home complements professional medical care. Parents can track their child's height every 3-6 months using a wall chart and compare results with age-appropriate growth charts available online. Consistent tracking helps identify concerning patterns between doctor visits. If you notice your child isn't growing as expected, documenting these observations helps healthcare providers make more informed assessments.",
-
+      "Genetic causes of growth problems include various syndromes and inherited conditions. Modern genetic testing can identify specific mutations affecting growth pathways. For families concerned about hereditary growth disorders, detailed evaluation, genetic testing and counselling provides valueable insights into recurrence risks and treatment options.",
       "The connection between sleep and growth is significant, as growth hormone is primarily released during deep sleep. Children with sleep disorders may experience compromised growth. Establishing healthy sleep habits—including consistent bedtimes, screen-free time before sleep, and addressing sleep disturbances—supports optimal growth hormone production and overall development in growing children.",
     ],
   },
@@ -216,24 +207,22 @@ export const blogs: BlogContent[] = [
     tags: ["diabetes", "pediatric care", "technology"],
     content: [
       "Type 1 diabetes management has evolved dramatically with technological advancements.",
-      "Key management strategies include:\n- Continuous Glucose Monitoring\n- Insulin Pump Therapy\n- Carbohydrate Counting\n- Lifestyle Modifications",
-      "Technology has transformed diabetes care, offering children more flexibility and better blood sugar control.",
-      "Psychological support is crucial in helping children and families navigate diabetes management.",
+      "Key management strategies include:\n- Regular blood sugar monitoring\n- Appropriate insulin therapy\n- Balanced diet and Regular physical activity.",
+      "Technology has transformed Diabetes care, with Continous glucose monitoring, Insulin pump therapy etc, offering children more flexibility and better blood sugar control.",
+     
       "Childhood diabetes signs often appear suddenly and require immediate attention. Common symptoms include excessive thirst, frequent urination, unexplained weight loss, fatigue, and irritability. Parents should seek medical help promptly if these warning signs appear, as early diagnosis prevents dangerous complications like diabetic ketoacidosis.",
 
       "Understanding kids' blood sugar levels is essential for effective diabetes management. While normal ranges typically fall between 70-180 mg/dL for children with diabetes, target ranges may vary based on age and individual factors. Regular monitoring helps identify patterns and adjustments needed in insulin dosing, meal planning, and activity levels.",
 
-      "Diabetes school management requires coordination between families, healthcare providers, and school staff. A detailed diabetes care plan outlines insulin administration, blood sugar checking, meal planning, and emergency protocols. Many states have laws ensuring children with diabetes receive appropriate support during school hours, including trained personnel to assist with diabetes care tasks.",
-
       "Insulin delivery options for children now include smart pens, pumps, and automated systems that make diabetes care more manageable. Child-friendly insulin pumps can be programmed to deliver precise insulin doses throughout the day, while hybrid closed-loop systems automatically adjust insulin based on continuous glucose readings, reducing the burden of constant decision-making.",
 
-      "Managing diabetes during childhood illnesses presents unique challenges. Sick day rules typically include more frequent blood sugar monitoring, testing for ketones, maintaining hydration, and adjusting insulin doses as needed. Parents should work with their diabetes care team to develop a specific sick day management plan for their child.",
 
       "Exercise benefits for diabetic children extend beyond general health - physical activity improves insulin sensitivity and helps maintain healthy weight. However, activity can affect blood sugar levels in different ways, sometimes causing drops during or after exercise, or occasionally raising levels during intense activities. Learning to balance activity with food and insulin adjustments is an important skill for children with diabetes.",
 
-      "Nutritional guidance for children with diabetes focuses on healthy eating patterns rather than restrictive diets. Carbohydrate counting helps match insulin doses to food intake, while emphasizing balanced meals containing protein, healthy fats, and fiber helps stabilize blood sugar levels. Working with a pediatric diabetes dietitian can help families develop kid-friendly meal plans that support both optimal nutrition and blood sugar management.",
-
+      "Nutritional guidance for children with diabetes focuses on healthy eating patterns rather than restrictive diets. Carbohydrate counting helps match insulin doses to food intake, while emphasizing balanced meals containing protein, healthy fats, and fiber helps stabilize blood sugar levels.",
       "Long-term diabetes complications can be minimized with good control during childhood years. Regular screening for early signs of eye, kidney, and nerve problems typically begins about 5 years after diagnosis. Maintaining target blood sugar levels, attending regular check-ups, and following treatment plans significantly reduces the risk of developing these complications later in life.",
+      "Managing diabetes during childhood illnesses presents unique challenges. Sick day rules typically include more frequent blood sugar monitoring, testing for ketones, maintaining hydration, and adjusting insulin doses as needed. Parents should work with their diabetes care team to develop a specific sick day management plan for their child.",
+     "Diabetes school management requires coordination between families, healthcare providers, and school staff. A detailed diabetes care plan outlines insulin administration, blood sugar checking, meal planning, and emergency protocols. Many states have laws ensuring children with diabetes receive appropriate support during school hours, including trained personnel to assist with diabetes care tasks.",
     ],
   },
   {
@@ -282,24 +271,18 @@ export const blogs: BlogContent[] = [
     tags: ["puberty", "adolescent health", "endocrinology"],
     content: [
       "Pubertal development is a complex process influenced by multiple hormonal and genetic factors.",
-      "Key puberty disorders include:\n- Precocious Puberty\n- Delayed Puberty\n- Hormonal Imbalances\n- Genetic Variations",
+      "Key puberty disorders include:\n- Precocious Puberty\n- Delayed Puberty\n- Menstrual irregularities/PCOS.",
       "Early professional evaluation can help manage potential complications.",
       "Personalized treatment approaches consider individual developmental patterns and underlying causes.",
       "Normal puberty timing varies widely among children. In girls, puberty typically begins between ages 8-13, with breast development as the first sign, followed by pubic hair growth and menstruation. Boys usually start between ages 9-14, beginning with testicular enlargement, followed by penis growth and body hair development. Understanding these normal puberty stages helps parents identify potential concerns.",
-
       "Early puberty signs that parents should watch for include rapid height growth, body odor, acne, breast development or testicular enlargement before age 8 in girls or 9 in boys. These precocious puberty symptoms can have significant physical and emotional impacts. Early development might seem advantageous initially but often leads to premature growth plate closure and potentially shorter adult height.",
-
       "Delayed puberty occurs when teens show no signs of sexual development by age 13 in girls or 14 in boys. Common causes include family patterns of late development (constitutional delay), chronic illnesses, nutritional deficiencies, hormonal disorders, and genetic conditions. Parents concerned about delayed adolescent development should consult with a pediatric endocrinologist rather than taking a wait-and-see approach.",
-
       "Diagnosing puberty disorders involves a comprehensive evaluation including detailed growth history, physical examination, bone age assessment, blood hormone levels, and sometimes genetic testing or brain imaging. These tests help determine whether early or late development results from a temporary variation or indicates an underlying medical condition requiring treatment.",
-
       "Treatment options for early puberty may include hormone-blocking medications (GnRH analogs) that temporarily pause pubertal development until a more appropriate age. For delayed puberty, hormone replacement therapy might be recommended to initiate development when needed. Timing and approach depend on the specific diagnosis, cause, and individual circumstances of each child.",
-
-      "The psychological impact of puberty disorders shouldn't be underestimated. Children developing earlier or later than peers often face teasing, social challenges, and self-image issues. Supporting your child's emotional health through open communication, age-appropriate education about body changes, and possibly counseling are important aspects of comprehensive care.",
-
       "Growth management during puberty disorders requires careful monitoring and sometimes intervention. Children with precocious puberty might initially be taller than peers but ultimately reach a shorter adult height without treatment. Conversely, teens with delayed puberty may temporarily lag behind in height but often catch up eventually. Growth velocity charts and bone age studies help predict adult height potential.",
-
-      "Family support strategies include educating siblings about the condition, maintaining normal expectations while accommodating medical needs, and creating an environment where discussions about development are normalized. Parent support groups can provide valuable insights and emotional backing during what can be a challenging time for both the affected child and family members.",
+      "The psychological impact of puberty disorders shouldn't be underestimated. Children developing earlier or later than peers often face teasing, social challenges, and self-image issues. Supporting your child's emotional health through open communication, age-appropriate education about body changes, and possibly counseling are important aspects of comprehensive care.",
+ 
+    
     ],
   },
   {
@@ -314,23 +297,21 @@ export const blogs: BlogContent[] = [
       "Comprehensive strategies for managing childhood and adolescent obesity.",
     tags: ["obesity", "pediatric health", "metabolic care"],
     content: [
-      "Childhood obesity is a complex condition involving multiple physiological and environmental factors. Many parents wonder if their child will 'grow out of' carrying extra weight, but early intervention is key to preventing long-term health issues.",
+      "Childhood obesity is a complex condition involving multiple factors such as lifestyle, screen time, physical inactivity, dietary habits, environmental factors, genetic predisposition etc. Many parents wonder if their child will 'grow out of' carrying extra weight, but early intervention is key to preventing long-term health issues.",
       
-      "Understanding childhood obesity begins with recognizing risk factors such as family history, eating patterns, activity levels, and screen time. Children with weight concerns often face both physical health challenges and emotional struggles that require sensitive care.",
+      "Understanding childhood obesity begins with recognizing risk factors such as family history, eating patterns, activity levels, and screen time. Children with weight concerns often face both physical health challenges and emotional struggles that require specialized care.",
       
-      "Comprehensive management strategies include:\n- Metabolic Assessment: Checking how your child's body processes food and energy\n- Nutritional Counseling: Learning healthy food choices that work for your family\n- Physical Activity Planning: Finding fun ways for children to be active every day\n- Psychological Support: Addressing emotional aspects of eating and body image",
+      "Comprehensive management strategies include:\n- Metabolic Assessment: Assessing the severity of obesity and screening for metabolic derangments\n- Nutritional Counseling: Learning healthy food choices that work for your family\n- Physical Activity Planning: Finding fun ways for children to be active every day\n- Psychological Support: Addressing emotional aspects of eating and body image",
       
-      "Metabolic syndrome in children (simply put: a group of health problems that increase risk for diabetes and heart disease) requires a team approach. This means your child might benefit from seeing different healthcare providers working together, including doctors, nutritionists, exercise specialists, and counselors.",
+      "Metabolic syndrome in children (simply put: a group of health problems that increase risk for diabetes and heart disease) requires a holistic and individualized management plan.",
       
-      "Early intervention can prevent long-term health complications associated with childhood obesity. Issues like high blood pressure, high blood sugar, and joint problems can start in childhood but don't have to follow into adulthood with proper care.",
+      "Early intervention can prevent long-term health complications associated with childhood obesity. Issues like high blood pressure, high blood sugar, and joint problems can start in childhood if not managed timely.",
       
       "Creating a supportive home environment is essential for managing childhood weight concerns. This includes family meals, limiting processed foods, reducing sugary drinks, and encouraging regular physical activity for the whole family.",
       
       "Weight management for children should focus on healthy growth rather than weight loss. The goal is to maintain weight while the child grows taller, allowing them to gradually reach a healthier weight-to-height ratio.",
       
       "Parents play a crucial role by modeling healthy behaviors. Children learn by watching - when they see parents enjoying healthy foods and staying active, they're more likely to develop these habits themselves.",
-      
-      "School partnerships matter in managing childhood obesity. Working with teachers, school nurses, and cafeteria staff can ensure your child has healthy options and support throughout their day.",
       
       "Success stories show that children who receive comprehensive obesity management often improve not just physically, but show better academic performance, increased confidence, and improved quality of life."
     ],

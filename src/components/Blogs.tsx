@@ -24,7 +24,7 @@ const Blogs: React.FC<BlogsProps> = ({ doctorData, variant }) => {
       <LandingSection
         label="Medical Insights"
         title="Expert Blog Posts"
-        description="Explore comprehensive health articles written by our specialists"
+        description="Explore comprehensive health articles on some common conditions"
         buttonText="Book Appointment"
         variant={variant}
         imageSrc="/images/blogs/blog-hero.jpg"
