@@ -225,39 +225,39 @@ export const blogs: BlogContent[] = [
      "Diabetes school management requires coordination between families, healthcare providers, and school staff. A detailed diabetes care plan outlines insulin administration, blood sugar checking, meal planning, and emergency protocols. Many states have laws ensuring children with diabetes receive appropriate support during school hours, including trained personnel to assist with diabetes care tasks.",
     ],
   },
-  {
-    id: "thyroid-disorders-children",
-    subdomain: "drmoumita",
+  // {
+  //   id: "thyroid-disorders-children",
+  //   subdomain: "drmoumita",
 
-    title: "Thyroid Disorders in Children: What Parents Should Know",
-    slug: "thyroid-disorders-children",
+  //   title: "Thyroid Disorders in Children: What Parents Should Know",
+  //   slug: "thyroid-disorders-children",
 
-    imageUrl: "/images/blogs/pediatric-thyroid.jpg",
-    description:
-      "Expert insights into thyroid conditions affecting children and adolescents.",
-    tags: ["thyroid", "pediatric health", "endocrinology"],
-    content: [
-      "Thyroid disorders can significantly impact a child's growth, development, and overall health.",
-      "Key thyroid conditions include:\n- Congenital Hypothyroidism\n- Graves' Disease\n- Hashimoto's Thyroiditis\n- Thyroid Nodules",
-      "Newborn screening plays a crucial role in early detection of thyroid disorders.",
-      "Comprehensive management involves regular monitoring, medication, and holistic care approach.",
-      "Recognizing pediatric thyroid symptoms can be challenging as they often mimic other childhood conditions. In hypothyroidism, children may show fatigue, cold sensitivity, constipation, dry skin, and slowed growth. Hyperthyroidism typically presents with weight loss despite increased appetite, anxiety, difficulty concentrating, sleep problems, and rapid heart rate. Parents should watch for these warning signs and discuss concerns with their pediatrician.",
+  //   imageUrl: "/images/blogs/pediatric-thyroid.jpg",
+  //   description:
+  //     "Expert insights into thyroid conditions affecting children and adolescents.",
+  //   tags: ["thyroid", "pediatric health", "endocrinology"],
+  //   content: [
+  //     "Thyroid disorders can significantly impact a child's growth, development, and overall health.",
+  //     "Key thyroid conditions include:\n- Congenital Hypothyroidism\n- Graves' Disease\n- Hashimoto's Thyroiditis\n- Thyroid Nodules",
+  //     "Newborn screening plays a crucial role in early detection of thyroid disorders.",
+  //     "Comprehensive management involves regular monitoring, medication, and holistic care approach.",
+  //     "Recognizing pediatric thyroid symptoms can be challenging as they often mimic other childhood conditions. In hypothyroidism, children may show fatigue, cold sensitivity, constipation, dry skin, and slowed growth. Hyperthyroidism typically presents with weight loss despite increased appetite, anxiety, difficulty concentrating, sleep problems, and rapid heart rate. Parents should watch for these warning signs and discuss concerns with their pediatrician.",
 
-      "Thyroid testing for kids involves simple blood tests measuring levels of thyroid hormones (T3 and T4) and thyroid-stimulating hormone (TSH). Elevated TSH with low thyroid hormones indicates hypothyroidism, while low TSH with high hormone levels suggests hyperthyroidism. Additional tests may include thyroid antibodies to diagnose autoimmune conditions and imaging studies to evaluate thyroid structure.",
+  //     "Thyroid testing for kids involves simple blood tests measuring levels of thyroid hormones (T3 and T4) and thyroid-stimulating hormone (TSH). Elevated TSH with low thyroid hormones indicates hypothyroidism, while low TSH with high hormone levels suggests hyperthyroidism. Additional tests may include thyroid antibodies to diagnose autoimmune conditions and imaging studies to evaluate thyroid structure.",
 
-      "Childhood hypothyroidism treatment primarily involves daily oral thyroid hormone replacement (levothyroxine). This medication is available in various strengths and forms, making it easier to administer to children of different ages. Proper dosing is critical and typically adjusted as children grow. When started early, treatment can prevent developmental delays and growth problems associated with untreated hypothyroidism.",
+  //     "Childhood hypothyroidism treatment primarily involves daily oral thyroid hormone replacement (levothyroxine). This medication is available in various strengths and forms, making it easier to administer to children of different ages. Proper dosing is critical and typically adjusted as children grow. When started early, treatment can prevent developmental delays and growth problems associated with untreated hypothyroidism.",
 
-      "Managing hyperthyroidism in children may involve anti-thyroid medications, radioactive iodine therapy, or occasionally surgery. The treatment approach depends on the child's age, severity of symptoms, and underlying cause. Regular monitoring ensures optimal thyroid function while minimizing potential side effects of treatment.",
+  //     "Managing hyperthyroidism in children may involve anti-thyroid medications, radioactive iodine therapy, or occasionally surgery. The treatment approach depends on the child's age, severity of symptoms, and underlying cause. Regular monitoring ensures optimal thyroid function while minimizing potential side effects of treatment.",
 
-      "The link between thyroid health and child development is significant. Thyroid hormones affect brain development, growth patterns, metabolism, and energy levels. Undiagnosed or poorly managed thyroid disorders can lead to short stature, delayed puberty, poor school performance, and even permanent developmental issues. Timely intervention helps children reach their full growth and developmental potential.",
+  //     "The link between thyroid health and child development is significant. Thyroid hormones affect brain development, growth patterns, metabolism, and energy levels. Undiagnosed or poorly managed thyroid disorders can lead to short stature, delayed puberty, poor school performance, and even permanent developmental issues. Timely intervention helps children reach their full growth and developmental potential.",
 
-      "Dietary considerations for children with thyroid disorders include ensuring adequate iodine intake, which is essential for thyroid hormone production. Extremely high intake of goitrogens (compounds found in some raw vegetables like cabbage and broccoli) may interfere with thyroid function in sensitive individuals, but moderate consumption as part of a balanced diet is generally safe and healthy.",
+  //     "Dietary considerations for children with thyroid disorders include ensuring adequate iodine intake, which is essential for thyroid hormone production. Extremely high intake of goitrogens (compounds found in some raw vegetables like cabbage and broccoli) may interfere with thyroid function in sensitive individuals, but moderate consumption as part of a balanced diet is generally safe and healthy.",
 
-      "School performance often improves when thyroid disorders are properly treated. Children with undiagnosed hypothyroidism may struggle with fatigue, memory issues, and slow processing speed, while those with hyperthyroidism might have difficulty concentrating due to restlessness and anxiety. Teachers and school counselors can provide valuable feedback about behavioral and academic changes that might indicate thyroid imbalances.",
+  //     "School performance often improves when thyroid disorders are properly treated. Children with undiagnosed hypothyroidism may struggle with fatigue, memory issues, and slow processing speed, while those with hyperthyroidism might have difficulty concentrating due to restlessness and anxiety. Teachers and school counselors can provide valuable feedback about behavioral and academic changes that might indicate thyroid imbalances.",
 
-      "Long-term outlook for children with thyroid conditions is generally positive with proper management. Most children with well-controlled thyroid disorders lead normal, healthy lives. Regular follow-up with pediatric endocrinologists, medication compliance, and lifestyle support ensure optimal outcomes. Parents should work closely with healthcare providers to adjust treatment plans as children grow and their needs change.",
-    ],
-  },
+  //     "Long-term outlook for children with thyroid conditions is generally positive with proper management. Most children with well-controlled thyroid disorders lead normal, healthy lives. Regular follow-up with pediatric endocrinologists, medication compliance, and lifestyle support ensure optimal outcomes. Parents should work closely with healthcare providers to adjust treatment plans as children grow and their needs change.",
+  //   ],
+  // },
   {
     id: "puberty-disorders-guide",
     subdomain: "drmoumita",
