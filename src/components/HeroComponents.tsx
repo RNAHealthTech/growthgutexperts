@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { DoctorProfile } from '../data/doctor';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react';
 import AppointmentModal from '../components/AppointmentModal';
-
+import { Link } from 'react-router-dom';
 
 interface DoctorComponentConfig {
   HeroSection: React.FC<{ data: DoctorProfile }>;
@@ -71,11 +70,11 @@ const HeroSection: React.FC<{
       className={`relative min-h-[90vh] ${bgColorClass} px-4 sm:px-6 lg:px-8`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      {/* ... keep existing decorative elements ... */}
-
+      transition={{ duration: 0.8 }}>
       <div className="relative z-10 max-w-7xl mx-auto pt-20 lg:pt-32 pb-16">
+        <Link to='https://growthgutexperts.com/'>
+        <ArrowLeft className='text-white h-8 w-8'  />
+        </Link>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Content Section */}
           <motion.div

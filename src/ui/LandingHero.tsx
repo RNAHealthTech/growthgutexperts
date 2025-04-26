@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Parallax } from "react-scroll-parallax";
-import AppointmentModal from "../components/BookAppointmentModal";
+import AppointmentModal from "../ui/AppointmentMixture";
+import { ArrowLeftIcon } from "lucide-react";
 
 const AnimatedLetter = ({ letter }: { letter: string }) => (
     <motion.span
@@ -51,6 +52,8 @@ const LandingHero: React.FC = () => {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto pt-20 lg:pt-32 pb-16">
+
+
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
                     {/* Content Section */}
                     <motion.div
@@ -108,17 +111,19 @@ const LandingHero: React.FC = () => {
                             transition={{ delay: 0.8 }}
                         >
                             <button
+                                onClick={()=>setIsModalOpen(true)}
                                 className="px-8 py-3 bg-yellow-400 text-blue-900 rounded-lg font-semibold hover:bg-white transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                                 Book Appointment
                             </button>
                             <button
-                                
+
                                 className="px-8 py-3 bg-white/90 text-blue-900 rounded-lg font-semibold hover:bg-yellow-300 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                             >
                                 Explore More
                             </button>
                         </motion.div>
                     </motion.div>
+
 
                     {/* Image Section */}
                     <div className="w-full lg:w-1/2">
@@ -157,7 +162,6 @@ const LandingHero: React.FC = () => {
                     </div>
                 </div>
             </div>
-
             <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </motion.section>
     );

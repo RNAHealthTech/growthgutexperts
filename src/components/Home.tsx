@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { DoctorProfile, drMoumitaData, drSushovanData } from '../data/doctor';
-import { ArrowRight, Award, GraduationCap, Stethoscope, FileText } from 'lucide-react';
 import { getDoctorComponents } from './HeroComponents';
 import HomeAboutSection from './HomeAbout';
 import HomeServicesSection from './HomeService';
