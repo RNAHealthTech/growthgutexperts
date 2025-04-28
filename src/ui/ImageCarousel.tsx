@@ -38,9 +38,7 @@ const ImageCarousel: React.FC = () => {
             caption: ""
         
         }, 
-        {
-            src: "/images/"
-        }
+        
     ], []);
 
     const resetTimeout = () => {
