@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import LandingHero from './ui/LandingHero';
 import ExpertiseSection from './ui/ExpertiseSection';
 import ImageCarousel from './ui/ImageCarousel';
+import Banner from './ui/instabanner';
 
 const LandingPage: React.FC = () => {
 
@@ -101,8 +102,7 @@ const LandingPage: React.FC = () => {
                                 </div>
                                 <button
                                     onClick={() => navigateToSubdomain('drsushovan')}
-                                    className="flex items-center justify-center w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-500 transition-all duration-300 shadow-md hover:shadow-lg"
-                                >
+                                    className="flex items-center justify-center w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-500 transition-all duration-300 shadow-md hover:shadow-lg">
                                     View Profile <ArrowRight className="ml-2 h-4 w-4" />
                                 </button>
                             </div>
@@ -116,8 +116,8 @@ const LandingPage: React.FC = () => {
 
                 </div>
             </section>
-
-            <ExpertiseSection />
+            <ExpertiseSection id="expertise-section" />
+            <Banner instagramHandle='growthgutexperts' />
         </div>
     );
 };

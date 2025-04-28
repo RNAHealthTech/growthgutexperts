@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Parallax } from "react-scroll-parallax";
 import AppointmentModal from "../ui/AppointmentMixture";
-import { ArrowLeftIcon } from "lucide-react";
+
 
 const AnimatedLetter = ({ letter }: { letter: string }) => (
     <motion.span
@@ -60,8 +60,7 @@ const LandingHero: React.FC = () => {
                         className="w-full lg:w-1/2 text-center lg:text-left"
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.6 }}
-                    >
+                        transition={{ duration: 0.6 }}>
                         <motion.div
                             className="inline-block px-4 py-1 bg-blue-100 rounded-full text-blue-600 text-sm font-semibold mb-6"
                             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +100,7 @@ const LandingHero: React.FC = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
                         >
-                            Specialized medical care in Pediatric Endocrinology and Hepatology & Gastroenterology delivering individualised treatment plans tailored to the unique needs of you and your family.
+                            Specialized medical care in Pediatric Endocrinology and Hepatology & Gastroenterology delivering individualized treatment plans tailored to the unique needs of you and your family.
                         </motion.p>
 
                         <motion.div
@@ -116,9 +115,13 @@ const LandingHero: React.FC = () => {
                                 Book Appointment
                             </button>
                             <button
-
-                                className="px-8 py-3 bg-white/90 text-blue-900 rounded-lg font-semibold hover:bg-yellow-300 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                            >
+                                onClick={()=> {
+                                    const section =document.getElementById('expertise-section');
+                                    if (section){
+                                        section.scrollIntoView( {  behavior: 'smooth' })
+                                    }
+                                }}
+                                className="px-8 py-3 bg-white/90 text-blue-900 rounded-lg font-semibold hover:bg-yellow-300 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                                 Explore More
                             </button>
                         </motion.div>
@@ -151,7 +154,7 @@ const LandingHero: React.FC = () => {
                                 >
                                     <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 p-1 rounded-2xl">
                                         <img
-                                            src="/images/guts.jpg"
+                                            src="/images/logo.jpeg"
                                             alt="Hepatology Care"
                                             className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
                                         />

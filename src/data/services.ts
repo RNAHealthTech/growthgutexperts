@@ -250,7 +250,7 @@ export const doctorsServices: DoctorServices[] = [
         slug: "pancreatic-diseases",
         description:
           "Expert diagnosis and  of various pancreatic conditions, from inflammation to tumors, using advanced medical approaches and interventional procedures.",
-        imageUrl: "/images/services/pancreatic-disorders.jpg",
+        imageUrl: "/images/services/pancreas.jpg",
         subServices: [
           {
             name: "Pancreatitis",
@@ -393,7 +393,7 @@ export const doctorsServices: DoctorServices[] = [
         slug: "endoscopy-services",
         description:
           "State-of-the-art endoscopic procedures for diagnosis and  of various digestive system disorders.",
-        imageUrl: "/images/services/endoscopy.jpg",
+        imageUrl: "/images/services/endoscopy.avif",
         subServices: [
           {
             name: "Upper GI Endoscopy",
@@ -700,13 +700,13 @@ export const doctorsServices: DoctorServices[] = [
         slug: "specialized-endocrine-treatment",
         description:
           "Advanced treatment for complex hormonal disorders, including diabetes care, growth therapies, and metabolic management in pediatric and adolescent patients.",
-        imageUrl: "/images/services/specialized-conditions.jpeg",
+        imageUrl: "/images/services/misc.jpeg", 
         subServices: [
           {
-            name: "Specialized Endrocrine Treatment",
+            name: "Specialized Endocrine Treatment",
             imageUrl: "/images/services/spec.png",
             procedures: [
-              "Comprehensive Diabetes Care - Insulin therpay, CGM, Insulin Pump therpy",
+              "Comprehensive Diabetes Care - Insulin therpay, CGM, Insulin Pump therapy",
               "Medical Nutrition Therapy",
               "Growth Hormone Therapy",
               "Puberty Induction",
@@ -739,7 +739,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Dynamic Endocrine Testing",
         slug: "dynamic-endocrine-testing",
         description: "Comprehensive endocrine testing and evaluation services.",
-        imageUrl: "/images/services/lab-diagnostic.jpg",
+        imageUrl: "/images/services/specialized-conditions.jpeg",
         subServices: [
           {
             name: "Dynamic Endocrine Testing",

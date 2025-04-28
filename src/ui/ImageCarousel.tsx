@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import  { useNavigate } from 'react-router-dom';
 
 const ImageCarousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -6,25 +7,41 @@ const ImageCarousel: React.FC = () => {
     const [carouselHeight, setCarouselHeight] = useState<number>(0);
     const carouselRef = useRef<HTMLDivElement>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const navigate = useNavigate();
 
-    // Sample carousel images - replace with your actual images
-    const images = useMemo(() =>   [
+    
+
+    const images = useMemo(() => [
         {
-            src: "/images/doc.jpg",
-            alt: "growth gut",
-            caption: "Growth & Gut Experts"
+            src: "/images/doc-carousel.jpeg",
+            alt: "growth gut experts",
+            caption: ""
         },
         {
-            src: "/images/in-lab.jpg",
+            src: "/images/image-4.jpeg",
             alt: "Doctor with patient",
-            caption: "Dr Sushovan at work"
+            caption: ""
         },
         {
-            src: "/images/image-3.jpg",
+            src: "/images/image-5.jpeg",
             alt: "work",
-            caption: "Dr Moumita at work"
+            caption: ""
         },
-    ],[]);
+        {
+            src: '/images/image-3.jpeg', 
+            alt: "", 
+            caption: ""
+        }, 
+        {
+            src: "/images/in-lab.jpeg", 
+            alt: "Dr. Sushovan at work", 
+            caption: ""
+        
+        }, 
+        {
+            src: "/images/"
+        }
+    ], []);
 
     const resetTimeout = () => {
         if (timeoutRef.current) {
@@ -100,6 +117,7 @@ const ImageCarousel: React.FC = () => {
     }, [currentIndex, images.length]);
 
     return (
+        <>
         <div
             ref={carouselRef}
             className="relative w-full overflow-hidden"
@@ -141,8 +159,7 @@ const ImageCarousel: React.FC = () => {
                         setCurrentIndex(prev => prev === images.length - 1 ? 0 : prev + 1);
                     }}
                     className="bg-black/20 hover:bg-black/40 text-white h-full px-4"
-                    aria-label="Next slide"
-                >
+                    aria-label="Next slide">
                     <span className="sr-only">Next</span>
                     ❯
                 </button>
@@ -160,7 +177,18 @@ const ImageCarousel: React.FC = () => {
                     />
                 ))}
             </div>
+
+            
         </div>
+        <div className="flex justify-center mt-10">
+        <button
+            onClick={() => navigate('/gallery')}
+            className="bg-blue-700 text-lg hover:bg-yellow-700 text-white font-semibold py-3 px-6 rounded-md shadow-md transition duration-300 flex items-center"
+        >
+            View Full Gallery
+        </button>
+    </div>
+    </>
     );
 };
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Clock, Mail } from 'lucide-react';
 import { FaWhatsapp } from "react-icons/fa";
 import { doctorsServices } from '../data/services';
+import Banner from '../ui/instabanner';
 
 const DoctorFooter = () => {
   const [currentDoctor, setCurrentDoctor] = useState<any>(null);
@@ -59,6 +60,12 @@ const DoctorFooter = () => {
         <div className="space-y-4">
           <h3 className="font-fraunces text-2xl font-bold">{currentDoctor.name}</h3>
           <p className="text-sm opacity-90">{currentDoctor.title}</p>
+          <a 
+            href='https://instagram.com/growthgutexperts'  
+            className="inline-block px-4 py-2 rounded-md text-sm md:text-base font-semibold text-white bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 hover:from-purple-600 hover:via-pink-600 hover:to-yellow-600 transition-all"
+          >
+            @growthgutexperts
+          </a>
         </div>
 
         {/* Contact Info */}
@@ -66,8 +73,7 @@ const DoctorFooter = () => {
           <h3 className="font-fraunces text-xl font-bold">Contact</h3>
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
-              <Phone className="text-white" size={16} />
-              <FaWhatsapp size={16} className="text-white" />
+               <FaWhatsapp size={16} className="text-white" />
               <p className="text-sm">{currentDoctor.contact}</p>
             </div>
             {currentDoctor.sub === 'drmoumita' && (

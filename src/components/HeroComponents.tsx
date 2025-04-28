@@ -162,21 +162,12 @@ const HeroSection: React.FC<{
               </div>
             ) : (
               // Parallax effect with two images for Dr. Sushovan
-              <div className="relative aspect-square max-w-lg mx-auto">
-                <div className="absolute top-0 left-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative max-w-lg mx-auto">
+                <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                   <div className={`w-full h-full bg-gradient-to-br from-${accentColorClass}/20 to-${bgColorClass}/20 p-1 rounded-2xl`}>
                     <img
                       src={primaryImage}
                       alt={`${data.personalDetails.name} - Primary`}
-                      className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
-                    />
-                  </div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl">
-                  <div className={`w-full h-full bg-gradient-to-br from-${bgColorClass}/20 to-${accentColorClass}/20 p-1 rounded-2xl`}>
-                    <img
-                      src={secondaryImage}
-                      alt={`${data.personalDetails.name} - Secondary`}
                       className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
                     />
                   </div>
@@ -214,7 +205,7 @@ const DrSushovanHero: React.FC<{ data: DoctorProfile }> = ({ data }) => (
     bgColorClass="bg-gradient-to-br from-blue-900 to-blue-800" 
     accentColorClass="white"
     textColorClass="blue-900"
-    primaryImage='/images/sushovan-bg.jpg'
+    primaryImage='/images/sushovan-bg.png'
     secondaryImage='/images/sushovan-bg2.jpg'
     variant="drsushovan"
   />

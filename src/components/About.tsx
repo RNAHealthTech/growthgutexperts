@@ -378,10 +378,7 @@ const About: React.FC<AboutProps> = ({ doctorData, bgColorClass }) => {
                           <p className="text-gray-700">{work.department}</p>
                         )}
                         <p className="text-gray-600">{work.organization}</p>
-                        <div className="flex items-center gap-2 mt-2 text-sm text-gray-500">
-                          <Clock className="w-4 h-4" />
-                          {work.duration.start} - {work.duration.end}
-                        </div>
+ 
                       </div>
                     </div>
                   </div>

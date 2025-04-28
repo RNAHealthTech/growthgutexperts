@@ -11,7 +11,6 @@ interface BlogsProps {
 }
 
 const Blogs: React.FC<BlogsProps> = ({ doctorData, variant }) => {
-  // Find the correct doctor's blogs based on the doctor's name
   const name = doctorData.personalDetails.name.toLowerCase().split(' ');
   const subdomain = `dr${name[1]}`;
   

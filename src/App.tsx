@@ -8,6 +8,7 @@ import { drSushovanData, drMoumitaData } from './data/doctor';
 import DoctorPortfolio from './portfolio/DoctorPortfolio';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { HelmetProvider } from 'react-helmet-async';
+import Gallery from './components/Gallery';
 
 export const useScrollToTop = () => {
   const { pathname } = useLocation();
@@ -65,6 +66,7 @@ const App: React.FC = () => {
           <Route path='/*' element={<DoctorPortfolio doctorData={doctorData} />} />
         )}
         <Route path='/*' element={<LandingPage />} />
+        <Route path='/gallery' element={<Gallery />} />
       </Routes>
       </HelmetProvider>
     </ParallaxProvider>

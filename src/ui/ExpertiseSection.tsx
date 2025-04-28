@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Brain, Heart, Activity, Baby, Dna, Hospital, TestTube, Syringe, Microscope, type LucideIcon } from 'lucide-react';
+import { ArrowRight, Brain,  Activity, Baby, Dna, Hospital, TestTube, Syringe, Microscope, type LucideIcon } from 'lucide-react';
 import { drMoumitaData, drSushovanData } from '../data/doctor';
 
 interface ServiceCardProps {
@@ -19,7 +19,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
   </div>
 );
 
-const ExpertiseSection = () => {
+const ExpertiseSection: React.FC<{ id?: string}> = ({id}) => {
 
   const navigateToSubdomain = (subdomain: string) => {
     const hostname = window.location.hostname;
@@ -43,7 +43,7 @@ const ExpertiseSection = () => {
   };
   return (
 
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
+    <section id={id} className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

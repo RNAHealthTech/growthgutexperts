@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DoctorProfile } from '../data/doctor';
 import { Card, CardContent, Button } from '../ui/index';
-import { MapPin, Phone, Mail, Linkedin, Calendar } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, Calendar, Clock, Instagram } from 'lucide-react';
 import AppointmentModal from '../components/AppointmentModal';
 import CTA from './CTAComponents';
 import { Helmet } from 'react-helmet-async';
@@ -40,7 +40,7 @@ const themeConfig = {
 };
 
 const mapUrls = {
-  drmoumita: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.763413932411!2d77.21203957592637!3d28.66680178252283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen%27s%20Hospital!5e0!3m2!1sen!2sin!4v1743771131566!5m2!1sen!2sin",
+  drmoumita: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.755739746838!2d77.24503748885499!3d28.547060699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3db92c5437f%3A0x5776bd8ffe80c26!2sFortis%20C-Doc%20Hospital%20%7C%20Best%20Hospital%20in%20Delhi!5e0!3m2!1sen!2sin!4v1745833346425!5m2!1sen!2sin",
   drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.763413932411!2d77.21203957592637!3d28.66680178252283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen%27s%20Hospital!5e0!3m2!1sen!2sin!4v1743771131566!5m2!1sen!2sin"
 };
 
@@ -52,6 +52,12 @@ const mapUrls = {
 
 // Secondary map URL for Dr. Sushovan
 const secondaryMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6193721508516!2d77.24040957592568!3d28.64116778368782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcd97cfadb5b%3A0xeec8c89cdfac676d!2sSanjeevan%20Hospital!5e0!3m2!1sen!2sin!4v1743771426683!5m2!1sen!2sin";
+const secondaryMapUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.264445738772!2d77.27253637592348!3d28.561820787287438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3929e6d3319%3A0xcd2355b56b80d9cf!2sHoly%20Family%20Hospital!5e0!3m2!1sen!2sin!4v1745833782593!5m2!1sen!2sin";
+
+
+const mapUrl3 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.0622398317932!2d77.18209207592274!3d28.53784888837332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce207d1cc01db%3A0xe87a0c5886bae0d4!2sSitaram%20Bhartia%20Institute%20of%20Science%20and%20Research!5e0!3m2!1sen!2sin!4v1745834896247!5m2!1sen!2sin";
+const mapUrl4 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.7417738272898!2d77.12913037592635!3d28.667449582493358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03552412e88d%3A0x41cdf3e3f531217b!2sCK%20Birla%20Hospital%2C%20Delhi!5e0!3m2!1sen!2sin!4v1745835024980!5m2!1sen!2sin";
+const mapUrl5 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.619372150847!2d77.2404095759257!3d28.641167783687717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcd97cfadb5b%3A0xeec8c89cdfac676d!2sSanjeevan%20Hospital!5e0!3m2!1sen!2sin!4v1745835074864!5m2!1sen!2sin"
 
 const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,58 +65,136 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
 
   const domain = 'https://growthgutexperts.com';
   const seoTitle = `Contact ${doctor.personalDetails.name} - ${doctor.personalDetails.specialty} in Delhi`;
-  
+
   // Generate description based on doctor profile
   const seoDescription = `Schedule an appointment with ${doctor.personalDetails.name}, specialist in ${doctor.personalDetails.description.toLowerCase()} Contact via phone, email, or visit at ${doctor.contactDetails.address}.`;
 
-  // Render maps based on doctor theme
   const renderMaps = () => {
     if (theme === 'drsushovan') {
       return (
-        <>
-          <div className="aspect-w-16 aspect-h-9 mb-4">
-            <iframe
-              src={mapUrls.drsushovan}
-              width="100%" 
-              height="300" 
-              style={{border:0}} 
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg"
-              title="Primary Location"
-            />
+        <div className="space-y-6">
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>St. Stephen's Hospital</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={mapUrls.drsushovan}
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="St. Stephen's Hospital"
+              />
+            </div>
           </div>
-          <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              src={secondaryMapUrl}
-              width="100%" 
-              height="300" 
-              style={{border:0}} 
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg"
-              title="Secondary Location"
-            />
+
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Sanjeevan Hospital</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={secondaryMapUrl}
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="Sanjeevan Hospital"
+              />
+            </div>
           </div>
-        </>
+        </div>
       );
     } else {
-      // Only one map for Dr. Moumita
       return (
-        <div className="aspect-w-16 aspect-h-9">
-          <iframe
-            src={mapUrls.drmoumita}
-            width="100%" 
-            height="300" 
-            style={{border:0}} 
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-lg"
-            title="Location" 
-          />
+        <div className="space-y-6 md:space-y-8 lg:space-y-10">
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Fortis C-Doc Hospital</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={mapUrls.drmoumita}
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="Fortis C-Doc Hospital"
+              />
+            </div>
+          </div>
+
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Holy Family Hospital</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={secondaryMapUrl2}
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="Holy Family Hospital"
+              />
+            </div>
+          </div>
+
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Sitaram Bhartia Institute</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={mapUrl3}
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="Sitaram Bhartia Institute"
+              />
+            </div>
+          </div>
+
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>CK Birla Hospital</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={mapUrl4}
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="CK Birla Hospital"
+              />
+            </div>
+          </div>
+
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Sanjeevan Hospital</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={mapUrl5}
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="Sanjeevan Hospital"
+              />
+            </div>
+          </div>
         </div>
       );
     }
@@ -124,21 +208,21 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
         <meta name="description" content={seoDescription} />
         <meta name="keywords" content={`${doctor.personalDetails.name}, ${doctor.personalDetails.specialty.toLowerCase()}, appointment booking, Delhi doctor`} />
         <meta name="author" content={doctor.personalDetails.name} />
-        
+
         {/* Open Graph / Facebook Meta Tags */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://${domain}/contact`} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:image" content={`https://${domain}${doctor.personalDetails.imageUrl}`} />
-        
+
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={`https://${domain}/contact`} />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
         <meta name="twitter:image" content={`https://${domain}${doctor.personalDetails.imageUrl}`} />
-        
+
         {/* Schema.org Markup */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -171,8 +255,8 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
             })),
             "openingHoursSpecification": {
               "@type": "OpeningHoursSpecification",
-              "dayOfWeek": doctor.days.includes("Monday - Saturday") ? 
-                ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] : 
+              "dayOfWeek": doctor.days.includes("Monday - Saturday") ?
+                ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] :
                 doctor.days.split(',').map(day => day.trim()),
               "opens": doctor.onlineTiming.split('-')[0].trim(),
               "closes": doctor.onlineTiming.split('-')[1].trim()
@@ -215,7 +299,6 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
                     </div> */}
 
                     <div className="flex items-center gap-3 pt-4">
-                      <Phone className={`${styles.secondary} h-5 w-5`} />
                       <FaWhatsapp className={`${styles.secondary} h-5 w-5`} />
                       <a href={`tel:${doctor.contactDetails.phone}`} className={`${styles.secondary} ${styles.hover}`}>
                         {doctor.contactDetails.phone}
@@ -237,58 +320,95 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
                         </a>
                       </div>
                     )}
-                  </div>
+                    {doctor.contactDetails.instagram && (
+                      <div className="flex items-center gap-3 pt-4">
+                        <Instagram className={`${styles.secondary} h-5 w-5`} />
+                        <a href={doctor.contactDetails.instagram} target="_blank" rel="noopener noreferrer" className={`${styles.secondary} ${styles.hover}`}>
+                          Instagram Profile
+                        </a>
+                      </div>
+                    )}
 
-                  <div className="pt-6">
-                    <h3 className={`text-lg font-semibold ${styles.primary} mb-2`}>Languages</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {doctor.personalDetails.languagesKnown.map((language) => (
-                        <span
-                          key={language}
-                          className={`px-3 py-1 bg-gradient-to-r ${styles.tag} rounded-full text-sm`}
-                        >
-                          {language}
-                        </span>
-                      ))}
+
+                    <div className={`p-8 rounded-2xl backdrop-blur-sm border `}>
+                      <h3 className={`text-xl font-semibold mb-6`}>Offline Consultation Locations</h3>
+                      <div className="space-y-6">
+                        {doctor.offline.map((location, index) => (
+                          <div key={index} className={`p-4 rounded-lg transition-all duration-300 border`}>
+                            <h4 className={`font-medium mb-3`}>
+                              {location.hospital}
+                            </h4>
+                            <div className="space-y-2">
+                              {location.schedules.map((schedule, scheduleIndex) => (
+                                <div key={scheduleIndex} className="flex items-start space-x-3">
+                                  <div className="flex-shrink-0 mt-1">
+                                    <Calendar className={`w-4 h-4 text-zinc-800`} />
+                                  </div>
+                                  <div>
+                                    <span className="font-medium text-gray-700">{schedule.day}:</span>
+                                    <span className="text-gray-600 ml-2">{schedule.timing}</span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="pt-6">
+                      <h3 className={`text-lg font-semibold ${styles.primary} mb-2`}>Languages</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {doctor.personalDetails.languagesKnown.map((language) => (
+                          <span
+                            key={language}
+                            className={`px-3 py-1 bg-gradient-to-r ${styles.tag} rounded-full text-sm`}
+                          >
+                            {language}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <div className="space-y-6">
-              <Card className={styles.cardBg}>
-                <CardContent>
-                  {renderMaps()}
-                </CardContent>
-              </Card>
 
-              <Card className={styles.cardBg}>
-                <CardContent>
-                  <h3 className={`text-xl font-bold ${styles.secondary} mb-4 flex items-center gap-2`}>
-                    <Calendar className={styles.secondary} />
-                    Book an Appointment
-                  </h3>
-                  <div className="space-y-4">
-                    <p className={styles.secondary}>
-                      To schedule an appointment with {doctor.personalDetails.name},
-                      please call our reception or send us an email.
-                    </p>
-                    <Button
-                      className='w-full' variant='secondary'
-                      onClick={() => setIsModalOpen(true)}
-                    >
-                      <Calendar className="h-5 w-5 mr-2" />
-                      Request Appointment
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            <Card className={`${styles.cardBg} overflow-y-auto max-h-[80vh] md:max-h-none`}>
+              <CardContent className="p-4 md:p-6">
+                <h2 className={`text-xl font-bold ${styles.secondary} mb-4`}>Clinic Locations</h2>
+                <div className="overflow-y-auto pr-1">
+                  {renderMaps()}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className={styles.cardBg}>
+              <CardContent>
+                <h3 className={`text-xl font-bold ${styles.secondary} mb-4 flex items-center gap-2`}>
+                  <Calendar className={styles.secondary} />
+                  Book an Appointment
+                </h3>
+                <div className="space-y-4">
+                  <p className={styles.secondary}>
+                    To schedule an appointment with {doctor.personalDetails.name},
+                    please call our reception or send us an email.
+                  </p>
+                  <Button
+                    className='w-full' variant='secondary'
+                    onClick={() => setIsModalOpen(true)}
+                  >
+                    <Calendar className="h-5 w-5 mr-2" />
+                    Request Appointment
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
-          <AppointmentModal variant={theme} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
-      </div>
+        <AppointmentModal variant={theme} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </div >
     </>
   );
 };

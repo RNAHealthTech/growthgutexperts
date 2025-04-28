@@ -75,7 +75,7 @@ export const blogs: BlogContent[] = [
     title: "Endoscopy Demystified: What Patients Need to Know",
     slug: "endoscopy-demystified",
 
-    imageUrl: "/images/blogs/endoscopy.jpg",
+    imageUrl: "/images/blogs/endoscopist.avif",
     description:
       "A comprehensive overview of endoscopic procedures, their importance, and what patients can expect.",
     tags: ["endoscopy", "medical procedures", "patient education"],

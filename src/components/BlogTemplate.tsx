@@ -71,7 +71,7 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ doctorData }) => {
   return (
     <div className="min-h-screen bg-gray-50 mt-20 md:mt-0">
       {/* Hero Section */}
-      <div className="relative h-[500px] w-full">
+      <div className="relative h-[800px] w-full">
         <div className="absolute inset-0 bg-black/50 z-10" />
         <img
           src={blog.imageUrl}

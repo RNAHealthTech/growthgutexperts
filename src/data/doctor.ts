@@ -72,6 +72,7 @@ export interface ContactDetails {
   phone?: string;
   email?: string;
   linkedIn?: string;
+  instagram: string;
 }
 
 export interface DoctorProfile {
@@ -90,6 +91,13 @@ export interface DoctorProfile {
   extraCurricular?: {
     title: string;
     description?: string;
+  }[];
+  offline: {
+    hospital: string;
+    schedules: {
+      day: string;
+      timing: string;
+    }[];
   }[];
   offlineTiming: string;
   onlineTiming: string;
@@ -112,6 +120,7 @@ export const drSushovanData: DoctorProfile = {
     backgroundImage: "/images/dr-sushovan.jpg",
     gender: "Male",
     maritalStatus: "Married",
+ 
     languagesKnown: ["English", "Hindi", "Bengali", "Odia"],
     spouse: {
       name: "Dr Moumita Saha",
@@ -120,9 +129,11 @@ export const drSushovanData: DoctorProfile = {
         "Junior Consultant, Dept of Pediatric Endocrinology, CMC Vellore",
     },
   },
+  
   contactDetails: {
     phone: "9474866692",
     email: "drbaidya25@gmail.com",
+    instagram: 'https://instagram.com/growthgutexperts'
   },
   about:
     "An experienced and passionate physician specializing in management of liver, gastrointestinal, pancreatic and biliary diseases. He believes in clinical medicine, ethical practice and a holistic approach towards his patients. He has been trained at Christian Medical College (CMC), Vellore with expertise in managing complex liver conditions, IBD, pancreatitis and biliary diseases.",
@@ -152,6 +163,24 @@ export const drSushovanData: DoctorProfile = {
       },
     },
   ],
+  
+  offline: [
+    {
+      hospital: "St Stephen's Hospital, Tis Hazari, Delhi",
+      schedules: [
+        { day: "Monday", timing: "10 AM - 4 PM" },
+        { day: "Thursday", timing: "10 AM - 4 PM" },
+        { day: "Saturday", timing: "10 AM - 1 PM" }
+      ]
+    },
+    {
+      hospital: "Sanjeevan Hospital, Daryaganj, Delhi",
+      schedules: [
+        { day: "Monday to Friday", timing: "4:30 PM - 6:30 PM" },
+        { day: "Saturday", timing: "2 PM - 4 PM" }
+      ]
+    }
+  ], 
   currentworkExperience: [
     {
       role: "Consultant",
@@ -306,7 +335,7 @@ export const drMoumitaData: DoctorProfile = {
       "Specialized in growth disorders, childhood obesity, diabetes, thyroid disorders and other endocrine conditions in children.",
     age: 33,
     imageUrl2: "/images/drmoumita.JPG",
-    imageUrl: "/images/dr2.png",
+    imageUrl: "/images/about.png",
     imageUrl3: "/images/front.png", 
     backgroundImage: "/images/dr-moumita.jpeg",
     gender: "Female",
@@ -319,10 +348,51 @@ export const drMoumitaData: DoctorProfile = {
         "Consultant (Dept of Gastroenterology and Hepatology), St Stephen's Hospital",
     },
   },
+  offline: [
+    {
+      hospital: "Fortis C-DOC , Greater Kailash, New Delhi",
+      schedules: [
+        { day: "Monday", timing: "10 AM - 12 PM" },
+        {day: "Wed", timing: "10 AM - 12 PM"}, 
+        { day: "Friday", timing: "10 AM - 12 PM" }
+      ]
+    },
+    {
+      hospital: "Sitaram Bhartia Institute of Science and Research, Qutub Institutional area, New Delhi",
+      schedules: [
+        { day: "Tuesday", timing: "10 PM -12 PM" },
+        { day: "Friday", timing: "4 PM - 5 PM" }
+      ]
+    }, 
+    {
+      hospital: "Holy Family Hospital , Okhla, New Delhi", 
+      schedules: [
+        {
+          day: "Mon, Wed", timing: "2 PM - 3:30 PM"
+        }, 
+        {
+          day: "Fri", timing: "1:30 PM - 3:30 PM"
+        }
+      ]
+    }, 
+    {
+      hospital: "CK Bilra, West Punjabi Bagh, Delhi",
+      schedules: [
+        {day: "Tues, Thurs", timing: "2 PM - 4 PM"}
+      ]
+    }, 
+    {
+      hospital: "Sanjeevan Hospital, Daryaganj, Delhi", 
+      schedules: [
+        {day: "Wed", timing: "5 PM - 6:30 PM"}
+      ]
+    }
+  ], 
   contactDetails: {
     phone: "8789567806",
     email: "drmoumita.paedendo@gmail.com",
     linkedIn: "https://www.linkedin.com/in/moumita-saha24",
+    instagram: "https://instagram.com/growthgutexperts"
   },
   about:
     "Passionate Paediatric and Adolescent Endocrinologist trained from prestigious institutions of the country. Experienced in diagnosing and managing common as well as challenging endocrine disorders in children. Dedicated towards providing holistic and individualized healthcare to empower children with endocrine disorders and help them reach their maximal potential, thus improving their quality of life.",
@@ -385,7 +455,7 @@ export const drMoumitaData: DoctorProfile = {
     {
       role: "Consultant",
       department: "Paediatric Endocrinologist",
-      organization: "CK Bilra Hospital, West Punjab Bagh, New Delhi",
+      organization: "CK Birla Hospital, West Punjab Bagh, New Delhi",
       duration: {
         start: "Jan 2025",
         end: "onwards",
@@ -412,7 +482,16 @@ export const drMoumitaData: DoctorProfile = {
       },
     },
     {
-      role: "Junior Consultant",
+      role: "Consultant", 
+      department: "Department of Paediatrics", 
+      organization: "Naruvi Hospital, Vellore", 
+      duration: {
+        start: "", 
+        end: ""
+      }
+    }, 
+    {
+      role: "Paediatric Endocrinologist",
       department: "Department of Pediatric Endocrinology",
       organization: "Christian Medical College, Vellore",
       duration: {
