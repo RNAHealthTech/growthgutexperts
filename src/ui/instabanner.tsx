@@ -75,7 +75,7 @@ const Banner: React.FC<BannerProps> = ({ instagramHandle }) => {
                 href={`https://instagram.com/${instagramHandle}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-4 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 hover:from-purple-600 hover:via-pink-600 hover:to-yellow-600 transition-all"
+                className="inline-block px-4 py-2 rounded-md text-sm font-semibold text-white bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 hover:from-purple-600 hover:via-pink-600 hover:to-yellow-600 transition-all"
               >
                 Open Instagram
               </a>
