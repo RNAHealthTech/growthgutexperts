@@ -15,28 +15,28 @@ const ImageCarousel: React.FC = () => {
         {
             src: "/images/doc-carousel.jpeg",
             alt: "growth gut experts",
-            caption: ""
+             
         },
         {
             src: "/images/image-4.jpeg",
             alt: "Doctor with patient",
-            caption: ""
+             
         },
         {
             src: "/images/image-5.jpeg",
             alt: "work",
-            caption: ""
         },
         {
             src: '/images/image-3.jpeg', 
             alt: "", 
-            caption: ""
         }, 
+        {
+            src:'/images/drmo.jpeg', 
+            alt: "Dr. Moumita at work"
+        },
         {
             src: "/images/in-lab.jpeg", 
             alt: "Dr. Sushovan at work", 
-            caption: ""
-        
         }, 
         
     ], []);
@@ -133,9 +133,6 @@ const ImageCarousel: React.FC = () => {
                             alt={image.alt}
                             className="h-full object-contain max-w-full"
                         />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/40 text-white p-3 text-center">
-                            <p className="font-medium">{image.caption}</p>
-                        </div>
                     </div>
                 ))}
             </div>

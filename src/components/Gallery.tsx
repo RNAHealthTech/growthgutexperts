@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 // Define media types
 type MediaType = 'image' | 'video';
-type CategoryType = 'All' | 'Team' | 'Doctors' | 'Success Stories' | 'Facilities' | 'Education' | 'Pediatrics' | 'Events';
+//type CategoryType = 'All' | 'Team' | 'Doctors' | 'Success Stories' | 'Facilities' | 'Education' | 'Pediatrics' | 'Events';
 
 interface GalleryItem {
     id: number;
@@ -40,7 +40,7 @@ const Gallery: React.FC = () => {
         {
             id: 3,
             type: 'image',
-            src: '/images/image-3.jpg',
+            src: '/images/drmo.jpeg',
             title: 'Dr. Moumita at Work',
             description: 'Providing care to patients',
             category: 'Doctors'

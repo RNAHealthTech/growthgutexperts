@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Parallax } from "react-scroll-parallax";
 import AppointmentModal from "../ui/AppointmentMixture";
 
 
@@ -98,8 +97,7 @@ const LandingHero: React.FC = () => {
                             className="text-lg sm:text-xl text-blue-100 mb-8 max-w-xl mx-auto lg:mx-0"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 }}
-                        >
+                            transition={{ delay: 0.6 }}>
                             Specialized medical care in Pediatric Endocrinology and Hepatology & Gastroenterology delivering individualized treatment plans tailored to the unique needs of you and your family.
                         </motion.p>
 
@@ -110,15 +108,15 @@ const LandingHero: React.FC = () => {
                             transition={{ delay: 0.8 }}
                         >
                             <button
-                                onClick={()=>setIsModalOpen(true)}
+                                onClick={() => setIsModalOpen(true)}
                                 className="px-8 py-3 bg-yellow-400 text-blue-900 rounded-lg font-semibold hover:bg-white transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                                 Book Appointment
                             </button>
                             <button
-                                onClick={()=> {
-                                    const section =document.getElementById('expertise-section');
-                                    if (section){
-                                        section.scrollIntoView( {  behavior: 'smooth' })
+                                onClick={() => {
+                                    const section = document.getElementById('expertise-section');
+                                    if (section) {
+                                        section.scrollIntoView({ behavior: 'smooth' })
                                     }
                                 }}
                                 className="px-8 py-3 bg-white/90 text-blue-900 rounded-lg font-semibold hover:bg-yellow-300 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
@@ -126,42 +124,23 @@ const LandingHero: React.FC = () => {
                             </button>
                         </motion.div>
                     </motion.div>
-
-
-                    {/* Image Section */}
                     <div className="w-full lg:w-1/2">
-                        <Parallax translateY={[-20, 20]}>
-                            <div className="relative aspect-square max-w-lg mx-auto">
-                                <motion.div
-                                    className="absolute top-0 left-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl"
-                                    initial={{ x: -50, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    transition={{ duration: 0.6, delay: 0.2 }}
-                                >
-                                    <div className="w-full h-full bg-gradient-to-br from-purple-100 to-blue-100 p-1 rounded-2xl">
-                                        <img
-                                            src="/images/bg.jpg"
-                                            alt="Pediatric Care"
-                                            className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
-                                        />
-                                    </div>
-                                </motion.div>
-                                <motion.div
-                                    className="absolute bottom-0 right-0 w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-2xl"
-                                    initial={{ x: 50, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    transition={{ duration: 0.6, delay: 0.4 }}
-                                >
-                                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 p-1 rounded-2xl">
-                                        <img
-                                            src="/images/logo.jpeg"
-                                            alt="Hepatology Care"
-                                            className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
-                                        />
-                                    </div>
-                                </motion.div>
-                            </div>
-                        </Parallax>
+                        <div className="relative max-w-lg mx-auto">
+                            <motion.div
+                                className="w-full h-full rounded-2xl overflow-hidden shadow-2xl"
+                                initial={{ x: -50, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                            >
+                                <div className="w-full h-full bg-gradient-to-br from-purple-100 to-blue-100 p-1 rounded-2xl">
+                                    <img
+                                        src="/images/logo.jpeg"
+                                        alt="growth gut experts"
+                                        className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                                    />
+                                </div>
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
             </div>
