@@ -168,16 +168,15 @@ export const drSushovanData: DoctorProfile = {
     {
       hospital: "St Stephen's Hospital, Tis Hazari, Delhi",
       schedules: [
-        { day: "Monday", timing: "10 AM - 4 PM" },
+        { day: "Tuesday", timing: "10 AM - 12 PM" },
         { day: "Thursday", timing: "10 AM - 4 PM" },
-        { day: "Saturday", timing: "10 AM - 1 PM" }
+        { day: "Saturday", timing: "10 AM - 12 PM" }
       ]
     },
     {
       hospital: "Sanjeevan Hospital, Daryaganj, Delhi",
       schedules: [
         { day: "Monday to Friday", timing: "4:30 PM - 6:30 PM" },
-        { day: "Saturday", timing: "2 PM - 4 PM" }
       ]
     }
   ], 
