@@ -148,7 +148,7 @@ const LandingPage: React.FC = () => {
                                     <h3 className="font-semibold text-gray-900">Foods to Avoid for Healthy Liver</h3>
                                  </div>
                                 <a 
-                                    href="/pdfs/Sugar List by GrowthGutExperts.pdf" 
+                                    href="/pdfs/Foods to Avoid for Healthy Liver.pdf" 
                                     download
                                     className="bg-red-600 text-white p-2 rounded-lg hover:bg-red-500 transition-colors"
                                 >
