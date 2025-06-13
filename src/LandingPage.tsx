@@ -1,15 +1,13 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { drMoumitaData, drSushovanData } from './data/doctor';
-import { useNavigate } from 'react-router-dom';
 import LandingHero from './ui/LandingHero';
 import ExpertiseSection from './ui/ExpertiseSection';
 import ImageCarousel from './ui/ImageCarousel';
-import Banner from './ui/instabanner';
+ import Banner from './ui/instabanner';
+import InstagramMultiEmbed from './components/InstagramEmbed';
 
 const LandingPage: React.FC = () => {
-
-    const navigate = useNavigate();
 
     const navigateToSubdomain = (subdomain: string) => {
         const hostname = window.location.hostname;
@@ -31,6 +29,25 @@ const LandingPage: React.FC = () => {
             window.location.assign(newUrl);
         }
     };
+
+    const instagramPosts = [
+        {
+          url: 'https://www.instagram.com/p/DJDaeaHyZ6z/',
+          isReel: true,
+          height: 640
+        },
+        {
+            url: 'https://www.instagram.com/p/DJMwB6tySLt/',
+            isReel: true,
+            height: 640
+          }, 
+          {
+            url: 'https://www.instagram.com/p/DGyE_5RSgWb/',
+            isReel: true,
+            height: 640
+          }
+        
+      ];
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
@@ -109,8 +126,50 @@ const LandingPage: React.FC = () => {
                         </div>
                     </div>
 
+                    {/* instagram and pdf section */}
+                    <div className='max-w-7xl mx-auto mt-28 md:mt-40 mb-18'>
+                        <h1 className='font-bold text-center justify-center text-3xl md:text-4xl text-gray-900 mb-8'>Resources - {' '} 
+                        Awareness for {' '}
+                             <span className='text-yellow-600'>Wellness</span>
+                             </h1>
+                       <InstagramMultiEmbed posts={instagramPosts} defaultHeight={550} />
+
+                       <h4 className='text-xl mt-8 mx-4 font-bold text-red-500'>Pdf Resources</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-4">
+                       
+                    
+
+                       
+                        <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:bg-white/90 border border-gray-100">
+                            <a href='/pdfs/Sugar List by GrowthGutExperts.pdf' className="flex items-center gap-4">
+                                <div className="bg-red-100 p-3 rounded-lg">
+                                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="font-semibold text-gray-900">Sugar List by Growth & Gut Experts</h3>
+                                 </div>
+                                <a 
+                                    href="/pdfs/Sugar List by GrowthGutExperts.pdf" 
+                                    download
+                                    className="bg-red-600 text-white p-2 rounded-lg hover:bg-red-500 transition-colors"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </a>
+                            </a>
+                        </div>
+
+                        
+                    </div>
+
+                    </div>
+
                     {/* Image Carousel ADDED HERE - after doctor cards */}
-                    <div className="max-w-7xl mx-auto mt-20 mb-10">
+                    <div className="max-w-7xl mx-auto mt-40 mb-10  ">
+                        <h1 className='font-bold text-center justify-center text-3xl md:text-4xl text-gray-900 mb-8'>Gallery</h1>
                         <ImageCarousel />
                     </div>
 
@@ -123,4 +182,3 @@ const LandingPage: React.FC = () => {
 };
 
 export default LandingPage;
-
