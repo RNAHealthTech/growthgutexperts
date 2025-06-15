@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 declare global {
@@ -8,23 +9,31 @@ declare global {
         process: () => void;
       };
     };
+    FB?: {
+      init: (params: any) => void;
+      XFBML: {
+        parse: () => void;
+      };
+    };
   }
 }
 
-interface InstagramPost {
+export interface SocialPost {
   url: string;
+  type: 'instagram' | 'facebook';
   isReel?: boolean;
   height?: number;
+  videoId?: string; // For Facebook videos
 }
 
-interface InstagramMultiEmbedProps {
-  posts: InstagramPost[];
+interface SocialMultiEmbedProps {
+  posts: SocialPost[];
   maxRetries?: number;
   retryInterval?: number;
   defaultHeight?: number;
 }
 
-const InstagramMultiEmbed: React.FC<InstagramMultiEmbedProps> = ({
+const SocialMultiEmbed: React.FC<SocialMultiEmbedProps> = ({
   posts,
   maxRetries = 5,
   retryInterval = 2000,
@@ -32,8 +41,10 @@ const InstagramMultiEmbed: React.FC<InstagramMultiEmbedProps> = ({
 }) => {
   const [retryCount, setRetryCount] = useState(0);
   const [loadedPosts, setLoadedPosts] = useState<Set<number>>(new Set());
+  const [loadingPosts, setLoadingPosts] = useState<Set<number>>(new Set());
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
   const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // Check if screen is mobile
@@ -48,105 +59,178 @@ const InstagramMultiEmbed: React.FC<InstagramMultiEmbedProps> = ({
   }, []);
 
   // Detect post type and set appropriate height
-  const detectPostType = (url: string, isReel: boolean = false, customHeight?: number) => {
-    if (customHeight) return customHeight;
+  const detectPostType = (post: SocialPost) => {
+    if (post.height) return post.height;
     
-    if (isReel) return 700;
-    if (url.includes('/tv/') || url.includes('/igtv/')) return 750;
+    if (post.type === 'facebook') return 400; // Default height for Facebook videos
+    if (post.isReel) return 700;
+    if (post.url.includes('/tv/') || post.url.includes('/igtv/')) return 750;
     
     return defaultHeight;
   };
 
-  const loadInstagramEmbed = (): boolean => {
-    if (window.instgrm) {
-      window.instgrm?.Embeds.process();
-      return true;
-    }
-    return false;
+  // Load Instagram embed script
+  const loadInstagramScript = async (): Promise<boolean> => {
+    return new Promise((resolve) => {
+      if (window.instgrm) {
+        resolve(true);
+        return;
+      }
+
+      const existingScript = document.querySelector('script[src*="instagram.com/embed.js"]');
+      if (existingScript) {
+        // Wait for existing script to load
+        const checkInstagram = setInterval(() => {
+          if (window.instgrm) {
+            clearInterval(checkInstagram);
+            resolve(true);
+          }
+        }, 100);
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = '//www.instagram.com/embed.js';
+      script.async = true;
+
+      script.onload = () => {
+        resolve(true);
+      };
+
+      script.onerror = () => {
+        resolve(false);
+      };
+
+      document.body.appendChild(script);
+    });
   };
 
-  const initializeEmbed = () => {
-    if (loadInstagramEmbed()) {
-      return;
-    }
+  // Load Facebook SDK
+  const loadFacebookScript = async (): Promise<boolean> => {
+    return new Promise((resolve) => {
+      if (window.FB) {
+        resolve(true);
+        return;
+      }
 
-    const existingScript = document.querySelector('script[src*="instagram.com/embed.js"]');
-    if (existingScript) {
-      return;
-    }
+      const existingScript = document.querySelector('script[src*="connect.facebook.net"]');
+      if (existingScript) {
+        const checkFB = setInterval(() => {
+          if (window.FB) {
+            clearInterval(checkFB);
+            resolve(true);
+          }
+        }, 100);
+        return;
+      }
 
-    const script = document.createElement('script');
-    script.src = '//www.instagram.com/embed.js';
-    script.async = true;
+      // Create FB root div if it doesn't exist
+      if (!document.getElementById('fb-root')) {
+        const fbRoot = document.createElement('div');
+        fbRoot.id = 'fb-root';
+        document.body.appendChild(fbRoot);
+      }
 
-    script.onload = () => {
-      loadInstagramEmbed();
-      setTimeout(() => {
-        loadInstagramEmbed();
-      }, 1500);
-    };
+      const script = document.createElement('script');
+      script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0';
+      script.async = true;
 
-    script.onerror = () => {
+      script.onload = () => {
+        if (window.FB) {
+          window.FB.init({
+            xfbml: true,
+            version: 'v18.0'
+          });
+        }
+        resolve(true);
+      };
+
+      script.onerror = () => {
+        resolve(false);
+      };
+
+      document.body.appendChild(script);
+    });
+  };
+
+  // Initialize all required scripts
+  const initializeScripts = async () => {
+    try {
+      const hasInstagramPosts = posts.some(post => post.type === 'instagram');
+      const hasFacebookPosts = posts.some(post => post.type === 'facebook');
+
+      const promises = [];
+      
+      if (hasInstagramPosts) {
+        promises.push(loadInstagramScript());
+      }
+      
+      if (hasFacebookPosts) {
+        promises.push(loadFacebookScript());
+      }
+
+      await Promise.all(promises);
+      setIsInitialized(true);
+    } catch (error) {
+      console.error('Error initializing social media scripts:', error);
       if (retryCount < maxRetries) {
         setTimeout(() => {
           setRetryCount(prev => prev + 1);
-          document.body.removeChild(script);
-          initializeEmbed();
         }, retryInterval);
       }
-    };
-
-    document.body.appendChild(script);
+    }
   };
 
-  // Create individual post embed
-  const createPostEmbed = (post: InstagramPost, index: number) => {
-    const container = containerRefs.current[index];
-    if (!container) return;
+  // Create Instagram post embed
+  const createInstagramEmbed = async (post: SocialPost, index: number): Promise<void> => {
+    return new Promise((resolve) => {
+      const container = containerRefs.current[index];
+      if (!container || !window.instgrm) {
+        resolve();
+        return;
+      }
 
-    const embedHeight = detectPostType(post.url, post.isReel, post.height);
+      const embedHeight = detectPostType(post);
 
-    // Clear the container
-    container.innerHTML = '';
+      // Clear the container
+      container.innerHTML = '';
 
-    // Create new blockquote element
-    const blockquote = document.createElement('blockquote');
-    blockquote.className = 'instagram-media';
-    
-    blockquote.setAttribute('data-instgrm-captioned', '');
-    blockquote.setAttribute('data-instgrm-permalink', post.url);
-    blockquote.setAttribute('data-instgrm-version', '14');
+      // Create new blockquote element
+      const blockquote = document.createElement('blockquote');
+      blockquote.className = 'instagram-media';
+      
+      blockquote.setAttribute('data-instgrm-captioned', '');
+      blockquote.setAttribute('data-instgrm-permalink', post.url);
+      blockquote.setAttribute('data-instgrm-version', '14');
 
-    Object.assign(blockquote.style, {
-      background: '#FFF',
-      border: '0',
-      borderRadius: '8px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-      margin: '0',
-      maxWidth: '100%',
-      minWidth: '326px',
-      padding: '0',
-      width: '100%',
-      height: `${embedHeight}px`,
-      maxHeight: `${embedHeight}px`,
-      overflow: 'hidden',
-      position: 'relative'
-    });
+      Object.assign(blockquote.style, {
+        background: '#FFF',
+        border: '0',
+        borderRadius: '8px',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        margin: '0',
+        maxWidth: '100%',
+        minWidth: '326px',
+        padding: '0',
+        width: '100%',
+        height: `${embedHeight}px`,
+        maxHeight: `${embedHeight}px`,
+        overflow: 'hidden',
+        position: 'relative'
+      });
 
-    // Add fallback link
-    const link = document.createElement('a');
-    link.href = post.url;
-    link.textContent = 'View this post on Instagram';
-    link.style.display = 'none';
-    blockquote.appendChild(link);
+      // Add fallback link
+      const link = document.createElement('a');
+      link.href = post.url;
+      link.textContent = 'View this post on Instagram';
+      link.style.display = 'none';
+      blockquote.appendChild(link);
 
-    container.appendChild(blockquote);
+      container.appendChild(blockquote);
 
-    // Process embed
-    if (window.instgrm) {
+      // Process embed
       setTimeout(() => {
         window.instgrm?.Embeds.process();
-        setLoadedPosts(prev => new Set(Array.from(prev).concat(index)));
         
         setTimeout(() => {
           const iframe = container.querySelector('iframe');
@@ -155,25 +239,153 @@ const InstagramMultiEmbed: React.FC<InstagramMultiEmbedProps> = ({
             iframe.style.maxHeight = `${embedHeight}px`;
             iframe.style.minHeight = `${embedHeight}px`;
           }
+          resolve();
         }, 1000);
       }, 100);
+    });
+  };
+
+  // Create Facebook video embed
+  const createFacebookEmbed = async (post: SocialPost, index: number): Promise<void> => {
+    return new Promise((resolve) => {
+      const container = containerRefs.current[index];
+      if (!container) {
+        resolve();
+        return;
+      }
+
+      const embedHeight = detectPostType(post);
+
+      // Clear the container
+      container.innerHTML = '';
+
+      // Extract video ID from Facebook URL for iframe embed
+      const createFacebookIframe = () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.facebook.com/plugins/video.php?height=314&href=${encodeURIComponent(post.url)}&show_text=false&width=560&t=0`;
+        iframe.width = '100%';
+        iframe.style.height = `${embedHeight}px`;
+        iframe.style.border = 'none';
+        iframe.style.overflow = 'hidden';
+        iframe.style.borderRadius = '8px';
+        iframe.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+        iframe.scrolling = 'no';
+        iframe.frameBorder = '0';
+        iframe.allowFullscreen = true;
+        iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+        
+        return iframe;
+      };
+
+      // Try Facebook SDK first, fallback to iframe
+      if (window.FB) {
+        // Create Facebook video embed using SDK
+        const fbVideo = document.createElement('div');
+        fbVideo.className = 'fb-video';
+        fbVideo.setAttribute('data-href', post.url);
+        fbVideo.setAttribute('data-width', '500');
+        fbVideo.setAttribute('data-show-text', 'false');
+        fbVideo.setAttribute('data-autoplay', 'false');
+        fbVideo.setAttribute('data-show-captions', 'false');
+
+        Object.assign(fbVideo.style, {
+          width: '100%',
+          height: `${embedHeight}px`,
+          maxHeight: `${embedHeight}px`,
+          overflow: 'hidden',
+          borderRadius: '8px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+        });
+
+        container.appendChild(fbVideo);
+
+        setTimeout(() => {
+          window.FB?.XFBML.parse();
+          
+          // Check if SDK embed worked, otherwise fallback to iframe
+          setTimeout(() => {
+            const fbIframe = container.querySelector('iframe');
+            if (!fbIframe) {
+              container.innerHTML = '';
+              container.appendChild(createFacebookIframe());
+            }
+            resolve();
+          }, 2000);
+        }, 100);
+      } else {
+        // Fallback to direct iframe embed
+        container.appendChild(createFacebookIframe());
+        resolve();
+      }
+    });
+  };
+
+  // Create individual post embed with async/await
+  const createPostEmbed = useCallback(async (post: SocialPost, index: number) => {
+    if (loadingPosts.has(index) || loadedPosts.has(index)) {
+      return;
+    }
+
+    setLoadingPosts(prev => new Set(Array.from(prev).concat(index)));
+
+    try {
+      if (post.type === 'instagram') {
+        await createInstagramEmbed(post, index);
+      } else if (post.type === 'facebook') {
+        await createFacebookEmbed(post, index);
+      }
+
+      setLoadedPosts(prev => new Set(Array.from(prev).concat(index)));
+    } catch (error) {
+      console.error(`Error loading post ${index}:`, error);
+    } finally {
+      setLoadingPosts(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(index);
+        return newSet;
+      });
+    }
+    //eslint-disable-next-line
+  }, [loadingPosts, loadedPosts]);
+
+  // Load posts sequentially for better performance
+  const loadPostsSequentially = async () => {
+    if (!isInitialized) return;
+
+    // Load visible posts first (current slide in mobile, all in desktop)
+    const visibleIndices = isMobile ? [currentSlide] : Array.from({ length: posts.length }, (_, i) => i);
+    
+    for (const index of visibleIndices) {
+      await createPostEmbed(posts[index], index);
+      // Small delay between loads to prevent overwhelming the browser
+      await new Promise(resolve => setTimeout(resolve, 200));
+    }
+
+    // Load remaining posts in mobile
+    if (isMobile) {
+      const remainingIndices = Array.from({ length: posts.length }, (_, i) => i)
+        .filter(i => i !== currentSlide);
+      
+      for (const index of remainingIndices) {
+        await createPostEmbed(posts[index], index);
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
     }
   };
 
-  // Initialize all embeds
+  // Initialize scripts and load posts
   useEffect(() => {
-    initializeEmbed();
-    
-    const timer = setTimeout(() => {
-      posts.forEach((post, index) => {
-        createPostEmbed(post, index);
-      });
-    }, 500);
-
-    return () => clearTimeout(timer);
-
+    initializeScripts();
     //eslint-disable-next-line
   }, [posts, retryCount]);
+
+  // Load posts when initialized
+  useEffect(() => {
+    if (isInitialized) {
+      loadPostsSequentially();
+    }
+    //eslint-disable-next-line
+  }, [isInitialized, currentSlide, isMobile]);
 
   // Carousel navigation
   const nextSlide = () => {
@@ -186,16 +398,16 @@ const InstagramMultiEmbed: React.FC<InstagramMultiEmbedProps> = ({
 
   // Get grid columns based on number of posts
   const getGridCols = () => {
-    const count = posts.length;
-    if (count === 1) return 'grid-cols-1';
-    if (count === 2) return 'grid-cols-1 md:grid-cols-2';
-    if (count === 3) return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
-    if (count === 4) return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4';
-    return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
-  };
+  const count = posts.length;
+  if (count === 1) return 'grid-cols-1';
+  if (count === 2) return 'grid-cols-1 md:grid-cols-2';
+  if (count === 3) return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
+  if (count === 4) return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'; // Removed xl:grid-cols-4
+  return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
+};
 
   if (posts.length === 0) {
-    return <div className="text-center text-gray-500">No Instagram posts to display</div>;
+    return <div className="text-center text-gray-500">No social media posts to display</div>;
   }
 
   return (
@@ -212,16 +424,22 @@ const InstagramMultiEmbed: React.FC<InstagramMultiEmbedProps> = ({
                 <div key={index} className="w-full flex-shrink-0 px-2">
                   <div className="flex justify-center">
                     <div className="w-full max-w-sm">
-                      {!loadedPosts.has(index) && (
-                        <div className="flex justify-center items-center h-96 bg-gray-100 rounded-lg">
-                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                      {(loadingPosts.has(index) || !loadedPosts.has(index)) && (
+                        <div className="flex justify-center items-center bg-gray-100 rounded-lg" 
+                             style={{ height: `${detectPostType(post)}px` }}>
+                          <div className="flex flex-col items-center space-y-2">
+                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                            <p className="text-sm text-gray-600">
+                              Loading {post.type === 'instagram' ? 'Instagram' : 'Facebook'} {post.isReel ? 'Reel' : 'Post'}...
+                            </p>
+                          </div>
                         </div>
                       )}
                       <div
                         ref={(el) => (containerRefs.current[index] = el)}
                         className="w-full"
                         style={{ 
-                          height: `${detectPostType(post.url, post.isReel, post.height)}px`,
+                          height: `${detectPostType(post)}px`,
                           display: loadedPosts.has(index) ? 'block' : 'none'
                         }}
                       />
@@ -272,16 +490,22 @@ const InstagramMultiEmbed: React.FC<InstagramMultiEmbedProps> = ({
           {posts.map((post, index) => (
             <div key={index} className="flex justify-center">
               <div className="w-full max-w-sm">
-                {!loadedPosts.has(index) && (
-                  <div className="flex justify-center items-center h-96 bg-gray-100 rounded-lg">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                {(loadingPosts.has(index) || !loadedPosts.has(index)) && (
+                  <div className="flex justify-center items-center rounded-lg"
+                       style={{ height: `${detectPostType(post)}px` }}>
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                      <p className="text-sm text-gray-600">
+                        Loading {post.type === 'instagram' ? 'Instagram' : 'Facebook'} {post.isReel ? 'Reel' : 'Post'}...
+                      </p>
+                    </div>
                   </div>
                 )}
                 <div
                   ref={(el) => (containerRefs.current[index] = el)}
                   className="w-full"
                   style={{ 
-                    height: `${detectPostType(post.url, post.isReel, post.height)}px`,
+                    height: `${detectPostType(post)}px`,
                     display: loadedPosts.has(index) ? 'block' : 'none'
                   }}
                 />
@@ -294,257 +518,5 @@ const InstagramMultiEmbed: React.FC<InstagramMultiEmbedProps> = ({
   );
 };
 
-export default InstagramMultiEmbed;
-
-// import React, { useEffect, useState, useRef } from 'react';
-
-// declare global {
-//   interface Window {
-//     instgrm?: {
-//       Embeds: {
-//         process: () => void;
-//       };
-//     };
-//   }
-// }
-
-// interface InstagramEmbedProps {
-//   url: string;
-//   maxRetries?: number;
-//   retryInterval?: number;
-//   height?: number; // Optional custom height
-//   isReel?: boolean; // Explicitly specify if it's a reel
-// }
-
-// const InstagramEmbed: React.FC<InstagramEmbedProps> = ({
-//   url,
-//   maxRetries = 5,
-//   retryInterval = 2000,
-//   height,
-//   isReel = false
-// }) => {
-//   const [retryCount, setRetryCount] = useState(0);
-//   const [isLoaded, setIsLoaded] = useState(false);
-//   const [initialLoadAttempted, setInitialLoadAttempted] = useState(false);
-//   const [embedHeight, setEmbedHeight] = useState<number>(550);
-//   const containerRef = useRef<HTMLDivElement>(null);
-
-//   // Detect post type and set appropriate height
-//   const detectPostType = (url: string, isReel: boolean) => {
-//     if (height) return height; // Use custom height if provided
-    
-//     // Check if explicitly marked as reel
-//     if (isReel) {
-//       return 700; // Taller for reels
-//     }
-    
-//     // Check if it's a video post (Instagram TV) - these still use /tv/ URLs
-//     if (url.includes('/tv/') || url.includes('/igtv/')) {
-//       return 750; // Tallest for IGTV
-//     }
-    
-//     // Default height that works well for both regular posts and reels
-//     return 550;
-//   };
-
-//   const loadInstagramEmbed = (): boolean => {
-//     if (window.instgrm) {
-//       window.instgrm?.Embeds.process();
-//       setIsLoaded(true);
-//       return true;
-//     }
-//     return false;
-//   };
-
-//   const initializeEmbed = () => {
-//     if (loadInstagramEmbed()) {
-//       if (!initialLoadAttempted) {
-//         setInitialLoadAttempted(true);
-//         setTimeout(() => {
-//           loadInstagramEmbed();
-//         }, 1500);
-//       }
-//       return;
-//     }
-
-//     const script = document.createElement('script');
-//     script.src = '//www.instagram.com/embed.js';
-//     script.async = true;
-
-//     script.onload = () => {
-//       loadInstagramEmbed();
-//       if (!initialLoadAttempted) {
-//         setInitialLoadAttempted(true);
-//         setTimeout(() => {
-//           loadInstagramEmbed();
-//         }, 1500);
-//       }
-//     };
-
-//     script.onerror = () => {
-//       if (retryCount < maxRetries) {
-//         setTimeout(() => {
-//           setRetryCount(prev => prev + 1);
-//           document.body.removeChild(script);
-//           initializeEmbed();
-//         }, retryInterval);
-//       }
-//     };
-
-//     document.body.appendChild(script);
-//   };
-
-//   // Add custom CSS to hide comments and description
-//   useEffect(() => {
-//     // Remove any existing styles first
-//     const existingStyles = document.querySelectorAll('style[data-instagram-embed]');
-//     existingStyles.forEach(style => style.remove());
-
-//     const style = document.createElement('style');
-//     style.setAttribute('data-instagram-embed', 'true');
-//     style.textContent = `
-//       .instagram-embed-container .instagram-media iframe {
-//         pointer-events: none;
-//       }
-      
-//       /* Dynamic height for different post types */
-//       .instagram-media iframe[src*="instagram.com"] {
-//         height: ${embedHeight}px !important;
-//         min-height: ${embedHeight}px !important;
-//         max-height: ${embedHeight}px !important;
-//       }
-      
-//       /* Force height on the blockquote container */
-//       .instagram-embed-container .instagram-media {
-//         margin: 0 !important;
-//         height: ${embedHeight}px !important;
-//         max-height: ${embedHeight}px !important;
-//         overflow: hidden !important;
-//       }
-      
-//       /* Additional CSS to hide specific elements within the iframe */
-//       .instagram-embed-container {
-//         overflow: hidden;
-//       }
-//     `;
-//     document.head.appendChild(style);
-
-//     return () => {
-//       const stylesToRemove = document.querySelectorAll('style[data-instagram-embed]');
-//       stylesToRemove.forEach(style => style.remove());
-//     };
-//   }, [embedHeight]);
-
-//   // Initial load
-//   useEffect(() => {
-//     initializeEmbed();
-
-//     return () => {
-//       const scripts = document.getElementsByTagName('script');
-//       for (let i = 0; i < scripts.length; i++) {
-//         if (scripts[i].src.includes('instagram.com/embed.js')) {
-//           document.body.removeChild(scripts[i]);
-//           break;
-//         }
-//       }
-//     };
-//     // eslint-disable-next-line
-//   }, [retryCount]);
-
-//   // Handle URL changes
-//   useEffect(() => {
-//     // Detect post type and set height
-//     const detectedHeight = detectPostType(url, isReel);
-//     setEmbedHeight(detectedHeight);
-
-//     // Reset the container when URL changes
-//     if (containerRef.current) {
-//       // Clear the container
-//       containerRef.current.innerHTML = '';
-
-//       // Create new blockquote element
-//       const blockquote = document.createElement('blockquote');
-//       blockquote.className = 'instagram-media';
-      
-//       // Add data attributes to control what's shown
-//       blockquote.setAttribute('data-instgrm-captioned', '');
-//       blockquote.setAttribute('data-instgrm-permalink', url);
-//       blockquote.setAttribute('data-instgrm-version', '14');
-      
-//       // Try to use compact version
-//       const compactUrl = url.includes('?') ? `${url}&utm_source=ig_embed&utm_campaign=loading` : `${url}?utm_source=ig_embed&utm_campaign=loading`;
-//       blockquote.setAttribute('data-instgrm-permalink', compactUrl);
-
-//       // Apply styles with more specific height control
-//       Object.assign(blockquote.style, {
-//         background: '#FFF',
-//         border: '0',
-//         borderRadius: '3px',
-//         boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
-//         margin: '1px',
-//         maxWidth: '540px',
-//         minWidth: '326px',
-//         padding: '0',
-//         width: 'calc(100% - 2px)',
-//         display: isLoaded ? 'block' : 'none',
-//         height: `${embedHeight}px`,
-//         maxHeight: `${embedHeight}px`,
-//         overflow: 'hidden',
-//         position: 'relative'
-//       });
-
-//       // Add fallback link (Instagram requirement)
-//       const link = document.createElement('a');
-//       link.href = url;
-//       link.textContent = 'View this post on Instagram';
-//       link.style.display = 'none';
-//       blockquote.appendChild(link);
-
-//       // Append new blockquote
-//       containerRef.current.appendChild(blockquote);
-
-//       // Reset loading state
-//       setIsLoaded(false);
-
-//       // Reinitialize embed
-//       if (window.instgrm) {
-//         setTimeout(() => {
-//           window.instgrm?.Embeds.process();
-//           setIsLoaded(true);
-          
-//           // Force height after embed loads
-//           setTimeout(() => {
-//             const iframe = containerRef.current?.querySelector('iframe');
-//             if (iframe) {
-//               iframe.style.height = `${embedHeight}px`;
-//               iframe.style.maxHeight = `${embedHeight}px`;
-//               iframe.style.minHeight = `${embedHeight}px`;
-//             }
-//           }, 1000);
-//         }, 100);
-//       } else {
-//         initializeEmbed();
-//       }
-//     }
-//     // eslint-disable-next-line
-//   }, [url, isReel]);
-
-//   return (
-//     <div className="instagram-embed-container my-8 flex justify-center items-center w-full">
-//       <div className="grid grid-cols-1 w-full max-w-[400px]">
-//         {!isLoaded && (
-//           <div className="flex justify-center items-center h-32">
-//             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-//           </div>
-//         )}
-//         <div 
-//           ref={containerRef} 
-//           className="flex justify-center overflow-hidden" 
-//           style={{ height: `${embedHeight}px` }}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default InstagramEmbed;
+export default SocialMultiEmbed;
+ 

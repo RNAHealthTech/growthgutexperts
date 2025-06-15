@@ -4,8 +4,9 @@ import { drMoumitaData, drSushovanData } from './data/doctor';
 import LandingHero from './ui/LandingHero';
 import ExpertiseSection from './ui/ExpertiseSection';
 import ImageCarousel from './ui/ImageCarousel';
- import Banner from './ui/instabanner';
-import InstagramMultiEmbed from './components/InstagramEmbed';
+import Banner from './ui/instabanner';
+import SocialMultiEmbed from './components/InstagramEmbed';
+import { SocialPost } from './components/InstagramEmbed';
 
 const LandingPage: React.FC = () => {
 
@@ -30,23 +31,31 @@ const LandingPage: React.FC = () => {
         }
     };
 
-    const instagramPosts = [
+    const socialPosts: SocialPost[] = [
         {
           url: 'https://www.instagram.com/p/DJDaeaHyZ6z/',
+          type: 'instagram',
           isReel: true,
           height: 640
         },
         {
             url: 'https://www.instagram.com/p/DJMwB6tySLt/',
+            type: 'instagram',
             isReel: true,
             height: 640
           }, 
           {
             url: 'https://www.instagram.com/p/DGyE_5RSgWb/',
+            type: 'instagram',
             isReel: true,
             height: 640
-          }
-        
+          }, 
+        {
+            url: 'https://www.facebook.com/NASH24x7/videos/2635072193363156/', 
+            type: 'facebook',
+            isReel: false, 
+            height: 640
+        }
       ];
 
     return (
@@ -132,8 +141,10 @@ const LandingPage: React.FC = () => {
                         Awareness for {' '}
                              <span className='text-yellow-600'>Wellness</span>
                              </h1>
-                       <InstagramMultiEmbed posts={instagramPosts} defaultHeight={550} />
-
+ <SocialMultiEmbed 
+          posts={socialPosts}
+          
+        />
                        <h4 className='text-xl mt-8 mx-4 font-bold text-red-500'>Pdf Resources</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-4">
                        
