@@ -33,6 +33,12 @@ const LandingPage: React.FC = () => {
 
     const socialPosts: SocialPost[] = [
         {
+          url: 'https://www.instagram.com/p/DK4biz2RIdY/', 
+          type: 'instagram', 
+          isReel: true, 
+          height: 640
+        },
+        {
           url: 'https://www.instagram.com/p/DJDaeaHyZ6z/',
           type: 'instagram',
           isReel: true,
