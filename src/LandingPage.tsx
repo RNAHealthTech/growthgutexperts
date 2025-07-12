@@ -32,18 +32,18 @@ const LandingPage: React.FC = () => {
     };
 
     const socialPosts: SocialPost[] = [
-        {
-            url: 'https://www.instagram.com/p/DLFM586pEi2/',
-            type: 'instagram',
-            isReel: true,
-            height: 640
-        },
-        {
-            url: 'https://www.instagram.com/p/DK4biz2RIdY/',
-            type: 'instagram',
-            isReel: true,
-            height: 640
-        },
+        // {
+        //     url: 'https://www.instagram.com/p/DLFM586pEi2/',
+        //     type: 'instagram',
+        //     isReel: true,
+        //     height: 640
+        // },
+        // {
+        //     url: 'https://www.instagram.com/p/DK4biz2RIdY/',
+        //     type: 'instagram',
+        //     isReel: true,
+        //     height: 640
+        // },
         {
             url: 'https://www.instagram.com/p/DJDaeaHyZ6z/',
             type: 'instagram',
@@ -51,18 +51,18 @@ const LandingPage: React.FC = () => {
             height: 640
         },
 
-        {
-            url: 'https://www.instagram.com/p/DGyE_5RSgWb/',
-            type: 'instagram',
-            isReel: true,
-            height: 640
-        },
-        {
-            url: 'https://www.facebook.com/NASH24x7/videos/2635072193363156/',
-            type: 'facebook',
-            isReel: false,
-            height: 640
-        }
+        // {
+        //     url: 'https://www.instagram.com/p/DGyE_5RSgWb/',
+        //     type: 'instagram',
+        //     isReel: true,
+        //     height: 640
+        // },
+        // {
+        //     url: 'https://www.facebook.com/NASH24x7/videos/2635072193363156/',
+        //     type: 'facebook',
+        //     isReel: false,
+        //     height: 640
+        // }
     ];
 
     return (
