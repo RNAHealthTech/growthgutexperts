@@ -131,7 +131,7 @@ export const drSushovanData: DoctorProfile = {
   },
   
   contactDetails: {
-    phone: "9474866692",
+    phone: "919474866692",
     email: "drbaidya25@gmail.com",
     instagram: 'https://instagram.com/growthgutexperts'
   },
@@ -389,7 +389,7 @@ export const drMoumitaData: DoctorProfile = {
     }
   ], 
   contactDetails: {
-    phone: "8789567806",
+    phone: "918789567806",
     email: "drmoumita.paedendo@gmail.com",
     linkedIn: "https://www.linkedin.com/in/moumita-saha24",
     instagram: "https://instagram.com/growthgutexperts"
