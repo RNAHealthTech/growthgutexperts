@@ -353,7 +353,8 @@ export const drMoumitaData: DoctorProfile = {
       schedules: [
         { day: "Monday", timing: "10 AM - 12 PM" },
         {day: "Wed", timing: "10 AM - 12 PM"}, 
-        { day: "Friday", timing: "10 AM - 12 PM" }
+        { day: "Friday", timing: "10 AM - 12 PM" },
+        {day : 'Saturday', timing:"Prior Appointments only"}
       ]
     },
     {
