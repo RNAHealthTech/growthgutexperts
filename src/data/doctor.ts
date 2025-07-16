@@ -176,7 +176,7 @@ export const drSushovanData: DoctorProfile = {
     {
       hospital: "Sanjeevan Hospital, Daryaganj, Delhi",
       schedules: [
-        { day: "Monday to Friday", timing: "4:30 PM - 6:30 PM" },
+        { day: "Monday to Friday", timing: "5 PM - 7 PM" },
       ]
     }
   ], 
