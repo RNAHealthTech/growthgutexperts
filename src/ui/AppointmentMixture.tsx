@@ -281,6 +281,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                     checked={formData.doctorName === "Dr. Moumita Saha"}
                     onChange={handleChange}
                     className={`form-radio focus:ring-zinc-700 h-4 w-4`}
+                    required
                   />
                   <span className={`ml-2 ${styles.text}`}>Dr. Moumita Saha</span>
                 </label>
@@ -292,6 +293,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                     checked={formData.doctorName === "Dr. Sushovan Baidya"}
                     onChange={handleChange}
                     className={`form-radio focus:ring-zinc-700 h-4 w-4`}
+                    required
                   />
                   <span className={`ml-2 ${styles.text}`}>Dr. Sushovan Baidya</span>
                 </label>
