@@ -1,6 +1,7 @@
 import React from 'react';
 import { DoctorProfile } from '../data/doctor';
 
+
 interface MapSectionProps {
   variant: 'drmoumita' | 'drsushovan';
   data: DoctorProfile;
@@ -35,6 +36,10 @@ const secondaryMaps = {
     {
       url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6193721508516!2d77.24040957592568!3d28.64116778368782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcd97cfadb5b%3A0xeec8c89cdfac676d!2sSanjeevan%20Hospital!5e0!3m2!1sen!2sin!4v1743771426683!5m2!1sen!2sin",
       name: "Sanjeevan Hospital"
+    },
+    {
+      url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.184881735339!2d77.13846989999999!3d28.7140203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0175aaed9b7d%3A0xf4ad5d1decfd39d!2sSantom%20Hospital!5e0!3m2!1sen!2sin!4v1756868917870!5m2!1sen!2sin",
+      name: "Santom Hospital"
     }
   ]
 };

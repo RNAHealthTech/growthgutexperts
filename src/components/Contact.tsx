@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { DoctorProfile } from '../data/doctor';
 import { Card, CardContent, Button } from '../ui/index';
-import { MapPin, Phone, Mail, Linkedin, Calendar, Clock, Instagram } from 'lucide-react';
+import { Mail, Calendar, Linkedin, Instagram } from 'lucide-react';
 import AppointmentModal from '../components/AppointmentModal';
-import CTA from './CTAComponents';
 import { Helmet } from 'react-helmet-async';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -53,7 +52,7 @@ const mapUrls = {
 // Secondary map URL for Dr. Sushovan
 const secondaryMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6193721508516!2d77.24040957592568!3d28.64116778368782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcd97cfadb5b%3A0xeec8c89cdfac676d!2sSanjeevan%20Hospital!5e0!3m2!1sen!2sin!4v1743771426683!5m2!1sen!2sin";
 const secondaryMapUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.264445738772!2d77.27253637592348!3d28.561820787287438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3929e6d3319%3A0xcd2355b56b80d9cf!2sHoly%20Family%20Hospital!5e0!3m2!1sen!2sin!4v1745833782593!5m2!1sen!2sin";
-
+const secondaryMapUrl3 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.184881735339!2d77.13846989999999!3d28.7140203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0175aaed9b7d%3A0xf4ad5d1decfd39d!2sSantom%20Hospital!5e0!3m2!1sen!2sin!4v1756868917870!5m2!1sen!2sin"
 
 const mapUrl3 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.0622398317932!2d77.18209207592274!3d28.53784888837332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce207d1cc01db%3A0xe87a0c5886bae0d4!2sSitaram%20Bhartia%20Institute%20of%20Science%20and%20Research!5e0!3m2!1sen!2sin!4v1745834896247!5m2!1sen!2sin";
 const mapUrl4 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.7417738272898!2d77.12913037592635!3d28.667449582493358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03552412e88d%3A0x41cdf3e3f531217b!2sCK%20Birla%20Hospital%2C%20Delhi!5e0!3m2!1sen!2sin!4v1745835024980!5m2!1sen!2sin";
@@ -106,6 +105,23 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
               />
             </div>
           </div>
+
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Santom Hospital</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={secondaryMapUrl3}
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="Santom Hospital"
+              />
+            </div>
+          </div>
         </div>
       );
     } else {
@@ -144,6 +160,7 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
               />
             </div>
           </div>
+
 
           <div className="w-full">
             <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Sitaram Bhartia Institute</h3>

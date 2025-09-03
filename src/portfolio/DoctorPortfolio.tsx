@@ -11,6 +11,7 @@ import Services from '../components/Services';
 import BlogTemplate from '../components/BlogTemplate';
 import Blogs from '../components/Blogs';
 import { useScrollToTop } from '../App';
+import LiverDoctorDelhi from '../components/LiverDoctor';
 
 interface DoctorPortfolioProps {
   doctorData: DoctorProfile;
@@ -103,6 +104,7 @@ const DoctorPortfolio: React.FC<DoctorPortfolioProps> = ({ doctorData }) => {
             />
           }
         />
+        <Route path='/best-liver-doctor-in-delhi' element={<LiverDoctorDelhi />} />
       </Routes>
     </MainLayout>
   );

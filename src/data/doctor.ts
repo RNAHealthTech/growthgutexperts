@@ -178,6 +178,13 @@ export const drSushovanData: DoctorProfile = {
       schedules: [
         { day: "Monday to Friday", timing: "5 PM - 7 PM" },
       ]
+    },
+    {
+      hospital: "Santom Hospital, Prasanth Vihar, Pitampura, New Delhi",
+      schedules: [
+         { day: "Tuesday, Thursday, Saturday", timing: "8 AM - 10 AM" },
+        
+      ]
     }
   ], 
   currentworkExperience: [
