@@ -9,7 +9,7 @@ interface MapSectionProps {
 
 const mapUrls = {
   drmoumita: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.755739746838!2d77.24503748885499!3d28.547060699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3db92c5437f%3A0x5776bd8ffe80c26!2sFortis%20C-Doc%20Hospital%20%7C%20Best%20Hospital%20in%20Delhi!5e0!3m2!1sen!2sin!4v1745833346425!5m2!1sen!2sin",
-  drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.763413932411!2d77.21203957592637!3d28.66680178252283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7458eee0db%3A0xbc22d8e585c02caa!2sSt.%20Stephen%27s%20Hospital!5e0!3m2!1sen!2sin!4v1743771131566!5m2!1sen!2sin"
+  drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6193721508516!2d77.24040957592568!3d28.64116778368782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcd97cfadb5b%3A0xeec8c89cdfac676d!2sSanjeevan%20Hospital!5e0!3m2!1sen!2sin!4v1743771426683!5m2!1sen!2sin"
 };
 
 // Secondary maps
@@ -32,16 +32,7 @@ const secondaryMaps = {
       name: "Sanjeevan Hospital"
     }
   ],
-  drsushovan: [
-    {
-      url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6193721508516!2d77.24040957592568!3d28.64116778368782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcd97cfadb5b%3A0xeec8c89cdfac676d!2sSanjeevan%20Hospital!5e0!3m2!1sen!2sin!4v1743771426683!5m2!1sen!2sin",
-      name: "Sanjeevan Hospital"
-    },
-    {
-      url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.184881735339!2d77.13846989999999!3d28.7140203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0175aaed9b7d%3A0xf4ad5d1decfd39d!2sSantom%20Hospital!5e0!3m2!1sen!2sin!4v1756868917870!5m2!1sen!2sin",
-      name: "Santom Hospital"
-    }
-  ]
+  drsushovan: []
 };
 
 // Theme config
@@ -66,7 +57,7 @@ const themeConfig = {
 
 const MapSection: React.FC<MapSectionProps> = ({ variant, data }) => {
   const styles = themeConfig[variant];
-  const hospitalName = variant === 'drmoumita' ? 'Fortis C-Doc Hospital' : 'St. Stephen\'s Hospital';
+  const hospitalName = variant === 'drmoumita' ? 'Fortis C-Doc Hospital' : 'Sanjeevan Hospital';
   
   return (
     <section className={`py-12 md:py-16 ${styles.background}`}>

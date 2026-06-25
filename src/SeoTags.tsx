@@ -192,10 +192,10 @@ export const DrSushovanSEO: React.FC<SEOComponentProps> = ({ data, baseUrl }) =>
     "medicalSpecialty": personalDetails.specialty,
     "workLocation": {
       "@type": "Hospital",
-      "name": "St Stephen's Hospital",
+      "name": "Sanjeevan Hospital",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": contactDetails.address
+        "streetAddress": "24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002"
       }
     },
     "hasCredential": generateEducationSchema(education),
@@ -220,7 +220,7 @@ export const DrSushovanSEO: React.FC<SEOComponentProps> = ({ data, baseUrl }) =>
     "Hepatologist Delhi",
     "Dr Sushovan Baidya",
     "Liver specialist Delhi",
-    "St Stephen Hospital gastroenterologist",
+    "Sanjeevan Hospital gastroenterologist",
     "Digestive health doctor Delhi",
     "Liver transplant specialist",
     "IBD treatment Delhi",
@@ -245,7 +245,7 @@ export const DrSushovanSEO: React.FC<SEOComponentProps> = ({ data, baseUrl }) =>
       <meta property="og:type" content="profile" />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:title" content={`${personalDetails.name} - ${personalDetails.specialty} in Delhi`} />
-      <meta property="og:description" content={`Expert Gastroenterologist & Hepatologist at St Stephen's Hospital with advanced expertise in liver and digestive health. Specialized in transplant hepatology and complex GI conditions.`} />
+      <meta property="og:description" content={`Expert Gastroenterologist & Hepatologist at Sanjeevan Hospital with advanced expertise in liver and digestive health. Specialized in transplant hepatology and complex GI conditions.`} />
       <meta property="og:image" content={imageUrl} />
       <meta property="profile:first_name" content="Sushovan" />
       <meta property="profile:last_name" content="Baidya" />
@@ -324,7 +324,7 @@ export const DoctorFAQSchema: React.FC<{ doctorData: DoctorProfile; baseUrl: str
     },
     {
       question: "Where does Dr. Sushovan Baidya practice in Delhi?",
-      answer: "Dr. Sushovan Baidya practices as a Consultant in the Department of Gastroenterology and Hepatology at St Stephen's Hospital, Delhi."
+      answer: "Dr. Sushovan Baidya practices as a Consultant in the Department of Gastroenterology and Hepatology at Sanjeevan Hospital, Delhi."
     },
     {
       question: "What are Dr. Sushovan Baidya's qualifications?",
@@ -367,27 +367,23 @@ export const HospitalLocationSchema: React.FC<{ doctorData: DoctorProfile; baseU
   const locationSchema = {
     "@context": "https://schema.org",
     "@type": "Hospital",
-    "name": "St Stephen's Hospital",
-    "url": "https://ststephenshospital.org/",
-    "logo": `${baseUrl}/images/st-stephens-logo.png`,
-    "image": `${baseUrl}/images/st-stephens-hospital.jpg`,
-    "telephone": "+91-11-23966021",
+    "name": "Sanjeevan Hospital",
+    "url": "http://sanjeevanhospital.in/",
+    "telephone": "+91-11-23267950",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "St Stephen Hospital Campus, Tis Hazari",
-      "addressLocality": "Delhi",
-      "postalCode": "110054",
+      "streetAddress": "24, Ansari Road, Darya Ganj",
+      "addressLocality": "New Delhi",
+      "postalCode": "110002",
       "addressCountry": "IN"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "28.666797",
-      "longitude": "77.212034"
+      "latitude": "28.641167",
+      "longitude": "77.240409"
     },
-    "openingHours": "Mo-Sa 09:00-17:00",
+    "openingHours": "Mo-Sa 09:00-19:00",
     "sameAs": [
-      "https://www.facebook.com/ststephenshospitaldelhi/",
-      "https://twitter.com/StStephensHosp"
     ],
     "department": [
       {

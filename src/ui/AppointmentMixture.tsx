@@ -49,18 +49,13 @@ const doctorHospitals = {
   drsushovan: {
     offline: [
       {
-        hospital: "St Stephen's Hospital, Tis Hazari, Delhi",
+        hospital: "Sanjeevan Hospital 24, Ansari Rd, Daryaganj, New Delhi, Delhi, 110002",
         schedules: [
           { day: "Monday", timing: "10 AM - 4 PM" },
           { day: "Thursday", timing: "10 AM - 4 PM" },
-          { day: "Saturday", timing: "10 AM - 1 PM" }
-        ]
-      },
-      {
-        hospital: "Sanjeevan Hospital, Daryaganj, Delhi",
-        schedules: [
+          { day: "Saturday", timing: "10 AM - 1 PM" },
           { day: "Monday to Friday", timing: "4:30 PM - 6:30 PM" },
-          { day: "Saturday", timing: "2 PM - 4 PM" }
+          { day: "Saturday (Evening)", timing: "2 PM - 4 PM" }
         ]
       }
     ]

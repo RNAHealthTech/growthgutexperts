@@ -131,7 +131,7 @@ export const drSushovanData: DoctorProfile = {
   },
   
   contactDetails: {
-    phone: "919474866692",
+    phone: "094748 66692",
     email: "drbaidya25@gmail.com",
     instagram: 'https://instagram.com/growthgutexperts'
   },
@@ -166,24 +166,12 @@ export const drSushovanData: DoctorProfile = {
   
   offline: [
     {
-      hospital: "St Stephen's Hospital, Tis Hazari, Delhi",
+      hospital: "Sanjeevan Hospital 24, Ansari Rd, Daryaganj, New Delhi, Delhi, 110002",
       schedules: [
         { day: "Tuesday", timing: "10 AM - 12 PM" },
         { day: "Thursday", timing: "10 AM - 4 PM" },
-        { day: "Saturday", timing: "10 AM - 12 PM" }
-      ]
-    },
-    {
-      hospital: "Sanjeevan Hospital, Daryaganj, Delhi",
-      schedules: [
+        { day: "Saturday", timing: "10 AM - 12 PM" },
         { day: "Monday to Friday", timing: "5 PM - 7 PM" },
-      ]
-    },
-    {
-      hospital: "Santom Hospital, Prasanth Vihar, Pitampura, New Delhi",
-      schedules: [
-         { day: "Monday, Wednesday, Friday", timing: "8 AM - 10 AM" },
-        
       ]
     }
   ], 
@@ -191,20 +179,11 @@ export const drSushovanData: DoctorProfile = {
     {
       role: "Consultant",
       department: "Department of Gastroenterology and Hepatology",
-      organization: "St Stephen's Hospital, New Delhi",
+      organization: "Sanjeevan Hospital, Daryaganj, New Delhi",
       duration: {
         start: "December 2024",
         end: "onwards",
       },
-    },
-    {
-      role: "Visiting Consultant", 
-      department: "Department of Gastroenterology and Hepatology", 
-      organization: "Sanjeevan Hospital, Daryaganj, New Delhi", 
-      duration: {
-        start: "", 
-        end:""
-      }
     }
   ],
   pastworkExperience: [
@@ -351,7 +330,7 @@ export const drMoumitaData: DoctorProfile = {
       name: "Dr Sushovan Baidya",
       qualification: "DM Hepatology, CMC Vellore",
       currentRole:
-        "Consultant (Dept of Gastroenterology and Hepatology), St Stephen's Hospital",
+        "Consultant (Dept of Gastroenterology and Hepatology), Sanjeevan Hospital",
     },
   },
   offline: [
