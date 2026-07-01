@@ -107,10 +107,10 @@ export interface DoctorProfile {
 // data/doctors.ts
 export const drSushovanData: DoctorProfile = {
   personalDetails: {
-    name: "Dr Sushovan Baidya",
+    name: "Dr. Sushovan Baidya",
     nationality: "Indian",
     dateOfBirth: "1990-08-19",
-    specialty: "Gastroenterologist and Hepatologist",
+    specialty: "Hepatologist, Gastroenterologist and Therapeutic Endoscopist",
     description:
       "Advanced expertise in liver and digestive health, with specialized focus on transplant hepatology. Providing comprehensive care for complex gastrointestinal conditions with cutting-edge treatments.",
     age: 34,
@@ -147,7 +147,7 @@ export const drSushovanData: DoctorProfile = {
       },
     },
     {
-      degree: "MD General Medicine",
+      degree: "MD (General Medicine)",
       institute: "M.K.C.G Medical College, Brahmapur, Odisha",
       duration: {
         start: "May 2016",
@@ -155,7 +155,7 @@ export const drSushovanData: DoctorProfile = {
       },
     },
     {
-      degree: "DM Hepatology",
+      degree: "DM (Hepatology, CMC Vellore)",
       institute: "Christian Medical College, Vellore",
       duration: {
         start: "December 2020",
@@ -166,12 +166,16 @@ export const drSushovanData: DoctorProfile = {
   
   offline: [
     {
-      hospital: "Sanjeevan Hospital 24, Ansari Rd, Daryaganj, New Delhi, Delhi, 110002",
+      hospital: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
       schedules: [
-        { day: "Tuesday", timing: "10 AM - 12 PM" },
-        { day: "Thursday", timing: "10 AM - 4 PM" },
-        { day: "Saturday", timing: "10 AM - 12 PM" },
-        { day: "Monday to Friday", timing: "5 PM - 7 PM" },
+        { day: "Monday to Saturday", timing: "9:00 AM - 10:30 AM" }
+      ]
+    },
+    {
+      hospital: "KAILASH HOSPITAL & HEART INSTITUTE, NOIDA SEC-27",
+      schedules: [
+        { day: "Monday to Saturday", timing: "2:00 PM - 4:00 PM" },
+        { day: "Monday to Saturday", timing: "5:00 PM - 8:00 PM" }
       ]
     }
   ], 

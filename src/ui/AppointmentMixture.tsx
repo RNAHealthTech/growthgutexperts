@@ -49,13 +49,16 @@ const doctorHospitals = {
   drsushovan: {
     offline: [
       {
-        hospital: "Sanjeevan Hospital 24, Ansari Rd, Daryaganj, New Delhi, Delhi, 110002",
+        hospital: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
         schedules: [
-          { day: "Monday", timing: "10 AM - 4 PM" },
-          { day: "Thursday", timing: "10 AM - 4 PM" },
-          { day: "Saturday", timing: "10 AM - 1 PM" },
-          { day: "Monday to Friday", timing: "4:30 PM - 6:30 PM" },
-          { day: "Saturday (Evening)", timing: "2 PM - 4 PM" }
+          { day: "Monday to Saturday", timing: "9:00 AM - 10:30 AM" }
+        ]
+      },
+      {
+        hospital: "KAILASH HOSPITAL & HEART INSTITUTE, NOIDA SEC-27",
+        schedules: [
+          { day: "Monday to Saturday", timing: "2:00 PM - 4:00 PM" },
+          { day: "Monday to Saturday", timing: "5:00 PM - 8:00 PM" }
         ]
       }
     ]
