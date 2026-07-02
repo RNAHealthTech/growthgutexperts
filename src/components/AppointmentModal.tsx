@@ -95,7 +95,7 @@ const doctorHospitals = {
         ]
       },
       {
-        hospital: "Sanjeevan Hospital, Daryaganj, Delhi",
+        hospital: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
         schedules: [
           { day: "Wed", timing: "5 PM - 6:30 PM" }
         ]

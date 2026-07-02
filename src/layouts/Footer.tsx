@@ -27,7 +27,7 @@ const DoctorFooter = () => {
       schedule: "Tuesday, Thursday: 2:00 PM - 4:00 PM"
     },
     {
-      hospital: "Sanjeevan Hospital, Daryaganj, Delhi",
+      hospital: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
       schedule: "Wednesday: 5:00 PM - 6:30 PM"
     }
   ];

@@ -183,7 +183,7 @@ export const drSushovanData: DoctorProfile = {
     {
       role: "Consultant",
       department: "Department of Gastroenterology and Hepatology",
-      organization: "Sanjeevan Hospital, Daryaganj, New Delhi",
+      organization: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
       duration: {
         start: "December 2024",
         end: "onwards",
@@ -372,7 +372,7 @@ export const drMoumitaData: DoctorProfile = {
       ]
     }, 
     {
-      hospital: "Sanjeevan Hospital, Daryaganj, Delhi", 
+      hospital: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002", 
       schedules: [
         {day: "Wed", timing: "5 PM - 6:30 PM"}
       ]
@@ -454,7 +454,7 @@ export const drMoumitaData: DoctorProfile = {
     {
       role: "Consultant",
       department: "Paediatric Endocrinologist",
-      organization: "Sanjeevan Hospital ,Daryaganj, New Delhi",
+      organization: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
       duration: {
         start: "Jan 2025",
         end: "onwards",
