@@ -9,7 +9,7 @@ interface MapSectionProps {
 
 const mapUrls = {
   drmoumita: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.755739746838!2d77.24503748885499!3d28.547060699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3db92c5437f%3A0x5776bd8ffe80c26!2sFortis%20C-Doc%20Hospital%20%7C%20Best%20Hospital%20in%20Delhi!5e0!3m2!1sen!2sin!4v1745833346425!5m2!1sen!2sin",
-  drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6193721508516!2d77.24040957592568!3d28.64116778368782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcd97cfadb5b%3A0xeec8c89cdfac676d!2sSanjeevan%20Hospital!5e0!3m2!1sen!2sin!4v1743771426683!5m2!1sen!2sin"
+  drsushovan: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.502931168128!2d77.32986707538337!3d28.586749975670786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfaf555555555%3A0x5e56e07c330f62e7!2sKailash%20Hospital%20%26%20Heart%20Institute!5e0!3m2!1sen!2sin!4v1725000000000!5m2!1sen!2sin"
 };
 
 // Secondary maps
@@ -26,13 +26,14 @@ const secondaryMaps = {
     {
       url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.7417738272898!2d77.12913037592635!3d28.667449582493358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03552412e88d%3A0x41cdf3e3f531217b!2sCK%20Birla%20Hospital%2C%20Delhi!5e0!3m2!1sen!2sin!4v1745835024980!5m2!1sen!2sin",
       name: "CK Birla Hospital"
-    },
-    {
-      url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.619372150847!2d77.2404095759257!3d28.641167783687717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcd97cfadb5b%3A0xeec8c89cdfac676d!2sSanjeevan%20Hospital!5e0!3m2!1sen!2sin!4v1745835074864!5m2!1sen!2sin",
-      name: "Sanjeevan Hospital"
     }
   ],
-  drsushovan: []
+  drsushovan: [
+    {
+      url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.595908298734!2d77.39768657538967!3d28.618698775677737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd2c12345678%3A0x1234567890abcdef!2sHeritage+Hospitals+Limited!5e0!3m2!1sen!2sin!4v1725075600000!5m2!1sen!2sin",
+      name: "Heritage Hospital"
+    }
+  ]
 };
 
 // Theme config
@@ -57,7 +58,7 @@ const themeConfig = {
 
 const MapSection: React.FC<MapSectionProps> = ({ variant, data }) => {
   const styles = themeConfig[variant];
-  const hospitalName = variant === 'drmoumita' ? 'Fortis C-Doc Hospital' : 'Sanjeevan Hospital';
+  const hospitalName = variant === 'drmoumita' ? 'Fortis C-Doc Hospital' : 'Kailash Hospital and Heart Institute';
   
   return (
     <section className={`py-12 md:py-16 ${styles.background}`}>

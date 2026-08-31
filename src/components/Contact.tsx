@@ -71,13 +71,12 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
   const renderMaps = () => {
     if (theme === 'drsushovan') {
       return (
-        <div className="space-y-6">
-
+        <div className="space-y-6 md:space-y-8 lg:space-y-10">
           <div className="w-full">
-            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Sanjeevan Hospital</h3>
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Kailash Hospital and Heart Institute</h3>
             <div className="aspect-w-16 aspect-h-9">
               <iframe
-                src={secondaryMapUrl}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.502931168128!2d77.32986707538337!3d28.586749975670786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfaf555555555%3A0x5e56e07c330f62e7!2sKailash%20Hospital%20%26%20Heart%20Institute!5e0!3m2!1sen!2sin!4v1725000000000!5m2!1sen!2sin"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
@@ -85,12 +84,27 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="rounded-lg shadow-md"
-                title="Sanjeevan Hospital"
+                title="Kailash Hospital and Heart Institute"
               />
             </div>
           </div>
-
-
+          
+          <div className="w-full">
+            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Heritage Hospital</h3>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.595908298734!2d77.39768657538967!3d28.618698775677737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd2c12345678%3A0x1234567890abcdef!2sHeritage+Hospitals+Limited!5e0!3m2!1sen!2sin!4v1725075600000!5m2!1sen!2sin"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg shadow-md"
+                title="Heritage Hospital"
+              />
+            </div>
+          </div>
         </div>
       );
     } else {
@@ -161,23 +175,6 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="rounded-lg shadow-md"
                 title="CK Birla Hospital"
-              />
-            </div>
-          </div>
-
-          <div className="w-full">
-            <h3 className={`text-lg font-semibold ${styles.secondary} mb-3`}>Sanjeevan Hospital</h3>
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                src={mapUrl5}
-                width="100%"
-                height="280"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-lg shadow-md"
-                title="Sanjeevan Hospital"
               />
             </div>
           </div>

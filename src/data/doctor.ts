@@ -166,16 +166,16 @@ export const drSushovanData: DoctorProfile = {
   
   offline: [
     {
-      hospital: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
-      schedules: [
-        { day: "Monday to Saturday", timing: "9:00 AM - 10:30 AM" }
-      ]
-    },
-    {
-      hospital: "KAILASH HOSPITAL & HEART INSTITUTE, NOIDA SEC-27",
+      hospital: "Kailash Hospital and Heart institute , sector 27, Noida",
       schedules: [
         { day: "Monday to Saturday", timing: "2:00 PM - 4:00 PM" },
         { day: "Monday to Saturday", timing: "5:00 PM - 8:00 PM" }
+      ]
+    },
+    {
+      hospital: "Heritage Hospital, Noida, sector 119",
+      schedules: [
+        { day: "Monday to Saturday", timing: "8:30 AM - 11:00 AM" }
       ]
     }
   ], 
@@ -183,7 +183,7 @@ export const drSushovanData: DoctorProfile = {
     {
       role: "Consultant",
       department: "Department of Gastroenterology and Hepatology",
-      organization: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
+      organization: "Kailash Hospital and Heart institute , sector 27, Noida",
       duration: {
         start: "December 2024",
         end: "onwards",
@@ -370,12 +370,6 @@ export const drMoumitaData: DoctorProfile = {
       schedules: [
         {day: "Tues, Thurs", timing: "2 PM - 4 PM"}
       ]
-    }, 
-    {
-      hospital: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002", 
-      schedules: [
-        {day: "Wed", timing: "5 PM - 6:30 PM"}
-      ]
     }
   ], 
   contactDetails: {
@@ -450,16 +444,7 @@ export const drMoumitaData: DoctorProfile = {
         start: "Jan 2025",
         end: "onwards",
       },
-    },
-    {
-      role: "Consultant",
-      department: "Paediatric Endocrinologist",
-      organization: "Sanjeevan Hospital 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002",
-      duration: {
-        start: "Jan 2025",
-        end: "onwards",
-      },
-    },
+    }
   ],
   pastworkExperience: [
     {
