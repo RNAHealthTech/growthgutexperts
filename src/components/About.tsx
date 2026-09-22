@@ -175,8 +175,8 @@ export const AboutSEO: React.FC<AboutSEOProps> = ({ doctorData, baseUrl }) => {
       <meta property="twitter:image" content={imageUrl} />
       
       {/* Additional Meta Tags */}
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
+      <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+      <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
       <meta name="rating" content="General" />
       <meta name="geo.region" content="IN-DL" />
       <meta name="geo.placename" content="New Delhi" />

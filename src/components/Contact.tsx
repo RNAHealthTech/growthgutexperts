@@ -191,6 +191,8 @@ const ContactSection: React.FC<ContactProps> = ({ doctor, theme }) => {
         <meta name="description" content={seoDescription} />
         <meta name="keywords" content={`${doctor.personalDetails.name}, ${doctor.personalDetails.specialty.toLowerCase()}, appointment booking, Delhi doctor`} />
         <meta name="author" content={doctor.personalDetails.name} />
+        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+        <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
 
         {/* Open Graph / Facebook Meta Tags */}
         <meta property="og:type" content="website" />

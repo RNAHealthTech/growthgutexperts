@@ -32,6 +32,8 @@ const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
       <title>{pageTitle}</title>
       <meta name="description" content={pageDescription} />
       <meta name="keywords" content={keywords} />
+      <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+      <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={currentDoctor.imageUrl} />

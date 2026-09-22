@@ -167,6 +167,8 @@ const Gallery: React.FC = () => {
             <Helmet>
                 <title>Growth Gut Gallery</title>
                 <meta name="description" content="Browse our gallery of images and videos" />
+                <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+                <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
             </Helmet>
 
             <div className="container mx-auto px-4 py-8">

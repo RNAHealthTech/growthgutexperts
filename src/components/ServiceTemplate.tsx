@@ -215,6 +215,8 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
           <title>{seoContent.pageTitle}</title>
           <meta name="description" content={seoContent.pageDescription} />
           <meta name="keywords" content={seoContent.keywords} />
+          <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+          <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
 
           {/* Canonical Link */}
           <link rel="canonical" href={seoContent.currentUrl} />
