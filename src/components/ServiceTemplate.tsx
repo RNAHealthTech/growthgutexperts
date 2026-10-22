@@ -88,7 +88,7 @@ const ServiceTemplate: React.FC<ServiceTemplateProps> = ({ doctorData }) => {
 
     const currentUrl = `https://${window.location.hostname}/services/${slug}`;
     const pageTitle = `${selectedService.title} | ${selectedDoctor.name} - ${selectedDoctor.specialty} Specialist`;
-    const pageDescription = `Learn about ${selectedService.title} treatments provided by ${selectedDoctor.name}, a leading ${selectedDoctor.specialty} specialist. ${selectedService.description.substring(0, 120)}...`;
+    const pageDescription = `Learn about ${selectedService.title} care provided by ${selectedDoctor.name}, ${selectedDoctor.specialty} specialist. ${selectedService.description.substring(0, 120)}...`;
 
     // Generate keywords based on service and doctor specialty
     const keywords = `${selectedService.title}, ${selectedDoctor.specialty}, ${selectedDoctor.title}, 

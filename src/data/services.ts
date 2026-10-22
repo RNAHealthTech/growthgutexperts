@@ -45,14 +45,14 @@ export const doctorsServices: DoctorServices[] = [
     title: "Gastroenterologist & Hepatologist",
     specialty: "Liver, Digestive System, and Gastrointestinal Disorders",
     overview:
-      "Dr. Sushovan Baidya is a distinguished gastroenterologist and hepatologist with extensive experience in treating complex digestive system disorders. His expertise spans across liver diseases, gastrointestinal conditions, and advanced endoscopic procedures, ensuring comprehensive care for patients with various digestive health challenges.",
+      "Dr. Sushovan Baidya is an experienced gastroenterologist and hepatologist dedicated to managing complex digestive system disorders. His clinical practice covers liver diseases, gastrointestinal conditions, and therapeutic endoscopic procedures, providing comprehensive care for patients with diverse digestive health challenges.",
     imageUrl: "/images/second.png",
     services: [
       {
         title: "Liver Disease Management",
         slug: "liver-disease-management",
         description:
-          "Our liver disease management program offers comprehensive care using cutting-edge diagnostic techniques and personalized  plans. We specialize in treating all forms of liver conditions, from acute hepatitis to chronic liver disease and cancer.",
+          "Our liver disease management program offers comprehensive care using evidence-based diagnostic techniques and personalized care plans. We evaluate and manage a wide range of liver conditions, from acute hepatitis to chronic liver disease and liver tumors.",
         imageUrl: "/images/services/liver-care.jpg",
         subServices: [
           {
@@ -217,7 +217,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Gall Bladder And Bile Duct Diseases",
         slug: "gall-bladder-and-bile-duct-diseases",
         description:
-          "Expert management of conditions affecting the gallbladder and bile ducts using advanced diagnostic and therapeutic techniques.",
+          "Comprehensive management of conditions affecting the gallbladder and bile ducts using diagnostic and therapeutic techniques.",
         imageUrl: "/images/services/biliary-disorders.png",
         subServices: [
           {
@@ -249,7 +249,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Pancreatic Diseases",
         slug: "pancreatic-diseases",
         description:
-          "Expert diagnosis and  of various pancreatic conditions, from inflammation to tumors, using advanced medical approaches and interventional procedures.",
+          "Comprehensive diagnosis and management of various pancreatic conditions, from inflammation to tumors, using medical approaches and interventional procedures.",
         imageUrl: "/images/services/pancreas.jpg",
         subServices: [
           {
@@ -365,7 +365,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Gastrointestinal Bleeding",
         slug: "gastrointestinal-bleeding",
         description:
-          "Expert management of various types of gastrointestinal bleeding using advanced endoscopic techniques.",
+          "Clinical management of various types of gastrointestinal bleeding using established endoscopic techniques.",
         imageUrl: "/images/services/gi-bleeding.gif",
         subServices: [
           {
@@ -392,7 +392,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Endoscopy Services",
         slug: "endoscopy-services",
         description:
-          "State-of-the-art endoscopic procedures for diagnosis and  of various digestive system disorders.",
+          "Diagnostic and therapeutic endoscopic procedures for the evaluation and management of various digestive system disorders.",
         imageUrl: "/images/services/endoscopy.avif",
         subServices: [
           {
@@ -439,7 +439,7 @@ export const doctorsServices: DoctorServices[] = [
     title: "Pediatric and Adolescent Endocrinologist",
     specialty: "Pediatric Endocrinology and Growth Disorders",
     overview:
-      "Dr. Moumita Saha is a renowned pediatric endocrinologist specializing in hormonal disorders and growth-related conditions in children and adolescents. Her patient-centered approach ensures comprehensive care from infancy through adolescence.",
+      "Dr. Moumita Saha is a specialized pediatric endocrinologist focusing on hormonal disorders and growth-related conditions in children and adolescents. Her patient-centered approach ensures comprehensive care from infancy through adolescence.",
     imageUrl: "/images/first.jpg",
     services: [
       {
@@ -549,7 +549,7 @@ export const doctorsServices: DoctorServices[] = [
       {
         title: "Adrenal Disorders",
         description:
-          "Comprehensive evaluation and treatment of adrenal conditions including Cushing's syndrome, Addison's disease, adrenal insufficiency, pheochromocytoma, and adrenal tumors by our expert endocrinologists.",
+          "Comprehensive evaluation and treatment of adrenal conditions including Cushing's syndrome, Addison's disease, adrenal insufficiency, pheochromocytoma, and adrenal tumors in children and adolescents.",
 
         imageUrl: "/images/services/adrenals.jpeg",
         slug: "adrenal-disorders",
@@ -635,7 +635,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Neonatal Endocrine Disorders",
 
         description:
-          "Expert diagnosis and treatment of hormonal disorders in newborns, including thyroid, adrenal, blood sugar, and genital development conditions.",
+          "Comprehensive evaluation and treatment of hormonal disorders in newborns, including thyroid, adrenal, blood sugar, and genital development conditions.",
         imageUrl: "/images/services/neonate.jpg",
         slug: "neonatal-endocrine-disorders",
         subServices: [
@@ -656,7 +656,7 @@ export const doctorsServices: DoctorServices[] = [
         title: "Puberty Disorders and Reproductive Health",
         slug: "puberty-reproductive-health",
         description:
-          "Expert management of reproductive and puberty-related conditions in children and adolescents.",
+          "Clinical evaluation and management of reproductive and puberty-related conditions in children and adolescents.",
         imageUrl: "/images/services/puberty.jpeg",
         subServices: [
           {

@@ -72,7 +72,7 @@ const ExpertiseSection: React.FC<{ id?: string}> = ({id}) => {
               <ServiceCard
                 icon={Baby}
                 title="Childhood Diabetes"
-                description="Expert management of Type 1 DM, Neonatal DM, and MODY"
+                description="Clinical management of Type 1 DM, Neonatal DM, and MODY"
                 color="bg-yellow-500"
               />
               <ServiceCard
@@ -137,7 +137,7 @@ const ExpertiseSection: React.FC<{ id?: string}> = ({id}) => {
               <ServiceCard
                 icon={Syringe}
                 title="ERCP"
-                description="Expert biliary procedures and stone management"
+                description="Diagnostic and therapeutic biliary procedures and stone management"
                 color="bg-blue-500"
               />
             </div>

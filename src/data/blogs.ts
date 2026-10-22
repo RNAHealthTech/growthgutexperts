@@ -50,7 +50,7 @@ export const blogs: BlogContent[] = [
     slug: "managing-digestive-disorders",
     imageUrl: "/images/blogs/digestive-health.jpg",
     description:
-      "Expert insights into common digestive system disorders and their management strategies.",
+      "Clinical insights into common digestive system disorders and their management strategies.",
     tags: ["digestive health", "gastroenterology", "treatment"],
     content: [
       "Digestive disorders can significantly impact quality of life. Understanding their causes and management is crucial for effective treatment. From stomach problems to gut health issues, these conditions affect millions worldwide, interfering with nutrient absorption and causing uncomfortable symptoms that disrupt daily activities.",
@@ -313,7 +313,7 @@ export const blogs: BlogContent[] = [
       
       "Parents play a crucial role by modeling healthy behaviors. Children learn by watching - when they see parents enjoying healthy foods and staying active, they're more likely to develop these habits themselves.",
       
-      "Success stories show that children who receive comprehensive obesity management often improve not just physically, but show better academic performance, increased confidence, and improved quality of life."
+      "Evidence suggests that children who receive comprehensive lifestyle and medical support often experience improvements in physical health, daily activity levels, and overall well-being."
     ],
   },
 ];

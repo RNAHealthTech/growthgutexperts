@@ -57,7 +57,7 @@ const Blogs: React.FC<BlogsProps> = ({ doctorData, variant }) => {
     <main className="flex-grow">
       <LandingSection
         label="Medical Insights"
-        title="Expert Blog Posts"
+        title="Educational Medical Articles"
         description="Explore comprehensive health articles on some common conditions"
         buttonText="Book Appointment"
         variant={variant}

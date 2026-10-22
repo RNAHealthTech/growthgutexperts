@@ -141,7 +141,7 @@ export const AboutSEO: React.FC<AboutSEOProps> = ({ doctorData, baseUrl }) => {
         "Hepatologist Delhi education",
         "Dr Sushovan medical training",
         "Liver specialist credentials",
-        "Digestive health expert experience",
+        "Digestive health specialist experience",
         "Dr Sushovan Baidya expertise",
         "Gastroenterology career Delhi",
         "Hepatology specialist background",

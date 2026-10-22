@@ -22,8 +22,8 @@ const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
 
   if (!currentDoctor) return null;
 
-  const pageTitle = `Expert in ${currentDoctor.specialty} Services | ${currentDoctor.name}`;
-  const pageDescription = `Discover our comprehensive ${currentDoctor.specialty} services provided by ${currentDoctor.name}, a leading specialist in ${currentDoctor.title.toLowerCase()}. Schedule your consultation today.`;
+  const pageTitle = `${currentDoctor.specialty} Services | ${currentDoctor.name}`;
+  const pageDescription = `Discover comprehensive ${currentDoctor.specialty} services provided by ${currentDoctor.name}, specialist in ${currentDoctor.title.toLowerCase()}. Schedule your consultation today.`;
   const keywords = `${currentDoctor.specialty}, ${currentDoctor.title}, medical services, healthcare, specialist doctor, ${name[1].toLowerCase()} doctor`;
 
   return (
@@ -47,7 +47,7 @@ const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
     <main className="flex-grow">
       <LandingSection
         label="Our Services"
-        title={`Expert in ${currentDoctor.specialty}`}
+        title={`${currentDoctor.specialty} Care`}
         description={currentDoctor.overview}
         buttonText="Schedule Consultation"
         variant={variant}
@@ -82,7 +82,7 @@ const Services: React.FC<ServicesProps> = ({ doctorData, variant }) => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Expert Care</h3>
+              <h3 className="text-xl font-semibold mb-4">Specialized Care</h3>
               <p className="text-muted-foreground">
                 {currentDoctor.name.includes('Sushovan')
                   ? "Specialized in gastroenterology and hepatology with years of experience in treating complex digestive system disorders."

@@ -105,7 +105,7 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ data, variant
         >
           <div className={`inline-block ${colors.light} rounded-full px-4 py-2 mb-4`}>
             <span className={`${colors.accent} font-semibold text-sm`}>
-              Expert Health Solutions
+              Specialized Healthcare Services
             </span>
           </div>
           <h2 className={`text-4xl md:text-5xl font-bold ${colors.accent} mb-6`}>

@@ -140,7 +140,7 @@ export const DrMoumitaSEO: React.FC<SEOComponentProps> = ({ data, baseUrl }) => 
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={pageUrl} />
       <meta property="twitter:title" content={`${personalDetails.name} - Pediatric Endocrinologist in Delhi`} />
-      <meta property="twitter:description" content={`Expert care for children with diabetes, growth disorders, thyroid conditions, and obesity. Consultations at Holy Family Hospital, Sitaram Bhartia, and more.`} />
+      <meta property="twitter:description" content={`Comprehensive care for children with diabetes, growth disorders, thyroid conditions, and obesity. Consultations at Holy Family Hospital, Sitaram Bhartia, and more.`} />
       <meta property="twitter:image" content={imageUrl} />
       
       {/* Additional Meta Tags */}
@@ -224,12 +224,12 @@ export const DrSushovanSEO: React.FC<SEOComponentProps> = ({ data, baseUrl }) =>
     "Digestive health doctor Delhi",
     "Liver transplant specialist",
     "IBD treatment Delhi",
-    "Biliary disease expert",
+    "Biliary disease specialist",
     "Pancreatic disease doctor",
     "ERCP Delhi",
     "Endoscopy in Delhi",
     "Colonoscopy procedures Delhi",
-    "Best liver doctor Delhi"
+    "Liver doctor Delhi"
   ].join(", ");
 
   return (
@@ -245,7 +245,7 @@ export const DrSushovanSEO: React.FC<SEOComponentProps> = ({ data, baseUrl }) =>
       <meta property="og:type" content="profile" />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:title" content={`${personalDetails.name} - ${personalDetails.specialty} in Delhi`} />
-      <meta property="og:description" content={`Expert Gastroenterologist & Hepatologist at Sanjeevan Hospital with advanced expertise in liver and digestive health. Specialized in transplant hepatology and complex GI conditions.`} />
+      <meta property="og:description" content={`Gastroenterologist & Hepatologist at Sanjeevan Hospital with specialized training in liver and digestive health, transplant hepatology, and complex GI conditions.`} />
       <meta property="og:image" content={imageUrl} />
       <meta property="profile:first_name" content="Sushovan" />
       <meta property="profile:last_name" content="Baidya" />

@@ -75,7 +75,7 @@ const LandingPage: React.FC = () => {
                 {/* Content */}
                 <div className="relative z-10">
                     <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-                        Meet Our Expert Doctors
+                        Meet Our Medical Specialists
                     </h2>
 
 
@@ -152,7 +152,7 @@ const LandingPage: React.FC = () => {
                             posts={socialPosts}
 
                         />
-                        <h4 className='text-xl mt-8 mx-4 font-bold text-red-500'>Pdf Resources</h4>
+                        <h4 className='text-xl mt-8 mx-4 font-bold text-red-500'>Patient Educational Guides (PDF)</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-4">
 
                             <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:bg-white/90 border border-gray-100">

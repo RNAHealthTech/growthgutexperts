@@ -112,7 +112,7 @@ export const drSushovanData: DoctorProfile = {
     dateOfBirth: "1990-08-19",
     specialty: "Hepatologist, Gastroenterologist and Therapeutic Endoscopist",
     description:
-      "Advanced expertise in liver and digestive health, with specialized focus on transplant hepatology. Providing comprehensive care for complex gastrointestinal conditions with cutting-edge treatments.",
+      "Advanced clinical focus on liver and digestive health, with specialized training in transplant hepatology. Providing comprehensive care for complex gastrointestinal conditions with evidence-based medical and endoscopic therapies.",
     age: 34,
     imageUrl: "/images/doc2.png",
     imageUrl2: "/images/doc2.JPG",
@@ -379,7 +379,7 @@ export const drMoumitaData: DoctorProfile = {
     instagram: "https://instagram.com/growthgutexperts"
   },
   about:
-    "Passionate Paediatric and Adolescent Endocrinologist trained from prestigious institutions of the country. Experienced in diagnosing and managing common as well as challenging endocrine disorders in children. Dedicated towards providing holistic and individualized healthcare to empower children with endocrine disorders and help them reach their maximal potential, thus improving their quality of life.",
+    "Passionate Paediatric and Adolescent Endocrinologist trained at premier medical institutions in India. Experienced in diagnosing and managing common as well as challenging endocrine disorders in children. Dedicated towards providing holistic and individualized healthcare to empower children with endocrine disorders and help them reach their maximal potential, thus improving their quality of life.",
   education: [
     {
       degree: "Post Doctoral Fellowship (Pediatric Endocrinology)",
