@@ -52,7 +52,7 @@ const doctorHospitals = {
       {
         hospital: "Kailash Hospital and Heart institute , sector 27, Noida",
         schedules: [
-          { day: "Monday to Saturday", timing: "2:00 PM - 4:00 PM" },
+          { day: "Monday to Saturday", timing: "1:00 PM - 3:00 PM" },
           { day: "Monday to Saturday", timing: "5:00 PM - 8:00 PM" }
         ]
       },
